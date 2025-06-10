@@ -11,13 +11,14 @@ import re
 import os
 
 #%% FILEPATHS
-home_filepath = os.path.abspath(os.path.join(os.path.dirname("__file__","..")))
+home_filepath = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 code_filepath = os.getcwd()
 raw_filepath = home_filepath + "/"
 #%% SETUP
 #need "URL Decoded" steamLoginSecure from steamcommunity.com (NOT store.steampowered.com !!)
-steamLoginSecure = '76561198049245479||eyAidHlwIjogIkpXVCIsICJhbGciOiAiRWREU0EiIH0.eyAiaXNzIjogInI6MDAxNl8yNjVGRTE1Ql81QzA1NiIsICJzdWIiOiAiNzY1NjExOTgwNDkyNDU0NzkiLCAiYXVkIjogWyAid2ViOmNvbW11bml0eSIgXSwgImV4cCI6IDE3NDk2NjU1OTIsICJuYmYiOiAxNzQwOTM4Nzg3LCAiaWF0IjogMTc0OTU3ODc4NywgImp0aSI6ICIwMDAyXzI2NjhGQjlDXzIwMDVCIiwgIm9hdCI6IDE3NDg2MzM3NzYsICJydF9leHAiOiAxNzY2NzgzMTA0LCAicGVyIjogMCwgImlwX3N1YmplY3QiOiAiMTM2LjQ4LjMwLjIxMyIsICJpcF9jb25maXJtZXIiOiAiMTM2LjQ4LjMwLjIxMyIgfQ.qxoG45wMQKzFmyTPwLWQnPJrIYFFwHfWcDgEOFFJ-Cc7wdSAJPnyu6Q6PdMsMDfbg0qNlCt_B6LllO5DVkFmBg'
-request = Request(steamLoginSecure)
+with open(home_filepath + '/steamLoginSecure.txt', 'r') as file:
+    steamLoginSecure = file.read().strip()
+request = Request(steamLoginSecure) #doesn't work on work pc endpoint
 
 item_list = ["AK-47 | Redline (Battle-Scarred)", "AK-47 | Redline (Well-Worn)","AK-47 | Redline (Field-Tested)","AK-47 | Redline (Minimal Wear)"
              "StatTrak™ AK-47 | Redline (Battle-Scarred)", "StatTrak™ AK-47 | Redline (Well-Worn)", "StatTrak™ AK-47 | Redline (Field-Tested)", "StatTrak™ AK-47 | Redline (Minimal Wear)"]
