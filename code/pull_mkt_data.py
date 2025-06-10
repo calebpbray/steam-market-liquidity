@@ -16,10 +16,11 @@ code_filepath = os.getcwd()
 raw_filepath = home_filepath + "/"
 #%% SETUP
 #need "URL Decoded" steamLoginSecure from steamcommunity.com (NOT store.steampowered.com !!)
-steamLoginSecure = '76561198049245479||eyAidHlwIjogIkpXVCIsICJhbGciOiAiRWREU0EiIH0.eyAiaXNzIjogInI6MDAxNl8yNjVGRTE1Ql81QzA1NiIsICJzdWIiOiAiNzY1NjExOTgwNDkyNDU0NzkiLCAiYXVkIjogWyAid2ViOmNvbW11bml0eSIgXSwgImV4cCI6IDE3NDkxMzc2MTgsICJuYmYiOiAxNzQwNDEwMzIzLCAiaWF0IjogMTc0OTA1MDMyMywgImp0aSI6ICIwMDAyXzI2NjhGQjI0X0FFQjcxIiwgIm9hdCI6IDE3NDg2MzM3NzYsICJydF9leHAiOiAxNzY2NzgzMTA0LCAicGVyIjogMCwgImlwX3N1YmplY3QiOiAiMTM2LjQ4LjMwLjIxMyIsICJpcF9jb25maXJtZXIiOiAiMTM2LjQ4LjMwLjIxMyIgfQ.-iALBAS4T14j5gBwP0MsNYfSIWkgJUfZOAu3IcMAZStIWkuu9kyL2mtlVGWGVawgGXmaHt8A6kZ9qEh0xktIDQ'
+steamLoginSecure = '76561198049245479||eyAidHlwIjogIkpXVCIsICJhbGciOiAiRWREU0EiIH0.eyAiaXNzIjogInI6MDAxNl8yNjVGRTE1Ql81QzA1NiIsICJzdWIiOiAiNzY1NjExOTgwNDkyNDU0NzkiLCAiYXVkIjogWyAid2ViOmNvbW11bml0eSIgXSwgImV4cCI6IDE3NDk2NjU1OTIsICJuYmYiOiAxNzQwOTM4Nzg3LCAiaWF0IjogMTc0OTU3ODc4NywgImp0aSI6ICIwMDAyXzI2NjhGQjlDXzIwMDVCIiwgIm9hdCI6IDE3NDg2MzM3NzYsICJydF9leHAiOiAxNzY2NzgzMTA0LCAicGVyIjogMCwgImlwX3N1YmplY3QiOiAiMTM2LjQ4LjMwLjIxMyIsICJpcF9jb25maXJtZXIiOiAiMTM2LjQ4LjMwLjIxMyIgfQ.qxoG45wMQKzFmyTPwLWQnPJrIYFFwHfWcDgEOFFJ-Cc7wdSAJPnyu6Q6PdMsMDfbg0qNlCt_B6LllO5DVkFmBg'
 request = Request(steamLoginSecure)
 
-item_list = ["AK-47 | Redline (Battle-Scarred)", "AK-47 | Redline (Well-Worn)","AK-47 | Redline (Field-Tested)","AK-47 | Redline (Minimal Wear)"]
+item_list = ["AK-47 | Redline (Battle-Scarred)", "AK-47 | Redline (Well-Worn)","AK-47 | Redline (Field-Tested)","AK-47 | Redline (Minimal Wear)"
+             "StatTrak™ AK-47 | Redline (Battle-Scarred)", "StatTrak™ AK-47 | Redline (Well-Worn)", "StatTrak™ AK-47 | Redline (Field-Tested)", "StatTrak™ AK-47 | Redline (Minimal Wear)"]
 #possible skins, ak47 elite build, m4a1s basilisk, m4a4 evil daimyo, m4a1s cyrex, m4a1s hyperbeast, deagle conspiracy, p250 supernova, 
 #glock water elemental, stat trak glock grinder, p90 elite build, mp9 ruby poison dart, mp9 deadly poison, usps stainless
 
