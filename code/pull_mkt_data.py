@@ -20,7 +20,7 @@ with open(home_filepath + '/steamLoginSecure.txt', 'r') as file:
     steamLoginSecure = file.read().strip()
 request = Request(steamLoginSecure) #doesn't work on work pc endpoint
 
-item_list = ["AK-47 | Redline (Battle-Scarred)", "AK-47 | Redline (Well-Worn)","AK-47 | Redline (Field-Tested)","AK-47 | Redline (Minimal Wear)"
+item_list = ["AK-47 | Redline (Battle-Scarred)", "AK-47 | Redline (Well-Worn)","AK-47 | Redline (Field-Tested)","AK-47 | Redline (Minimal Wear)",
              "StatTrak™ AK-47 | Redline (Battle-Scarred)", "StatTrak™ AK-47 | Redline (Well-Worn)", "StatTrak™ AK-47 | Redline (Field-Tested)", "StatTrak™ AK-47 | Redline (Minimal Wear)"]
 #possible skins, ak47 elite build, m4a1s basilisk, m4a4 evil daimyo, m4a1s cyrex, m4a1s hyperbeast, deagle conspiracy, p250 supernova, 
 #glock water elemental, stat trak glock grinder, p90 elite build, mp9 ruby poison dart, mp9 deadly poison, usps stainless
@@ -33,11 +33,16 @@ for item in item_list:
     #df = request.get_item_overview(item_name="AK-47 | Redline (Field-Tested)",appid="730")
     pull_df = request.get_price_history(item_name=item,appid="730")
     #use item name to get item qualities
-    pull_df['item'] = item.replace(" (","").replace(re.search(r'\((.*?)\)',item).group(1),"").replace(")","") #item name excluding wear
-    pull_df['weapon'] = item.split(" |")[0]                                                                   #weapon
-    pull_df['skin'] = pull_df['item'][0].split(" | ")[1]                                                      #weapon skin, eg "Redline"
-    pull_df['wear'] = re.search(r'\((.*?)\)',item).group(1)                                                   #item wear rating
+    pull_df['item'] = item.replace("StatTrak™ ","").replace(" (","").replace(re.search(r'\((.*?)\)',item).group(1),"").replace(")","") #item name excluding StatTrak and wear
+    pull_df['weapon'] = item.split(" |")[0].replace("StatTrak™ ","") #weapon
+    pull_df['skin'] = pull_df['item'][0].split(" | ")[1] #weapon skin, eg "Redline"
+    pull_df['wear'] = re.search(r'\((.*?)\)',item).group(1) #item wear rating
+    #assign StatTrak value
+    if "StatTrak™" in item:
+        pull_df['stattrak'] = 1
+    else:
+        pull_df['stattrak'] = 0
     #clean a little
     pull_df['median_price'] = pull_df["median_price"].round(3)
     #export
-    pull_df.to_csv(f'{item.replace("|","").replace(" ","")}_price_history.csv',write_index=False)
+    pull_df.to_csv(f'{item.replace("™","").replace("|","").replace(" ","")}_price_history.csv',index=False)
