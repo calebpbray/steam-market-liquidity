@@ -13,6 +13,7 @@ import os
 #%% FILEPATHS
 home_filepath = os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 code_filepath = os.getcwd()
+data_filepath = os.path.abspath(os.path.join(os.path.dirname(__file__),"..")) + "/data"
 raw_filepath = home_filepath + "/"
 #%% SETUP
 #need "URL Decoded" steamLoginSecure from steamcommunity.com (NOT store.steampowered.com !!)
