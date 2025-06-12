@@ -7,7 +7,7 @@ from steamcrawl import Request
 import re
 
 #%% PULL COUNTER STRIKE PRICE DATA
-def pull_cs_price_history(request,item,out_dir):
+def pull_cs_price_history(item,request,out_dir):
     """Wrapper for steamcrawl's get_price_history method with settings for Counter Strike pre-applied.
 
     Args:
