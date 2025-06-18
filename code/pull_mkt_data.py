@@ -9,6 +9,7 @@ import pandas as pd
 from steamcrawl import Request
 import re
 import os
+import glob
 from pull_mkt_data_func import pull_cs_price_history, pull_dota_price_history
 
 #%% FILEPATHS
@@ -35,9 +36,20 @@ with open(home_dir + "/dota_item_list.txt", 'r') as file:
 #glock water elemental, stat trak glock grinder, p90 elite build, mp9 ruby poison dart, mp9 deadly poison, usps stainless
 
 #%% PULL DATA
-
 for item in cs_item_list:
     df = pull_cs_price_history(item,request,cs_data_dir)
     
 for item in dota_item_list:
     df = pull_dota_price_history(item,request,dota_data_dir)
+    
+#%% JOIN TOGETHER CSVs BY GAME
+#map pd.concat onto every csv in data/cs and data/dota2 respectively
+cs_df = pd.concat(map(pd.read_csv, glob.glob(cs_data_dir + '/*.csv')))
+dota_df = pd.concat(map(pd.read_csv, glob.glob(dota_data_dir + '/*.csv')))
+
+
+#%% WRITE TO CSV
+cs_df.to_csv(f'{cs_data_dir}/cs_combined_items_price_history.csv',index=False)
+dota_df.to_csv(f'{dota_data_dir}/dota2_combined_items_price_history.csv',index=False)
+
+
