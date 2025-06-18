@@ -1,7 +1,7 @@
 library(ggplot2)
 
-df_cs <- read.csv("C:/Users/J1CXB08/OneDrive - FR Banks/Backup/Desktop/writing samples/steam-market-liquidity/data/AK-47Redline(Field-Tested)_price_history.csv")
-df_dota <- read.csv("C:/Users/J1CXB08/OneDrive - FR Banks/Backup/Desktop/writing samples/steam-market-liquidity/data/MantleoftheCinderBaron_price_history.csv")
+df_cs <- read.csv("../data/AK-47Redline(Field-Tested)_price_history.csv")
+df_dota <- read.csv("../data/MantleoftheCinderBaron_price_history.csv")
 
 df_cs['r_date'] <- as.Date(df_cs$date, format = "%b %d %Y")
 df_dota['r_date'] <- as.Date(df_dota$date, format = "%b %d %Y")
