@@ -2,3 +2,7 @@
 steamLoginSecure.txt
 */__pycache__
 .Rhistory
+data/dota2/*
+!/data/dota2/dota2_combined_items_price_history.csv
+data/cs/*
+!/data/cs/cs_combined_items_price_history.csv
