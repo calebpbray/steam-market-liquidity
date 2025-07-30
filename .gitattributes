@@ -1,3 +1,2 @@
 cs_combined_items_price_history.csv filter=lfs diff=lfs merge=lfs -text
 dota2_combined_items_price_history.csv filter=lfs diff=lfs merge=lfs -text
-/data/cs/cs_combined_items_price_history.csv filter=lfs diff=lfs merge=lfs -text
