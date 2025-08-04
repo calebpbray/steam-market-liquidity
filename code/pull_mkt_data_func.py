@@ -38,7 +38,7 @@ def pull_cs_price_history(item,request,out_dir):
     #create python datetime format for date
     pull_df['py_date'] = pd.to_datetime(pull_df['date'], format='%b %d %Y')
     #use item name to get item qualities
-    pull_df['item'] = item.replace("StatTrak™ ","").replace(" (","").replace(re.search(r'\((.*?)\)',item).group(1),"").replace(")","") #item name excluding StatTrak and wear
+    pull_df['item'] = item.replace("StatTrak™ ","").replace(re.search(r'\((?!.*Dragon King.*?\)).*?\)',item).group(0),"") #item name excluding StatTrak and wear (wear being everything in parentheses except "(Dragon King)")
     pull_df['weapon'] = item.split(" |")[0].replace("StatTrak™ ","") #weapon
     pull_df['skin'] = pull_df['item'][0].split(" | ")[1] #weapon skin, eg "Redline"
     pull_df['wear'] = re.search(r'\((.*?)\)',item).group(1) #item wear rating

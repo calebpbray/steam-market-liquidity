@@ -42,6 +42,9 @@ for item in cs_item_list:
 for item in dota_item_list:
     df = pull_dota_price_history(item,request,dota_data_dir)
 
+#%% JOIN ADDITIONAL DATA TO DFs (origin date -> relative age, qualities -> relative rarity)
+
+
 #%% JOIN TOGETHER CSVs BY GAME
 #map pd.concat onto every csv in data/cs and data/dota2 respectively
 cs_df = pd.concat(map(pd.read_csv, glob.glob(cs_data_dir + '\\*.csv')))
