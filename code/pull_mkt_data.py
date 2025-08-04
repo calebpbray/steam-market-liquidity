@@ -53,7 +53,7 @@ combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
 
 
 #%% WRITE TO CSV
-cs_df.to_csv(fr'{cs_data_dir}\cs_combined_items_price_history.csv',index=False)
-dota_df.to_csv(fr'{dota_data_dir}\dota2_combined_items_price_history.csv',index=False)
+cs_df.to_csv(fr'{data_dir}\cs_combined_items_price_history.csv',index=False)
+dota_df.to_csv(fr'{data_dir}\dota2_combined_items_price_history.csv',index=False)
 combined_df.to_csv(fr'{data_dir}\combined_items_price_history.csv',index=False)
 
