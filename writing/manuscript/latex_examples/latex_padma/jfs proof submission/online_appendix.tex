@@ -1,0 +1,332 @@
+
+\begin{center}\noindent
+{\bf \Large Online Appendix}\\ \vspace{3\baselineskip}
+{\bf \Large Loan Guarantees in a Crisis:\\An Antidote to a Credit Crunch?}\\ \vspace{3\baselineskip}
+%{\bf \Large W. Blake Marsh and Padma Sharma}
+\end{center}
+
+\begin{onehalfspace}
+\clearpage
+\pagebreak
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+
+%% Section A
+\section{Simulation Study\label{onappx_sec:sim_study}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+Table \ref{sim_results} presents the results of the simulation study that demonstrate that we can recover true parameter values with or without exclusion restrictions. However, we obtain more precise estimates with exclusion restrictions. We set the following priors under the two specifications: $\theta \sim \mathcal{N}(0, 10\times\mathbf{I})$, $\Omega_{p} \sim \mathcal{IW}(7,3\times\mathbf{I}_{4})$, and $\Omega_{np} \sim \mathcal{IW}(7,3\times\mathbf{I}_{3})$ where $\theta = [\gamma_{1}, \gamma_{2}, \delta, \boldsymbol{\beta}]$, and $\boldsymbol{\beta} = \{\beta_{1},\beta_{2},\beta_{3},\beta_{4}\}$. 
+\input{./tables/online_appendix/sim_results.tex}
+\clearpage
+
+
+
+
+%% Section B
+\section{Categorization of COVID-sensitive industries\label{onappx_sec:employment}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{B.\arabic{figure}}
+This appendix presents the sorted declines in employment by NAICS sector bet ween January and April 2020. These sectors are used to determine pre-pandemic county level exposures to COVID as-of 2019:Q4. Bank-market specific COVID exposures are assembled by weighting county exposures by bank deposits. The methodology is taken from \citet{Boyarchenko2020}.
+
+\afterpage{
+\begin{landscape}
+\begin{figure}[ht]
+  \begin{center}
+   \caption{Change in employment}
+    \includegraphics[angle=270, scale=0.64]{./charts/online_appendix/employment_growth_quartiles.eps}
+    \label{cov_sens_ind}
+  \end{center}
+\footnotesize Chart shows percent change in employment over Jan - Apr 2020 across industries.\\ Source: CES data from the Bureau of Labor Statistics.
+\end{figure}
+\end{landscape}
+}
+\clearpage
+
+
+
+
+
+%% Section C
+\section{Additional Participation and Intensity Results\label{onappx_sec:addl_results}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{C.\arabic{table}}
+
+The tables in this section report the full participation, intensity, and outcome results for the models reported in the paper.
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_participation_tech_app_corrected.tex}
+\end{landscape}
+\clearpage
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_outcome_tech_p.tex}
+\end{landscape}
+\clearpage
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_outcome_tech_np.tex}
+\end{landscape}
+
+Table \ref{PPPLF_intensity_short} shows the  determinants of banks' participation intensity in the PPPLF from a linear regression model. We focus on the effects of leverage ratio and C\&I exposure, but have considered a range of other controls related to liquidity, profitability, and provisions. Rules that exempted pledged loans from the leverage ratio were an important factor for PPPLF participation. The estimate in column (1) shows that banks with lower leverage ratios were more likely to pledge a larger share of their PPP loans to the PPPLF. Columns (2) and (3) show that the share of C\&I loans on bank balance sheets, both in aggregate, and small C\&I loans in particular enhanced PPPLF participation intensity. In addition, off-balance sheet exposure to C\&I loans were positively associated with PPPLF intensity as noted from the positive coefficients in column (4). This effect of leverage ratio and the share of C\&I loans remain statistically significant even after including all measures jointly in column (5). Banks with substantial C\&I exposure could potentially forestall credit losses, which weigh on capital levels, by lending PPP loans. Exposed banks could then maintain their capital level by financing PPP loans through the PPPLF. Together, the coefficients on leverage and C\&I lending suggest that the exclusion of loans pledged to the PPPLF from the leverage ratio were important in driving bank participation intensity in the liquidity facility.\footnote{Results from a logit model of PPPLF participation also support these conclusions and are available upon request.}  
+
+\input{./tables/online_appendix/ppplf_intensity_short.tex}
+
+\clearpage
+
+
+
+
+
+%% Section D
+\section{Covariances from the Bayesian Joint Model\label{onappx_sec:covar_full}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{D.\arabic{table}}
+
+Estimated covariances from the Bayesian Joint Model are presented in Table \ref{tab:covar}.
+
+\begin{landscape}
+\input{./tables/online_appendix/covar_tech.tex}
+\end{landscape}
+
+
+\subsection{Interpreting Marginal and Conditional Estimates\label{appx_subsec:marg_cond}}
+To interpret the differences in the estimated coefficients of C\&I loans to assets across columns (4) and (6) in Table  \ref{tab:bayes_jm_2_p} and \ref{tab:bayes_jm_2_np}, we must consider the implications of using a joint modeling structure represented in Equations \ref{eq:select}-\ref{eq:outcomes_np}. First, estimates for each equation represent moments from the marginal distribution, after marginalizing out the remaining outcomes from the remaining equations. Second, covariances between selection, and outcomes for participants and non-participants introduce dependence between estimates for the two groups. Below, we consider conditional estimates instead of marginal estimates for non-participants, to perform a more direct comparison across specifications in columns (4) and (6).
+
+Consider the outcomes, mean and covariances for non-participants represented in Equations \ref{eq:outcomes_grp}, \ref{eq:covar_grp}, and \ref{eq:var_grp}. The joint model for the two outcomes pertaining to non-participants is represented by,
+\begin{equation}
+    \begin{pmatrix}
+    y_{i1}^{*}\\y_{i4}
+    \end{pmatrix}\sim\mathcal{N}\left(\begin{pmatrix}
+    \mathbf{x'_{i}\beta_{1}}+ z_{i1}\gamma_{1}\\\mathbf{x'_{i}\beta_{4}}
+    \end{pmatrix},\begin{pmatrix}
+    1&\Omega_{14}\\\Omega_{41}&\Omega_{44}
+    \end{pmatrix}\right).
+\end{equation}
+This joint Gaussian distribution results in the following expression for the mean of bank outcomes $y_{i4}^{*}$ conditional on non-participation\citep{poirier1995intermediate}.
+\begin{equation}
+ E\left[y_{i4}\vert y_{i1}^{*},\beta,\Omega\right] = \mathbf{x'_{i}}\left(\mathbf{
+\beta_{4}}-\Omega_{14}\mathbf{\beta_{1}}\right) + \Omega_{14}y_{i1}^{*} - \Omega_{14}z_{i1}\gamma_{1}.\label{eq:cond_mean}
+\end{equation}
+We obtain the posterior conditional mean of the coefficient of C\&I loans to assets and 95 percent credible intervals by using the estimates of $\mathbf{\beta_{1},\beta_{4}}$, and $\Omega_{14}$  from Tables \ref{tab:bayes_jm_ci_1}, \ref{tab:bayes_jm_2_p}, \ref{tab:bayes_jm_2_np}, and \ref{tab:covar} in Equation \ref{eq:cond_mean}.
+
+The conditional moments of the coefficient of C\&I assets are qualitatively similar when the outcome is C\&I loans or C\&I loans excluding PPP. C\&I loans increase by 0.25 percentage points for a percent increase in C\&I concentration. The 95 percent probability intervals for this estimate are -0.10 and 0.62 percentage points. Under the specification with C\&I loans outside the PPP, the conditional mean estimate is 0.49 percentage points with a probability interval of 0.19 and 0.79. Therefore, the seemingly large difference between the marginal estimates of 1.4 and -1.8 percentage points are resolved upon evaluating their corresponding  conditional estimates.
+\clearpage
+
+
+
+
+
+%% Section E
+\section{Testing Instrument Assumptions\label{onappx_sec:test_assn}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{E.\arabic{table}}
+Table \ref{OLS_part_RF_2019} summarizes the results from estimating the reduced form regression with our instrument for participation, the ratio of technical expenses to assets, included as a covariate. In line with expectations, we find that the instrument is not statistically significant under any of the specifications based on pre-pandemic outcomes. These findings suggest that our measure of technological efficiency was not correlated with bank loan growth and profits prior to the pandemic. Instead, as we discussed in our main results in the paper, this measure became salient in determining bank participation in the PPP, and indirectly influenced loan growth and profits through banks' association with the program. Taken together, this falsification test suggests that banks' technological preparedness to build loan platforms was important in implementing the PPP in a timely manner, but was not significantly associated with bank outcomes in the absence of such an exigency. Thereby, this test provides empirical support for the exclusion restriction of the instrument for technical efficiency.\footnote{We also implemented the alternative specification recommended in the review report by running reduced form regressions separately on participant and non-participant samples over 2020:Q2 and 2020:Q3. We found that the instrument was significant at the 1\% in predicting the change in NIM relative to 2019 and C\&I loan growth for participants. The instrument was not significant for any of the outcomes in the sample of non-participants. Our preferred approach is the test based on the full pre-COVID sample rather than the separate samples for participants and non-participants during the PPP's onset because the instrument based on technological efficiency predicts bank participation rather than the intensity of their participation. Therefore, we would not expect this instrument to be monotonically associated with all bank outcomes within the group of participants. Instead, this instrument is expected to influence outcomes by explaining any discrete differences between participant and non-participant banks. In the pre-pandemic period, these differences will be significant if the exclusion restriction fails and insignificant when the restriction holds.}
+
+\input{./tables/online_appendix/OLS_part_reducedform_2019.tex}
+\input{./tables/online_appendix/OLS_reducedform_2019.tex}
+
+Table \ref{OLS_RF_2019} presents the results of the reduced form regression with the instrument, COVID-affected employment share included as a covariate. Overall, the results confirm the exclusion restriction. We find that the coefficient of our main instrument, COVID-affected employment share is not statistically significant for any of the bank outcomes. Thereby, the deposit-weighted share of employment in COVID-affected industries was not directly associated with bank profitability and lending growth outside of the pandemic. This suggests that the sectoral composition of banks' loans did not mirror the composition of employment across sectors within their operating region. A positive and statistically significant association between the instrument and lending growth would have represented a strategy of expanding lending in lockstep with local distribution of sectors. This approach to lending would have also resulted in a statistical association between bank profits and sectoral composition. The lack of significant relationships in this specification underlines the absence of a direct association between bank outcomes and local employment in COVID-affected industries and provides empirical support in favor of the exclusion restriction.\footnote{On implementing the reduced form regressions separately on participant and non-participant samples over 2020:Q2 and 2020:Q3, we broadly found results that are consistent with our hypothesis. The coefficient for the instrument is statistically significant under all specifications except for CRE growth for participating banks. In the sample of non-participants, we found insignificant relationships between the instrument and bank outcomes, except for C\&I growth, where the relationship was significant at the 5\% level.}  
+
+\subsection{Include Instrument for Intensity in Participation Equation\label{onappx_subsec:z2_in_eq1}}
+%\setcounter{table}{0}
+%\renewcommand{\thetable}{F.\arabic{table}}
+We examine whether our instrument for PPP intensity, COVID-affected employment share in a bank's operating region also influenced bank decision to participate in Equation (1). We have addressed this question empirically by including this, denoted by variable $z_{i2}$, in the equation for participation. This instrument has limited economic significance in predicting participation, and the treatment effects remain similar in magnitude to the baseline results. 
+
+Table \ref{tab:bayes_z2_in_eq1} reports the results for participation in the PPP and participation intensity in the setting where COVID-affected employment share appears in both equations. We find that this instrument has limited explanatory power in determining participation. The coefficients for the original instrument for participation, technology expenses relative to assets, and remaining covariates are close in value to those from the baseline setting in Table 3 of the paper. The coefficients in the equation for participation intensity also remain close in magnitude to those from the baseline specification. Table \ref{treat_eff_z2_in_eq1} reports treatment effects from the updated specification with both instruments included in Equation (1) as well as the baseline specification. We find that the treatment effect on change in NIM and growth in C\&I loans continue to be statistically important and similar in magnitude to those from the original specification. The treatment effects on C\&I loan growth outside the PPP as well as CRE growth are not statistically important, and are thereby consistent with the original specification.    
+
+Our main instrument for participation in Equation (1) targets a bank's technological preparedness and ability to participate in the program. Other related studies \citep{Granja2020, lopez2023small, Anbil2021} have similarly used instruments related to familiarity with the SBA's loan platform or the Fed's discount window to measure pre-determined technical factors that may inhibit or facilitate a bank's participation. Our rationale for applying the instrument based on COVID-affected employment share in the equation for intensity is that conditional on participation, this measure captures the part of variation in PPP intensity that is propelled by demand for the loans. Taken together, technological constraints serve as exogenous sources of variation in bank participation. Once a bank decides to participate, COVID-generated demand for PPP loans is salient in determining the intensity of participation. In their assessment of costs and revenues from the program, banks are likely to have assessed the costs of setting up access to the program in deciding to participate, and subsequently responded to COVID-induced demand for the program by calibrating the intensity of their participation. We acknowledge that underlying demand for PPP in a bank's region of operation may have contributed toward the the lender's decision to participate. Our results derived from a model that includes this instrument in Equation (1) suggests that considerations of PPP demand likely influenced banks' decision to participate, but that such influence was modest. 
+
+\input{./tables/online_appendix/bayes_participation_tech_ci_z2ineq1.tex}
+
+\input{./tables/online_appendix/treat_eff_z2_in_eq1.tex}
+
+\subsection{Include All Instruments for Participation and Intensity\label{appx_subsec:ext_robust}}
+%\setcounter{table}{0}
+%\renewcommand{\thetable}{L.\arabic{table}}
+We have re-estimated the Bayesian and IV models by incorporating all the instruments listed in Section 6, which addresses robustness tests.
+
+ The first stage estimates from both models are provided in Table \ref{combined_first_stage_all_inst}. This specification incorporates the three instruments considered for participation and the four instruments for intensity. The estimates from the first two stages of the joint Bayesian model, namely, the effect of the instruments on participation and the intensity of participation are similar in magnitude and direction to the effects of these instruments when they are incorporated individually, as reported in Tables 11 and 12 of the paper. The coefficients of instruments on PPP intensity from the first stage of the IV regression are also similar in magnitude to their corresponding Bayesian estimates. The instruments are statistically significant even when included jointly as evidenced by the first-stage F-statistic. Since the instruments remain statistically important under both the Bayesian and IV models even when we include them jointly, each of them likely measures variation in PPP participation and intensity along relatively orthogonal dimensions.
+\input{./tables/online_appendix/combined_first_stage_all_inst.tex}
+\input{./tables/online_appendix/combined_treat_eff_all_inst.tex}
+ 
+ Table \ref{combined_treat_eff_all_inst} reports treatment effects from the Bayesian and IV models when we incorporate all instruments in the first stage. This table also compares the results with the treatment effects from the original specification, which used the share of COVID-affected employment in a bank's local market as the instrument. The treatment effects for change in NIM and growth in C\&I loans are moderately attenuated compared to those from the original specification under both, Bayesian and IV settings. The treatment effect on C\&I lending outside the PPP remains statistically unimportant in the Bayesian model, and significant at the 10\% level. Finally, the treatment effect on growth in CRE loans is positive but its magnitude remains economically modest in this specification whereas it was not statistically different from zero in the original specification. Despite the attenuation in estimated effects on growth in C\&I from incorporating all instruments, these estimates remain within the range of effects reported in robustness tests in Table 12 of the paper.  Overall, our main findings remain unchanged on estimating treatment effects by including all instruments. PPP loans weighed on bank interest margins, but induced notable loan growth, which predominantly consisted of loans within the program. 
+\clearpage
+
+
+
+
+%% Section F
+\section{Subsample Analysis\label{onappx_sec:subsample}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{F.\arabic{table}}
+We have reestimated the Bayesian joint model on subsamples based on bank size, leverage ratio constraints, and specialization in CRE lending. Table \ref{bayes_treat_eff_subsample} summarizes the treatment effect of the PPP on C\&I lending growth for the subgroups we have considered. 
+
+We first partition banks by size as it is directly associated with balance sheet capacity and inversely related to the complexity of banks' business models. We find that C\&I growth was largest at 10.8\% among the smallest banks--those with assets under a billion dollars, relative to banks above this asset threshold for whom C\&I loans grew by 8.17\% per percentage point of PPP lending. One of the drivers of this difference is likely to be the disparity in the pre-COVID levels of C\&I loans across the two groups of institutions. Since smaller banks are likely to have a lower initial stock of C\&I loans, a percentage point increase in PPP results in a larger growth in their C\&I portfolio compared to the effect of such an increase among their bigger peers. Besides the differences in the posterior mean of the treatment effects, we note the difference in the dispersion around these means. The treatment effect is estimated with greater precision for the smaller banks as there are 3535 community banks with assets under $\$$1 billion, but only 477 banks with assets greater than that amount. Finally, we recognize the effect of subsampling by size on the overall estimation of the joint model. Since bank size plays an important role in selection into the PPP as well as intensity of participation, by subsampling on this variable, we diminish the variation in bank size in each subgroup, and thereby, do not fully incorporate selection effects based on bank size. Nevertheless, the estimates are instructive in highlighting the differential effects of the PPP on small and large community banks. 
+
+We subsequently evaluate the differences across banks that are subject to varying levels of capital constraints. To do this, we estimate the model separately on banks that did and did not opt in to the Community Bank Leverage Ratio (CBLR) framework. Community banks that opt into
+the provision are required to have a leverage capital ratio of nine percent but were exempt from risk-based capital guidelines. Alternatively, CBOs that do
+not opt in to this provision are required to have a five percent leverage ratio as well
+as meet all PCA risk-based capital requirements.\footnote{PCA requirements refer to Prompt Corrective Action that the FDIC is required to take on undercapitalized banks. The thresholds for identifying well-capitalized, adequately capitalized and undercapitalized banks are provided \href{https://www.fdic.gov/regulations/examinations/enforcement-actions/ch-05.pdf}{here.}} Banks that opted in to this provision and were thereby, constrained by the leverage ratio saw a growth in C\&I lending of 8.7\%, but banks that opted out of the provisions, and were relatively less constrained by the leverage ratio saw larger increases of 11.57\% in C\&I loans.  Because PPP loans were exempt from risk-based ratios, the leverage ratio is likely to have been the operative source of capital constraint for community banks, particularly for those that opted into CBLR. Therefore, loan growth in such banks was more muted than among banks that were unconstrained by the provisions.
+
+Our final subsamples are constructed by considering bank specialization in CRE lending.\footnote{Banks are considered to have a CRE-specialization if their Construction and Land Development loans exceeds 10 percent of assets or if their total CRE loans exceed 30 percent of assets.} Since CRE loans did not directly benefit from government guarantees, we assess whether the PPP had a differential effect on banks specializing in such loans relative to community banks that otherwise predominantly lend C\&I loans. We find that C\&I lending growth was larger among banks that specialized in CRE loans. Base effects are likely to have played a role in generating these differences as CRE-specialized banks will have registered a larger growth rate per dollar of PPP loans compared to banks already specialized in C\&I lending. In addition, these results show that the PPP provided CRE-specialized banks the opportunity to diversify their asset base during the pandemic and to continue lending amid a period of economic uncertainty. 
+\input{./tables/online_appendix/bayes_treat_eff_subsample.tex}
+\clearpage
+
+
+
+%% Section G
+\section{Quarterly Results from the Bayesian Model\label{onappx_sec:qtr_bayes}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{G.\arabic{table}}
+Tables \ref{tab:bayes_jm_1_q2} and \ref{tab:bayes_jm_1_q3} provide results for bank outcomes in the quarters 2020:Q2 and 2020:Q3, respectively. Columns (1), (3), (5), and (7) report the results for participation in the program. The results for each quarter are qualitatively similar to the combined results. In particular, larger, and more liquid banks were more likely to participate while more capitalized banks were less likely to participate across both quarters. In Q2 2020, when the first round of the PPP was in operation, more profitable banks were more likely to participate. This result continued to hold in Q3 2020, but the estimated effects were statistically weaker relatively to the previous quarter.   
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_participation_q2_tech.tex}
+\end{landscape}
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_participation_q3_tech.tex}
+\end{landscape}
+
+Columns (2), (4), (6), and (8) report the results for PPP lending intensity. The results remain qualitatively similar with banks facing more C\&I exposure typically making more PPP loans. Large, more liquid and riskier banks-- as measured by leverage capital ratios--also participated more intensively across quarters. In Q2 2020, more profitable banks participated more intensively in the PPP, but, as in the case of participation, this relationship was weaker in Q3 2020. 
+
+Tables \ref{tab:bayes_jm_2_q2} and \ref{tab:bayes_jm_2_q3} report results for Q2 and Q3 2020 respectively, under the specifications presented in Tables \ref{tab:bayes_jm_2_p} and \ref{tab:bayes_jm_2_np}. Columns (1), (3), (5), and (7) report the results for participants. The results remain qualitatively similar with the results combined across quarters. The estimates in the first row show that incremental participation in the PPP diluted bank profitability. These results do not persist into Q3. Banks experienced a larger decline in profitability during the first round when firms rushed to obtain PPP funding and when banks processed large volumes of applications. By the second round, profit margins were likely cushioned by fees and interest accrued from the first round as well as the smaller size of loans relative to the first round on account of larger firms gaining early access, and small firms gaining access subsequently \citep{balyuk2021small}.\footnote{The sliding scale in fees resulted in a larger percent of loan amount paid out as fees for small loans compared to large loans. Details of fee structure available \href{https://home.treasury.gov/system/files/136/PPP\%20Lender\%20Information\%20Fact\%20Sheet.pdf}{here}.} Banks that participated more intensively in the PPP experienced substantial growth in their overall C\&I loan portfolio and weaker growth in non-PPP C\&I loans. Finally, incremental participation in the PPP did not result in statistically important effects on risk-taking in either quarter. The results across the remaining control variables are consistent with the combined results across quarters, with one exception. Banks that were concentrated to a greater extent in C\&I loans experienced a statistically important increases in NIM relative to 2019 in Q2 2020. This relationship reversed in Q3 2020, when banks with larger concentrations in C\&I loans underwent statistically important declines in the change in NIM. This finding suggests that banks with a focus on C\&I lending experienced a larger decline in NIM relative to 2019 during the second round of the PPP, at a time when lending was likely more targeted to firms that were affected by the pandemic than during the first round.  
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_outcome_q2_tech.tex}
+\end{landscape}
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_outcome_q3_tech.tex}
+\end{landscape}
+
+Columns (2), (4), (6), and (8) report the coefficient estimates for non-participants. The results continue to be consistent with overall results in Tables \ref{tab:bayes_jm_2_p} and \ref{tab:bayes_jm_2_np}. Larger non-participants underwent declines in profitability as well as a decline in C\&I and CRE loan growth. The effects of other controls are also consistent with overall results for both quarters. 
+Tables \ref{tab:covar_q2} and \ref{tab:covar_q3} report the estimated covariances in Q2 and Q3 2020 respectively. These results are qualitatively similar to the overall results across the two quarters reported in Table \ref{tab:covar}. The decision to participate, and the intensity of participation are positively correlated across both quarters. Even though participation, and intensity of participation are positively related to profitability as measured by the change in NIM in the overall sample, these relationships become negative in Q3 2020. This finding likely points to PPP lending that was less opportunistic, and more conservative in Q3 than in Q2 2020. The relationship between participation intensity and C\&I loan growth continues to be positive and statistically important. PPP participation intensity was weakly negatively associated with growth in non-PPP C\&I growth in Q2 2020. This relationship became statistically important in Q3 2020, suggesting that banks that participated more intensively in the second round cut back lending outside of the program. The decision to not participate in the PPP is negatively related to bank profitability and loan growth, or is only weakly positive across the two quarters. 
+
+\begin{landscape}
+\input{./tables/online_appendix/covar_q2_tech.tex}
+\end{landscape}
+
+\begin{landscape}
+\input{./tables/online_appendix/covar_q3_tech.tex}
+\end{landscape}
+
+\subsection{2020:Q4 Results from the Bayesian Model\label{appx:q4_bayes}}
+%\setcounter{table}{0}
+%\renewcommand{\thetable}{M.\arabic{table}}
+
+Table \ref{tab:bayes_jm_1_q4} reports the results for participation and intensity from Q4 2020. PPP balances in this quarter reflect total balances from previous quarters, and changes due to forgiveness and repayments. Columns (1), (3), (5), (7), and (9) report results for participation. Larger, and less capitalized banks continue to be associated with greater intensity and participation. However, the relationship between profitability, and PPP participation is weaker than in the main results. Participation in this specification is based on participation in Q2 and Q3 of 2020, and is thereby identical to the outcome in the main specification. The control variables are also identical to the main specifications. Therefore, differences from the main results arise from changes in PPP intensity, and final outcomes.
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_participation_q4.tex}
+\end{landscape}
+
+Columns (2), (4), (6), (8), and (10) report results for the intensity of PPP participation. These results are consistent with the main findings--larger, less capitalized banks were associated with larger PPP loan shares. This suggests that this group of banks retained greater shares of PPP loans even after forgiveness was initiated. As in the case of participation, we find the weaker relationship between ROA and PPP intensity in the Q4. This result entails that banks that were more profitable in 2019 participated more intensively in the earlier rounds, and booked loans that became eligible for forgiveness earlier in the program. 
+
+Table \ref{tab:bayes_jm_2_q4} reports the results for bank profitability, and loan growth for participants and non-participants. Columns (1), (3), (5), (7), and (9) report the results of bank outcomes for participants. The most notable results are that change in NIM was statistically larger, at 6.28 basis points for participants for every percentage point increase in PPP share intensity. This shows that the downward pressures of PPP on net interest margins were largely transitory. Banks that participated more intensively in the program began to recover margins as forgiveness progressed. Non-PPP C\&I growth declined, and CRE growth increased with the share of PPP loans to total loans. Banks that participated intensively in the program in earlier quarters likely began to diversify their portfolio and engage in risk-taking by booking CRE loans.
+
+\begin{landscape}
+\input{./tables/online_appendix/bayes_outcome_q4.tex}
+\end{landscape}
+
+Columns (2), (4), (6), (8), and (10) report the results for bank profitability, and loan growth among non-participants. These findings are consistent with the results from the main specification. Larger non-participants underwent larger declines in profitability and loan growth. Non-participants with larger capital buffers, and concentrations of C\&I loans underwent a growth in this category of loans, but a decline in CRE loan growth. This suggests that non-participants specialized in C\&I lending continued to extend this category of loans throughout the pandemic, and the recovery. 
+
+Table \ref{tab:covar_q4} summarizes the covariances across the four equations in our Bayesian joint model. The estimates are broadly consistent with the main results. Participation and the intensity of participation are positively related, and are also broadly positively related to bank outcomes. The main exception to this finding is that change in NIM is negatively associated with participation, and the intensity of participation. This likely reflects the effects of the forgiveness program, which resulted in the reversal of previous relationships between participation and intensity, with profitability. Banks that were able to access forgiveness and scale down their share of PPP loans earned larger interest margins by recognizing fees along with interest. Unobservables underlying non-participation were negatively related to unobservables related to profitability, and loan growth as in the case of the main results.
+
+\begin{landscape}
+\input{./tables/online_appendix/covar_q4.tex}
+\end{landscape}
+\clearpage
+
+
+
+
+% Section H
+\section{2020:Q1 C\&I Loan Draw Effect\label{onappx_sec:2020Q1_Loan_Draws}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{H.\arabic{table}}
+
+This appendix presents results using C\&I loan growth and loans from 2020:Q1. During the onset of the pandemic in the first quarter, many banks experienced large draws on existing lines of credit. We hypothesize that banks experiencing greater draws would have been more active in the program because firms may have returned any precautionary draws after receiving the PPP funds. In that way, the PPP helped to reduce credit risk to the banks by transferring the default risk from their own capital to the government balance sheet. 
+
+Table \ref{tab:ci_draw_dnim} shows the impact of these draws on participation, intensity, and the change in net interest margins. The results for participation and intensity are qualitatively similar with the most statistically important effect of loan draws occurring on the intensity of participation in the program. Moreover, the change in net interest margins was larger compared to banks that experienced less C\&I loan growth. This effect is statistically important for banks that experienced the highest C\&I loan growth impacts. 
+
+\begin{landscape}
+\input{./tables/online_appendix/ci_draw_dnim.tex}
+\end{landscape}
+
+Tables \ref{tab:ci_draw_cigwth} and \ref{tab:ci_draw_nonppp_cigwth} report the results on total C\&I loan growth and non-PPP C\&I growth. These specifications show that PPP participants that experienced the largest C\&I loan growth in the first quarter had more total C\&I loan growth and more non-PPP loan growth during the subsequent quarters the PPP was active. 
+
+\begin{landscape}
+\input{./tables/online_appendix/ci_draw_cigwth.tex}
+\end{landscape}
+
+\begin{landscape}
+\input{./tables/online_appendix/ci_draw_nonppp_cigwth.tex}
+\end{landscape}
+\clearpage
+
+Finally, Table \ref{tab:ci_draw_cregwth} reports the results for commercial real estate lending (CRE) as a check on spillover effects. We find mixed evidence that participants in the PPP program made more CRE loans. In at least one specification, the sign is negative and statistically unimportant. However, in the other specifications we find positive and statistically important effects. Notably, for non-participants we find negative impacts of first quarter C\&I loan growth on CRE lending, suggesting that the capital protection that PPP provided may have encouraged some additional, non-C\&I lending for the most active C\&I lenders in the first quarter. 
+
+\begin{landscape}
+\input{./tables/online_appendix/ci_draw_cregwth.tex}
+\end{landscape}
+\clearpage
+
+
+
+
+
+%% Section I
+\section{Decomposition of Counterfactual Results\label{onappx_sec:decomp}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{I.\arabic{table}}
+We examine the drivers of the predicted counterfactuals for participants in Table \ref{tab:decomp_long}. To this end, we evaluate  $\bar{\mathbf{x}}_{p,j}\beta_{4j}^{(g)},\hspace{2pt}g = 1,2,...,50,000$, which is the product of the mean value of each covariate $j$ across participants and the posterior draws of the associated coefficient from equation \ref{eq:outcomes_np} for non-participants. The table reports the mean and 95 percent credibility interval of this product across the 50,000 posterior draws.
+
+Bank size is the primary determinant of the lower counterfactual change in NIM and loan growth for participants. Participants with asset size at the mean of the group would have undergone a decline in NIM of 32 basis points relative to 2019, and a reduction of the C\&I loan portfolio by 91 percent had they not participated in the PPP. These findings are driven by the negative coefficient on bank size among non-participants. Small, non-participant banks continued to lend C\&I and CRE loans over the course of the pandemic while large non-participants curtailed such lending as depicted in Tables \ref{tab:bayes_jm_2_p} and \ref{tab:bayes_jm_2_np}. Large non-participant banks underwent greater declines in NIM relative to small non-participants. Accordingly, if participants had used the decision rules of non-participants, they would have largely cut back lending and earned lower profits as they were, on average, larger than non-participants.  
+
+The second most important factor driving the predicted decline in counterfactual profitability and loan growth is the ratio of loan loss allowances to total loans. Participating banks with average levels of this ratio were likely to undergo a 13 basis point decline in change in NIM, and a decline of nearly 3 percentage points to C\&I loan growth. Loan loss allowances, therefore, served as a constraint on loan growth and earnings. Moreover, as banks set aside larger reserves when they expect bigger losses, large loan loss allowances are suggestive of riskier loan portfolios. Our results thereby reveal that banks exposed to potential losses would have likely withheld lending on account of risk-aversion, which in the aggregate, would have contributed to a credit crunch. 
+
+Unlike bank size and the ratio of loss allowances to total loans, other characteristics do not predict as large a decline in margins and lending, but reflect the realities of increased risk taking in a crisis. For example, better capitalized banks, which have greater space to absorb additional losses, would have increased their lending by more than their less capitalized peers. Banks with greater exposure to C\&I loans, and more liquid banks would have increased C\&I lending, but curtailed CRE loan growth. And finally, we find that COVID exposure, and thus greater loan risk, would have further reduced C\&I and CRE loan growth. Interestingly, previous profitability was not statistically important in determining counterfactual outcomes, suggesting that the precarious outlook for borrowers would have likely outweighed banks' ability to generate pre-pandemic earnings in driving lending declines. These results are all consistent with elevated risk-aversion and the importance of sizable capital buffers in a crisis.
+
+\begin{landscape}
+\input{./tables/online_appendix/counterfact_decomp_tech.tex}
+\end{landscape}
+
+\subsection{Discussion of  Counterfactual Results for $\Delta$NIM\label{appx_subsec:counterfact_discuss_nim}}
+
+We provide additional analysis below to support the economic rationale and the model's predictions for the direction and magnitude of our counterfactual values of change in NIM. 
+   
+   We recognize that one of the expected effects of non-participation by participating banks would have been an increase in net interest margins. This result could have arisen in two ways. First, an extrapolation of the negative relationship between PPP intensity and change in NIM reported in Table 5 suggests that bringing intensity to zero should support interest margins. Second, non-participation would have entailed not only the absence of PPP loans but also a contraction in loan balances, which would have reduced the denominator of NIM and mechanically increased this measure of profitability.  
+   
+   Our counterfactual results reject the first channel for driving an increase in $\Delta$NIM. Indeed, these results show that the effect of PPP intensity on net interest margin is discontinuous at zero, and that the negative relationship between intensity and margins shifts downward at the point of non-participation in the program. Indeed, this relationship is also borne out in the summary statistics in Table 1, where banks that participated more intensively in the PPP underwent a decline in NIM of 50 bps, but those with a lower intensity underwent a decline of only 40 bps. Counter to this trend, non-participants underwent a decline of 49 bps. 
+   
+   The second channel for asset-declines to boost interest margins predicates on the numerator of net interest margins remaining largely unchanged from 2019 levels even as the denominator contracts. Consequently, this outcome would require interest income from existing loans and securities to remain stable even if no new loans are booked. However, the realized interest margins of non-participants in the PPP provide evidence to the contrary. Overall, banks that underwent a contraction in their loan balances experienced a larger decline in NIM. Table \ref{nim_asst_gwth} shows that banks with a contraction in C\&I portfolios saw their interest margins decline by 52 bps, and this decline was 51 bps for banks that underwent a decline in CRE loans. For banks that maintained or grew their C\&I or CRE loan portfolios, NIM fell by 38 and 39 bps respectively. In the absence of direct evidence on interest rates on loans that remained on bank balance sheets, these differences suggest that banks that did not grow their loan portfolios earned lower interest income on their existing loans likely due to refinancings. Therefore, participating banks would have also experienced a decline in net interest margins upon contracting their loan portfolio had they foregone participating in the PPP. 
+   
+   \input{./tables/online_appendix/nim_asst_gwth.tex}
+   
+\subsection{Extended Discussion of the Effect of Loss Allowances on Counterfactual Outcomes\label{appx_subsec:counterfact_discuss}}
+
+To provide further context to the points made in the section on counterfactuals, we report three different types of effects of ALLL to total loans on $\Delta$NIM and C\&I growth in Table \ref{tab:counterfact_pred_alll}. In columns (1)-(2), we report the direct effect of loss allowances on the two categories of outcomes for participants and non-participants by multiplying the average share of ALLL with the estimated parameters for the two groups of banks respectively. In column (3), we report the counterfactual effect of the share of ALLL on participants by multiplying loss allowances of the former with the parameter estimates of non-participants. We note that the results from the decomposition of predicted counterfactuals in Table 10 in the paper previously contained errors, which have now been corrected in the revised draft. There are no qualitative differences in conclusions--this comment and our response continues to apply to the updated results.  
+
+\input{./tables/online_appendix/counterfact_pred_alll.tex}
+
+Overall, incremental ALLL to loans results in lower $\Delta$NIM across all three settings. Notably, loss allowances result in a larger decline in participants' $\Delta$NIM in the counterfactual case of non-participation relative to the predicted actual scenario of participation. Even though this decline is lower in magnitude relative to the drop in margins experienced by non-participants, the broader conclusion is that the same level of loss allowances would have diminished margins by a larger extent for participants had they not participated in the PPP.
+
+C\&I loan growth, similarly, declines with a rise in loss allowances in all three settings. However, the counterfactual predicted effect for participants is weaker in both magnitude and statistical importance, relative to the predicted effect under participation. Indeed, this difference is driven by the combination of two factors--loss allowances have a smaller effect on non-participants, as seen in column (2), and loss allowances of participants are smaller than those of non-participants. These results suggest that banks with larger shares of loss allowances withheld lending while participating in the PPP as they would have had to disburse loans using their own funds up front. In the event of non-participation, banks would have curtailed lending by a lower extent in response to a rise in loss allowances. This behavior is likely attributable to the lower extent of lending under non-participation, which would have required lower amounts of funds to be available for supplying credit to firms. 
+\clearpage
+
+%% Section K 
+
+\section{Loan Growth Rates at Community Banks During the GFC \label{onappx_sec:grwth_rt_gfc}}
+
+
+\begin{figure}[ht]
+  \begin{center}
+   \caption{GFC Growth Rates at Community Banks}
+    \includegraphics[angle=270, scale=0.35]{./charts/online_appendix/CBO_growth_rates_cumulative.eps}
+    \label{fig:CBO_gwth}
+  \end{center}
+\footnotesize Note: Chart shows peak-to-trough growth rates of selected loan portfolios at community banks from the Global Financial Crisis. Peak date is 2007:Q3, the start of the NBER recession period, for all portfolios. Trough dates are the last quarter when aggregate growth was negative. Trough dates by portfolio are: C\&I, 2011:Q1; CRE, 2012:Q3; and CLD, 2013:Q1.\\ Source: Call Reports.
+\end{figure}
+
+\end{onehalfspace}

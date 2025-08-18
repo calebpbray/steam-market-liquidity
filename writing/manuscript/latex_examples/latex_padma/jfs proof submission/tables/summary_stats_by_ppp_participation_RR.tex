@@ -1,0 +1,49 @@
+
+\begin{table}[!ht]
+\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Summary Stats By PPP Lending Intensity\label{tbl:ppp_sum_stats}}
+%\totextwidth{%
+\resizebox{!}{.20\paperheight}{%
+\begin{threeparttable}
+\begin{tabular}{l|cc|cc|cc|cc|cc}
+\toprule
+&\multicolumn{2}{c}{All Banks}&\multicolumn{2}{c}{High PPP}&\multicolumn{2}{c}{Low PPP}&\multicolumn{2}{c}{Non-Participants}&\multicolumn{2}{c}{Means Tests}\\
+\hline
+& Mean & Std. Dev & Mean & Std. Dev. & Mean & Std. Dev & Mean & Std. Dev & Diff & p-value\\
+\hline
+
+\hline
+Pre-pandemic Averages&        \,\,&            &        \,\,&            &        \,\,&            &        \,\,&            &        \,\,&            \\
+$\text{\emph{\,\,\,\,Tech\,\,Exp.\,\,to\,\,Assets}}$&        0.19&      (0.15)&        0.20&      (0.13)&        0.18&      (0.14)&        0.21&      (0.19)&        0.02&      (0.02)\\
+$\text{\emph{\,\,\,\,COVID-affected\,\,emp.\,\,share}}$&       18.41&      (8.05)&       19.69&      (6.99)&       17.05&      (8.38)&       18.33&     (10.12)&       -0.08&      (0.87)\\
+$\text{\emph{\,\,\,\,C\&I\,\,to\,\,Assets}}$&        9.18&      (6.83)&       10.85&      (6.93)&        7.57&      (5.33)&        8.27&      (9.81)&       -1.01&      (0.05)\\
+$\text{\emph{\,\,\,\,C\&I\,\,Commitments\,\,to\,\,Assets}}$&       12.48&      (9.14)&       15.42&      (9.78)&        9.84&      (6.69)&       10.09&     (11.00)&       -2.64&      (0.00)\\
+$\text{\emph{\,\,\,\,Unused\,\,C\&I\,\,Commitments\,\,to\,\,Assets}}$&        3.30&      (3.41)&        4.57&      (3.87)&        2.26&      (2.32)&        1.83&      (2.96)&       -1.63&      (0.00)\\
+$\text{\emph{\,\,\,\,Small\,\,C\&I\,\,to\,\,Assets}}$&        5.84&      (4.57)&        6.22&      (4.00)&        5.31&      (3.81)&        6.42&      (8.42)&        0.64&      (0.15)\\
+$\text{\emph{\,\,\,\,Core\,\,Deposits\,\,to\,\,Assets}}$&       69.69&     (10.83)&       71.62&     (10.29)&       68.09&     (10.45)&       67.50&     (13.25)&       -2.43&      (0.00)\\
+$\text{\emph{\,\,\,\,Liquid\,\,Assets\,\,to\,\,Total\,\,Assets}}$&       20.40&     (12.16)&       20.63&     (11.90)&       19.09&     (11.38)&       25.17&     (15.21)&        5.28&      (0.00)\\
+$\text{\emph{\,\,\,\,Total\,\,Assets\,\,(\$\,\,Billions)}}$&        0.52&      (0.94)&        0.68&      (1.02)&        0.42&      (0.87)&        0.23&      (0.63)&       -0.33&      (0.00)\\
+$\text{\,\,\,\,}ln(\text{\emph{Total\,\,Assets}})$&       12.41&      (1.16)&       12.78&      (1.10)&       12.20&      (1.09)&       11.59&      (1.05)&       -0.91&      (0.00)\\
+$\text{\emph{\,\,\,\,Leverage\,\,Ratio}}$&       11.49&      (3.00)&       10.90&      (2.20)&       11.85&      (3.21)&       12.77&      (4.44)&        1.42&      (0.00)\\
+$\text{\emph{\,\,\,\,ALLL\,\,to\,\,Total\,\,Loans}}$&        1.34&      (0.70)&        1.32&      (0.64)&        1.34&      (0.59)&        1.50&      (1.21)&        0.17&      (0.01)\\
+$\text{\emph{\,\,\,\,NIM}}^{2019\,\,Avg}$&        3.92&      (0.65)&        3.96&      (0.64)&        3.89&      (0.63)&        3.86&      (0.80)&       -0.06&      (0.13)\\
+Post-Pandemic Outcomes&        \,\,&            &        \,\,&            &        \,\,&            &        \,\,&            &        \,\,&            \\
+$\text{\emph{\,\,\,\,PPP\,\,Share}}$&        7.86&      (7.08)&       13.15&      (6.98)&        3.91&      (1.83)&        0.00&      (0.00)&       -8.70&      (0.00)\\
+$\text{\emph{\,\,\,\,NIM}}$&        3.47&      (0.63)&        3.46&      (0.59)&        3.49&      (0.62)&        3.38&      (0.78)&       -0.10&      (0.02)\\
+$\text{\,\,\,\,}\Delta\text{{NIM}}$&      -45.37&     (45.03)&      -50.06&     (49.65)&      -39.57&     (38.07)&      -48.65&     (47.38)&       -3.64&      (0.15)\\
+$\text{\emph{\,\,\,\,CI\,\,Gwth}}$&       84.25&    (101.74)&      129.97&    (118.09)&       51.47&     (62.72)&       10.14&     (36.46)&      -82.09&      (0.00)\\
+$\text{\emph{\,\,\,\,CI\,\,Gwth\,\,Less\,\,PPP}}$&       -1.90&     (25.46)&       -3.70&     (22.15)&       -2.64&     (25.11)&       10.14&     (36.46)&       13.33&      (0.00)\\
+$\text{\emph{\,\,\,\,CRE\,\,Gwth}}$&        6.77&     (18.16)&        8.00&     (16.09)&        6.01&     (19.25)&        4.21&     (21.82)&       -2.83&      (0.02)\\
+\hline
+Total Banks &       3,891&            &       1,824&            &       1,689&            &         378&            &       3,891&            \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\footnotesize \item Notes: Table reports summary stats of sample banks as-of 2020:Q3. Pre-pandemic outcomes are averaged over all of 2019. High PPP banks are those with exposures greater than the median PPP loans to total loans share. Banks with low exposures are those with PPP loans to total loans shares less than the median. Non-participants are banks that did not report holding any PPP loans over 2020:Q2 or 2020:Q3. Means test columns report differences in means and associated p-values from a t-test assuming unequal variances between participant and non-participant banks.
+\end{tablenotes}
+\end{threeparttable}%
+}
+\end{table}
+

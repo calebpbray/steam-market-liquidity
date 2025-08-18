@@ -1,0 +1,40 @@
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{Results for profitability and loan growth of participating and non-participating banks in Q4 2020\label{tab:bayes_jm_2_q4}}
+  \resizebox{1.35\textwidth}{!}{
+   \begin{threeparttable}
+   \begin{tabular}{lcccccccc}
+    \hline\hline
+          & \multicolumn{2}{c}{$\Delta$NIM(bps)}       & \multicolumn{2}{c}{CI Gwth(\%)}      & \multicolumn{2}{c}{Non-PPP CI Gwth(\%)}      & \multicolumn{2}{c}{CRE Gwth(\%)}  \\
+          \hline
+           & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)} \\
+           \hline
+          &\multicolumn{1}{c}{ (part.) } & \multicolumn{1}{c}{ (non-part.) } & \multicolumn{1}{c}{ (part.) } & \multicolumn{1}{c}{ (non-part.) } & \multicolumn{1}{c}{ (part.) } & \multicolumn{1}{c}{ (non-part.) } & \multicolumn{1}{c}{ (part.) } & \multicolumn{1}{c}{ (non-part.) } \\
+          \hline
+		\multicolumn{1}{l}{PPP Loans to Total Loans} & 5.759 &       & 7.427 &       & -1.924 &       & 0.922 &  \\
+		& [3.43, 8.26] &       & [4.04, 9.63] &       & [-3.55, -0.44] &       & [-0.25, 2.17] &  \\
+		\multicolumn{1}{l}{ln Assets} & -1.619 & -0.869 & 6.188 & -6.7  & 1.06  & -5.537 & 0.086 & -2.967 \\
+		& [-3.44, 0.09] & [-4.87, 3.75] & [4.72, 8.09] & [-8.02, -5.38] & [-0.08, 2.27] & [-6.75, -4.35] & [-0.95, 1.07] & [-3.86, -2.09] \\
+		\multicolumn{1}{l}{CI to assets} & -2.356 & -0.323 & -4.418 & 0.11  & 0.432 & -1.599 & -0.013 & -1.116 \\
+		& [-3.11, -1.66] & [-1.51, 1.05] & [-5.18, -3.48] & [-0.76, 0.89] & [0.01, 0.89] & [-1.99, -1.22] & [-0.35, 0.3] & [-1.39, -0.85] \\
+		\multicolumn{1}{l}{Leverage Ratio} & 0.23  & -1.835 & -0.616 & 0.819 & -0.359 & 1.16  & 0.383 & 0.431 \\
+		& [-0.73, 1.28] & [-3.28, -0.43] & [-1.59, 0.28] & [-0.04, 1.66] & [-0.93, 0.16] & [0.39, 1.94] & [-0.01, 0.81] & [-0.1, 0.96] \\
+		\multicolumn{1}{l}{Liquid Assets to Assets} & -0.966 & -0.282 & -0.341 & -0.204 & 0.088 & -0.332 & -0.05 & -0.209 \\
+		& [-1.19, -0.76] & [-0.7, 0.14] & [-0.55, -0.1] & [-0.45, 0.04] & [-0.02, 0.2] & [-0.54, -0.13] & [-0.13, 0.02] & [-0.36, -0.07] \\
+		\multicolumn{1}{l}{ALLL to Total Loans} & -3.176 & -6.629 & -3.176 & -2.234 & -2.183 & -1.357 & -1.291 & -1.069 \\
+		& [-6.24, -0.07] & [-10.48, -2.77] & [-5.94, -0.4] & [-5.2, 0.69] & [-3.64, -0.74] & [-4.04, 1.33] & [-2.3, -0.28] & [-3.02, 0.88] \\
+		\multicolumn{1}{l}{ROA} & -13.664 & -1.193 & 0.869 & 2.147 & -0.811 & 2.166 & -1.379 & 1.347 \\
+		& [-16.9, -10.35] & [-6.04, 3.69] & [-2.1, 3.81] & [-1.56, 5.83] & [-2.3, 0.7] & [-1.34, 5.7] & [-2.43, -0.34] & [-1.32, 4] \\
+		\multicolumn{1}{l}{Cases Per 100k} & 1.695 & -1.22 & -2.512 & 1.46  & -1.144 & 1.756 & 0.057 & 0.966 \\
+		& [0.09, 3.41] & [-4.22, 1.84] & [-4.42, -0.93] & [-0.36, 3.27] & [-2.09, -0.28] & [0.12, 3.39] & [-0.58, 0.74] & [-0.25, 2.16] \\
+		\multicolumn{1}{l}{Constant} & -0.944 & -0.512 & 0.543 & -0.331 & 1.606 & 0.452 & 0.894 & 0.234 \\
+		& [-7.11, 5.18] & [-6.66, 5.58] & [-5.55, 6.56] & [-6.46, 5.83] & [-4.52, 7.71] & [-5.66, 6.53] & [-5.05, 6.92] & [-5.76, 6.3] \\
+          \hline\hline
+    \end{tabular}%
+    \begin{tablenotes}
+        \footnotesize \item Note: The reported values are posterior means of the parameters, and 95\% credibility intervals in brackets. The results are based on 55,000 MCMC draws with a burn-in of 5000. 
+    \end{tablenotes}
+\end{threeparttable}
+    }
+\end{table}%

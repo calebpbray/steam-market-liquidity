@@ -1,0 +1,24 @@
+
+ \begin{theglossary} 
+
+    \makeatletter\scan@allowedfalse
+
+  \item v1.1\efill 
+ \subitem General:\ Initial version\pfill \hdpindex{}{1}
+  \item v1.2\efill 
+ \subitem General:\ Documentation, templates, and *.bst has been seperated from this .dtx. Incompatibility problems with amsref.sty, fncylab.sty have been fixed. Some bugs related to author/affiliation part have been fixed.\pfill 
+		\hdpindex{}{1}
+  \item v3.3\efill 
+ \subitem General:\ Defined \affiliationcommand for structured address tagging.\pfill 
+		\hdpindex{}{1}
+  \item v3.4\efill 
+ \subitem General:\ A bug fix. Accented characters produced errors. So loaded fontenc package.\pfill 
+		\hdpindex{}{1}
+  \item v3.4a\efill 
+ \subitem General:\ Removed the preprint submitted line as per the instruction received on 22 Oct 2024 from Arun Shanmugam (ELS) with the subject line, FW: Preprint sentence in EM submissions\pfill 
+		\hdpindex{}{1}
+  \item v3.4b\efill 
+ \subitem General:\ 0pt commented out for all models since it produced error for all \jtypeoptions.\pfill 
+		\hdpindex{}{1}
+
+ \end{theglossary}

@@ -1,0 +1,555 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{amsmath, amssymb,xfrac}
+\usepackage{appendix}
+\usepackage{color,hyperref}
+\usepackage{setspace}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+            
+\let\footnote=\footnote
+\usepackage[left=1.0in,top=1.0in,right=1.0in,bottom=1.0in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{siunitx}
+\newcommand\THead[1]{\multicolumn{1}{c}{#1}}
+
+\usepackage{etoolbox}
+
+\makeatletter
+
+% make numeric styles use name format
+\patchcmd{\NAT@test}{\else \NAT@nm}{\else \NAT@nmfmt{\NAT@nm}}{}{}
+
+% define \citepos just like \citet
+\DeclareRobustCommand\citepos
+  {\begingroup
+   \let\NAT@nmfmt\NAT@posfmt% ...except with a different name format
+   \NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+   \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+
+\let\NAT@orig@nmfmt\NAT@nmfmt
+\def\NAT@posfmt#1{\NAT@orig@nmfmt{#1's}}
+
+\makeatother
+
+\begin{document}
+\protected\def\str#1{$^{#1}$}
+
+\sisetup{
+    input-open-uncertainty  = ,
+    input-close-uncertainty = ,
+    table-align-text-pre    = false,
+    round-precision=2,
+    table-space-text-pre    = (,
+    table-space-text-post   = \str{***},
+}
+
+\title{\vspace{-0.5in}\Large{\bf{The Term Structure of  Monetary Policy Uncertainty\\ \text{ } \\ Technical Appendix}}\thanks{The views expressed herein are solely those of the authors and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System. \vspace{0.15in} }} %\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\author{ Brent Bundick\thanks{\href{https://www.kansascityfed.org/people/brentbundick}{Federal Reserve Bank of Kansas City}.  \quad Email: brent.bundick@kc.frb.org \vspace{0.1in}}  \qquad Trenton Herriford\thanks{\href{https://sites.google.com/view/trentonherriford}{University of Texas at Austin}.  \quad Email: trenton.herriford@utexas.edu \vspace{0.1in}} \qquad A. Lee Smith\thanks{\href{https://www.kansascityfed.org/people/andrewleesmith}{Federal Reserve Bank of Kansas City}.  \quad Email: andrew.smith@kc.frb.org   }} 
+\date{\normalsize{\hspace{0.1in} \\ August 2023}}
+\maketitle
+\newpage
+\appendix
+
+
+
+\section{Appendix to Simple Model}
+
+This appendix provides the derivation of the model equations used in Section 2 of the main text to motivate the empirical work done in the subsequent sections.  We use a second-order approximation to capture the effects of uncertainty.
+
+\subsection{Definitions and Household Decisions}
+
+The price \(p\) of a \(n\)-period bond at time \(t\) is set using the stochastic discount factor \(m\):
+
+\[ p^{(n)}_t = \mathbb{E}_t \left\{ m_{t+1} p^{(n-1)}_{t+1} \right\}\]
+
+Let these bonds be sold at a discount so that gross yield \(Y\) is defined as follows:
+
+\[1 = p^{(n)}_t \left(Y_t^{(n)}\right)^n\]
+
+This gives the following relationship for the net yield \(y=\log(Y)\):
+
+\[n y^{(n)}_t = -\log \left( p^{(n)}_t \right)\]
+
+Because bonds are sold at a discount, the bond price at maturity is defined as:
+
+\[ p^{(1)}_{t+k} = \mathbb{E}_t  m_{t+k+1} , \forall k \]
+
+Now, assume a representative household which maximizes lifetime expected utility over consumption \(C_{t}\).  The household receives endowment income \(e_{t}\) and can purchase nominal bonds  \(b^{(n)}_{t+1}\) with maturity \(n\) of one to \(N\) periods.  Denote the aggregate price level \(P_{t}\).   \\
+
+Formally, the representative household chooses \(C_{t+s}\), and \(b^{(n)}_{t+s+1} \) for all bond maturities \(n = 1, \dots, N\) and all future periods \(s = 0, 1, 2, \dots\) by solving the following problem:
+
+\begin{displaymath}
+\mbox{max }  \mathbb{E}_{t} \sum_{s=0}^{\infty} \beta^{s}  \, \mbox{log} \left(C_{t+s} \right) 
+\end{displaymath}
+subject to the intertemporal household budget constraint each period,
+\begin{displaymath}
+C_{t} + \sum_{n=1}^{N} p^{(n)}_{t} \frac{b^{(n)}_{t+1}}{P_{t}} \leq e_{t} + \sum_{n=1}^{N} p^{(n-1)}_{t} \frac{b^{(n)}_{t}}{P_{t}} \text{ (with multiplier } \lambda_{t})  .  
+\end{displaymath}
+
+This leads to the following first-order conditions:
+
+\[\frac{1}{C_t} = \lambda_t \]
+\[ p^{(1)}_{t} = \mathbb{E}_{t} \Bigg\{ \beta \frac{\lambda_{t+1}}{\lambda_{t}} \frac{P_{t}}{P_{t+1}} \Bigg\}  \]
+\[ p^{(n)}_{t} = \mathbb{E}_{t} \Bigg\{ \beta \frac{\lambda_{t+1}}{\lambda_{t}} \frac{P_{t}}{P_{t+1}} p^{(n-1)}_{t+1}\Bigg\} \]
+
+Assuming prices are fixed \(P_t=P\) simplifies these conditions and allows for tractability. \\
+
+Following from the bond pricing equation, the stochastic discount factor can now be defined as follows:
+
+\[\mathbb{E}_t  m_{t+1} = \mathbb{E}_t \left\{ \beta \frac{\lambda_{t+1}}{\lambda_{t}} \right\} \]
+
+The one-period gross interest rate \(R_t\) is equal to the inverse of one-period bond price.  This implies:
+
+\[ \frac{1}{R_t} = p^{(1)}_{t} = \mathbb{E}_t  m_{t+1}\]
+
+
+The risk-neutral bond price \(q\) is not affected by the covariance between the discount factor and the future expected bond price, which is also risk-neutral:
+
+\[ q^{(n)}_t = \mathbb{E}_t m_{t+1} \mathbb{E}_t q^{(n-1)}_{t+1}  \]
+
+Using the equations above, we can rewrite this:
+
+\[ q^{(n)}_t = \frac{1}{R_t} \mathbb{E}_t q^{(n-1)}_{t+1} \]
+
+And note how a one-period risk-neutral bond is priced using this relation:
+
+\[ q^{(1)}_{t+k} =  \frac{1}{R_{t+k}} , \forall k\]
+
+To get second-order approximations of these series, use the following Taylor series centered at zero:
+
+\[ \exp (x) = \sum_{j=0}^{\infty} \frac{x^j}{j!} \]   
+\[ \log (1+x) = \sum_{j=1}^{\infty}(-1)^{j+1}\frac{x^j}{j}\]
+
+Also, note the definitions of variance and covariance:
+
+\[ \mathbb{VAR}_t X_{t+1} = \mathbb{E}_t X_{t+1}^2 - (\mathbb{E}_t X_{t+1})^2 \]\
+\[ \mathbb{COV}_t X_{t+1} W_{t+1}  = \mathbb{E}_t X_{t+1}W_{t+1} - \mathbb{E}_t X_{t+1}\mathbb{E}_t W_{t+1}  \]
+
+\subsection{Consumption and Yield}
+
+We start by using the discount factor implied by the Euler equations to relate bond yields to consumption.  This shows that consumption increases as yields decreases and that consumption decreases as future consumption becomes more uncertain. \\
+
+First, use the Euler equations to price the following bonds:
+
+\[ p^{(n)}_t = \mathbb{E}_t \left\{ \beta \frac{C_t}{C_{t+1}} p^{(n-1)}_{t+1}  \right\} \]
+
+\[ p^{(n-1)}_{t+1} = \mathbb{E}_{t+1} \left\{ \beta \frac{C_{t+1}}{C_{t+2}} p^{(n-2)}_{t+2}  \right\} \]
+
+Using substitution, the price of the \(n\)-period bond can be further simplified:
+
+\[ p^{(n)}_t = \mathbb{E}_t \left\{ \beta \frac{C_t}{C_{t+1}} \mathbb{E}_{t+1} \left\{ \beta \frac{C_{t+1}}{C_{t+2}} p^{(n-2)}_{t+2}  \right\}  \right\} \]
+
+\[ p^{(n)}_t = \mathbb{E}_t \left\{ \mathbb{E}_{t+1} \left\{ \beta^2 \frac{C_t}{C_{t+1}} \frac{C_{t+1}}{C_{t+2}} p^{(n-2)}_{t+2}  \right\}  \right\} \]
+
+\[ p^{(n)}_t = \mathbb{E}_t \left\{ \beta^n \frac{C_{t}}{C_{t+n}}  \right\} \]
+
+Now, move all of the time \(t\) variables to the left side of the equation:
+
+\[ \frac{p^{(n)}_t}{\beta^n C_{t} } = \mathbb{E}_t \left\{ \frac{1}{C_{t+n}}  \right\} \]
+
+Define \(c_t=\log(C_t)\), and set up the equation for the Taylor series approximations:
+
+\[ \frac{p^{(n)}_t}{\beta^n C_{t} } = \mathbb{E}_t \left\{ \exp(  -\log(C_{t+n})  )  \right\} \]
+
+\[ \frac{p^{(n)}_t}{\beta^n C_{t} } = \mathbb{E}_t \left\{ \exp( -c_{t+n}  )  \right\} \]
+
+\[ \log(p^{(n)}_t) - c_t - n\log(\beta) = \log \left( \mathbb{E}_t \left\{ \exp( -c_{t+n}  )  \right\} \right) \]
+
+Take two Taylor series approximations.  First, for \(\exp(\cdot)\); second for \(\log(\cdot)\):
+
+\[ \log(p^{(n)}_t) - c_t - n\log(\beta) = \log \left( 1 + \mathbb{E}_t\left\{  - c_{t+n} + \frac{1}{2}c_{t+n}^2   \right\} \right) \]
+
+\[ \log(p^{(n)}_t) - c_t - n\log(\beta) =  -\mathbb{E}_t c_{t+n} + \frac{1}{2}\mathbb{E}_t c_{t+n}^2     - \frac{1}{2} \left( \mathbb{E}_t c_{t+n} \right)^2 \]
+
+Use the definition of variance to simplify: 
+
+\[ \log(p^{(n)}_t) - c_t - n\log(\beta) =  -\mathbb{E}_t c_{t+n} + \frac{1}{2}\mathbb{VAR}_t c_{t+n}  \]
+
+Finally, use the definition of yield given in the previous section, and solve for \(c_t\):
+
+\[ - c_t  = -\log(p^{(n)}_t) -\mathbb{E}_t c_{t+n} + \frac{1}{2}\mathbb{VAR}_t c_{t+n} + n\log(\beta) \]
+
+\[ - c_t  = ny^{(n)}_t -\mathbb{E}_t c_{t+n} + \frac{1}{2}\mathbb{VAR}_t c_{t+n} + n\log(\beta) \]
+
+\begin{equation}
+ c_t  = - ny^{(n)}_t +\mathbb{E}_t c_{t+n} - \frac{1}{2}\mathbb{VAR}_t c_{t+n} - n\log(\beta)
+\end{equation}
+
+Time \(t\) consumption is thus inversely related to yields and future income uncertainty but positively related to future income.
+
+\subsection{Yield and the Path of Interest Rates}
+
+Now we substitute a modified Euler equation into Equation (1) to make yields a function of interest rates and interest volatility instead of consumption.  This shows that bond yields increase with increases in uncertainty about the expected path of interest rates. \\
+
+Writing the Euler equation for the one-period bond in a slightly different way puts it in terms consumption and the interest rate:
+
+\[1 = \mathbb{E}_t \left\{ \beta \frac{C_t}{C_{t+1}} R_t  \right\} \]
+
+\[\frac{1}{C_{t}} = \mathbb{E}_t \left\{ \beta \frac{1}{C_{t+1}} R_t  \right\} \]
+
+Note how this generalizes:
+
+\[\frac{1}{C_{t+1}} = \mathbb{E}_{t+1} \left\{ \beta \frac{1}{C_{t+2}} R_{t+1}  \right\} \]
+
+Using substitution, this Euler equation can be modified as follows:
+
+\[\frac{1}{C_{t}} = \mathbb{E}_t \left\{ \beta R_t \mathbb{E}_{t+1} \left\{ \beta \frac{1}{C_{t+2}} R_{t+1}  \right\}  \right\} \]
+
+\[\frac{1}{C_{t}} = \mathbb{E}_t \left\{ \mathbb{E}_{t+1} \left\{ \beta^2 \frac{1}{C_{t+2}} R_t R_{t+1}  \right\}  \right\} \]
+
+\[\frac{1}{C_{t}} = \mathbb{E}_t \left\{\beta^n \frac{1}{C_{t+n}} \prod_{i=0}^{n-1} R_{t+i}  \right\} \]
+
+\[\frac{1}{\beta^n C_{t}} = \mathbb{E}_t \left\{ \frac{1}{C_{t+n}} \prod_{i=0}^{n-1} R_{t+i}  \right\} \]
+
+Define \(r_t=\log(R_t)\), and set up the equation for the Taylor series approximations:
+
+\[\frac{1}{\beta^n C_{t}} = \mathbb{E}_t \left\{ \exp\left( -\log(C_{t+n}) + \sum_{i=0}^{n-1}\log(R_{t+i}) \right) \right\} \]
+
+\[\frac{1}{\beta^n C_{t}} = \mathbb{E}_t \left\{ \exp\left( -c_{t+n} + \sum_{i=0}^{n-1}r_{t+i} \right) \right\} \]
+
+\[-n\log(\beta)-c_t = \log \left( \mathbb{E}_t \left\{ \exp\left( -c_{t+n} + \sum_{i=0}^{n-1}r_{t+i} \right) \right\} \right) \]
+
+\[-n\log(\beta)-c_t = \log \left( \mathbb{E}_t \left\{ \exp\left( -c_{t+n}\right) \exp\left( \sum_{i=0}^{n-1}r_{t+i} \right) \right\} \right) \]
+
+Perform two Taylor series approximations for both \(\exp(\cdot)\) terms under the expectations operator.  Then distribute:
+
+\[-n\log(\beta)-c_t = \log \left( \mathbb{E}_t \left\{ \left( 1 - c_{t+n} + \frac{1}{2}c_{t+n}^2  \right) \left( 1  + \sum_{i=0}^{n-1}r_{t+i} + \frac{1}{2} \left(\sum_{i=0}^{n-1}r_{t+i}\right)^2  \right) \right\} \right) \]
+
+\[-n\log(\beta)-c_t = \log \left(  1 + \mathbb{E}_t \left\{ - c_{t+n} + \frac{1}{2}c_{t+n}^2  + \sum_{i=0}^{n-1}r_{t+i} + \frac{1}{2} \left(\sum_{i=0}^{n-1}r_{t+i}\right)^2 - c_{t+n}\sum_{i=0}^{n-1}r_{t+i} \right\} \right) \]
+
+Take another Taylor series approximation:
+
+\[ \begin{split}
+-n\log(\beta)-c_t = &   -\mathbb{E}_t c_{t+n} + \frac{1}{2}\mathbb{E}_t c_{t+n}^2  + \mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} + \frac{1}{2} \mathbb{E}_t \left(\sum_{i=0}^{n-1}r_{t+i}\right)^2 - \mathbb{E}_t c_{t+n}\sum_{i=0}^{n-1}r_{t+i} \\ &
+- \frac{1}{2} \left[ \left(\mathbb{E}_t c_{t+n}\right)^2 + \left(\mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} \right)^2 - 2 \mathbb{E}_t c_{t+n} \mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} \right] 
+\end{split}\]
+
+Use the definitions of variance and covariance to simplify.  Solve for \(c_t\):
+
+\[ -n\log(\beta)-c_t = -\mathbb{E}_t c_{t+n} + \frac{1}{2} \mathbb{VAR}_t c_{t+n} + \mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} + \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1}r_{t+i} -  \mathbb{COV}_t c_{t+n} \sum_{i=0}^{n-1}r_{t+i} \]
+
+\[ c_t = \mathbb{E}_t c_{t+n} - \frac{1}{2} \mathbb{VAR}_t c_{t+n} - \mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} - \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1}r_{t+i} +  \mathbb{COV}_t c_{t+n} \sum_{i=0}^{n-1}r_{t+i} -n\log(\beta) \]
+
+Subtract Equation (1) from this.  Then solve for yield:
+
+\[ 0 = - ny^{(n)}_t + \mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} + \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1}r_{t+i} -  \mathbb{COV}_t c_{t+n} \sum_{i=0}^{n-1}r_{t+i} \]
+
+\begin{equation}
+ y^{(n)}_t  = \frac{1}{n} \left[ \mathbb{E}_t \sum_{i=0}^{n-1}r_{t+i} + \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1}r_{t+i} -  \mathbb{COV}_t c_{t+n} \sum_{i=0}^{n-1}r_{t+i} \right]
+\end{equation}
+
+While it is clear that bond yields depend on the future path of interest rates, this shows that the volatility of the path also contributes.
+
+\subsection{Term Premium}
+
+
+We now find the risk-neutral bond yield and subtract it from the yield in Equation (2) to get a measure of the term premium.  This shows that term premium is almost completely determined by the uncertainty about the path of interest rates.  \\
+
+Start by pricing the following risk-neutral bonds:
+
+\[ q^{(n)}_t = \frac{1}{R_t} \mathbb{E}_t q^{(n-1)}_{t+1}  \]
+
+\[ q^{(n-1)}_{t+1} = \frac{1}{R_{t+1}} \mathbb{E}_{t+1} q^{(n-1)}_{t+2}  \]
+
+Use substitution to make the risk-neutral bond price a function of the path of rates:
+
+\[ q^{(n)}_t = \frac{1}{R_t} \mathbb{E}_t \left\{ \frac{1}{R_{t+1}} \mathbb{E}_{t+1} q^{(n-1)}_{t+2}  \right\} \]
+
+\[ q^{(n)}_t =  \mathbb{E}_t \left\{ \mathbb{E}_{t+1} \left\{ \frac{1}{R_t}  \frac{1}{R_{t+1}} q^{(n-1)}_{t+2} \right\}  \right\} \]
+
+\[ q^{(n)}_t =  \mathbb{E}_t \left\{  \prod_{i=0}^{n-1} \frac{1}{R_{t+i}} \right\}  \]
+
+\[ q^{(n)}_t  =   \mathbb{E}_t \left\{ \exp \left( -\sum_{i=0}^{n-1} \log(R_{t+i}) \right) \right\}  \]
+
+Recall \(r_t=\log(R_t)\):
+
+\[ \log( q^{(n)}_t ) =  \log\left( \mathbb{E}_t \left\{ \exp \left( -\sum_{i=0}^{n-1} r_{t+i} \right) \right\} \right) \]
+
+Perform two Taylor series approximations:
+
+\[ \log(q^{(n)}_t) = \log \left( 1 + \mathbb{E}_t\left\{  - \sum_{i=0}^{n-1} r_{t+i} + \frac{1}{2} \left( \sum_{i=0}^{n-1} r_{t+i} \right) ^2   \right\} \right) \]
+
+\[ \log(q^{(n)}_t) =  - \mathbb{E}_t \sum_{i=0}^{n-1} r_{t+i} + \frac{1}{2} \mathbb{E}_t \left( \sum_{i=0}^{n-1} r_{t+i} \right)^2   - \frac{1}{2} \left( \mathbb{E}_t \sum_{i=0}^{n-1} r_{t+i} \right)^2 \]
+
+Use the definition of variance to simplify.  Then solve for the risk-neutral yield:
+
+\[ \log(q^{(n)}_t) =  - \mathbb{E}_t \sum_{i=0}^{n-1} r_{t+i} + \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1} r_{t+i} \]
+
+\[ n\hat{y}^{(n)}_{t} =  \mathbb{E}_t \sum_{i=0}^{n-1} r_{t+i} - \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1} r_{t+i} \]
+
+\[ \hat{y}^{(n)}_{t} =   \frac{1}{n} \left[  \mathbb{E}_t \sum_{i=0}^{n-1} r_{t+i} - \frac{1}{2} \mathbb{VAR}_t \sum_{i=0}^{n-1} r_{t+i} \right] \]
+
+It is standard to write the term premium as the difference between a bond's yield and the yield of its risk-neutral counterpart, so subtract the risk-neutral yield above from the yield in Equation (2):
+
+\begin{equation}
+TP^{(n)}_t \triangleq y^{(n)}_{t} - \hat{y}^{(n)}_{t} = \frac{1}{n} \left[  \mathbb{VAR}_t \sum_{i=0}^{n-1}r_{t+i} -  \mathbb{COV}_t c_{t+n} \sum_{i=0}^{n-1}r_{t+i}     \right] 
+\end{equation}
+
+All else equal, term premia rise with increases in the expected volatility of the path of rates.
+
+\subsection{Covariance Term}
+
+In the main text, the covariance term in Equations (2) and (3) is omitted.  We show why by further decomposing the term premium. The term premium can be rewritten using the definition of correlation:
+
+\[ \mathbb{SD}_t X = \sqrt{ \mathbb{VAR}_t X } ; \]
+\[ \mathbb{COV}_t(X,Y) = \mathbb{COR}_t(X,Y) \mathbb{SD}_t(X) \mathbb{SD}_t(Y) \]
+
+\[nTP_t^{(n)} = \mathbb{SD}_t \sum_{i=0}^{n-1}r_{t+i} \left( \mathbb{SD}_t \sum_{i=0}^{n-1}r_{t+i} - \mathbb{COR}_t \left(c_{t+n},\sum_{i=0}^{n-1} r_{t+i} \right) \mathbb{SD}_t c_{t+n}\right)\]
+
+Notice that decreasing volatility of the path of rates will only decrease term premium if 
+
+\[ \mathbb{COR}_t \left(c_{t+n},\sum_{i=0}^{n-1} r_{t+i} \right) \mathbb{SD}_t c_{t+n} < 0 \text{ or} \]
+\[ \mathbb{SD}_t \sum_{i=0}^{n-1}r_{t+i} > \mathbb{COR}_t \left(c_{t+n},\sum_{i=0}^{n-1} r_{t+i} \right) \mathbb{SD}_t c_{t+n}.\]
+
+Either case can be argued.  Consider the first case:  If the path of rates is lowered by a policy shock, it is likely to increase future consumption, resulting in a negative correlation.  Because we analyze policy shocks exclusively, this might be reasonable.  The argument for the second might be more convincing.  As \(n\) increases, \( c_{t+n} \) approaches permanent income, which is likely to vary little with the path of rates. Thus, regardless of sign, \( \mathbb{COR}_t(c_{t+n},\sum_{i=0}^{n-1} r_{t+i}) \) is likely to be  small.
+
+
+
+\section{Measuring Interest Rate Uncertainty}
+
+In this section, we provide further details on the calculation of our \(EDX\) measures of interest rate uncertainty.  Specifically, we apply the VIX methodology of the Chicago Board of Options Exchange (CBOE) to options on Eurodollar futures.  Eurodollar futures, and therefore options on these futures, settle based on the future value of the London Interbank Offer Rate (LIBOR), a benchmark short-term interest rate that is highly correlated with the federal funds rate. Using all out-of-the-money put and call options of a given expiration date, we use the VIX methodology to calculate the option-implied volatility of short-term interest rates for each horizon from 1- to 5-quarters ahead. Eurodollar options most often trade for settlement in March, June, September, and December of a given year.  For each month within a quarter, we assign the horizon based on the next available settlement date 1-5 quarters ahead.  For example, for days in January, February, and March, we compute the 1-quarter ahead horizon using options with a June settlement of the same year.  Thus, our 1-quarter ahead horizon actually refers to a 3-6 month horizon depending on the exact date within the quarter.\footnote{This method of assigning horizons leads to some predictable variation in interest rate uncertainty around the date that the options expire.  Alternatively, we could choose to average adjacent horizons in order to keep an exact horizon constant during the quarter.  However, we prefer our method for two reasons.  First, our primary interest is examining the one-day \emph{changes} in our EDX measure, which is not affected by this variation around expiration. Second, averaging between two adjacent horizons would shorten our longest maturity horizon.}  In practice, we find that options in these horizons have enough liquidity and available strike prices to reliably calculate implied interest rate volatility at a daily frequency.\\
+
+For a given horizon, we compute our EDX measure using the following generalized VIX formula using all of the out-of-the-money put and call options on Eurodollar Futures:
+\begin{equation}
+\sigma^{2} = \frac{2}{T} \, \sum_{i} \, \frac{\Delta K_{i}}{K_{i}^{2}} \, e^{RT} Q\left(K_{i}\right) \, - \, \frac{1}{T}\left[ \frac{F}{K_{0}} - 1 \right]^{2},
+\end{equation}
+where \(T\) is the time to expiration in years, \(R\) is the risk-free interest rate, \(F\) is the option-implied forward price, and \(K_{0}\) is the first strike equal or otherwise immediately below the option-implied forward price.  \(K_{i}\) is the strike price of the call or put option and \(Q(K_{i})\) is its current trading price.  \(\Delta K_{i} = (1/2) \times (K_{i+1} - K_{i-1})\) is the distance between the strike prices above and below \(i\).  Using these inputs, our measured EDX index for that given horizon equals \(\sigma \times 100\).  Since our interest is in the daily change in our EDX measures around policy announcements, we set \(R = 0\) and \(T = 1\) in our calculations for simplicity.  \\
+
+More details on the VIX methodology are available at \url{https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf}.  We purchased the Eurodollar futures and options data from the Chicago Mercantile Exchange Group.  \\
+
+For robustness, we also compute the option-implied kernel probability densities using the methodology in \citet{Swanson:2006}. This method uses all the outstanding put and call options as opposed to the VIX methodology, which only uses the out-of-the-money options.  In addition, this calculation does not require us to specify a risk-free rate.  Details on this method can be found in the Appendix of \cite{BundickHerriford:2017}.  
+
+\section{Additional High-Frequency Regression Results}
+
+This appendix provides additional high-frequency regression results that were discussed in the main text.  In particular, we provide results using an alternative method to compute option-implied volatility and explore whether our baseline high-frequency regression is misspecified by omitting interactions between the prevailing level of policy uncertainty and first-moment monetary policy surprises.
+
+\subsection{Robustness to using PDF-Measures of Implied Volatility}
+In the main text, we note that our high-frequency regression results are robust when we replace our baseline EDX factors derived using the VIX methodology with alternative interest rate uncertainty measures derived from option-implied kernel probability densities using the methodology in \citet{Swanson:2006}.\footnote{We are grateful to Eric Swanson for generously sharing his code with us.}\\ 
+
+Table \ref{tab:baseline_pdf} replicates the analysis shown in Table 4 of the main text using these alternative PDF measures. Our regression results are very similar whether we use our baseline EDX measures or these kernel probability density (PDF) measures of option-implied volatility. In fact, the coefficient estimates are nearly identical when we use the PDF-based measures of option-implied interest rate volatility. These robustness exercises confirm that our particular approach to constructing option-implied volatility measures are not driving our results.
+
+\subsection{Revisiting the Role of Monetary Policy Uncertainty in Transmitting First-Moment Monetary Policy Surprises}
+
+Recent work exploring the response of Treasury yields to FOMC announcements, by \citet{DePooteretal:2021} and \citet{Baueretal:2021}, assigns an important role to the prevailing level of interest rate uncertainty ahead of an FOMC announcement for the transmission of first-moment monetary policy surprises. By omitting any interaction terms between first-moment monetary policy surprises in our baseline regression (Equation (6) and Table 4 of the main text), we may have overstated the importance of shifts in the term structure of interest rate uncertainty around announcements. To this end, we consider the following expanded regression model:
+\begin{align}
+\label{eq:interaction_reg}
+\Delta y^{10}_{t} & = \alpha + \beta^{L} L_{t} + \beta^{S} S_{t} + \beta^{F} F_{t} + \beta^{F,L} F_{t} \times EDX4Q_{t-1} + \varepsilon_{t},
+\end{align}
+where $EDX4Q_{t-1}$ denotes the level of EDX4Q the day before the FOMC announcement.\footnote{We also include $ EDX4Q_{t-1}$ in these regressions.}\\ 
+
+There is no agreed upon measure of the first-moment monetary policy surprise. Therefore, to enable comparability, we examine the three most commonly used measures of monetary policy surprises in the monetary policy event-study literature: the change in the nominal 2-year zero coupon Treasury yield \citep{DePooteretal:2021}, our preferred measures which are \citepos{Swanson:2021} FF and FG Factors, and \citepos{NakamuraSteinsson:2018} policy news surprise \citep{Baueretal:2021}. \\
+
+Table \ref{tab:interaction_edx} reports estimates from both a restricted and unrestricted version of regression \eqref{eq:interaction_reg} for each of the three measures of first-moment monetary policy surprises. The restricted regression restricts $\beta^{S} = 0$ in an effort to closely mirror the regressions estimated in \citet{DePooteretal:2021} and \citet{Baueretal:2021}, since both papers consider just the level of interest rate uncertainty. Consistent with their findings, in these restricted regressions, we estimate that the interaction term $\beta^{F,L}$ is negative across all three first-moment measures of monetary policy surprises. This suggests that, all else equal, a higher (lower) level of uncertainty ahead of an FOMC announcement dampens (amplifies) the effects of first-moment monetary policy surprises on Treasury yields. However, the interaction effects are only statistically significant in when using the change in the 2-year Nominal Treasury yield as the first-moment policy surprise measure. \\
+
+The estimates from the unrestricted form of regression \eqref{eq:interaction_reg} reveal that, once we include the EDX slope factor in the \citet{DePooteretal:2021} and \citet{Baueretal:2021} regressions, interaction effects largely vanish. When the EDX slope factor is added to the regression, the negative estimates of $\beta^{F,L}$ decline in magnitude and lose whatever statistical significance existed.  Moreover, the most robust empirical fact remains the importance of shifts in the level and slope of the term structure of interest rate uncertainty in explaining movements in Treasury yields, as indicated by the p-values of EDX F-tests across unrestricted specifications.
+
+\section{Additional Proxy SVAR Results} 
+This section provides additional results related to our Proxy-SVAR. In particular, we provide detailed regression output for the predictive regressions used to orthogonalize our EDX factors before using them as external instruments. We also show the robustness of our impulse response estimates to more modern samples as well as alternative methods to calculate error bands. We also report different percentiles of error bands using different bootstrap methods.
+
+\subsection{Predictive Regression Details}
+
+Following \citet{BauerSwanson:2023nber}, we show Proxy SVAR results for both our baseline EDX Level and Slope proxies, as well as orthogonalized measures of EDX Level and Slope proxies. The orthognalized EDX factors are constructed as in \citet{BauerSwanson:2023nber} to purge our high-frequency EDX measures of their predictable component using data that was publicly available in real-time before each FOMC announcement. Specifically, we regress the EDX Level and EDX Slope (in two separate regressions) on:\\
+		\begin{itemize}
+		\item  The surprise component of the most recent nonfarm payrolls release prior to the FOMC announcement, measured as the difference between the released value of 				the statistic minus the median expectation for that release from the Money Market Services survey (This is the same source used in \citet{BauerSwanson:2023nber}).
+		\item The change in nonfarm payroll employment from one year earlier to the most recent release before the FOMC announcement; constructed by using real-time data on payroll growth from the Federal Reserve Bank of Philadelphia's real-time data center.\footnote{Available at this link: https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/employ}
+		\item The percent change in the S\&P500 stock price index from three months (90 calendar days) before the FOMC announcement to the day before the FOMC announcement.
+		\item The change in the slope of the yield curve from three months before the FOMC announcement to the day before the FOMC announcement, where the slope is measured as the difference between the 10-yr and 1-yr zero-coupon Treasury yields.
+		\item The log change in the Bloomberg Commodity Spot Price index from three months before the FOMC announcement to the day before the FOMC announcement.
+		\end{itemize}
+		
+The only predictor missing from the \citet{BauerSwanson:2023nber} regression is the implied skewness of Treasury yields, which appears to be constructed by Bauer and Chernov (2021). Similar to \citet{BauerSwanson:2023nber}, we find evidence of predictability in our EDX factors, as shown by the joint F-stat in Table \ref{tab:Predictive} below. \\
+
+However, unlike \citet{BauerSwanson:2023nber}, accounting for this predictability does not diminish the first-stage power of our EDX instruments. To the contrary, the far right column of Figure 3 in the main text shows that the first-stage F-statistic actually increases slightly when using the orthognalized EDX instruments (the residuals from the predictive regressions). Moreover, the estimated impulse responses are largely unchanged whether we use the EDX factors or the orthogonalized EDX factors. 
+
+\subsection{Robustness of Proxy-SVAR results to Different Samples}
+
+For our baseline analysis, we begin the VAR sample in 1979, closely following \citet{GertlerKaradi:2015} for purposes of comparability. More recent work by \citet{BauerSwanson:2023nber} start the VAR estimation sample even earlier, in 1973. \\
+	
+	However, \citet{Ramey:2016} argues that proxy-SVAR results can often be sensitive to shorter, more modern samples. To allay any concerns about our sample choice, as a robustness check we estimated our VAR over the same sample that our proxies are available, which leaves a much shorter sample that begins in 1991. The results are shown in the second column of Figure \ref{fig:FGPROXYVAR_ROBUST_SAMPLES}. Compared to our baseline model, shown in the first column of Figure \ref{fig:FGPROXYVAR_ROBUST_SAMPLES} for ease of comparability, the point estimates are very similar. Moreover, the first-stage F-statistic of the EDX instruments remains above 10. However, just as in \citet{BauerSwanson:2023nber}, the error bands widen when the sample is shortened, reflecting the smaller sample size. As another robustness check, we also dropped the entire monetarist experiment period, and begin our VAR estimates in November 1982. This post-1982 sample is shown in the third column of Figure \ref{fig:FGPROXYVAR_ROBUST_SAMPLES}. The first-stage F-statistic is again above ten and the estimated impulse responses are very similar to our full sample estimates. Overall, we conclude that across several different samples, expansionary forward guidance leads to increases in economic activity.  
+	
+\subsection{Robustness of Proxy-SVAR results to Alternative Error Bands}
+
+In the main text (Figure 3), we report estimated impulse responses with 90\% error bands computed using a Wild bootstrap, as in \citet{GertlerKaradi:2015} and \citet{BauerSwanson:2023nber}. However, there appears to be little consensus in the literature on how to feasibly construct confidence bands for Proxy SVARs with multiple instruments. To make our results more comparable to \citet{BauerSwanson:2023nber}, we report standard error bands constructed using the Wild bootstrap in the main text. However, \citet{JentschLunsford:2019} recommend using a Moving Block bootstrap methodology. \citet{MertensRavn:2019} demonstrate that the moving block bootstrap error bands are more conservative. Figure \ref{fig:FGPROXYVAR_BSCompare} below shows results constructing our error bands using both the Wild bootstrap and the more conservative Moving Block bootstrap bands. \\
+
+Finally, other papers often report 95\% and 68\% error bands. Therefore, in Figures \ref{fig:FGPROXYVAR_WildBS_6895} and \ref{fig:FGPROXYVAR_MBB_6895}, we report results for our Proxy SVAR impulse responses with these respectively larger and smaller percentile ranges using both the Wild bootstrap and the moving block bootstrap. The results in Figure \ref{fig:FGPROXYVAR_BSCompare} show that the differences between the two bootstrap methods are most pronounced when the instruments are weaker as in the far left column.  This finding is in line with the results in \citet{MertensRavn:2019} who caution that the moving block bootstrap estimates of the 5-95 (90\%) and 2.5-97.5 (95\%) percentiles of the distribution of the error bands are very wide compared to other methods used to construct confidence intervals, particularly when the external instruments are weaker (as in the first column of Figure \ref{fig:FGPROXYVAR_BSCompare}).
+
+
+\clearpage
+\bibliographystyle{aea}
+\bibliography{references}
+\clearpage
+
+\renewcommand\thetable{A.\arabic{table}}    
+
+\renewcommand\thefigure{A.\arabic{figure}}    
+
+\begin{table}[h!] 
+	\textbf{\caption{Monetary Policy Surprises \& The Term Structure of Monetary Policy Uncertainty: Robustness to using PDF-Measures of Implied Volatility \label{tab:baseline_pdf}}} \vspace{0.1in}
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c } \hline \hline
+								& \multicolumn{10}{c}{Dependent Variable: $\Delta$ 10-yr Treasury Yield}								\\ \cmidrule{2-11}
+ PDF Level          			&  1.04\str{***}	& &  1.04\str{***}		& &  0.59\str{**}		& &  0.44\str{***}   	& &  0.41\str{**}  		& \\
+                    			&  [0.00]  			& &  [0.00] 			& &  [0.01]  			& &  [0.01]  			& &  [0.03]  			& \\
+ PDF Slope          			&         			& &  1.52\str{***}		& &  1.27\str{***}		& &  1.09\str{***}		& &  1.05\str{***}    	& \\
+                    			&         			& &  [0.00]  			& &  [0.00]  			& &  [0.00]  			& &  [0.00]  			& \\
+ FF Factor 	            		&         			& &         			& &  0.01\str{}			& &  0.00\str{}			& &  0.00\str{}   		& \\
+                    			&         			& &         			& &  [0.45]  			& &  [0.54]       		& &  [0.58]       		& \\
+ FG Factor             			&         			& &         			& &  0.02\str{***}    	& & 0.03\str{***} 		& &  0.02\str{***}    	& \\
+                    			&         			& &         			& &  [0.00]       		& & [0.00]  			& &  [0.00]  			& \\
+ LSAP Factor           			&         			& &         			& &         			& & -0.06\str{***}		& &         			& \\
+                    			&         			& &         			& &         			& & [0.00]  			& &         			& \\
+ Omit LSAP Dates       			&   {No}   			& &   {No}   			& & {No}    			& & {No}    			& &  {Yes} 				& \\
+								&         			& &         			& &         			& & 		  			& &         			& \\
+R$^2$       					&  0.14   			& &  0.32   			& &  0.39   			& & 0.65   				& &  0.38   			& \\
+ PDF F-test 		 			&  		  			& &  [0.00]  			& &  [0.00]  			& & [0.00]  			& &  [0.00]  			& \\ \hline\hline  \end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{The EDX F-test row shows the [p-value] for the hypothesis test that the regression coefficients on the PDF Level and PDF Slope are jointly zero.  Heteroskedasticity-consistent standard errors are used to calculate [p-values] shown below coefficient estimates. Number of observations: 204. Number of observations without LSAP dates: 195.  The sample period is January 1994 -- June 2019. All changes in yields and the PDF measures are calculated over a one-day window around scheduled FOMC meetings. FF Factor, FG Factor, and LSAP Factor are from \citet{Swanson:2021}.}
+	\item \footnotesize{$^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+\begin{table}[h!] 
+	\textbf{\caption{Monetary Policy Surprises Interactions and The Term Structure of Monetary Policy Uncertainty \label{tab:interaction_edx}}} \vspace{0.1in}
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2]} \hline \hline
+								& \multicolumn{6}{c}{Dependent Variable: $\Delta$ 10-yr Treasury Yield}																											\\ \cmidrule{2-7}
+								& \multicolumn{2}{c}{$\Delta$ 2-yr Treas Yield}					& \multicolumn{2}{c}{FF \& FG Factors    }				& \multicolumn{2}{c}{Policy News Shock (PNS)}		\\ \cmidrule(r){2-3} \cmidrule(r){4-5} \cmidrule(r){6-7}
+ EDX Level                    	& 0.53\str{***}  				& 0.52\str{***}  				& 0.71\str{***}					& 0.68\str{***}  		& 0.70\str{*}  					& 0.48\str{**}  		\\
+								& [0.00]  						& [0.00]  						& [0.03]  						& [0.01]  				& [0.09]  						& [0.04]  				\\
+ EDX Slope                    	&         						& 0.73\str{***}  				&         						& 1.23\str{***}  		&         						& 1.40\str{***}  		\\
+								&         						& [0.00]  						&         						& [0.00]  				&         						& [0.00]  				\\
+ $\Delta$ 2-yr        & 1.04\str{***}  				& 0.91\str{***}  				&         						&         				&         						&         				\\
+								& [0.00]  						& [0.00]  						&         						&         				&         						&         				\\
+ FF Factor                    	&         						&         						& 0.05\str{}  					& 0.05\str{}			&         						&         				\\
+								&         						&         						& [0.21]  						& [0.12]  				&         						&         				\\
+ FG Factor                    	&         						&         						& 0.04\str{***}				& 0.03\str{***}		&         						&         				\\
+								&         						&         						& [0.00]  						& [0.00]  				&         						&         				\\
+ PNS                          	&         						&         						&         						&         				& 1.42\str{*}  				& 0.60\str{}  		\\
+								&         						&         						&         						&         				& [0.08]  						& [0.36]  				\\
+ D 2-yr x L EDX 4Q            	& -0.28\str{*}				& -0.24\str{}					&         						&         				&         						&         				\\
+								& [0.07]  						& [0.11]  						&         						&         				&         						&         				\\
+ FF x L EDX 4Q                	&         						&         						& -0.04\str{}					& -0.04\str{}			&         						&         				\\
+								&         						&         						& [0.22]  						& [0.19]  				&         						&         				\\
+ FG x L EDX 4Q                	&         						&         						& -0.01\str{}					& -0.01\str{}			&         						&         				\\
+								&         						&         						& [0.23]  						& [0.28]  				&         						&         				\\
+ PNS x L EDX 4Q               	&         						&         						&         						&         				& -1.07\str{}					& -0.30\str{}			\\
+								&         						&         						&         						&         				& [0.15]  						& [0.62]  				\\
+ 								&         						&         						&         						&  		  				&         						&         				\\
+ R$^2$                 			& 0.56  						& 0.59							& 0.30							& 0.40					& 0.11							& 0.31					\\
+ EDX F-test           			& [0.00]  						& [0.00] 						& [0.03]  						& [0.00]  				& [0.09]  						& [0.00]  				\\
+ Interaction Terms F-test 		& [0.08]  						& [0.11]  						& [0.19]  						& [0.12]  				& [0.15]  						& [0.62]  				\\ \hline\hline
+  \end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{The EDX F-test row shows the [p-value] for the hypothesis test that the regression coefficients on the EDX Level and EDX Slope are jointly zero. The Interaction Terms F-test row shows the [p-value] for the hypothesis test that the regression coefficients on the first moment polilcy surprises interacted with the prevailing level of policy uncertainty (measured by L EDX 4-Q, the 4-quarter ahead EDX measure of policy uncertainty the day before the policy surprise) are jointly zero.  Heteroskedasticity-robust standard errors are used to calculate [p-values] shown below coefficient estimates. Number of observations: 204, except for the PNS model where there are 106 observations due to the availability of the PNS measure.  The sample period is January 1994 -- June 2019. All changes in yields and the EDX measures are calculated over a one-day window around scheduled FOMC meetings. FF Factor and FG Factor are from \citet{Swanson:2021}. Policy News Shock (PNS) is from \citet{NakamuraSteinsson:2018}.}
+	\item \footnotesize{$^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+%\begin{landscape}
+\begin{table}[h!] 
+\textbf{\caption{Predictive Regressions for EDX Factors Using Macroeconomic and Financial Data \label{tab:Predictive}}} \vspace{0.2in}
+	\centering
+	\scalebox{0.84}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=3.3] S[table-format=3.2] S[table-format=3.3]} \hline \hline
+																& \multicolumn{1}{c}{EDX Level Factor} 		& & \multicolumn{1}{c}{EDX Slope Factor} 	 \\ \cline{2-2} \cline{4-4}
+	Constant 													& -0.089\str{***}							& & 0.053\str{***}							\\
+																& (0.028)									& & (0.016)									\\
+																& 											& & 										\\
+	Nonfarm Payrolls Surprise 	(/100k)								& -0.631\str{}								& & 0.266\str{}				\\
+																& (2.722)									& & (1.388)					\\
+																& 											& & 										\\
+	Empl. Growth (12m) (/100k)									&  0.065\str{***}							& &  -0.040\str{***} 		\\
+																& (0.021)									& & (0.012) 					\\
+																& 											& & 										\\
+	\% Chg. S\&P 500 (3m)										& 	0.142\str{***}							& &  -0.032\str{}							\\
+																& 	(0.037) 									& &  (0.029) 								\\
+																& 											& & 										\\
+	Chg. Treasury Yield Curve Slope (3m)							& 	-0.011\str{**}							& &  0.006\str{}							\\
+																& 	(0.005) 									& &  (0.004) 								\\
+																& 											& & 										\\
+	\% Chg. Comm. Prices (3m)									& 	-0.007\str{}								& &  0.064\str{***}							\\
+																& 	(0.028)									& &  (0.024)									\\
+																& 											& & 										\\
+	Observations												& {204}										& & {204}									\\
+	R$^2$														& {0.19}									& & {0.10}									\\ 
+	 Joint F-stat		 										& 6.77\str{***}  							& & 5.59\str{***} 								\\ \hline\hline 
+	\end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{Note: All independent variables are measured as the most recent observation before each FOMC meeting. The nonfarm payroll surprise is the surprise component of the most recent employment situation report before the FOMC meeting. Real-time employment growth numbers were collected from FRB Philadelphia's Real-Time Data Research Center. Heteroskedasticity-consistent standard errors are shown in parentheses. $^{*}p<0.10$,$^{**}p<0.05$,$^{***}p<0.01$  }
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+%\end{landscape}
+\clearpage
+
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{Robustness of Proxy SVAR Results to Different Samples \label{fig:FGPROXYVAR_ROBUST_SAMPLES}}}
+\vspace{0.00in}
+\begin{centering}
+\includegraphics[width=6.0in]{FGPROXYVAR_WildBS_90_SampleRobustness_Appendix.pdf}
+\end{centering}
+
+\footnotesize{Note:  Each column shows impulse responds from a separate structural VAR identified using our EDX term structure factors as external instruments.  The first column shows our baseline estimates (the same as column 2 in Figure 3 of the main text), the second column estimates the reduced-form VAR over the same sample for which our external instruments are available, and the third column consider the post-1982 sample which omits the period of monetary targeting (the monetarist experiment).}
+\end{figure}
+
+
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{Robustness of Proxy SVAR Results to Different Bootstrap Methods \label{fig:FGPROXYVAR_BSCompare}}}
+\vspace{0.00in}
+\begin{centering}
+\includegraphics[width=6.0in]{FGPROXYVAR_90_BootstrapCompare_AllProxies.pdf}
+\end{centering}
+
+\footnotesize{Note:  Each column shows impulse responds from a separate structural VAR identified using external instruments. The instrument set is denoted at the top of each column and are the same ones used in the Figure 3 of the main text. The gray shaded areas show error bands constructed using the Wild Bootstrap while the dashed black lines show error constructed using the Moving Block Bootstrap. The block size is set to 5.03$\times$T$^{0.25}$, as recommended in \citet{JentschLunsford:2019}. For each method, the error bands are constructed from 5,000 replications. }
+\end{figure}
+
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{Robustness of Proxy SVAR Results to Different Error Band Percentiles: Wild Bootstrap \label{fig:FGPROXYVAR_WildBS_6895}}}
+\vspace{0.00in}
+\begin{centering}
+\includegraphics[width=6.0in]{FGPROXYVAR_WildBS_6895.pdf}
+\end{centering}
+
+\footnotesize{Note:  Each column shows impulse responds from a separate structural VAR, each identified using different external instruments. The reduced form VARs are estimated from July 1979 through June 2019 and the external instruments identifying equations are estimated from August 1991 through June 2019.  The error bands are calculated based on 5,000 Wild bootstrap replications. }
+\end{figure}
+
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{Robustness of Proxy SVAR Results to Different Error Band Percentiles: Moving Block Bootstrap \label{fig:FGPROXYVAR_MBB_6895}}}
+\vspace{0.00in}
+\begin{centering}
+\includegraphics[width=6.0in]{FGPROXYVAR_MBB_6895.pdf}
+\end{centering}
+
+\footnotesize{Note:  Each column shows impulse responds from a separate structural VAR, each identified using different external instruments. The reduced form VARs are estimated from July 1979 through June 2019 and the external instruments identifying equations are estimated from August 1991 through June 2019.  The error bands are calculated based on 5,000 moving block bootstrap replications. The block size is set to 5.03$\times$T$^{0.25}$, as recommended in \citet{JentschLunsford:2019}.}
+\end{figure}
+
+
+\end{document}
+
+
+
+
+

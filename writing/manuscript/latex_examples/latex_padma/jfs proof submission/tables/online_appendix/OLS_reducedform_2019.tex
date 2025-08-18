@@ -1,0 +1,41 @@
+
+\begin{table}[!ht]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Reduced form regression with pre-COVID outcomes: Employment share in COVID-affected industries as instrument\label{OLS_RF_2019}}
+\totextwidth{%
+%\resizebox{!}{.35\paperheight}{%
+\begin{threeparttable}
+\begin{tabular}{l*{3}{c}}
+\toprule
+& \multicolumn{1}{c}{$\Delta$ NIM}&\multicolumn{1}{c}{C\&I Gwth}&\multicolumn{1}{c}{CRE Gwth}\\ \hline
+
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+\hline
+$\text{\emph{COVID-affected\,\,employment\,\,share}}$&      -0.016         &       0.058         &       0.060         \\
+            &     (0.039)         &     (0.044)         &     (0.039)         \\
+$\text{\emph{CI\,\,to\,\,assets}}$&      -0.190\sym{***}&       0.271\sym{***}&       0.020         \\
+            &     (0.050)         &     (0.051)         &     (0.041)         \\
+$\ln{Assets}$&      -0.431         &      -0.094         &       0.533\sym{**} \\
+            &     (0.280)         &     (0.340)         &     (0.261)         \\
+$\text{\emph{ROA}}$&      -1.248         &       0.774         &       0.185         \\
+            &     (0.777)         &     (1.125)         &     (0.464)         \\
+$\text{\emph{Leverage\,\,Ratio}}$&      -0.205\sym{*}  &       0.132         &      -0.049         \\
+            &     (0.123)         &     (0.162)         &     (0.115)         \\
+$\text{\emph{ALLL\,\,to\,\,Total\,\,Loans}}$&      -0.396         &      -1.761\sym{**} &      -1.460\sym{**} \\
+            &     (0.535)         &     (0.839)         &     (0.591)         \\
+$\text{\emph{Liquid\,\,Assets\,\,To\,\,Assets}}$&      -0.101\sym{***}&       0.010         &      -0.035         \\
+            &     (0.027)         &     (0.032)         &     (0.030)         \\
+$\text{\emph{Constant}}$&       9.184\sym{**} &       3.224         &       1.878         \\
+            &     (3.840)         &     (4.786)         &     (3.890)         \\
+\hline
+Observations&       3,967         &       3,967         &       3,967         \\
+
+\hline\hline
+\end{tabular}
+\begin{tablenotes}
+\footnotesize \item Notes: Estimation sample is 2019:Q4. Regressor balance sheet variables are measured as four quarter averages from 2019. COVID-affected employment share is employment in industries that underwent the largest decline in employment averaged over counties where the bank operates a branch according to the Summary of Deposit data. County-level employment share in COVID-affected industries is obtained from the QCEW databse of the Bureau of Labor Statistics. \item Robust standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+\end{tablenotes}
+\end{threeparttable}%
+}
+\end{table}
+

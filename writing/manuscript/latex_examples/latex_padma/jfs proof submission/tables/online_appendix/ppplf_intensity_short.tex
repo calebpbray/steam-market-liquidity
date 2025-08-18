@@ -1,0 +1,33 @@
+
+\begin{table}[!ht]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{PPPLF Participation Intensity Determinants\label{PPPLF_intensity_short}}
+%\totextwidth{%
+\resizebox{.85\textwidth}{!}{
+\begin{threeparttable}
+\begin{tabular}{l*{10}{c}}
+\toprule
+
+            &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         \\
+\hline\hline
+$\text{\emph{Leverage\,\,Ratio}}$&      -0.609\sym{***}&                     &                     &                     &      -0.541\sym{***}\\
+            &     (0.098)         &                     &                     &                     &     (0.097)         \\
+$\text{\emph{C\&I\,\,to\,\,assets}}$&                     &       0.518\sym{***}&                     &                     &       0.598\sym{***}\\
+            &                     &     (0.059)         &                     &                     &     (0.114)         \\
+$\text{\emph{Small\,\,C\&I\,\,to\,\,assets}}$&                     &                     &       0.581\sym{***}&                     &      -0.199         \\
+            &                     &                     &     (0.090)         &                     &     (0.144)         \\
+$\text{\emph{Unused\,\,C\&I\,\,Commitments\,\,to\,\,Assets}}$&                     &                     &                     &       0.605\sym{***}&      -0.017         \\
+            &                     &                     &                     &     (0.103)         &     (0.136)         \\
+\hline
+Observations&       6,940         &       6,940         &       6,940         &       6,940         &       6,940         \\
+Adjusted R2 &       0.041         &       0.056         &       0.046         &       0.044         &       0.059         \\
+Bank controls      &   Yes         &   Yes         &   Yes         &   Yes         &   Yes         \\
+\hline\hline
+\end{tabular}
+\begin{tablenotes}
+\footnotesize \item Notes: Dependent variable is the share of PPP loans pledged to the PPP Liquidity Facility in 2020:Q2 and 2020:Q3. Regressor balance sheet variables are measured as four quarter averages from 2019. COVID cases are county level case counts averaged over counties where the bank operates a branch according to the Summary of Deposit data. Daily county-level COVID case counts are drawn from John Hopkins. \item \textit{t} statistic in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+\end{tablenotes}
+\end{threeparttable}%
+}
+\end{table}
+

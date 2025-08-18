@@ -1,0 +1,551 @@
+%!PS-Adobe-3.0
+%%DocumentNeededResources: font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Helvetica-Oblique
+%%+ font Helvetica-BoldOblique
+%%+ font Symbol
+%%DocumentMedia: letter 612 792 0 () ()
+%%Title: R Graphics Output
+%%Creator: R Software
+%%Pages: (atend)
+%%Orientation: Landscape
+%%BoundingBox: 18 18 594 774
+%%EndComments
+%%BeginProlog
+/bp  { gs sRGB 612.00 0 translate 90 rotate gs } def
+% begin .ps.prolog
+/gs  { gsave } bind def
+/gr  { grestore } bind def
+/ep  { showpage gr gr } bind def
+/m   { moveto } bind def
+/l  { rlineto } bind def
+/np  { newpath } bind def
+/cp  { closepath } bind def
+/f   { fill } bind def
+/o   { stroke } bind def
+/c   { newpath 0 360 arc } bind def
+/r   { 4 2 roll moveto 1 copy 3 -1 roll exch 0 exch rlineto 0 rlineto -1 mul 0 exch rlineto closepath } bind def
+/p1  { stroke } bind def
+/p2  { gsave bg fill grestore newpath } bind def
+/p3  { gsave bg fill grestore stroke } bind def
+/p6  { gsave bg eofill grestore newpath } bind def
+/p7  { gsave bg eofill grestore stroke } bind def
+/t   { 5 -2 roll moveto gsave rotate
+       1 index stringwidth pop
+       mul neg 0 rmoveto show grestore } bind def
+/ta  { 4 -2 roll moveto gsave rotate show } bind def
+/tb  { 2 -1 roll 0 rmoveto show } bind def
+/cl  { grestore gsave newpath 3 index 3 index moveto 1 index
+       4 -1 roll lineto  exch 1 index lineto lineto
+       closepath clip newpath } bind def
+/rgb { setrgbcolor } bind def
+/s   { scalefont setfont } bind def
+% end   .ps.prolog
+/sRGB { [ /CIEBasedABC
+          << /DecodeLMN
+               [ { dup 0.03928 le
+                        {12.92321 div}
+                        {0.055 add 1.055 div 2.4 exp }
+                     ifelse
+                 } bind dup dup
+               ]
+             /MatrixLMN [0.412457 0.212673 0.019334
+                         0.357576 0.715152 0.119192
+                         0.180437 0.072175 0.950301]
+             /WhitePoint [0.9505 1.0 1.0890]
+           >>
+         ] setcolorspace } bind def
+/srgb { setcolor } bind def
+%%IncludeResource: font Helvetica
+/Helvetica findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font1 exch definefont pop
+%%IncludeResource: font Helvetica-Bold
+/Helvetica-Bold findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font2 exch definefont pop
+%%IncludeResource: font Helvetica-Oblique
+/Helvetica-Oblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font3 exch definefont pop
+%%IncludeResource: font Helvetica-BoldOblique
+/Helvetica-BoldOblique findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+  end
+/Font4 exch definefont pop
+%%IncludeResource: font Symbol
+/Symbol findfont
+dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse} forall
+  currentdict
+  end
+/Font5 exch definefont pop
+%%EndProlog
+%%Page: 1 1
+bp
+18.00 18.00 774.00 594.00 cl
+/bg { 0.1255 0.3647 0.4745 srgb } def
+0 0 0 srgb
+0.75 setlinewidth
+[] 0 setdash
+1 setlinecap
+1 setlinejoin
+10.00 setmiterlimit
+72.67 520.40 8.51 -282.50 r p3
+81.18 520.40 8.51 -255.75 r p3
+89.68 520.40 8.51 -249.32 r p3
+98.19 520.40 8.51 -243.35 r p3
+106.70 520.40 8.51 -211.32 r p3
+115.21 520.40 8.51 -211.07 r p3
+123.72 520.40 8.51 -208.32 r p3
+132.23 520.40 8.51 -189.59 r p3
+140.74 520.40 8.51 -181.59 r p3
+149.25 520.40 8.51 -177.42 r p3
+157.75 520.40 8.51 -162.01 r p3
+166.26 520.40 8.51 -146.84 r p3
+174.77 520.40 8.51 -142.53 r p3
+183.28 520.40 8.51 -107.82 r p3
+191.79 520.40 8.51 -107.49 r p3
+200.30 520.40 8.51 -102.52 r p3
+208.81 520.40 8.51 -90.35 r p3
+217.32 520.40 8.51 -88.67 r p3
+225.82 520.40 8.51 -86.21 r p3
+234.33 520.40 8.51 -84.50 r p3
+242.84 520.40 8.51 -80.66 r p3
+251.35 520.40 8.51 -74.72 r p3
+259.86 520.40 8.51 -74.52 r p3
+268.37 520.40 8.51 -74.47 r p3
+276.88 520.40 8.51 -69.17 r p3
+285.39 520.40 8.51 -67.04 r p3
+293.89 520.40 8.51 -63.95 r p3
+302.40 520.40 8.51 -63.62 r p3
+310.91 520.40 8.51 -61.84 r p3
+319.42 520.40 8.51 -56.30 r p3
+327.93 520.40 8.51 -54.98 r p3
+336.44 520.40 8.51 -54.85 r p3
+344.95 520.40 8.51 -51.87 r p3
+353.46 520.40 8.51 -47.81 r p3
+361.96 520.40 8.51 -42.87 r p3
+370.47 520.40 8.51 -39.37 r p3
+378.98 520.40 8.51 -38.44 r p3
+387.49 520.40 8.51 -38.28 r p3
+396.00 520.40 8.51 -36.93 r p3
+404.51 520.40 8.51 -36.57 r p3
+413.02 520.40 8.51 -35.90 r p3
+421.53 520.40 8.51 -35.63 r p3
+430.04 520.40 8.51 -34.58 r p3
+438.54 520.40 8.51 -31.95 r p3
+447.05 520.40 8.51 -29.50 r p3
+455.56 520.40 8.51 -29.10 r p3
+464.07 520.40 8.51 -28.32 r p3
+472.58 520.40 8.51 -27.74 r p3
+481.09 520.40 8.51 -25.51 r p3
+489.60 520.40 8.51 -25.35 r p3
+498.11 520.40 8.51 -25.32 r p3
+506.61 520.40 8.51 -25.13 r p3
+515.12 520.40 8.51 -24.87 r p3
+523.63 520.40 8.51 -23.82 r p3
+532.14 520.40 8.51 -22.42 r p3
+540.65 520.40 8.51 -22.11 r p3
+549.16 520.40 8.51 -18.30 r p3
+557.67 520.40 8.51 -17.64 r p3
+566.18 520.40 8.51 -15.35 r p3
+574.68 520.40 8.51 -13.79 r p3
+583.19 520.40 8.51 -11.47 r p3
+591.70 520.40 8.51 -10.56 r p3
+600.21 520.40 8.51 -10.50 r p3
+608.72 520.40 8.51 -9.70 r p3
+617.23 520.40 8.51 -8.22 r p3
+625.74 520.40 8.51 -7.63 r p3
+634.25 520.40 8.51 -6.31 r p3
+642.75 520.40 8.51 -5.80 r p3
+651.26 520.40 8.51 -5.32 r p3
+659.77 520.40 8.51 -4.32 r p3
+668.28 520.40 8.51 -2.00 r p3
+676.79 520.40 8.51 -0.75 r p3
+685.30 520.40 8.51 1.60 r p3
+693.81 520.40 8.51 2.43 r p3
+702.32 520.40 8.51 4.53 r p3
+710.82 520.40 8.51 24.96 r p3
+18.00 18.00 774.00 594.00 cl
+0 0 0 srgb
+0.75 setlinewidth
+[] 0 setdash
+1 setlinecap
+1 setlinejoin
+10.00 setmiterlimit
+np
+46.80 565.20 m
+0 -403.20 l
+698.40 0 l
+0 403.20 l
+o
+np
+46.80 162.00 m
+0 403.20 l
+o
+np
+46.80 162.00 m
+8.06 0 l
+o
+np
+46.80 206.80 m
+8.06 0 l
+o
+np
+46.80 251.60 m
+8.06 0 l
+o
+np
+46.80 296.40 m
+8.06 0 l
+o
+np
+46.80 341.20 m
+8.06 0 l
+o
+np
+46.80 386.00 m
+8.06 0 l
+o
+np
+46.80 430.80 m
+8.06 0 l
+o
+np
+46.80 475.60 m
+8.06 0 l
+o
+np
+46.80 520.40 m
+8.06 0 l
+o
+np
+46.80 565.20 m
+8.06 0 l
+o
+/Font1 findfont 15 s
+42.48 156.62 (-80) 1 0 t
+42.48 201.42 (-70) 1 0 t
+42.48 246.21 (-60) 1 0 t
+42.48 291.01 (-50) 1 0 t
+42.48 335.81 (-40) 1 0 t
+42.48 380.61 (-30) 1 0 t
+42.48 425.42 (-20) 1 0 t
+42.48 470.21 (-10) 1 0 t
+42.48 515.01 (0) 1 0 t
+42.48 559.81 (10) 1 0 t
+np
+745.20 162.00 m
+0 403.20 l
+o
+np
+745.20 162.00 m
+-8.06 0 l
+o
+np
+745.20 206.80 m
+-8.06 0 l
+o
+np
+745.20 251.60 m
+-8.06 0 l
+o
+np
+745.20 296.40 m
+-8.06 0 l
+o
+np
+745.20 341.20 m
+-8.06 0 l
+o
+np
+745.20 386.00 m
+-8.06 0 l
+o
+np
+745.20 430.80 m
+-8.06 0 l
+o
+np
+745.20 475.60 m
+-8.06 0 l
+o
+np
+745.20 520.40 m
+-8.06 0 l
+o
+np
+745.20 565.20 m
+-8.06 0 l
+o
+749.52 156.62 (-80) 0 0 t
+749.52 201.42 (-70) 0 0 t
+749.52 246.21 (-60) 0 0 t
+749.52 291.01 (-50) 0 0 t
+749.52 335.81 (-40) 0 0 t
+749.52 380.61 (-30) 0 0 t
+749.52 425.42 (-20) 0 0 t
+749.52 470.21 (-10) 0 0 t
+749.52 515.01 (0) 0 0 t
+749.52 559.81 (10) 0 0 t
+69.48 553.68 (J) 0 ta
+-0.300 (an 2020-Apr 2020) tb gr
+693.51 571.68 (P) 0 ta
+-0.750 (ercent) tb gr
+0.38 setlinewidth
+[] 0 setdash
+np
+46.80 565.20 m
+0 0 l
+o
+np
+46.80 565.20 m
+8.06 0 l
+o
+np
+745.20 565.20 m
+0 0 l
+o
+np
+745.20 565.20 m
+-8.06 0 l
+o
+/Font1 findfont 6 s
+78.47 52.61 (Clothing and clothing accessor) 90 ta
+0.090 (ies stores) tb gr
+86.98 59.93 (Scenic and sightseeing tr) 90 ta
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+95.45 79.62 (P) 90 ta
+-0.300 (ersonal and laundr) tb
+0.180 (y ser) tb
+0.180 (vices) tb gr
+103.94 55.61 (Am) 90 ta
+-0.060 (usements) tb
+-0.090 (, gamb) tb
+-0.120 (ling, and recreation) tb gr
+112.45 38.60 (Motion picture and sound recording industr) 90 ta
+0.090 (ies) tb gr
+120.99 58.94 (Fur) 90 ta
+0.150 (niture and home fur) tb
+0.150 (nishings stores) tb gr
+129.47 69.28 (F) 90 ta
+-0.180 (ood ser) tb
+0.180 (vices and dr) tb
+0.090 (inking places) tb gr
+138.59 159.98 (Accommodation) 1 90 t
+146.54 34.92 (Spor) 90 ta
+0.240 (ting goods) tb
+-0.090 (, hob) tb
+-0.060 (b) tb
+-0.120 (y) tb
+-0.600 (, book, and m) tb
+-0.060 (usic stores) tb gr
+155.02 62.95 (P) 90 ta
+-0.300 (erf) tb
+-0.180 (or) tb
+0.150 (ming ar) tb
+0.240 (ts and spectator spor) tb
+0.240 (ts) tb gr
+163.50 41.59 (T) 90 ta
+-0.720 (r) tb
+-0.060 (ansit and ground passenger tr) tb
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+172.63 159.98 (Miscellaneous store retailers) 1 90 t
+180.56 159.98 (Apparel) 1 90 t
+189.07 106.97 (T) 90 ta
+-0.720 (e) tb
+-0.180 (xtile product mills) tb gr
+197.76 30.62 (Museums) 90 ta
+-0.090 (, histor) tb
+0.090 (ical sites) tb
+-0.090 (, and similar institutions) tb gr
+206.09 91.62 (T) 90 ta
+-0.720 (r) tb
+-0.060 (anspor) tb
+0.240 (tation equipment) tb gr
+214.59 79.61 (Fur) 90 ta
+0.150 (niture and related products) tb gr
+223.68 128.65 (T) 90 ta
+-0.720 (e) tb
+-0.180 (xtile mills) tb gr
+231.57 86.62 (Rental and leasing ser) 90 ta
+0.180 (vices) tb gr
+240.08 61.61 (Pr) 90 ta
+0.090 (inting and related suppor) tb
+0.240 (t activities) tb gr
+248.63 76.28 (Motor v) 90 ta
+-0.150 (ehicle and par) tb
+0.240 (ts dealers) tb gr
+257.12 74.62 (Amb) 90 ta
+-0.120 (ulator) tb
+0.180 (y health care ser) tb
+0.180 (vices) tb gr
+265.65 159.98 (Repair and maintenance) 1 90 t
+274.16 65.29 (Administr) 90 ta
+-0.060 (ativ) tb
+-0.150 (e and suppor) tb
+0.240 (t ser) tb
+0.180 (vices) tb gr
+282.66 42.60 (Miscellaneous dur) 90 ta
+-0.060 (ab) tb
+-0.120 (le goods man) tb
+-0.060 (uf) tb
+-0.180 (actur) tb
+0.090 (ing) tb gr
+291.79 159.98 (Social assistance) 1 90 t
+299.70 91.30 (Cour) 90 ta
+0.090 (iers and messengers) tb gr
+308.19 114.30 (Air tr) 90 ta
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+316.72 86.29 (Suppor) 90 ta
+0.240 (t activities f) tb
+-0.180 (or mining) tb gr
+325.24 88.96 (Specialty tr) 90 ta
+-0.060 (ade contr) tb
+-0.060 (actors) tb gr
+333.77 67.28 (Suppor) 90 ta
+0.240 (t activities f) tb
+-0.180 (or tr) tb
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+342.24 94.29 (Constr) 90 ta
+0.090 (uction of b) tb
+-0.120 (uildings) tb gr
+350.73 159.98 (Health and personal care stores) 1 90 t
+359.24 159.98 (Electronics and appliance stores) 1 90 t
+367.75 83.95 (Plastics and r) 90 ta
+0.090 (ub) tb
+-0.060 (ber products) tb gr
+376.24 132.31 (Machiner) 90 ta
+0.180 (y) tb gr
+384.73 159.98 (Membership associations and organizations) 1 90 t
+393.28 82.63 (Nonmetallic miner) 90 ta
+-0.060 (al products) tb gr
+401.77 119.98 (Pr) 90 ta
+0.090 (imar) tb
+0.180 (y metals) tb gr
+410.30 119.63 (W) 90 ta
+-0.180 (ood products) tb gr
+419.43 84.62 (Gener) 90 ta
+-0.060 (al merchandise stores) tb gr
+427.31 90.62 (F) 90 ta
+-0.300 (abr) tb
+0.090 (icated metal products) tb gr
+435.78 45.94 (Electronic mar) 90 ta
+0.090 (k) tb
+-0.120 (ets and agents and brok) tb
+-0.120 (ers) tb gr
+444.29 110.96 (Nondur) 90 ta
+-0.060 (ab) tb
+-0.120 (le goods) tb gr
+452.84 105.63 (W) 90 ta
+-0.240 (ater tr) tb
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+461.34 106.63 (F) 90 ta
+-0.180 (ood man) tb
+-0.060 (uf) tb
+-0.180 (actur) tb
+0.090 (ing) tb gr
+469.82 120.97 (Dur) 90 ta
+-0.060 (ab) tb
+-0.120 (le goods) tb gr
+478.94 159.98 (Nonstore retailers) 1 90 t
+486.84 81.94 (Broadcasting, e) 90 ta
+-0.180 (xcept Inter) tb
+0.150 (net) tb gr
+495.38 63.94 (Electr) 90 ta
+0.090 (ical equipment and appliances) tb gr
+503.85 91.28 (W) 90 ta
+-0.240 (arehousing and stor) tb
+-0.060 (age) tb gr
+512.40 106.63 (T) 90 ta
+-0.720 (r) tb
+0.090 (uck tr) tb
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+521.49 159.98 (Real estate) 1 90 t
+530.04 159.98 (Gasoline stations) 1 90 t
+537.89 90.62 (Mining, e) 90 ta
+-0.180 (xcept oil and gas) tb gr
+546.44 83.62 (P) 90 ta
+-0.300 (etroleum and coal products) tb gr
+554.94 62.29 (Nursing and residential care f) 90 ta
+-0.180 (acilities) tb gr
+563.42 37.94 (W) 90 ta
+-0.240 (aste management and remediation ser) tb
+0.180 (vices) tb gr
+571.98 101.96 (Oil and gas e) 90 ta
+-0.180 (xtr) tb
+-0.060 (action) tb gr
+580.47 111.30 (Rail tr) 90 ta
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+588.94 61.94 (Pub) 90 ta
+-0.120 (lishing industr) tb
+0.090 (ies) tb
+-0.090 (, e) tb
+-0.180 (xcept Inter) tb
+0.150 (net) tb gr
+597.49 159.98 (Hospitals) 1 90 t
+606.00 90.61 (P) 90 ta
+-0.240 (aper and paper products) tb gr
+615.13 159.98 (Chemicals) 1 90 t
+622.98 89.95 (F) 90 ta
+-0.180 (ood and be) tb
+-0.180 (v) tb
+-0.150 (er) tb
+-0.060 (age stores) tb gr
+632.10 104.97 (T) 90 ta
+-0.720 (elecomm) tb
+-0.060 (unications) tb gr
+640.09 159.98 (Computer and electronic products) 1 90 t
+649.16 48.28 (Credit inter) 90 ta
+0.150 (mediation and related activities) tb gr
+657.01 52.61 (Hea) 90 ta
+-0.120 (vy and civil engineer) tb
+0.090 (ing constr) tb
+0.090 (uction) tb gr
+665.56 100.29 (Pipeline tr) 90 ta
+-0.060 (anspor) tb
+0.240 (tation) tb gr
+674.06 52.27 (Lessors of nonfinancial intangib) 90 ta
+-0.120 (le assets) tb gr
+682.54 38.60 (Data processing, hosting and related ser) 90 ta
+0.180 (vices) tb gr
+691.66 55.61 (Insur) 90 ta
+-0.060 (ance carr) tb
+0.090 (iers and related activities) tb gr
+700.22 89.96 (Other inf) 90 ta
+-0.180 (or) tb
+0.150 (mation ser) tb
+0.180 (vices) tb gr
+708.08 66.11 (Monetar) 90 ta
+0.180 (y author) tb
+0.090 (ities - centr) tb
+-0.060 (al bank) tb gr
+716.57 46.60 (Building mater) 90 ta
+0.090 (ial and garden supply stores) tb gr
+ep
+%%Trailer
+%%Pages: 1
+%%EOF

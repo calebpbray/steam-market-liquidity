@@ -1,0 +1,41 @@
+
+\begin{table}[!ht]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Reduced form regression with pre-COVID outcomes: Tech. expenses to assets as instrument\label{OLS_part_RF_2019}}
+\totextwidth{%
+%\resizebox{!}{.35\paperheight}{%
+\begin{threeparttable}
+\begin{tabular}{l*{3}{c}}
+\toprule
+& \multicolumn{1}{c}{$\Delta$ NIM}&\multicolumn{1}{c}{C\&I Gwth}&\multicolumn{1}{c}{CRE Gwth}\\ \hline
+
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+\hline
+$\text{\emph{Tech.\,\,Exp\,\,to\,\,Assets}}$&      -1.015         &       3.562         &       2.363         \\
+            &     (2.113)         &     (2.490)         &     (1.979)         \\
+$\text{\emph{CI\,\,to\,\,assets}}$&      -0.189\sym{***}&       0.267\sym{***}&       0.016         \\
+            &     (0.050)         &     (0.051)         &     (0.041)         \\
+$\ln{Assets}$&      -0.473\sym{*}  &       0.055         &       0.662\sym{**} \\
+            &     (0.279)         &     (0.334)         &     (0.267)         \\
+$\text{\emph{ROA}}$&      -1.264         &       0.832         &       0.216         \\
+            &     (0.791)         &     (1.113)         &     (0.461)         \\
+$\text{\emph{Leverage\,\,Ratio}}$&      -0.208\sym{*}  &       0.143         &      -0.044         \\
+            &     (0.123)         &     (0.161)         &     (0.115)         \\
+$\text{\emph{ALLL\,\,to\,\,Total\,\,Loans}}$&      -0.386         &      -1.797\sym{**} &      -1.499\sym{**} \\
+            &     (0.536)         &     (0.841)         &     (0.591)         \\
+$\text{\emph{Liquid\,\,Assets\,\,To\,\,Assets}}$&      -0.101\sym{***}&       0.013         &      -0.033         \\
+            &     (0.027)         &     (0.032)         &     (0.030)         \\
+$\text{\emph{Constant}}$&       9.651\sym{**} &       1.589         &       0.853         \\
+            &     (4.080)         &     (4.917)         &     (4.124)         \\
+\hline
+Observations&       3,967         &       3,967         &       3,967         \\
+
+\hline\hline
+\end{tabular}
+\begin{tablenotes}
+\footnotesize \item Notes: Estimation sample is 2019:Q4. Regressor balance sheet variables are measured as four quarter averages from 2019. Technical expenses to assets are measured as data processing and telecommunications expenses relative to total assets from call reports. \item Robust standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+\end{tablenotes}
+\end{threeparttable}%
+}
+\end{table}
+
