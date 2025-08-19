@@ -61,7 +61,7 @@ def pull_cs_price_history(item,request,out_dir):
     pull_df['post_sd'] = pull_df.loc[pull_df['py_date'] >= datetime(2018,3,29), 'median_price'].std() #post-intervention standard deviation
     #clean a little
     pull_df['median_price'] = pull_df["median_price"].round(3)
-    pull_df = pull_df[['date','py_date','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','weapon','skin','wear','stattrak','treated_unit','post_treat']]
+    pull_df = pull_df[['date','py_date','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','skin','wear','stattrak','treated_unit','post_treat']]
     #export
     pull_df.to_csv(f'{out_dir}/{item.replace("™","").replace("|","").replace(" ","")}_price_history.csv',index=False)
     return pull_df

@@ -1,4 +1,4 @@
-date,py_date,median_price,rolling_30day_sd,ewm_30day_sd,expanding_sd,total_sd,pre_sd,post_sd,volume_sold,item,weapon,skin,wear,stattrak,treated_unit,post_treat
+date,py_date,median_price,rolling_30day_sd,ewm_30day_sd,expanding_sd,total_sd,pre_sd,post_sd,volume_sold,item,equip,skin,wear,stattrak,treated_unit,post_treat
 Aug 01 2014,2014-08-01,46.81,,,,16.463746422360536,13.63298140400811,18.338370994826732,1,M4A4 | Bullet Rain,M4A4,Bullet Rain,Battle-Scarred,1,1,0
 Aug 03 2014,2014-08-03,68.992,15.685042620279999,15.68504262028,15.685042620279999,16.463746422360536,13.63298140400811,18.338370994826732,1,M4A4 | Bullet Rain,M4A4,Bullet Rain,Battle-Scarred,1,1,0
 Aug 07 2014,2014-08-07,42.078,14.36892679824535,11.526731052174666,14.36892679824535,16.463746422360536,13.63298140400811,18.338370994826732,1,M4A4 | Bullet Rain,M4A4,Bullet Rain,Battle-Scarred,1,1,0
