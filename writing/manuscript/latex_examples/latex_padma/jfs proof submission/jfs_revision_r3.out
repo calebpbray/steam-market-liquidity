@@ -1,0 +1,35 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Institutional Background and Methodology}{}% 2
+\BOOKMARK [1][-]{section.3}{Who Participated in the PPP and How Much?}{}% 3
+\BOOKMARK [1][-]{section.4}{How did the PPP Affect Bank Lending and Profits?}{}% 4
+\BOOKMARK [1][-]{section.5}{Did the PPP Liquidity Facility Improve Outcomes?}{}% 5
+\BOOKMARK [1][-]{section.6}{Did the PPP Crowd Out Lending or Avert A Credit Crunch?}{}% 6
+\BOOKMARK [1][-]{section.7}{Robustness}{}% 7
+\BOOKMARK [2][-]{subsection.7.1}{Alternative Instruments}{section.7}% 8
+\BOOKMARK [2][-]{subsection.7.2}{Program Timing Effects}{section.7}% 9
+\BOOKMARK [2][-]{subsection.7.3}{Credit Line Drawdown Effects}{section.7}% 10
+\BOOKMARK [2][-]{subsection.7.4}{Subgroup Analysis}{section.7}% 11
+\BOOKMARK [1][-]{section.8}{Discussion and Policy Implications}{}% 12
+\BOOKMARK [1][-]{appendix.A}{Bayesian Joint Model Estimation Details}{}% 13
+\BOOKMARK [2][-]{subsection.A.1}{Bayesian Joint Model Setup Details}{appendix.A}% 14
+\BOOKMARK [2][-]{subsection.A.2}{Estimation Algorithm}{appendix.A}% 15
+\BOOKMARK [2][-]{subsection.A.3}{Markov Chain Monte Carlo Algorithm}{appendix.A}% 16
+\BOOKMARK [3][-]{subsubsection.A.3.1}{Sampling Omega}{subsection.A.3}% 17
+\BOOKMARK [3][-]{subsubsection.A.3.2}{Sampling theta}{subsection.A.3}% 18
+\BOOKMARK [3][-]{subsubsection.A.3.3}{Sampling y1*}{subsection.A.3}% 19
+\BOOKMARK [1][-]{appendix.A}{Simulation Study}{}% 20
+\BOOKMARK [1][-]{appendix.B}{Categorization of COVID-sensitive industries}{}% 21
+\BOOKMARK [1][-]{appendix.C}{Additional Participation and Intensity Results}{}% 22
+\BOOKMARK [1][-]{appendix.D}{Covariances from the Bayesian Joint Model}{}% 23
+\BOOKMARK [2][-]{subsection.D.1}{Interpreting Marginal and Conditional Estimates}{appendix.D}% 24
+\BOOKMARK [1][-]{appendix.E}{Testing Instrument Assumptions}{}% 25
+\BOOKMARK [2][-]{subsection.E.1}{Include Instrument for Intensity in Participation Equation}{appendix.E}% 26
+\BOOKMARK [2][-]{subsection.E.2}{Include All Instruments for Participation and Intensity}{appendix.E}% 27
+\BOOKMARK [1][-]{appendix.F}{Subsample Analysis}{}% 28
+\BOOKMARK [1][-]{appendix.G}{Quarterly Results from the Bayesian Model}{}% 29
+\BOOKMARK [2][-]{subsection.G.1}{2020:Q4 Results from the Bayesian Model}{appendix.G}% 30
+\BOOKMARK [1][-]{appendix.H}{2020:Q1 C\046I Loan Draw Effect}{}% 31
+\BOOKMARK [1][-]{appendix.I}{Decomposition of Counterfactual Results}{}% 32
+\BOOKMARK [2][-]{subsection.I.1}{Discussion of Counterfactual Results for NIM}{appendix.I}% 33
+\BOOKMARK [2][-]{subsection.I.2}{Extended Discussion of the Effect of Loss Allowances on Counterfactual Outcomes}{appendix.I}% 34
+\BOOKMARK [1][-]{appendix.J}{Loan Growth Rates at Community Banks During the GFC }{}% 35

@@ -1,0 +1,735 @@
+% ---------------- Basic Preambles for LaTeX ---------------- %
+%
+% ---------------- Document type ---------------- %
+\documentclass[12pt,leqno]{article} % papers
+%\documentclass[handout]{beamer} % presentations
+
+% ---------------- Languages and Fonts ---------------- %
+\usepackage[english]{babel} % 
+\usepackage[utf8]{inputenc}
+
+\usepackage{makecell}
+\usepackage[counterclockwise, figuresleft]{rotating}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{makecell}
+
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+
+
+\usepackage{dcolumn}
+
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{arydshln,leftidx,mathtools}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{bbm}
+
+\usepackage{textcomp}
+\usepackage{float}
+
+\usepackage{listings}
+\usepackage{color}
+
+% ---------------- Tables and stuff ---------------- %
+%\usepackage[document]{ragged2e}
+\usepackage{enumerate,comment,color, caption, url}
+\usepackage{tabularx}
+\usepackage{verbatim}
+
+\usepackage{booktabs}% for \midrule and \cmidrule macros
+\newcommand\headercell[1]{%
+   \smash[b]{\begin{tabular}[t]{@{}c@{}} #1 \end{tabular}}}
+% ---------------- Headings ---------------- %
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+%\chead{}
+\rhead{}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+
+\usepackage{enumitem}
+% ---------------- Math ---------------- %
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{esint}
+\usepackage{units}
+\usepackage{listings}
+% ---------------- Theorems ---------------- %
+%\newtheorem*{}{} %{referencia}{nome no texto}
+% ---------------- Figures ---------------- %
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{epsfig}
+\usepackage[lofdepth,lotdepth]{subfig} % pra várias figuras
+\usepackage{caption}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{epstopdf}
+\usepackage[lofdepth,lotdepth]{subfig} % for more than one figure
+
+
+\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=blue,  %choose some color if you want links to stand out
+%}
+
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue,bookmarks=false,hypertexnames=true]{hyperref} 
+
+% ---------------- MATLAB  ---------------- %
+%\usepackage[numbered,framed]{mcode} % IMPORTANT: package must be on th same folder as the tex file
+% ---------------- Bibliography  ---------------- %
+\usepackage[square,authoryear]{natbib}
+%\usepackage[notes,backend=biber]{biblatex-chicago}
+%\bibliography{sample}
+
+\usepackage{setspace}
+
+\newtheorem*{fact}{Fact}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{claim}{Claim}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{question}{Question}
+\newtheorem{theorem}{Theorem}
+\usepackage{graphicx}
+\usepackage{hhline}
+\usepackage{soul}
+
+% ---------------- Begin ---------------- %
+\renewcommand{\baselinestretch}{1.0}
+\begin{document}
+
+\begin{titlepage}
+\title{ The Transitional Impact of State Pension Reform\thanks{We are grateful for comments from V.V. Chari, Mariacristina De Nardi, Ellen McGrattan, Anmol Bhandari, Chris Phelan, Amy Handlan, Conor Ryan, Greg Mennis, B. Ravikumar, two anonymous referees, and all conference/seminar participants.  We would like to acknowledge financial support from Arnold Ventures, The Sarah Scaife Foundation and the Heller-Hurwicz Economics Institute. We are especially grateful for excellent research assistance provided by Wesley Janson, Matthew Murphy, Cameron Brummund and Joey DiSpirito. The views expressed herein are those of the authors and not necessarily those of the Federal Reserve Bank of Kansas City or the Federal Reserve System.}}
+
+\author{ Jordan Pandolfo\thanks{Federal Reserve Bank of Kansas City, corresponding author, email: jordan.pandolfo@kc.frb.org} and Kurt Winkelmann \thanks{Heller-Hurwicz Economics Institute at the University of Minnesota, Navega Strategies} }
+\date{ November 2023}
+\maketitle
+\begin{abstract}
+\noindent \begin{spacing}{1.2} 
+We use an overlapping generations framework to evaluate the transitional impact of state pension reform on public and private workers, extending our analysis to all fifty U.S. states.  We consider reducing cost-of-living-adjustments (COLAs) for retirees and reducing benefit accruals for current workers.  The magnitude of reform in each state is calibrated to achieve a common policy goal: the elimination of unfunded pension liabilities within twenty years. 
+
+Although each reform effectively decreases long run taxes by reducing pension liabilities, variation in fiscal and demographic features creates significant differences in state outcomes. Both reforms yield an asymmetry in welfare outcomes, providing gains to private workers through reduced taxes while causing losses to public workers due to reduced pension income. Wage compensation for affected public workers proves to be a valuable policy instrument for achieving better balance. In the aggregate, state level welfare gains are possible for both reforms. 
+
+
+\end{spacing}
+
+\vspace{25mm}
+\hfill \break
+JEL Classification: D60, E62, H70, J11 \hfill \break 
+Keywords: pension reform, state public pensions, lifecycle, overlapping generations, retirement
+
+%\hfill \break
+%JEL Classification:  \hfill \break 
+%Keywords: 
+
+%\vspace{0in}\\
+%\noindent\textbf{Keywords:} key1, key2, key3\\
+%\vspace{0in}\\
+%\noindent\textbf{JEL Codes:} key1, key2, key3\\
+
+\bigskip
+\end{abstract}
+\setcounter{page}{0}
+\thispagestyle{empty}
+\end{titlepage}
+
+\clearpage 
+
+\linespread{1.5}\selectfont
+
+
+\section{Introduction}  \label{Introduction} 
+
+U.S. state pension plans currently do not have sufficient funds to finance future retirement benefits.  For example, 2020 Public Plans Data documents state pensions were operating with a 72\% funded ratio, indicating an aggregate underfunded gap greater than \$1.5 trillion. The ultimate burden of financing underfunded pension systems falls on taxpayers, as they are responsible for public employee wages and benefits. Therefore, analysis related to altering state pension systems should properly account for all affected stakeholders.   
+
+This paper is the first to examine the transitional welfare effects of public pension reform on both the public and private job sector at the state level.  In particular, we develop a heterogeneous overlapping generations model and evaluate pension reform for all fifty U.S. states. The cross-state variation introduces significant scope to our analysis, enabling us to discern which state characteristics are most relevant for determining effective reform outcomes. Further, by focusing on transitional effects, we are able to better understand the political viability of each reform.
+
+We examine the impact of two distinct reforms which are the most common in practice. We first consider a partial reduction in cost-of-living adjustments (COLAs) which affects the real value of benefits in retirement. We refer to this as the COLA Reform. Second, we consider a reduction in pension \textit{multipliers} which determine benefit accruals throughout a worker's career. We refer to this as the Hybrid Reform. For each state, and for each reform, we calibrate the reform parameters to achieve the same policy goal: reducing the pension plan's future expected liabilities by the size of the unfunded liability. This step ensures that the results are comparable across states and reforms. 
+
+We find that states which suffer from under-saving, unrealistic target investment returns and an aging state population require the largest policy interventions, but this also translates into the largest welfare gains from reform. Welfare gains come solely through the \textit{tax channel} by which a reduction in pension liabilities translates into lower state taxes. This improves welfare outcomes for private sector workers but creates a trade-off for public sector workers who also experience a reduction in pension income (i.e. the \textit{benefits channel}). Overall, the reforms improve welfare for most private sector workers and decrease welfare for most public sector workers. 
+
+While both reforms achieve the same policy goal, there are notable differences in their short- and long-run effects. The COLA Reform generates a larger initial drop in pension liabilities due to it's immediate impact on pension distributions for current retirees and future retirees. In contrast, the Hybrid Reform, which only affects the accrual of future worker benefits, takes decades to fully materialize. Nevertheless, the Hybrid Reform generates the largest long run drop in taxes and liabilities. Specifically, the average COLA Reform results in a 36 basis point reduction in COLAs, leading to an 8\% reduction in long run liabilities and a 31 basis point drop in state taxes. The average Hybrid Reform involves a 24 basis point reduction in pension multipliers, leading to a 16\% reduction in liabilities and a 54 basis point drop in state taxes. 
+
+For the COLA reform, public worker welfare effects (as measured by consumption equivalent variation) range between -3.93\% and 0\% while private worker welfare effects range between 0\% and 0.72\%.\footnote{The welfare metric is described in greater detail in the online appendix Section A.1.} State-level welfare effects, weighted by population, vary between 0\% and 0.51\%. In the case of the Hybrid Reform, the public and private worker welfare effects range from -8.84\% to 0\% and 0\% to 0.96\%, respectively, resulting in state-level welfare effects ranging from $-0.28\%$ and $0.13\%$. Thus, the welfare losses of public workers dampen state-level gains, particularly in the Hybrid Reform. To address this, we explore reforms that involve wage compensation, which can be interpreted as employer matching contributions to a defined contribution plan, and find that this can more than offset the loss of pension benefits for public workers.\footnote{We assume that the additional wage compensation is funded through a higher state tax on wages, uniformly applied to all workers.}
+
+Our model consists of a joint distribution of workers who solve a lifecycle problem subject to the fiscal policy of the state and other demographic trends over time. Workers vary by age, networth and job sector, working in either the private or public sector. Public sector workers participate in a state-run pension plan whereas private sector workers save individually for retirement.  Each agent solves a lifecycle portfolio choice model similar to \cite*{CGM} and live through two stages (working and retirement), making decisions over consumption/savings, investment portfolios and retirement each period.  Agents are exposed to three sources of risk: mortality, wage and market risk.  In addition, all workers are subject to a wage tax which varies with the management and health of the state-run pension plan. Three features are key to generating fiscal pressures that warrant the intervention of pension reforms: the undervaluation of pension liabilities due to unrealistically high discount rates, insufficient contributions to pension asset pools, and demographic change leading to an increased proportion of retirees, resulting in a drawdown on pension assets and an increase in the present value of liabilities.
+
+Section \ref{Literature} reviews related literature. Section \ref{Background} provides additional background with respect to U.S. state public pension plans.  Section \ref{Model} details the quantitative model.  Section \ref{Calibration} details model calibration and relevant data sources. The calibration of the quantitative model is divided into two sets: universal and state-specific parameters.  State-specific parameters mostly relate to demographic features and fiscal characteristics which are obtained from state financial reports.  This allows considerable tractability in parameterizing the model to a specific state and/or point in time for our analysis. Section \ref{Reforms} presents results from the main policy experiments, and Section \ref{Conclusion} concludes the paper.  
+
+\vspace{4mm}
+
+\section{Related Literature}  \label{Literature} 
+
+We use an overlapping generations framework to evaluate reforms of a state pension system. As such, our work is related to a large literature which examines the risk-sharing benefits of public retirement systems, as well as the costs (and benefits) of transitioning to alternative retirement schemes. While public retirement systems can be used to complete markets and improve welfare (\cite*{D}, \cite*{BM} and \cite*{Shiller}) they can also be a source of inefficiency arising from a host of political constraints which lead to poor management (\cite{Mon3}, \cite*{AHR}, \cite*{PR} and \cite*{BPY}).  
+
+For these reasons, a significant literature has investigated the normative and positive effects of reforming pension systems.  Often, the focus has been on how reform effects are distributed across generations (\cite*{CDP}, \cite*{G}, \cite*{KK}) while others  have highlighted important sources of intragenerational heterogeneity (\cite*{CK}, \cite*{FII}, \cite*{HV}, \cite*{IIJ}, \cite*{LMVW}). In addition, others have closely explored the transitional effects of reform (\cite*{NS}). This is important because current generations are often the most acutely affected and this can determine the political viability of such reforms.  For example, papers which evaluate transitions from a pension system to one of individual accounts often find significant welfare losses for the current generation (\cite*{Mc1} and \cite*{DIS}) while some others find that gains are possible (\cite*{MP}).
+
+This paper is, to our knowledge, the first to examine the transitional welfare effects of public pension reform on public and private sectors workers at the U.S. state-level. This distinction is important because state pension coverage is not universal: benefits accrue to public workers while private workers are affected by taxes which fund the pension system.  In addition, we use cross-state variation in fiscal and demographic characteristics to determine which factors are economically relevant in determining effective reform outcomes. 
+
+The individual lifecycle problem is most similar to frameworks used by \cite*{CGM} and \cite*{CCGM}, where agents live through a working and retirement period and make decisions related to consumption/savings as well as their financial asset portfolio. See also \cite*{CHMM}, \cite*{HMMS} and \cite*{B}. Importantly, agents are born into one of two job sectors: the public sector where they receive an exogenous wage process and guaranteed pension benefit, or the private sector where they receive a different wage process as well as individual retirement savings accounts.
+
+
+U.S. state pension plans suffer from a variety of institutional features and constraints which limit their ability to remain solvent in the long run. \cite{Mon3} and \cite{JB} describe the current chronic underfundedness as a symptom of underlying fiscal constraints and  limited commitment on the part of state legislatures.  While most states face balanced budget constraints, pension contributions are not an explicit component of their liabilities.  Thus, lowering pension contributions is a means of relaxing fiscal pressures.  This is particularly appealing as the costs of underfundedness (e.g. insolvency risk) materialize long after the current political cycle.\footnote{See also \cite*{Mon2}, \cite*{Mon1} and \cite*{Mon4}.}  In our model, states set unrealistically high discount rates and under-contribute to their pension fund in a way that is consistent with the data. In addition, related research has explicitly focused on the constraints and incentives which determine government decisions within the context of pension plan management (see \cite*{My1}, \cite*{My2} and \cite*{PR}).  For tractability we assume the state government follows a rule-based policy to balance its budget each period. This policy determines how pension contributions and taxes vary with the funded ratio of the pension over time and in a way that is consistent with empirical trends for U.S. state pension plans.  
+
+\vspace{4mm}
+
+\section{Background and Empirical Observations}  \label{Background} 
+In the aggregate, state pension plans in the United States are significantly underfunded and their condition has deteriorated over the last two decades.  In this section, we document this decline and expand upon the underlying causes for chronic pension underfundedness which will, in turn, help inform modeling assumptions used in this paper.  We use data from the Public Plans Database (PPD) which is provided by the Center for Retirement Research at Boston College (CRR) and the MissionSquare Research Institute and supported by the National Association of State Retirement Administrators (NASRA). This data is annual in frequency and spans the years 2000 to 2020. In addition, we document the cross-state variation in state pension health, generosity and worker coverage. 
+
+A pension funded ratio is the ratio between current assets $A$ and liabilities $L$ of the plan.  Thus, when the plan does not have enough assets to cover liabilities, the funded ratio is less than one which is a common indicator of poor pension health. Pension liabilities are present value calculations for all future benefits that the plan has guaranteed.  For example, if a plan was committed to paying an infinite, deterministic stream of aggregate benefits $B$ at a rate $r$, then liabilities would be $L = \frac{1+r}{r}B$. Importantly, unlike U.S. private pensions, state plans have additional flexibility in choosing their discount rate $r$. Under Government Accounting Standards Board (GASB) ruling 25,  pension plans choose discount rates based upon their expected investment return.\footnote{According to the 2021 Milliman Corporate Pension Funding Study, the average discount rate of the top 100 U.S. corporate pensions was 3.08\% in 2019, whereas the average state pension plan used a rate of 7.18\%.}  By choosing a high discount rate, the pension can reduce the value of its liabilities and immediately improve its funded ratio.
+
+Figure \ref{fig:joint} plots the average public plans funded ratio, as well as the asset and liability components of the funded ratio over time.  As can be seen in the top panel, even with high discount rates, the average funded ratio has declined from nearly 100\% in the early 2000s to 71.5\%. As of 2020, given that states have an aggregate pension liability of \$5 trillion, this implies a deficit in excess of \$1.5 trillion.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.77 \linewidth]{joint_data.jpg}
+	\caption{} 
+	\caption*{\textit{Source: PPD. The top panel plots average funded ratios for each year, weighted by plan liabilities, and volatility bands are computed based upon the weighted standard deviation for each year.  In the lower panel, plan liabilities and assets are simply summed for each year.}}
+    \label{fig:joint} 
+\end{figure} 
+
+Throughout this time period, pension liabilities have continued to grow (bottom panel). A large body of research has sought to quantify the magnitude of the funding crisis and underscore the role of unsound accounting practices which mask the problem.\footnote{Specifically, Government Accounting Standards Board (GASB) ruling 25 and Actuarial Standard of Practice (ASOP) item 27 allow public pension liabilities to be discounted with their expected portfolio return.} For example, \cite{NR} find that by using appropriate discounting assumptions for liabilities, public pension liabilities are, conservatively, 38\% higher than their reported value.\footnote{See also \cite*{NR1}, \cite*{AR}, \cite*{BW} and \cite{ARFK}.} Also, demographic change via an aging workforce is another attributing factor which has led to the growth in pension liabilities over this time period.\footnote{See \cite*{DIS} for a reference to the impact an aging workforce has on the U.S. Social Security system.}
+
+When a pension plan is underfunded, it is commonly the result of low savings (called contributions), low investment returns or an increase in the relative share of retirees.  In the aggregate, the current decline in public pension funded ratios is due to both.  For savings, Figure \ref{fig:arc} plots the average level of pension contributions relative to the Annual Required Contribution (ARC).  The ARC is the level of contributions to ensure the pension is, on average, fully funded in the long run. Therefore, contributions falling below their ARC indicates insufficient saving.  As can be seen in the figure, aggregate pension contributions have failed to satisfy their ARC over the whole sample period.      
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.65 \linewidth]{arc_data.jpg}
+	\caption{} 
+	\caption*{\textit{Source: PPD. Average contributions as a fraction of ARC are weighted by the size of plan liabilities, and volatility bands are computed based upon the weighted standard deviation for each year.}}	
+    \label{fig:arc} 
+\end{figure} 
+
+In addition to low savings, U.S. pension plan investment returns have historically underperformed relative to their target returns.  As mentioned earlier, pension target returns are especially important because plans discount their liabilities with the same rate.  Thus, by setting a high target return, plans can automatically reduce the present value of pension liabilities and improve their funded ratio. Despite this immediate benefit, liabilities grow at the rate of their discount factor and plans risks insolvency if they cannot achieve the long run target returns. In 2020, for example, the weighted average target rate of return for public plans was 7.13\% whereas the average portfolio return was 6.4\%. 
+
+Figure \ref{fig:returns} plots the hypothetical value of two portfolios, normalized to 1 in year 2000.  The first portfolio's value is obtained from the target returns of U.S. state pension plans, assuming that all returns are re-invested with the principal each year. The second portfolio's value is obtained from the actual returns experienced by the plans.  As illustrated, the actual portfolio significantly underperformed the target portfolio over the sample period such that it was 26.6\% below its target value in 2020. This corresponds to returns underperforming by 1.6\% on an annualized basis.  Even though state plans have lowered their target returns by 45 basis points from 7.58\% in 2000 to 7.13\% in 2020, their investment returns have still underperformed, on average. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.65 \linewidth]{return_data.jpg}
+	\caption{}
+	\caption*{\textit{Source: PPD. Average target returns and actual returns are computed for each year, weighted by the size of plan liabilities. These rates are applied to hypothetical portfolios in which annual returns are re-invested. The portfolios are normalized to 1 in year 2000.}}	
+    \label{fig:returns} 
+\end{figure} 
+
+Figure \ref{fig:cross} illustrates the cross-sectional variation in state pension plan health, coverage and generosity. The top left panel shows that less than five state plans are fully funded while the majority are less than 80\% funded. In fact, ten states operate with a funded ratio below 60\%, including large plans such as Illinois (47\%), New Jersey (51\%) and Massachusetts (58\%). In terms of coverage, the top right panel documents the percentage of active/working public pension participants, relative to the total workforce within the state. As is shown, public pensioners make up a non-trivial block of any given state's workforce. In fact, five states have pensioners account for more than 13\%, which includes Ohio and New York. The bottom left panel documents social security coverage for state pensioners. While the majority of pensioners receive social security, a significant share do not, making their state pension a critical component of retirement income. Last, the bottom right panel documents the generosity of pension benefits, relative to the workers average salary. Again, there is significant variation in the level of pension benefits and this can further interact with the degree of social security coverage in determining the impact that pension reform, or poor pension health, can have on workers. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{cross_data.pdf}
+	\caption{}
+	\caption*{\textit{Source: PPD, BLS and 2021 Congressional Research Service Report R46961. }}	
+    \label{fig:cross} 
+\end{figure} 
+
+In summary, U.S. public pension plans have experienced a continual decline in funded health for the past two decades.  This decline is due to low savings and low investment returns which are linked to the discounting assumption.  Further, with an aging workforce, pension liabilities and annual benefit distributions have continued to grow. Together these features generate chronic underfundedness which places an increasing burden on current (and future) workers in both the public and private sectors.  This fact has prompted many states to consider a transition to alternative retirement schemes which utilize individual retirement accounts. Our model and quantitative analysis will properly account for these institutional and fiscal features.  
+
+\vspace{4mm}
+
+\section{Model} \label{Model} 
+
+We use a heterogeneous overlapping generations model with fixed prices to analyze the effects of state-level pension reform. Model agents solve a lifecycle problem with endogenous working and retirement periods and differ with respect to their job sector, networth and age. Sector of employment determines the compensation the worker receives in terms of wages and retirement benefits.  We assume that all public sector workers receive a state-sponsored pension. During the lifecycle, agents are exposed to three sources of risk: wage, mortality and market risk. Both wage and mortality risk are idiosyncratic whereas market risk is an aggregate shock to investment returns. Last, there exists a state fiscal authority which follows a set of rules to fund public sector wages and contributions to the pension plan.  
+
+\vspace{4mm}
+
+\subsection{Preferences, Budget Constraint and Income} \label{preference}
+Agents in a state $s$ are born at age $t=1$ and can live to age $t=80$ but are subject to mortality risk, given by conditional survival probabilities $p(t+1|t)$ for each age.\footnote{Model age $t=1$ corresponds to an actual age of 20 such that an agent living to $t=80$ corresponds to an actual age of 99. This distinction becomes relevant when calibrating the model.} Agents have preferences with respect to consumption and leisure
+\[
+\tag{1} 
+u(c,\ell) = \frac{ ( c^{\nu} \ell^{1-\nu} )^{1-\gamma}}{1-\gamma} 
+\] 
+and discount the future at a rate $\beta$.  For tractability, we assume leisure $\ell \in\{\ell^w,\ell^r\}$ is an endogenous binary decision, reflecting an agent's choice between working and retirement. The specific level of leisure ($\ell^w$ or $\ell^r$) for each working status is exogenously fixed. Each period, agents solve a consumption/savings problem along with a portfolio problem.  Specifically, given beginning-of-period networth $x$, agents choose consumption $c$ and savings $a$ to satisfy the budget constraint
+\[
+\tag{2}
+c + a = x
+\] 
+and choose a risky asset portfolio share $\alpha \in [0,1]$ where $R' \sim N(\mu,\sigma)$ is the risky asset gross return next period and $R^f$ is the risk-free rate. Given the recursive structure of the problem, we use prime notation to indicate objects realized in the next period.  
+
+During the working stage, agents receive a pre-tax wage $w(s,j,t,\epsilon,\eta)$ which is a function of their state $s$, job sector $j \in \{pub,priv\}$, age $t$, and idiosyncratic wage shocks $(\epsilon,\eta)$ where $\epsilon$ is transitory and $\eta$ is persistent.  More specifically, $\epsilon$ is a mean-zero, normally distributed random variable with variances $\sigma^2_{\epsilon}$ and $\eta$ is a random walk
+\[
+\tag{3}
+\eta' = \eta + \omega'
+\] 
+where $\omega'$ is a mean-zero, normally distributed random variable with variance $\sigma^2_{\omega}$.  
+
+In retirement, agents receive an annuity $b_{sj\bar{t}}$ which is determined by the state-sector pair of employment as well as the agent's retirement age $\bar{t}$. For public sector workers, the annuity is 
+\begin{align*}
+\tag{4}
+b_{sj\bar{t}} =&\phi_{s} b^{SS} + pen_{sj\bar{t}} \\
+             =& \phi_{s} b^{SS} + \bar{t} \cdot \Delta_s \cdot \text{High-5}(\bar{t})
+\end{align*}
+which includes social security $b^{SS}$ and a state-provided pension $pen_{sj\bar{t}}$. The parameter $\phi_{s}$ represents the degree of social security coverage for public workers within a particular state. For simplicity, we assume that all private workers receive full coverage. In addition, the state pension is calculated as the product of a worker's years of employment $\bar{t}$, a multiplier $\Delta_s$ and their average five highest earning years $\text{High-5}(\bar{t})$: we assume that this formula is based upon average wages within a state so that we only have to track the retirement age $\bar{t}$.  Private workers, on the other hand, only receive social security benefits in retirement.  
+
+\vspace{4mm}
+
+\subsection{Retirement Stage} \label{retirement}
+
+In retirement, agents withdraw from the labor force and begin receiving retirement benefits. Agents condition upon their state-sector pair $(s,j)$, retirement age $\bar{t}$ and networth $x$. We define the retirement state space as $\boldsymbol{\varsigma}^r = \big( s,x,t,j, \bar{t} \big)$ and economize on notation by not writing agent decisions as a function of the state space. Thus, for ages $t\geq \bar{t}$, the retirement Bellman is
+    \begin{align*}
+        \tag{5}
+        v^r(\boldsymbol{\varsigma}^r) = \underset{c,a,\alpha}{max} & \hspace{3mm} u(c,\ell^r) + \beta p(t+1|t) E\big[ v^r( \boldsymbol{\varsigma}^{r'}) | \boldsymbol{\varsigma}^r \big] \\
+        s.t. & \quad c + a = x \\
+        s.t. & \quad  x' = R^p(\alpha,R') a + b_{sj\bar{t}}
+        \\
+        s.t. & \quad c \geq 0, \quad \alpha \in [0,1] \\
+        s.t. & \quad \text{exogenous process } \{R'\} 
+    \end{align*} 
+where $R^p(\alpha,R') = \alpha R' + (1-\alpha) R^f$ is the next-period portfolio return and the agent is subject to non-negative consumption and short-selling constraints. Notice that the law of motion for agent networth $x'$ is a function of savings, an investment portfolio and pension income $b_{sj\bar{t}}$.  
+
+\vspace{4mm}
+
+\subsection{Working Stage} \label{working}
+
+During the working stage, agents are subject to a wage tax $\tau(\mathbf{z})$ which is a function of the aggregate state $\mathbf{z} = (\mathbf{\Phi},T,\chi)$ which includes the joint distribution of agents $\mathbf{\Phi}$, model time $T$ and the state pension funded ratio $\chi$. The joint distribution $\mathbf{\Phi}$ is a high dimensional object which maps from state $s$, age cohort $t$, model time $T$, job sector $j$, agent networth $x$ and retirement status $r$ into the unit interval.\footnote{Tracking the distribution of worker networth and retirement status is necessary as this affects the pension fund and state tax policy (see Section \ref{Fiscal})} In addition, model time $T$ is an aggregate state variable as we allow for exogenous demographic change, defined as changes in the relative distribution of age cohorts over time. Last, the pension funded ratio $\chi$ defines the ratio of pension assets to the present value of liabilities. While the distribution $\mathbf{\Phi}$ can help determine the value of liabilities, $\chi$ pins down the corresponding stock of assets and determines the state tax policy (see Section \ref{Fiscal}).
+
+We define the individual working state space as $\boldsymbol{\varsigma}^w = \big( s,x,t,j,\eta \big)$. Thus, the working stage Bellman is
+\begin{align*}
+    \tag{6}
+    v^w(\boldsymbol{\varsigma}^w,\mathbf{z}) = \underset{c,a,\alpha}{max} & \hspace{3mm} u(c,\ell^w) + \beta p(t+1|t) E\bigg[ \underset{r'}{max} \bigg\{ v^w( \boldsymbol{\varsigma}^{w'}, \mathbf{z}'), v^r(\boldsymbol{\varsigma}^{r'}) \bigg\} | \boldsymbol{\varsigma}^w, \mathbf{z} \bigg] \\
+    s.t. & \quad c + a = x \\
+    s.t. & \quad  x' = \begin{cases} R^p(\alpha,R') a + \big(1-\tau(\mathbf{z}') \big) w(\boldsymbol{\varsigma}^{w'},\epsilon')& \text{if } r'=0 \\ 
+    R^p(\alpha,R') a + b_{sj\bar{t}} & \text{if } r'=1 
+    \end{cases}
+    \\
+    s.t. & \quad \mathbf{z}'  = \Gamma (\mathbf{z} , R') \\
+    s.t. & \quad c \geq 0, \quad \alpha \in [0,1] \\
+    s.t. & \quad \text{exogenous process } \{R',\eta',\epsilon'\}  
+\end{align*} 
+
+where the agent also conditions upon the aggregate state $\mathbf{z}$ and its law of motion $\Gamma$. Further, at the beginning of the next period, agents make a retirement decision $r' \in \{0,1\}$ where we assume that agents cannot re-enter the workforce after their decision to retire. If agents continue working next period ($r'=0$), their wealth is determined by a return on savings plus their post-tax wage income. Alternatively, if agents retire ($r'=1$), they start receiving their retirement annuity.
+
+\vspace{3mm}
+
+\subsection{Pension and Tax Policy} \label{Fiscal}
+
+In this section, we introduce the mechanism by which the state funds its pension and levies taxes on both public and private sector workers. For clarity, we present notation in as generalized a form as possible. Details for the explicit formulas and accounting rules are provided in the online appendix Section A.3. 
+
+A state operates with a balanced budget constraint each period. Tax revenue is raised through the wage tax $\tau$ levied on public and private sector workers and used to fund public sector wages, as well as aggregate contributions $C(\mathbf{z})$ to the state pension fund. Specifically, the wage tax is determined by the budget constraint
+\[
+\tag{7}
+\tau \times \text{Tax Base}(\mathbf{z}) =   C(\mathbf{z}) + \text{Public Wages}(\mathbf{z}) 
+\]
+
+Pension contributions are determined via the funding rule
+\[
+\tag{8}
+C(\mathbf{z}) = \theta_s C^*(\mathbf{z})
+\]
+where $C^*(\mathbf{z})$ is the Annual Required Contribution (ARC) to achieve a fully funded pension in the long run, in expectation. The parameter $\theta_s \in [0,1]$ determines the actual contribution and is a reduced form way of modeling the state's limited commitment to fund the pension (see Section \ref{Background}). As is done in practice, $C^*$ is the sum of \textit{normal costs} $NC(\mathbf{z})$, which account for newly accrued worker benefits, and the \textit{amortized unfunded liability} $AUFL(\mathbf{z})$ which accounts for old deficits in underfunded plans.\footnote{Refer to online appendix Section A.3 for a formal definition of normal costs.} The amortized unfunded liability is expressed as
+\[
+\tag{9}
+AUFL(\mathbf{z}) = \big(1-\chi \big)\frac{ PVL(\mathbf{z}) }{\tilde{r}_s} 
+\]
+where the funded ratio $\chi$ is the ratio between plan assets $A(\mathbf{z})$ and the present value of pension liabilities $PVL(\mathbf{z})$.\footnote{$\tilde{r}_s=\frac{1-(1+r_s)^{-\bar{T}_s}}{r_s}$ is the state amortization factor for unfunded liabilities, given a rate $r_s$ and amortization window $\bar{T}_s$.} Notice that if the plan is fully funded (i.e $\chi=1$) there is no unfunded liability. Pension liabilities are calculated as an expected present discounted value of pension distributions
+\[
+\tag{10}
+    PVL(\mathbf{z}) = \sum_{j=0}^{\infty} \frac{1}{(1+r_s)^j} \sum_{k=1}^{80} E\big[ \text{RetShare}(T+j,k) \cdot \text{Accrual Factor}(T+j,k) \cdot pen_{s,j=pub,\bar{t}=k} | \mathbf{z} \big]
+\] 
+For any model year $T$, the PVL formula calculates the sum of expected future distributions of pension benefits to retirees, discounting the cash flows with the state discount rate $r_s$. The term $RetShare(T+j,k)$ calculates the share of retirees of age $k$ at time $T+j$ and the $\text{Accrual Factor}(T+j,k)$ discounts the liability if the current (i.e. the time $T$) age of that cohort is younger than the expected retirement age.\footnote{We use the Entry Age Normal (EAN) accrual method as this is the most common valuation formula used by public plans in the United States. This accrual factor is detailed in online appendix Section A.3.} 
+
+States have discretion over the choice of $r_s$: a high rate reduces the value of liabilities but also leads to faster growth in liabilities. On the asset side, pension fund investment returns are determined by a fixed risky asset share $\alpha_s$ for the pool of assets $A(\mathbf{z})$. If investment returns fail to match the discount rate, the unfunded liability $AUFL$ grows, increasing fiscal pressures on the state.
+
+Pension fund dynamics can be expressed by the law of motion of the funded ratio 
+\[
+\tag{11}
+\chi' = \frac{  R^p(\alpha_s,R') A(\mathbf{z}) + C(\mathbf{z}') - B(\mathbf{z'}) }{PVL(\mathbf{z'} )}
+\]
+where $B(\mathbf{z})$ is the aggregate distribution of benefits to pensioners in state $\mathbf{z}$. Equation (11) illustrates how each of the factors discussed in Section \ref{Background} can affect the pension system and taxes. First, low state contribution $C(\mathbf{z}') = \theta_s C^*(\mathbf{z}')$ imply that states do not save enough to properly fund the pension. This generates a lower funded ratio and a larger unfunded liability, leading to higher future taxes. Second, when states sets unrealistically high discount rates $r_s$, pension investment returns $R^p(\alpha_s,R') A(\mathbf{z})$ (in the numerator) fail to grow at the same rate as liabilities (in the denominator), once again resulting in lower funded ratios and higher future taxes. Last, an increase in the share of retirees increases the PVL calculation and the size of current pension distributions $B(\mathbf{z})$. By itself, an increase in the relative share of retirees is not particularly damaging to pension fund health, but this factor can exacerbate problems caused by low contributions and low investment returns. 
+
+\vspace{3mm}
+
+\subsection{Equilibrium} \label{equilibrium}
+
+An equilibrium is defined as a set of stochastic processes $\{R',\epsilon',\eta'\}$ and aggregate state $\mathbf{z} = (\mathbf{\Phi},T,\chi)$ such that for model periods $T=0,1,2,...$
+\begin{enumerate}[(1)]
+	\item Agents solve the lifecycle Bellman equations (5) and (6)
+	\item The fiscal authority sets $\tau$ to balance the budget in Equation (7)
+	\item The aggregate law of motion is satisfied
+	\[
+		\mathbf{z}' = \Gamma(\mathbf{z},R') 
+	\] 
+\end{enumerate}
+
+In this paper we examine how pension reform affects consumer welfare as well as relevant fiscal aggregates at the state-level.  This involves solving the public and private worker lifecycle problem at time $T=0$ under both a baseline and reform scenario for all age cohorts, and then simulating outcomes for fiscal projections.\footnote{The numerical solution of the agent lifecycle problem was developed with the aid of program codes provided by \cite{FK}.} 
+
+\vspace{3mm} 
+
+\subsection{Model Solution} \label{Solution}
+Solving the baseline model involves tracking the aggregate state $\mathbf{z} = (\mathbf{\Phi}, T, \chi)$ where the joint distribution of agents $\mathbf{\Phi}$ is a high dimensional object, varying by model time (due to exogenous demographic change), age cohorts, job sectors, agent networth (as this is relevant for determining retirement decisions), agent retirement status and across states. This complexity renders the model intractable to computationally solve. As such, we employ an approximate solution by assuming that the state government follows a simplified set of fiscal rules, dramatically reducing the size of the aggregate state space. We assume the fiscal authority sets the tax $\tau$ in equation (7) and the pension contributions $C(\mathbf{z})$ using a joint distribution $\tilde{\mathbf{\Phi}}$ which assumes agents retire at age $t=45$, which is interpreted as 65 in the data. 
+
+By operating with fixed expectations about worker retirement age, the approximate distribution $\tilde{\mathbf{\Phi}}$ is solely a function of time $T$ demographics within a state $s$ so that the state space is reduced to $\tilde{\mathbf{z}} = ( s,T,\chi)$.\footnote{A slight redundancy in notation since we have already defined $s$ as belonging to the retirement problem and working problem state space.} For any budget surplus or deficit $\tilde{e}$ which arises from the new tax policy $\tilde{\tau}$ via the balanced budget constraint,
+\[
+\tag{12}
+\tilde{\tau} \times \text{Tax Base}(\mathbf{z}) =   C(\mathbf{z}) + \text{Public Wages}(\mathbf{z})  + \tilde{e}
+\]
+we assume the state finances this through a long-maturity bond which does not impact tax policy within the time horizon we analyze. Additionally, we conduct model simulations which track the endogenous distribution of agents $\mathbf{\Phi}$ and are able to quantify the magnitude of this shortfall/difference, finding it to be negligible. See online appendix Section A.3 for details. 
+
+\vspace{3mm} 
+
+\section{Calibration}  \label{Calibration} 
+
+In calibrating the model to a particular state environment, we identify two sets of parameters: \emph{universal} parameters which are common across states and \emph{state-specific} parameters which are unique to the given state of interest.  Time periods are interpreted as one year and model age $t$ corresponds to $t+19$ in the data.   
+
+\vspace{3mm}
+
+\subsection{Universal Parameters}
+
+Table \ref{table:universal} details the set of universal parameters. Conditional survival probabilities are taken from the National Center for Health Statistics (NCHS) and applied to the mortality risk process $p(t+1|t)$ for all ages between 1 and 80. For the portfolio problem of agents, and the fixed investment portfolio of state pensions, we utilize return assumptions which are standard in the literature. Specifically, we assume a 2\% risk-free rate of return, a 4\% real equity premium and an equity return volatility of 16\%. 
+
+\begin{center}
+\begin{longtable}{c c c c}
+\caption{Universal Parameters} 
+\label{table:universal} \\
+
+\hline \multicolumn{1}{c}{\textbf{Parameter}} & \multicolumn{1}{c}{\textbf{Label}} &
+\multicolumn{1}{c}{\textbf{Value}} &
+\multicolumn{1}{c}{\textbf{Source/Target}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline \multicolumn{1}{c}{\textbf{Parameter}} & \multicolumn{1}{c}{\textbf{Label}} &
+\multicolumn{1}{c}{\textbf{Value}} &
+\multicolumn{1}{c}{\textbf{Source/Target}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+$\beta$              & Discount Factor        & 0.985  & Wealth Accumulation         \\
+$\gamma$             & Risk Aversion          & 2     & Literature      \\
+$\nu$                & Consumption Weight     & .58   & \cite{B}      \\
+$(\ell^w,\ell^r)$    & Leisure                & (0.79,1)   & \cite{B}      \\
+$r_f$                & Risk-free Rate         & .02   & Navega           \\
+$\mu_r$              & Equity Premium         & .04   & Navega           \\
+$\sigma_r$           & Equity Vol             & .157  & Navega           \\
+$\{ p(t+1|t) \}$     & Mortality Risk         & ---   & NCHS             \\
+
+\end{longtable}
+\end{center}    
+
+In terms of agent preferences, all workers discount the future at a rate $\beta = 0.985$ and have a relative risk aversion of $\gamma=2$. While we do not target specific values for agent wealth accumulation, our chosen discount factor results in average wealth accumulation that aligns with the values observed in the data, as illustrated in Table \ref{tab:scf} of Section \ref{val}. The inverse of the risk aversion parameter represents the intertemporal elasticity of substitution in consumption. Our implied elasticity of 0.5 aligns with findings from various studies estimating this parameter such as \cite*{AW} and \cite*{V}. We normalize leisure in retirement to 1 and set the working stage leisure $\ell^w$ to 0.79 based upon estimates from \cite*{B} which account for the time \textit{participation cost} of work. 
+
+\vspace{4mm}
+
+\subsection{State Parameters}
+
+This section documents the calibration of state-specific parameters as they relate to worker lifecycle problems and the fiscal policy of the state. Much of the pension-related data is sourced from the Public Plans Database, provided by the Center for Retirement Research at Boston College (CRR) and the MissionSquare Research Institute and supported by the National Association of State Retirement Administrators (NASRA). This data is derived from comprehensive annual financial reports publicly released by individual plans.\footnote{When multiple plans exist in a state, data is aggregated up or weighted by the value of liabilities, across individual plans, when appropriate.} In addition, data from the Social Security Administration (SSA), IRS, PSID and Health and Retirement Study (HRS) supplement the calibration of parameters related to worker wages and pension benefits. 
+
+Regarding pre-tax worker wages, we build upon the functional form and estimates in \cite*{CGM} which utilized PSID data to estimate wages as a function of age as well as the error process, using the method of \cite*{CS}.  Specifically, worker wages are defined as
+\begin{align*} 
+\tag{13}
+w(s,j,t,\epsilon,\eta) = & \lambda_{sj} e^{f(t) + \epsilon + \eta} \\ 
+ = & \lambda_{sj} e^{ b_0 + b_1 t + b_2 \frac{t^2}{10} + b_3 \frac{t^2}{100} + \epsilon + \eta }
+\end{align*}  
+with parameter values $\{b_0,b_1,b_2,b_3\} = \{ -1.9317, .3194, -.0577, .0033 \}$.\footnote{\cite*{CGM} wage estimates were based upon dollar estimates using 1992 as a base year.  We use the CPI to update measures to 2018 dollars so as to match the nominal value of pension benefits.} The parameter $\lambda_{sj}$ accounts for wage differences by state and job sector. Using data from the BEA, we set the within-state wage gap between public and private sector workers to 91\% such that $\lambda_{s,j=pub} = 0.91$ and $\lambda_{s,j=priv}=1$ is normalized for each state.
+
+Since the wage estimates consider pre-tax income, we also need to account for federal taxes and social security coverage. This is important for properly identifying the take-home pay of public and private workers in each state. In the model, post-tax wages for public workers are defined as
+\[
+\tag{14}
+(1-\tau(\mathbf{z}) - \tau_{of} - \phi_s \tau_{ss})w(s,j,t,\epsilon,\eta)
+\]
+where $\tau(\mathbf{z})$ represents state taxes, $\tau_{of}$ represents other federal taxes not related to social security (such as the income tax) and $\tau_{ss}$ is a social security tax scaled by the coverage parameter $\phi_{s}$ for each state $s$. Based on data from the Social Security Administration (SSA), the average payroll tax in 2020 was 7.625\% with 6.2\% attributed to social security contributions. In addition, an IRS Statistics of Income (SOI) report indicated average federal income tax in 2020 was 13.6\%. Thus, we set $\tau_{of} = .136 + .01425 = .15025$ and $\tau_{ss} = 0.062$. Details on social security coverage at the state level are provided in Table 1 in online appendix Section A.4. Social security coverage for public pensioners can vary from as little as 2\% (in Massachusetts) to near full coverage in many states. In addition, we adjust sector- and state-specific social security benefits to reflect differences in the wage level.
+
+The remaining set of state-specific parameters is 
+\[
+\tag{15}
+\Theta = \bigg\{ \alpha_s, r_s, \theta_s, \bar{T}_s, \tilde{\mathbf{\Phi}}, \Delta_s, PVL(T=0,s), \chi(T=0,s) \bigg\} 
+\]
+which includes the investment portfolio share $\alpha_s$ of the state pension fund, the state discount rate $r_s$ for liabilities, the share of contributions $\theta_s$ as a fraction of ARC, the amortization window $\bar{T}_s$ for unfunded liabilities, exogenous demographic change in age cohorts, pension multipliers $\Delta_s$, the initial size of state pension liabilities and the initial pension funded ratio, respectively. 
+
+Table 1 in appendix Section online appendix Section A.4 provides the calibrated values for $\alpha_s$, $r_s$, $\theta_s$, initial liabilities and initial funded ratios, directly sourced from the state financial reports. In our sample, the states with the lowest contributions via $\theta_s$ include New Jersey (52\%), Illinois (75\%), North Dakota (75\%) and Pennsylvania (76\%) while there are 18 states which contribute the full amount or better. However, even if a state contributes their full ARC, it is not enough to guarantee a fully funded pension in the long run: the ARC calculation is based upon the discounted value of liabilities which will be unrealistically low if plans use high discount rates.  In our sample, the average state uses a discount rate of 7.2\% and Figure \ref{fig:returns} demonstrates how they have failed to achieve investment returns which are consistent with that rate. In terms of total liabilities, the largest public pensions plans reside in California (\$1.2 Trillion), New York (\$578 Billion), Texas (\$354 Billion) and Illinois (\$352 Billion).  States with the lowest funded ratios include Kentucky (45\%), Illinois (46\%), Connecticutt (47\%) and New Jersey (51\%).  Conversely, the only states or territories in our sample which are fully funded or better are South Dakota (100\%) and the District of Columbia (105\%). States have a fairly consistent public sector size, ranging from 7\% of the workforce (Nevada) to 15\% (Wyoming). Also, we set the amortization window of unfunded liabilities to thirty years.
+
+We calibrate the pension accrual formula in equation (4) by using reported state pension benefits in conjunction with the estimated wage process.   For each state, we estimate the object $\text{High-5}(\bar{t})= \frac{ max^5 \big\{ \big( w(s,j=pub,k,0,0) \big)_{k=1}^{\bar{t}} \big\} }{5}$ which computes the average of the five highest earning years of a public employee at age $\bar{t}$. Given an average retirement age of 65 with $\bar{t}=45$ years of service, and given the average pension benefit for each state $\bar{b}_s$, we estimate the multiplier $\Delta_s$ via
+\[
+\tag{16}
+45\cdot \Delta_s \cdot \text{High-5}(45) = \bar{b}_s
+\]
+The average imputed multiplier was 1.2\% with a range between 0.76\% and 2.0\%. For COLAs, we assume that states in the baseline model are able to fully compensate workers for inflationary changes in the value of their benefits. 
+
+In terms of exogenous demographic change, we use state-level projections for the distribution of age cohorts, provided by the Weldon Cooper Center for Public Service at the University of Virginia.  While this data pertains to total state populations, we are interested in the current workforce, as well as retirees who were previously in the workforce.  To facilitate this transformation, we employ labor force participation rates from the BEA, as well as state information about the ratio of pension annuitants to active workers.  Refer to online appendix Section A.2 for a more detailed description. Figure \ref{fig:pop_dist} shows the change in the percentage of state-level retirees over the next forty years.  For instance, our estimates show that the current population of Alabama retirees will shift from 23\% of the population to 45\%, resulting in a level change of 22\%. Almost all states are expected to experience an increase in their retired workforce, which will put additional strain on state pension systems. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8 \linewidth]{retiree_heat.png}
+	\caption{} 
+	\caption*{\textit{Note: For each state, we measure the forecast change in the percentage of retirees in forty year, relative to today the next forty years.}}	
+    \label{fig:pop_dist} 
+\end{figure} 
+
+\vspace{4mm} 
+
+\subsection{Model Validation} \label{val}
+In this section, we examine the results obtained from simulations of the calibrated baseline model and place these findings within the context of the existing literature.  In terms of fiscal policy, Figure \ref{fig:base_forecast} plots the average trajectory of pension funded ratios, pension liabilities and state tax rates.\footnote{State-level forecasts are provided in Table 2 in online appendix Section A.4.} In the short run, average funded ratios (left panel) are expected to increase but decline in the long run due to the growth in liabilities. Pension liabilities (center panel) are expected to grow by approximately 60\% over the next four decades. This growth is, in large part, due to an increasing relative share of retirees, as emphasized in Figure \ref{fig:pop_dist}. The joint effect of low funded ratios and growing liabilities is a higher tax (right panel) and increased fiscal pressures for state pensions. This forecast is broadly consistent with the increased political pressure states are facing to reform their pension systems as described in Section \ref{Literature}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/base_fiscal_forecast.pdf}
+	\caption{} 
+	\caption*{\textit{Note: These moments are based upon 10,000 simulations with a 50 year horizon. Solid blue lines indicate averages and the shaded blue regions represent one standard deviation volatility bands.}}	
+    \label{fig:base_forecast} 
+\end{figure} 
+
+Table 2 in online appendix Section A.4 presents baseline model forecasts for each state, listing fiscal aggregates at 10, 20 and 40 year horizons.  For most states, pension liabilities are predicted to grow due to the accrual of new benefits, an aging workforce, and high discount rates.  For example, the model predicts California pension liabilities to grow from \$1.2 trillion, as measured in 2020, to \$1.9 trillion in 2060. Other than the District of Columbia, all states are predicted to be under-funded in the long run with 40 states operating with funded ratios below 90\%.  Due to the increase in pension liabilities and shrinking tax base (i.e. relatively less workers-to-retirees), state taxes and tax volatility are forecast to increase over the next fifty years.  
+
+While we have not calibrated model parameters to match lifecycle moments for workers, we nevertheless review important dimensions upon which we can compare model moments to the data. In both the private and public worker problem, a key feature is the accumulation of networth $x$ followed by a drawdown of these funds in retirement. We compare networth in the model to those collected from the 2001 Survey of Consumer Finances (SCF) in Table \ref{tab:scf}. We consider SCF Networth to be the appropriate counterpart to networth in our model but also include a measure of financial assets. Despite not being targeted, the model does very well at matching the data counterpart, particularly for private workers. For example, median networth for individuals 35 to 44 years in age was \$131,400 in the data, relative to \$151,400 in the model. Our model does forecast a larger accumulation of wealth during the working stage and a quicker draw down during retirement, but it reasonably reflects the empirical trends. Note that for public workers, the same trends hold but they accumulate less networth, on average, due to a higher guaranteed retirement income in the form of their state pension. 
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\caption{Lifecycle Wealth Accumulation}
+\label{tab:scf}
+\resizebox{.8\columnwidth}{!}{%
+\begin{tabular}{ccccc}
+\toprule
+
+\textbf{Age} & \thead{ \textbf{Financial Assets} \\ \textbf{(Data, \$000)}} &  \thead{ \textbf{Networth} \\ \textbf{(Data, \$000)}} & \multicolumn{2}{c}{ \thead{\textbf{Networth} \\ \textbf{(Model, \$000)}} } \\ 
+
+\cmidrule{4-5} 
+
+ &    &    &  Private &  Public \\
+ 
+\midrule
+   $<35$     & 10.4 & 19.6  & 27.9  & 26.6  \\
+   35 to 44  & 45.2 & 131.4 & 151.4 & 119.9  \\ \hdashline 
+   45 to 54  & 76.2 & 224.9 & 335.6 & 188.5  \\
+   55 to 64  & 97.1 & 298.0 & 525.8 & 89.5  \\  \hdashline 
+   65 to 74  & 90.1 & 310.2 & 553.3 & 49.2  \\
+   $\geq 75$ & 71.2 & 261.7 & 253.8 & 41.9  \\
+
+
+
+\bottomrule
+\hline 
+\hline \multicolumn{5}{p{4.9in}}{\small{Source: 2001 Survey of Consumer Finances (SCF). Reported numbers (data and model-generated) were based upon age group medians.}}
+\end{tabular}
+}
+\end{table}
+
+For our analysis, we reviewed common data sources for labor and income statistics, such as the University of Michigan Panel Study of Income Dynamics (PSID) and the Health and Retirement Study (HRS). However, we did not find sufficient inter-state retirement data to document distinct differences in retirement ages across states or job sectors. We do find that the average model age of retirement of 66.9, while not being targeted, is fairly close to the normal retirement age of 65 reported in the HRS. We do not observe significant variation in model retirement ages across states. 
+
+\vspace{4mm}
+
+\section{Reform Analysis} \label{Reforms}
+
+In this section, we consider the impact of two reforms and set reform parameters so that outcomes are comparable, across states and reforms. First, we consider the partial suspension of cost-of-living-adjustments (COLAs) and refer to this as the COLA Reform. Second, we consider the partial reduction of the pension multiplier $\Delta_s$ and refer to this as the Hybrid Reform. These reforms provide no additional compensation to affected public workers, a feature that we relax in Section \ref{no_wage_comp}. We choose these reforms because the vast majority of recent state pension reform proposals include either a reduction in COLAs, a reduction in benefit accruals (i.e. multipliers) or a combination of the two.\footnote{See \cite*{BB}.}
+
+The policy objective of each reform is to reduce expected pension liabilities by the size of the unfunded liability within twenty years.\footnote{Using loose notation, we choose reform parameters such that
+\[
+E_0[ PVL_{20} | \text{Reform} ] = E_0[ PVL_{20} - AUFL_{20}  | \text{No Reform}]
+\]
+} For the COLA Reform, the reform parameter involves adjusting the COLA rate to a new value $\tilde{\pi}_s \in [0,\pi]$ where $\pi$ is natural rate of inflation. For the Hybrid Reform, the reform parameter involves a downward adjustment in the pension formula multiplier $\tilde{\Delta}_s \in [0,\Delta_s]$. In the extreme case of $\tilde{\Delta}_s = 0$, current workers would accrue no additional benefits and new workers would be shut out from the plan. 
+
+Using this criterion, eight states did not require a policy intervention; that is, these states had no expected unfunded pension liability at the twenty year horizon. These states were Louisiana, Missouri, Nebraska, New York, Oklahoma, South Dakota, Utah and the District of Columbia. As such, there policy parameters were set as $(\tilde{\pi}_s,\tilde{\Delta}_s) = (\pi,\Delta_s)$. For the COLA reform, the average state required a 36 basis point COLA reduction. The largest reduction in the sample was observed in New Jersey, at 300 basis points, which represents the upper bound in our analysis.\footnote{Average annual CPI inflation for the United Sates varies depending upon the time horizon. For 1980-2022 it is 3.3\% while for 2000-2022 it is 2.49\%.} In the case of the Hybrid Reform, the average state required a 24 basis point reduction in their pension multipliers. New Jersey, again, required the largest reduction at 151 basis points, effectively closing the plan to new entrants. 
+
+Figure \ref{fig:multiplier_policy_param} plots the relationship between the imputed multiplier reductions $\Delta_s - \tilde{\Delta}_s$ and state-level factors related to pension savings, discount rates and demographic changes. The left panel demonstrates that states with low $\theta_s$, as measured by contributions relative to ARC, require larger policy interventions. The center panel highlights that states with low investment returns, relative to their target rate of return, also require larger policy interventions. Last, the right panel shows that states with an increasingly aging population require larger policy interventions, as well. These trends are consistent with the empirical evidence documented in Section \ref{Background}: a combination of low savings, low returns and demographic change have put states under fiscal pressure which requires more severe policy intervention to restore pension solvency and lower long run tax liabilities. The same graph for the COLA reform (with reform magnitudes measured by $\pi-\tilde{\pi_s}$) is provided in figure \ref{fig:cola_policy_param} of the Appendix Section \ref{Figures} and has the same implications. 
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/reform_scatter_hybrid.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Each observation represents a particular state and uses a sample period of 2000-2020. Contributions as \% of ARC are computed by taking average ratio of pension contributions relative to the Annual Required Contribution. Excess Investment Returns are computed by taking the average difference between a state's realized investment returns and it's target rate of return $r_s$ such that a negative value reflects underperformance. Change in Retirees is the expected level change in the percentage of retirees over the next fifty years.}}	
+    \label{fig:multiplier_policy_param} 
+\end{figure} 
+
+To quantify the relevance of these factors, we run a simple multivariate regression of the imputed reform parameters and fiscal/demographic characteristics illustrated in Figure \ref{fig:multiplier_policy_param}. The results are listed in Table \ref{table:reg}. In terms of pension contributions, a 10\% drop in the state's willingness to contribute (e.g. a shift in $\theta_s$ from $0.9$ to $0.8$) is associated with a 33 basis point COLA reduction and a 19 basis point multiplier reduction. In terms of returns, an average excess return of -1\% is associated with a 11 basis point COLA reduction and a 3 basis point multiplier reduction. Last, a long run increase in the share of state retirees by 10\% (e.g. from $30\%$ of the population to $40\%$) is associated with a 13 basis point reduction in COLAs and a 12 basis point reduction in multipliers. 
+
+\begin{table}[H]\centering
+\newcommand\sym[1]{\rlap{$^{#1}$}}
+
+\caption{Regression Analysis for Determinants of Reform Magnitude}
+\label{table:reg}
+%\resizebox{\columnwidth}{!}{%
+\begin{tabular*}{\columnwidth}{
+  @{\hspace{\tabcolsep}\extracolsep{\fill}}
+  l*{4}{D{.}{.}{-1}}
+}
+
+\toprule
+  &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)} \\
+  &\multicolumn{1}{c}{COLA Reduction (bps)}&\multicolumn{1}{c}{Multiplier Reduction (bps)}\\
+\midrule
+
+ARC Rate $\theta_s$                  & -3.29\sym{***} & -1.89\sym{***}   \\
+\addlinespace
+Excess Return $r-r_s$                & -10.17\sym{*}  & -3.23   \\
+\addlinespace
+LR Change in Retiree Share           & 1.33\sym{***} & 1.18\sym{***}   \\
+\addlinespace
+
+\midrule
+R-squared & \multicolumn{1}{c}{0.650} & \multicolumn{1}{c}{0.686}  \\
+F-stat & \multicolumn{1}{c}{29.1} & \multicolumn{1}{c}{34.3}   \\
+\hline 
+\hline  
+\end{tabular*}
+\multicolumn{5}{p{6.5in}}{\small{Note: We denote the statistical significance of each estimate using stars ($^{*}$p$<$0.1, $^{**}$p$<$0.05, $^{***}$p$<$0.01).}}
+%}
+\end{table}
+
+
+
+\vspace{4mm}
+
+\subsection{Positive Implications}
+
+Figure \ref{fig:fiscal_effects} plots the simulated average outcomes across states for the growth in pension liabilities and state tax rate in the baseline model, COLA Reform and Hybrid Reform. In terms of pension liabilities (left panel), both reforms effectively reduce the growth in liabilities.\footnote{ State-level fiscal forecasts for the COLA Reform and Hybrid Reform are provided in Table 3 and Table 5 in online appendix Section A.4.} The COLA Reform has a more immediate impact on liabilities since it affects the pension benefits of both current workers and current retirees. In contrast, the Hybrid Reform only affects the future accrual of benefits, thereby shielding current retirees. Both reforms achieve a similar reduction in liabilities at the twenty year mark, as this is the targeted reform horizon, but the Hybrid Reform generates more pronounced long run effects: the average COLA Reform reduces liabilities by 8\% and the level of taxes by 31 basis points whereas the Hybrid Reform reduces liabilities by 16\% and the tax rate by 54 basis points.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/reform_fiscal_forecast_alt.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Plots are based upon average outcomes across states using model simulations. Normalized growth in pension liabilities (left panel) is based upon pre-reform pension liabilities. The average tax rate (right panel) refers to only state-level taxes and not to federal programs.}}	
+    \label{fig:fiscal_effects} 
+\end{figure} 
+
+Our fiscal projections for both reforms are in line with related academic work as well as actual reform outcomes. For example, \cite*{NR1} find that a 1\% COLA freeze would reduce pension liabilities by 9\% to 11\%. On average, we find that a 1\% COLA reduction is associated with a 12.6\% reduction in liabilities. Also, \cite*{BB} document the effects of a 2011 Rhode Island reform which is similar to the Hybrid reform. Due to the simultaneity of other reform interventions, the model and data outcomes are not directly comparable but we find that a 70 basis point reduction in pension multipliers, which generated a 40\% reduction in RI liabilities, reasonably matches are model estimates of 32\%.\footnote{A 70 basis point change is an approximation of the drop in pension multipliers for the Rhode Island reform as the multiplier changes were non-uniform across tenure of service.} While lower, this number seems appropriate given that the Hybrid Reform did not include the additional changes made under the Rhode Island reform. 
+
+While our model does not allow workers to change job sectors, we briefly address the possible effects. First, consider the balanced budget constraint
+\[
+\tag{17}
+\tau [ W^{pub} + W^{Priv} ] = C + W^{pub}
+\]
+where $(W^{pub},W^{priv})$ are aggregate wages to public and private sector workers, respectively, and $C$ is the contribution to the pension fund. Given that private wages exceed public wages, if public workers were allowed to migrate to the private sector, the net effect would be a lower tax rate. In fact, a back of the envelope calculation suggests that this type of post-reform migration could more than double the reduction in tax rates.\footnote{Define aggregate wages in terms of population shares as $(W^{pub},W^{priv}) = \big( \phi w^{pub}, (1-\phi) w^{priv} \big)$ where $\phi=0.1$ is the share of public workers and public wages are 91\% of private wages (i.e. $w^{pub} = 0.91*w^{priv}$) and private wages are normalized to $1$. Further, set the relative cost of the baseline pension system $\frac{C}{C + W^{pub}}$ to the model-implied share of 23\%. In both scenarios, assume that the reform reduction in pension costs from $C$ to $C^{ref}$ is 12.5\%. In the reform scenario with no sector switching, tax rates fall from 11.9\% to 11.6\%. In the reform scenario with sector switching, assuming a 5\% outflow of the public sector to the private sector, the resulting tax rate is 10.0\%.} However, this simplified analysis abstracts from the value of public sector services. If we instead accounted for these services explicitly, as in \cite*{My1}, the net impact on cost and welfare would be much more convoluted. Nevertheless, from the perspective of public workers, the ability to switch sectors would likely dampen the welfare effects of pension reform but not change the qualitative results that we observe in our analysis.
+
+\vspace{4mm}
+
+\subsection{Normative Implications}
+
+In this section, we use consumption-equivalent welfare (see online appendix Section A.1) to make normative statements regarding the impact on workers across states, job sector and age groups. Figure \ref{fig:welfare_age} plots the average welfare effects by age for public workers (top panel) and private workers (bottom panel) and for both reforms.\footnote{ State-level welfare estimates for the COLA Reform and Hybrid Reform are provided in Table 4 and Table 6 in online appendix Section A.4.} 
+
+At the sector level, the pension reforms unambiguously improve private worker welfare while public workers are worse off. Private sector welfare gains result solely from the tax channel whereby the reduction in pension benefits reduces their tax burden (see Figure \ref{fig:fiscal_effects}) and improves welfare. In contrast, public workers experience a combined effect from both the tax and benefit channels. The adjustment to their expected retirement income (through COLAs or lower multipliers) negatively impacts their welfare, with this latter effect dominating, resulting in welfare losses between -2.5\% and 0\%. 
+
+The impact of the Hybrid Reform is less pronounced for older public workers since they have already accumulated the majority of their pension benefits. Conversely, young workers are more acutely affected by the reform, experiencing an average welfare loss of 1\%. This pattern reverses when looking at the COLA reform: public workers near retirement are the most negatively affected due to their inability to adjust consumption/savings patterns in response to the drop in their COLAs. For private workers in both reforms, young  workers reap the largest benefits, primarily due to the persistent long run reduction in tax rates, especially under the Hybrid Reform.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8 \linewidth]{output/welfare_by_age.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Shaded areas represent the difference between the $10^{th}$ percentile and $90^{th}$ percentile of state outcomes.}}	
+    \label{fig:welfare_age} 
+\end{figure} 
+
+Figure \ref{fig:state_welfare_scatter} plots the relationship between the magnitude of reform and average state welfare effects. These effects are weighted by the relative size of each age cohort and job sector. When combined with earlier results related to state characteristics (see Figure \ref{fig:multiplier_policy_param}), we observe that states requiring the largest policy interventions, driven by factors such as low savings, low returns or an aging population, are the same states that experience the largest welfare gains. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/avg_state_welfare_scatter.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Each scatter plot corresponds to average state-level welfare effects as reported in appendix Table 4 (left panel) and Table 6 (right panel).}}	
+    \label{fig:state_welfare_scatter} 
+\end{figure} 
+Of course, the state-level averages mask the underlying asymmetry in welfare effects between job sectors: public workers predominantly experience welfare losses, mainly due to the benefits channel, whereas private workers experience gains from the tax channel.\footnote{This point is emphasized in Figure \ref{fig:state_welfare_scatter_sector} in appendix Section \ref{Figures}.} Indeed, for the COLA reform, average state welfare effects range between 0\% and 0.51\%, while those numbers are -3.93\% to 0\% for public workers and 0\% to 0.72\% for private workers. In the Hybrid Reform, average state welfare effects range between -0.28\% and 0.13\% with public worker welfare effects between -8.84\% and 0\% and private worker welfare effects between 0\% and 0.96\%.
+
+Figure \ref{fig:heat_map} visually represents the state-level average welfare effects in a heat map for both reforms. Under the COLA Reform, almost all states experience welfare gains, while the majority experience welfare losses under the Hybrid Reform. This difference is explained by the compositional effects of each sector and each sector's welfare elasticity: private sector welfare is fairly consistent across reform magnitudes whereas public sector workers are particularly harmed by the long run effects of the Hybrid Reform (see Figure \ref{fig:state_welfare_scatter_sector} in appendix Section \ref{Figures}). In a sense, current public workers prefer the COLA Reform over the Hybrid Reform because it forces current retirees to share in the burden of reducing the unfunded liability. In contrast, the Hybrid Reform primarily works by reducing the future benefits of current workers.  
+
+\begin{figure}[H]
+    \centering
+    \begin{adjustbox}{width=1.5\textwidth,center}
+            \includegraphics{output/test.pdf}
+        \end{adjustbox} 
+    \caption{} 
+    \caption*{\textit{Note: Average state-level welfare effects are conditioned upon the relative size of each job sector and age cohort.}}	
+    \label{fig:heat_map} 
+\end{figure} 
+
+\vspace{4mm}
+
+\subsection{Reforms with Wage Compensation} \label{no_wage_comp}
+
+Until now, we have focused only on pension reforms which provide no direct compensation to public sector workers, other than through the tax channel. In all cases, the tax reduction was not enough to offset the loss in retirement income, resulting in welfare losses for public sector workers. In this section, we consider the same reforms but introduce wage compensation for public workers, equivalent to a permanent 3.6\% increase in their wage. This can be loosely interpreted as an employer contribution to a defined contribution retirement plan.\footnote{Wage compensation of 3.6\% was based upon the average defined contribution matching rate for workers not enrolled in a defined benefit plan. Source: Health and Retirement Study (HRS).} 
+
+Figure \ref{fig:tax_comp} presents the new simulated average outcomes across states for the state tax rate under the baseline model, COLA Reform and Hybrid Reform. Now, tax policy is affected in two opposing ways. On one hand, the reforms reduce the size of pension liabilities and hence taxes which are tied to contributions (i.e. the pension tax). On the other hand, the additional 3.6\% wage compensation increases payroll expense for public sector workers (i.e. the wage tax). Under the COLA Reform, the increase in the wage tax offsets the reduction in the pension tax, creating a higher long run tax rate. In contrast, the Hybrid Reform generates lower long run taxes due to a more substantial reduction in liabilities. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75 \linewidth]{output/reform_fiscal_forecast_alt_comp.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Plots are based upon average outcomes across states using model simulations. The average tax rate refers to only state-level taxes and not those related to federal programs.}}	
+    \label{fig:tax_comp} 
+\end{figure} 
+
+Given that private sector workers are only affected through the tax channel, it is not surprising that some private workers now suffer welfare losses under these reforms as seen in Figure \ref{fig:sector_scatters_comp}. In fact, the primary recipients of welfare gains \& losses are reversed when the 3.6\% wage compensation is introduced. Notice, again, that public sectors workers experience a much wider range of welfare outcomes due to their exposure to the change in taxes, change in wage compensation and change in pension benefits. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/avg_state_welfare_scatter_sector_comp.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Each data point represents a particular state-sector pair. For each state-sector pair, welfare effects are computed as the population-weighted average within that state and sector.}}	
+    \label{fig:sector_scatters_comp} 
+\end{figure} 
+
+Figure \ref{fig:joint_heat_comp} provides a heat map of average welfare effects for states under the \textit{Compensation} and \textit{No Compensation} versions of the COLA and Hybrid Reform. It is evident that average welfare significantly improves once wage compensation is added to the Hybrid Reform. This occurs because the net loss to private workers is more than offset by the net welfare gains of compensated public workers due to their increased sensitivity to the reforms. Wage compensation is particularly beneficial for young workers since it allows them to save and compound returns from the equity premium, thereby building up networth during their working years and increasing their consumption in retirement. 
+
+While 3.6\% wage compensation seems to improve average state-level welfare, it is in no sense an optimal policy; quite oppositely, it is apparent that there is room for improvement. Results from this section stress two policy implications. First, when it comes to pension reform, one size does not fit all and well-designed policy must be tailored to the unique fiscal and demographic features of each state. Second, average (or aggregate) welfare gains are possible under the pension reforms we consider. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/test_comp.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Average state-level welfare effects are conditioned upon the relative size of each job sector and age cohort.}}	
+    \label{fig:joint_heat_comp} 
+\end{figure} 
+
+\vspace{4mm} 
+
+\section{Conclusion}  \label{Conclusion} 
+
+The underfunded challenges faced by U.S. state public pension plans have raised concerns about their capacity to sustain future retirement benefits. Consequently, several states have explored reforms that prioritize individual retirement accounts and reduced state involvement.  Since the ultimate burden of funding the public pension system rests with taxpayers, comprehensive reform analysis should account for all the relevant stakeholders as well as important variation in state characteristics.  
+
+Our analysis underscores that states which suffer from low pension contributions, unrealistic discount rate assumptions or aging populations require the largest policy interventions. Further, these states are also the ones which stand to benefit the most from the reforms. Given that an asymmetry in welfare effects exists between public and private sector workers, reform policy should be carefully selected to balance the reform's impact on both job sectors. The introduction of wage compensation for affected public workers proves to be a useful policy instrument for achieving this balance. 
+
+
+
+\clearpage 
+
+\bibliographystyle{plainnat}%Used BibTeX style is unsrt
+\bibliography{sample.bib}
+%\printbibliography
+
+\clearpage 
+
+\appendix 
+
+\section{Appendix} \label{Appendix} 
+
+\subsection{Additional Figures} \label{Figures}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/reform_scatter_cola.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Each observation represents a particular state. \textit{Liabilities Growth} (right panels) is measured based upon the expected growth in liabilities in 40 years relative to today.}}	
+    \label{fig:cola_policy_param} 
+\end{figure} 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0 \linewidth]{output/avg_state_welfare_scatter_sector.pdf}
+	\caption{} 
+	\caption*{\textit{Note: Each data point represents a particular state-sector pair. For each state-sector pair, welfare effects are computed as the population-weighted average within that state and sector.}}	
+    \label{fig:state_welfare_scatter_sector} 
+\end{figure} 
+
+
+\end{document}

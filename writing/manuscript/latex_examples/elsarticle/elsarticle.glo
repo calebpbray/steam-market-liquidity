@@ -1,0 +1,6 @@
+\glossaryentry{v1.1>!!=General:>Initial version|hdpindex{}}{1}
+\glossaryentry{v1.2>!!=General:>Documentation, templates, and *.bst has been seperated from this .dtx. Incompatibility problems with amsref.sty, fncylab.sty have been fixed. Some bugs related to author/affiliation part have been fixed.|hdpindex{}}{1}
+\glossaryentry{v3.3>!!=General:>Defined \affiliationcommand for structured address tagging.|hdpindex{}}{1}
+\glossaryentry{v3.4>!!=General:>A bug fix. Accented characters produced errors. So loaded fontenc package.|hdpindex{}}{1}
+\glossaryentry{v3.4a>!!=General:>Removed the preprint submitted line as per the instruction received on 22 Oct 2024 from Arun Shanmugam (ELS) with the subject line, FW: Preprint sentence in EM submissions|hdpindex{}}{1}
+\glossaryentry{v3.4b>!!=General:>\global\bibsep=0pt commented out for all models since it produced error for all \jtypeoptions.|hdpindex{}}{1}

@@ -25,7 +25,7 @@ def pull_cs_price_history(item,request,out_dir):
                             median_price (float):           median price of data point, rounded to 3 decimals
                             volume_sold (int):              volume sold of data point at date and median_price
                             item (str):                     item name without StatTrak and wear
-                            weapon (str):                   weapon of item
+                            equip (str):                    weapon of item, ie where item is equipped, equivalent to dota2 hero
                             skin (str):                     item skin, ie without StatTrak, weapon name, and wear
                             wear (str):                     item wear rating
                             stattrak (int):                 {0,1} dummy for StatTrak
@@ -39,7 +39,7 @@ def pull_cs_price_history(item,request,out_dir):
     pull_df['py_date'] = pd.to_datetime(pull_df['date'], format='%b %d %Y')
     #use item name to get item qualities
     pull_df['item'] = item.replace("StatTrak™ ","").replace(re.search(r'\((?!.*Dragon King.*?\)).*?\)',item).group(0),"").strip() #item name excluding StatTrak and wear (wear being everything in parentheses except "(Dragon King)")
-    pull_df['weapon'] = item.split(" |")[0].replace("StatTrak™ ","").strip() #weapon
+    pull_df['equip'] = item.split(" |")[0].replace("StatTrak™ ","").strip() #weapon name, ex: AK-47
     pull_df['skin'] = pull_df['item'][0].split(" | ")[1].strip() #weapon skin, eg "Redline"
     print(pull_df['skin'][0])
     pull_df['wear'] = re.search(r'\((?!Dragon King\)).*?\)',item).group(0).replace("(","").replace(")","").strip() #item wear rating
