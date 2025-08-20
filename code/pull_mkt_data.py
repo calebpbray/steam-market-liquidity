@@ -18,6 +18,8 @@ code_dir = os.getcwd()
 data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),"..")) + r"\data"
 cs_data_dir = data_dir + r"\cs"
 dota_data_dir = data_dir + r"\dota2"
+attributes_dir = data_dir + r"\set_attributes"
+
 #%% SETUP
 #need "URL Decoded" steamLoginSecure from steamcommunity.com (NOT store.steampowered.com !!)
 with open(home_dir + r"\steamLoginSecure.txt", 'r') as file:
@@ -42,17 +44,36 @@ for item in cs_item_list:
 for item in dota_item_list:
     df = pull_dota_price_history(item,request,dota_data_dir)
 
-#%% JOIN ADDITIONAL DATA TO DFs (origin date -> relative age, qualities -> relative rarity)
-
-
 #%% JOIN TOGETHER CSVs BY GAME
 #map pd.concat onto every csv in data/cs and data/dota2 respectively
 cs_df = pd.concat(map(pd.read_csv, glob.glob(cs_data_dir + '\\*.csv')))
 dota_df = pd.concat(map(pd.read_csv, glob.glob(dota_data_dir + '\\*.csv')))
-combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
+
+#%% JOIN ADDITIONAL DATA TO DFs (origin date -> relative age, qualities -> relative rarity)
+cs_df['relative_age'] = (pd.to_datetime(cs_df['py_date']) - pd.to_datetime(cs_df['origin_date'])).dt.days
+dota_df['relative_age'] = (pd.to_datetime(dota_df['py_date']) - pd.to_datetime(dota_df['origin_date'])).dt.days
+
+#merge item qualities into master file
+cs_qualities_df = pd.read_csv(home_dir + r'\cs_item_qualities.csv')
+dota_qualities_df = pd.read_csv(home_dir + r'\dota_item_qualities.csv')
+
+
+#merge with item qualities
+cs_df_merge = cs_df.merge(pd.read_csv(home_dir + r'\cs_item_qualities.csv'), on='item', how='left') #item qualities
+dota_df_merge = dota_df.merge(pd.read_csv(home_dir + r'\dota_item_qualities.csv'), on='item', how='left') #item qualities
+
+#merge with attributes -- WIP MAKE MASTER ATTRIBUTES FILE FIRST
+cs_df_merge = cs_df_merge.merge(pd.read_csv(attributes_dir + r'\cs_grade_rarities.csv'), on='grade', how='left') #grade & drop
+cs_df_merge = cs_df_merge.merge(pd.read_csv(attributes_dir + r'\cs_stattrak_rarity.csv'), on='stattrak', how='left') #stattrak
+cs_df_merge = cs_df_merge.merge(pd.read_csv(attributes_dir + r'\cs_wear_rarities.csv'), on='wear', how='left') #wear
+
+dota_df_merge = dota_df_merge.merge(pd.read_csv(attributes_dir + r'\dota_grade_rarities.csv'), on='grade', how='left') #grade
+dota_df_merge = dota_df_merge.merge(pd.read_csv(attributes_dir + r'\dota_drop_rarities.csv'), on='drop', how='left') #drop
 
 
 #%% WRITE TO CSV
+combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
+
 cs_df.to_csv(fr'{data_dir}\cs_combined_items_price_history.csv',index=False)
 dota_df.to_csv(fr'{data_dir}\dota2_combined_items_price_history.csv',index=False)
 combined_df.to_csv(fr'{data_dir}\combined_items_price_history.csv',index=False)
