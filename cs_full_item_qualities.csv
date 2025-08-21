@@ -1,0 +1,24 @@
+item,grade,origin_date,origin,grade_rarity,grade_count,drop_rarity
+AK-47 | Aquamarine Revenge,Covert,2015-05-26,Falchion Case,0.0765784,728339,0.000256
+AK-47 | Blue Laminate,Restricted,2013-12-18,eSports 2013 Winter Case,0.083733991,796396,0.0064
+AK-47 | Elite Build,Mil-spec,2015-04-15,Chroma 2 Case,0.28290161,2690684,0.032
+AK-47 | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,0.029328913,278948,0.00128
+AWP | Elite Build,Classified,2016-02-18,Operation Wildfire Case,0.029328913,278948,0.00128
+AWP | Hyper Beast,Covert,2015-05-26,Falchion Case,0.0765784,728339,0.000256
+AWP | Man-o'-war,Covert,2015-01-08,Chroma Case,0.0765784,728339,0.000256
+AWP | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,0.029328913,278948,0.00128
+AWP | Worm God,Restricted,2015-04-15,Chroma 2 Case,0.083733991,796396,0.0064
+Glock-18 | Steel Disruption,Restricted,2014-07-10,eSports 2014 Summer Case,0.083733991,796396,0.0064
+Glock-18 | Water Elemental,Classified,2014-07-01,Operation Breakout Weapon Case,0.029328913,278948,0.00128
+M4A1-S | Basilisk,Classified,2014-11-11,Operation Vanguard Weapon Case,0.029328913,278948,0.00128
+M4A1-S | Cyrex,Covert,2014-07-01,Operation Breakout Weapon Case,0.0765784,728339,0.000256
+M4A4 | Bullet Rain,Covert,2014-07-10,eSports 2014 Summer Case,0.0765784,728339,0.000256
+M4A4 | Evil Daimyo,Restricted,2015-05-26,Falchion Case,0.083733991,796396,0.0064
+M4A4 | Griffin,Restricted,2014-11-11,Operation Vanguard Weapon Case,0.083733991,796396,0.0064
+M4A4 | 龍王 (Dragon King),Classified,2015-01-08,Chroma Case,0.029328913,278948,0.00128
+USP-S | Blood Tiger,Mil-spec,2014-07-10,eSports 2014 Summer Case,0.28290161,2690684,0.032
+USP-S | Caiman,Classified,2014-06-11,Huntsman Case,0.029328913,278948,0.00128
+USP-S | Guardian,Restricted,2014-02-20,Operation Phoenix Weapon Case,0.083733991,796396,0.0064
+USP-S | Kill Confirmed,Covert,2015-09-17,Shadow Case,0.0765784,728339,0.000256
+USP-S | Torque,Mil-spec,2015-05-26,Falchion Case,0.28290161,2690684,0.032
+USP-S | Stainless,Mil-spec,2014-02-12,CS:GO Weapon Case 3,0.28290161,2690684,0.032

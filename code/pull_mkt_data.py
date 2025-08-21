@@ -52,13 +52,11 @@ dota_df = pd.concat(map(pd.read_csv, glob.glob(dota_data_dir + '\\*.csv')))
 #%% JOIN ADDITIONAL DATA TO DFs (origin date -> relative age, qualities -> relative rarity)
 
 #merge item qualities into master file
-cs_qualities_df = pd.read_csv(home_dir + r'\cs_item_qualities.csv')
-dota_qualities_df = pd.read_csv(home_dir + r'\dota_item_qualities.csv')
+cs_qualities_df = pd.read_csv(home_dir + r'\cs_item_list_qualities.csv')
+dota_qualities_df = pd.read_csv(home_dir + r'\dota_item_list_qualities.csv')
 
 #merge item qualities with attributes
 cs_qualities_df = cs_qualities_df.merge(pd.read_csv(attributes_dir + r'\cs_grade_rarities.csv'), on='grade', how='left') #grade & drop
-cs_qualities_df = cs_qualities_df.merge(pd.read_csv(attributes_dir + r'\cs_stattrak_rarity.csv'), on='stattrak', how='left') #stattrak
-cs_qualities_df = cs_qualities_df.merge(pd.read_csv(attributes_dir + r'\cs_wear_rarities.csv'), on='wear', how='left') #wear
 
 dota_qualities_df = dota_qualities_df.merge(pd.read_csv(attributes_dir + r'\dota_grade_rarities.csv'), on='grade', how='left') #grade
 dota_qualities_df = dota_qualities_df.merge(pd.read_csv(attributes_dir + r'\dota_drop_rarities.csv'), on='drop', how='left') #drop
@@ -68,18 +66,26 @@ cs_qualities_df.to_csv(fr'{home_dir}\cs_full_item_qualities.csv',index=False)
 dota_qualities_df.to_csv(fr'{home_dir}\dota_full_item_qualities.csv',index=False)
 
 #merge price data with item qualities and attributes
-cs_df_merge = cs_df.merge(cs_qualities_df, on='item', how='left') #item qualities
-dota_df_merge = dota_df.merge(dota_qualities_df, on='item', how='left') #item qualities
+cs_df = cs_df.merge(cs_qualities_df, on='item', how='left') #item qualities
+cs_df = cs_df.merge(pd.read_csv(attributes_dir + r'\cs_wear_rarities.csv'), on='wear', how='left') #wear
+cs_df = cs_df.merge(pd.read_csv(attributes_dir + r'\cs_stattrak_rarity.csv'), on='stattrak', how='left') #stattrak
+
+dota_df = dota_df.merge(dota_qualities_df, on='item', how='left') #item qualities
 
 #get relative age now that we have merged in everything
 cs_df['rel_age_days'] = (pd.to_datetime(cs_df['py_date']) - pd.to_datetime(cs_df['origin_date'])).dt.days
 dota_df['rel_age_days'] = (pd.to_datetime(dota_df['py_date']) - pd.to_datetime(dota_df['origin_date'])).dt.days
 cs_df['rel_age_mos'] = cs_df['rel_age_days']/30.44
 dota_df['rel_age_mos'] = dota_df['rel_age_days']/30.44
-#%% WRITE TO CSV
-combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
+#%% CLEANUP AND WRITE TO CSV
+#rearrange columns
+cs_df = cs_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','skin','treated_unit','post_treat','stattrak','stattrak_rarity','grade','grade_rarity','grade_count','wear','wear_rarity','wear_count','drop_rarity']]
+dota_df = dota_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','treated_unit','post_treat','grade','grade_rarity','grade_count','drop','drop_rarity']]
+
+#WIP NEED TO GET COLUMNS TO ALIGN BY CALCULATING RELATIVE RARITIES
+#combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
 
 cs_df.to_csv(fr'{data_dir}\cs_combined_items_price_history.csv',index=False)
 dota_df.to_csv(fr'{data_dir}\dota2_combined_items_price_history.csv',index=False)
-combined_df.to_csv(fr'{data_dir}\combined_items_price_history.csv',index=False)
+#combined_df.to_csv(fr'{data_dir}\combined_items_price_history.csv',index=False)
 

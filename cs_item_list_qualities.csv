@@ -1,24 +1,24 @@
-item,grade,origin_date,origin,
-AK-47 | Aquamarine Revenge,Covert,2015-05-26,Falchion Case,
-AK-47 | Blue Laminate,Restricted,2013-12-18,eSports 2013 Winter Case,
-AK-47 | Elite Build,Mil-spec,2015-04-15,Chroma 2 Case,
-AK-47 | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,
-AWP | Elite Build,Classified,2016-02-18,Operation Wildfire Case,
-AWP | Hyper Beast,Covert,2015-05-26,Falchion Case,
-AWP | Man-o'-war,Covert,2015-01-08,Chroma Case,
-AWP | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,
-AWP | Worm God,Restricted,2015-04-15,Chroma 2 Case,
-Glock-18 | Steel Disruption,Restricted,2014-07-10,eSports 2014 Summer Case,
-Glock-18 | Water Elemental,Classified,2014-07-01,Operation Breakout Weapon Case,
-M4A1-S | Basilisk,Classified,2014-11-11,Operation Vanguard Weapon Case,
-M4A1-S | Basilisk,Covert,2014-07-01,Operation Breakout Weapon Case,
-M4A4 | Bullet Rain,Covert,2014-07-10,eSports 2014 Summer Case,
-M4A4 | Evil Daimyo,Restricted,2015-05-26,Falchion Case,
-M4A4 | Griffin,Restricted,2014-11-11,Operation Vanguard Weapon Case,
-M4A4 | 龍王 (Dragon King),Classified,2015-01-08,Chroma Case,
-USP-S | Blood Tiger,Mil-spec,2014-07-10,eSports 2014 Summer Case,
-USP-S | Caiman,Classified,2014-06-11,Huntsman Case,
-USP-S | Guardian,Restricted,2014-02-20,Operation Phoenix Weapon Case,
-USP-S | Kill Confirmed,Covert,2015-09-17,Shadow Case,
-USP-S | Caiman,Restricted,2014-02-12,CS:GO Weapon Case 3,
-USP-S | Torque,Mil-spec,2015-05-26,Falchion Case,
+item,grade,origin_date,origin
+AK-47 | Aquamarine Revenge,Covert,2015-05-26,Falchion Case
+AK-47 | Blue Laminate,Restricted,2013-12-18,eSports 2013 Winter Case
+AK-47 | Elite Build,Mil-spec,2015-04-15,Chroma 2 Case
+AK-47 | Redline,Classified,2013-12-18,Winter Offensive Weapon Case
+AWP | Elite Build,Classified,2016-02-18,Operation Wildfire Case
+AWP | Hyper Beast,Covert,2015-05-26,Falchion Case
+AWP | Man-o'-war,Covert,2015-01-08,Chroma Case
+AWP | Redline,Classified,2013-12-18,Winter Offensive Weapon Case
+AWP | Worm God,Restricted,2015-04-15,Chroma 2 Case
+Glock-18 | Steel Disruption,Restricted,2014-07-10,eSports 2014 Summer Case
+Glock-18 | Water Elemental,Classified,2014-07-01,Operation Breakout Weapon Case
+M4A1-S | Basilisk,Classified,2014-11-11,Operation Vanguard Weapon Case
+M4A1-S | Cyrex,Covert,2014-07-01,Operation Breakout Weapon Case
+M4A4 | Bullet Rain,Covert,2014-07-10,eSports 2014 Summer Case
+M4A4 | Evil Daimyo,Restricted,2015-05-26,Falchion Case
+M4A4 | Griffin,Restricted,2014-11-11,Operation Vanguard Weapon Case
+M4A4 | 龍王 (Dragon King),Classified,2015-01-08,Chroma Case
+USP-S | Blood Tiger,Mil-spec,2014-07-10,eSports 2014 Summer Case
+USP-S | Caiman,Classified,2014-06-11,Huntsman Case
+USP-S | Guardian,Restricted,2014-02-20,Operation Phoenix Weapon Case
+USP-S | Kill Confirmed,Covert,2015-09-17,Shadow Case
+USP-S | Torque,Mil-spec,2015-05-26,Falchion Case
+USP-S | Stainless,Mil-spec,2014-02-12,CS:GO Weapon Case 3
