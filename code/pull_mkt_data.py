@@ -77,15 +77,26 @@ cs_df['rel_age_days'] = (pd.to_datetime(cs_df['py_date']) - pd.to_datetime(cs_df
 dota_df['rel_age_days'] = (pd.to_datetime(dota_df['py_date']) - pd.to_datetime(dota_df['origin_date'])).dt.days
 cs_df['rel_age_mos'] = cs_df['rel_age_days']/30.44
 dota_df['rel_age_mos'] = dota_df['rel_age_days']/30.44
-#%% CLEANUP AND WRITE TO CSV
-#rearrange columns
-cs_df = cs_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','skin','treated_unit','post_treat','stattrak','stattrak_rarity','grade','grade_rarity','grade_count','wear','wear_rarity','wear_count','drop_rarity']]
-dota_df = dota_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','treated_unit','post_treat','grade','grade_rarity','grade_count','drop','drop_rarity']]
 
-#WIP NEED TO GET COLUMNS TO ALIGN BY CALCULATING RELATIVE RARITIES
-#combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
+#calculate relative rarity
+cs_df['rel_rarity'] = cs_df['stattrak_rarity']*cs_df['grade_rarity']*cs_df['wear_rarity']
+dota_df['rel_rarity'] = dota_df['grade_rarity']
+
+#add cs 'drop' column for alignment reasons
+cs_df['drop'] = cs_df['grade']
+
+#%% CLEANUP AND WRITE TO CSV
+#rearrange columns and write cs and dota df's
+cs_df = cs_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','skin','treated_unit','post_treat','stattrak','stattrak_rarity','grade','grade_rarity','grade_count','wear','wear_rarity','wear_count','drop','drop_rarity','rel_rarity']]
+dota_df = dota_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','treated_unit','post_treat','grade','grade_rarity','grade_count','drop','drop_rarity','rel_rarity']]
 
 cs_df.to_csv(fr'{data_dir}\cs_combined_items_price_history.csv',index=False)
 dota_df.to_csv(fr'{data_dir}\dota2_combined_items_price_history.csv',index=False)
-#combined_df.to_csv(fr'{data_dir}\combined_items_price_history.csv',index=False)
+
+#WIP NEED TO GET COLUMNS TO ALIGN BY CALCULATING RELATIVE RARITIES
+#add and delete extra columns to get the frames to align
+cs_df = cs_df.drop(['skin','stattrak','stattrak_rarity','wear','wear_rarity','wear_count'],axis=1)
+
+combined_df = pd.concat([cs_df, dota_df], ignore_index=True)
+combined_df.to_csv(fr'{data_dir}\combined_items_price_history.csv',index=False)
 
