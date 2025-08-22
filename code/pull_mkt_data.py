@@ -5,11 +5,12 @@
 
 #%% LIBRARIES
 import os
+import re
 import glob
+from datetime import datetime
 import numpy as np
 import pandas as pd
 from steamcrawl import Request
-import re
 from pull_mkt_data_func import pull_cs_price_history, pull_dota_price_history
 
 #%% FILEPATHS
@@ -78,6 +79,13 @@ dota_df['rel_age_days'] = (pd.to_datetime(dota_df['py_date']) - pd.to_datetime(d
 cs_df['rel_age_mos'] = cs_df['rel_age_days']/30.44
 dota_df['rel_age_mos'] = dota_df['rel_age_days']/30.44
 
+#days/months until treatment
+cs_df['days_til_treat'] = (pd.to_datetime(cs_df['py_date']) -  datetime.strptime("2018-03-29", "%Y-%m-%d")).dt.days
+dota_df['days_til_treat'] = (pd.to_datetime(dota_df['py_date']) -  datetime.strptime("2018-03-29", "%Y-%m-%d")).dt.days
+
+cs_df['mos_til_treat'] = cs_df['days_til_treat']/30.44
+dota_df['mos_til_treat'] = dota_df['days_til_treat']/30.44
+
 #calculate relative rarity
 cs_df['rel_rarity'] = cs_df['stattrak_rarity']*cs_df['grade_rarity']*cs_df['wear_rarity']
 dota_df['rel_rarity'] = dota_df['grade_rarity']
@@ -87,8 +95,8 @@ cs_df['drop'] = cs_df['grade']
 
 #%% CLEANUP AND WRITE TO CSV
 #rearrange columns and write cs and dota df's
-cs_df = cs_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','skin','treated_unit','post_treat','stattrak','stattrak_rarity','grade','grade_rarity','grade_count','wear','wear_rarity','wear_count','drop','drop_rarity','rel_rarity']]
-dota_df = dota_df[['item','date','py_date','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','treated_unit','post_treat','grade','grade_rarity','grade_count','drop','drop_rarity','rel_rarity']]
+cs_df = cs_df[['item','date','py_date','days_til_treat','mos_til_treat','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','skin','treated_unit','post_treat','stattrak','stattrak_rarity','grade','grade_rarity','grade_count','wear','wear_rarity','wear_count','drop','drop_rarity','rel_rarity']]
+dota_df = dota_df[['item','date','py_date','days_til_treat','mos_til_treat','origin_date','rel_age_days', 'rel_age_mos','median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','item','equip','treated_unit','post_treat','grade','grade_rarity','grade_count','drop','drop_rarity','rel_rarity']]
 
 cs_df.to_csv(fr'{data_dir}\cs_combined_items_price_history.csv',index=False)
 dota_df.to_csv(fr'{data_dir}\dota2_combined_items_price_history.csv',index=False)
