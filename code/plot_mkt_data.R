@@ -82,16 +82,19 @@ didreg2 <- feols(log(median_price) ~ i(days_til_treat,treated_unit,ref=-1,keep=-
 summary(didreg2)
 iplot(didreg2, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Log Median Price")
 
-didreg_mos1 <- feols(log(median_price) ~ rel_rarity + i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos)
+didreg3 <- feols(volume_sold ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:100) | item+date, data=df_all)
+summary(didreg3)
+iplot(didreg3, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Volume Sold")
+
+didreg_mos <- feols(log(median_price) ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos)
 summary(didreg_mos)
 iplot(didreg_mos, xlab="Months Until Treatment",main="Effect on Log Median Price")
 
-#this one is same as log price? maybe because above is weighted by volume sold but didreg_mos1 doesn't change when removing weights?
-didreg_mos2 <- feols(volume_sold ~ rel_rarity + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
-summary(didreg_mos)
-iplot(didreg_mos, xlab="Months Until Treatment",main="Effect on Volume Sold")
+didreg_mos2 <- feols(volume_sold ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+summary(didreg_mos2)
+iplot(didreg_mos2, xlab="Months Until Treatment",main="Effect on Volume Sold")
 
-didreg3 <- feols(log(median_price) ~ post_treat*treated_unit*(rel_rarity+rel_age_mos+pre_sd) | item+mo_yr, weights= ~volume_sold, data=df_all)
+didreg3 <- feols(log(median_price) ~ post_treat*treated_unit*(grade_rarity+rel_age_mos+pre_sd) | item+mo_yr, weights= ~volume_sold, data=df_all)
 summary(didreg3)
 
 didreg4 <- feols(log(volume_sold)~ post_treat + treated_unit + post_treat*treated_unit*(rel_rarity+rel_age_mos+pre_sd) | item, data=df_all)
