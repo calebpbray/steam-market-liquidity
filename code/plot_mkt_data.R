@@ -75,6 +75,19 @@ ggplot(NULL, aes(x=date, y=log(volume_sold))) +
   geom_smooth(data=subset(df_cs, date >= as.Date("2018-03-29") & date <= as.Date("2020-03-29")), method='lm', color="green") +
   geom_smooth(data=subset(df_dota, date >= as.Date("2018-03-29") & date <= as.Date("2020-03-29")), method='lm', color="green4")
 
+#stage 1: quality adjusted price estimation
+p_reg <- feols(log(median_price) ~ rel_age_days + grade_rarity, weights= ~volume_sold, data=df_all)
+summary(p_reg)
+
+#p_boot <- boottest(feols_fit, B = 9999, param = "treated_unit",clustid = c("item","date"))
+
+df_all['log_p_hat'] <- predict(p_reg,df_all,interval="prediction")$fit
+
+#stage 2: did reg on quality adjusted price
+didreg_hat1 <- feols(log_p_hat ~ post_treat*treated_unit | item+date, weights= ~volume_sold, data=df_all)
+summary(didreg_hat1)
+
+#raw price did regs
 didreg1 <- feols(log(median_price) ~ post_treat*treated_unit |item+date, weights= ~volume_sold, data=df_all)
 summary(didreg1)
 
@@ -93,9 +106,3 @@ iplot(didreg_mos, xlab="Months Until Treatment",main="Effect on Log Median Price
 didreg_mos2 <- feols(volume_sold ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
 summary(didreg_mos2)
 iplot(didreg_mos2, xlab="Months Until Treatment",main="Effect on Volume Sold")
-
-didreg3 <- feols(log(median_price) ~ post_treat*treated_unit*(grade_rarity+rel_age_mos+pre_sd) | item+mo_yr, weights= ~volume_sold, data=df_all)
-summary(didreg3)
-
-didreg4 <- feols(log(volume_sold)~ post_treat + treated_unit + post_treat*treated_unit*(rel_rarity+rel_age_mos+pre_sd) | item, data=df_all)
-summary(didreg4)
