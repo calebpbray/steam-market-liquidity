@@ -20,9 +20,14 @@ df_dota_raw['l_median_price'] <- log(df_dota_raw['median_price'])
 df_all_raw['l_median_price'] <- log(df_all_raw['median_price'])
 
 #keep data within 2 years of treatment
-df_cs <- df_cs_raw[df_cs_raw$date >= as.Date("2016-03-29") & df_cs_raw$date <= as.Date("2020-03-29"), ]
-df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2016-03-29") & df_dota_raw$date <= as.Date("2020-03-29"), ]
-df_all <- df_all_raw[df_all_raw$date >= as.Date("2016-03-29") & df_all_raw$date <= as.Date("2020-03-29"), ]
+#df_cs <- df_cs_raw[df_cs_raw$date >= as.Date("2016-03-29") & df_cs_raw$date <= as.Date("2020-03-29"), ]
+#df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2016-03-29") & df_dota_raw$date <= as.Date("2020-03-29"), ]
+#df_all <- df_all_raw[df_all_raw$date >= as.Date("2016-03-29") & df_all_raw$date <= as.Date("2020-03-29"), ]
+
+#keep data within 1 years of treatment
+df_cs <- df_cs_raw[df_cs_raw$date >= as.Date("2017-03-29") & df_cs_raw$date <= as.Date("2019-03-29"), ]
+df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2017-03-29") & df_dota_raw$date <= as.Date("2019-03-29"), ]
+df_all <- df_all_raw[df_all_raw$date >= as.Date("2017-03-29") & df_all_raw$date <= as.Date("2019-03-29"), ]
 
 #WIP -- TRY TIME SERIES EVENT STUDY
 #maybe look into aggregating to monthly?
@@ -44,12 +49,39 @@ df_all_mos['post_treat'] <- ifelse(df_all_mos$mos_til_treat >= 0,1,0)
 df_all_mos['treated_unit'] <- 0 #assign all values to 0
 df_all_mos[grepl("\\|", df_all_mos$item),'treated_unit'] <- 1 #assign 1 to any rows where item has a "|" as that indicates a CSGO item
 
+#create average price (across all items) for dota and cs df's for cool plot
+df_cs_moavg <- df_cs %>% 
+  mutate(month = lubridate::floor_date(date, 'month')) %>%
+  group_by(month) %>%
+  summarize(l_median_price = weighted.mean(l_median_price, volume_sold))
+df_cs_moavg['mos_til_treat'] <- interval(as.Date('2018-03-01'),df_cs_moavg$month) %/% months(1)
+df_cs_moavg['post_treat'] <- ifelse(df_cs_moavg$mos_til_treat >= 0,1,0)
+df_cs_moavg['treated_unit'] <- 1 #assign all values to 1
+
+df_dota_moavg <- df_dota %>% 
+  mutate(month = lubridate::floor_date(date, 'month')) %>%
+  group_by(month) %>%
+  summarize(l_median_price = weighted.mean(l_median_price, volume_sold))
+df_dota_moavg['mos_til_treat'] <- interval(as.Date('2018-03-01'),df_dota_moavg$month) %/% months(1)
+df_dota_moavg['post_treat'] <- ifelse(df_dota_moavg$mos_til_treat >= 0,1,0)
+df_dota_moavg['treated_unit'] <- 0 #assign all values to 0
+
+#plot monthly averages for dota and cs
+ggplot(NULL, aes(x=month, y=l_median_price)) + 
+  geom_point(data=df_cs_moavg, color="#EDA338") + 
+  geom_point(data=df_dota_moavg, color= "#FF0000") + 
+  geom_smooth(data=subset(df_cs_moavg, df_cs_moavg$month < as.Date("2018-03-29")), method='lm', color="blue") +
+  geom_smooth(data=subset(df_dota_moavg, df_dota_moavg$month < as.Date("2018-03-29")), method='lm', color="navyblue") +
+  geom_smooth(data=subset(df_cs_moavg, df_cs_moavg$month >= as.Date("2018-03-29")), method='lm', color="green") +
+  geom_smooth(data=subset(df_dota_moavg, df_dota_moavg$month >= as.Date("2018-03-29")), method='lm', color="green4") +
+  geom_vline(xintercept = as.Date("2018-03-01"))
+
 
 # dota 2 trade ban happened May 25, 2020
-#weighted by volume sold
+#weighted by volume sold (mo data is already weighted by vol_sold)
 ggplot(NULL, aes(x=date, y=log(median_price))) + 
-  #geom_point(data=df_cs, color="#EDA338") + 
-  #geom_point(data=df_dota, color= "#FF0000") + 
+  geom_point(data=df_cs_moavg, color="#EDA338",aes(x=month, y=l_median_price)) + 
+  geom_point(data=df_dota_moavg, color= "#FF0000",aes(x=month, y=l_median_price)) + 
   geom_vline(xintercept = as.Date("2018-03-29")) + 
   geom_smooth(data=subset(df_cs, df_cs$date < as.Date("2018-03-29")), method='lm', color="blue",aes(weight = volume_sold)) +
   geom_smooth(data=subset(df_dota, df_dota$date < as.Date("2018-03-29")), method='lm', color="navyblue",aes(weight = volume_sold)) +
@@ -99,10 +131,13 @@ didreg3 <- feols(volume_sold ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:10
 summary(didreg3)
 iplot(didreg3, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Volume Sold")
 
-didreg_mos <- feols(log(median_price) ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos)
-summary(didreg_mos)
-iplot(didreg_mos, xlab="Months Until Treatment",main="Effect on Log Median Price")
+didreg_mos1 <- feols(log(median_price) ~ post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos)
+summary(didreg_mos1)
 
-didreg_mos2 <- feols(volume_sold ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+didreg_mos2 <- feols(log(median_price) ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos)
 summary(didreg_mos2)
-iplot(didreg_mos2, xlab="Months Until Treatment",main="Effect on Volume Sold")
+iplot(didreg_mos2, xlab="Months Until Treatment",main="Effect on Log Median Price")
+
+didreg_mos3 <- feols(volume_sold ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+summary(didreg_mos3)
+iplot(didreg_mos3, xlab="Months Until Treatment",main="Effect on Volume Sold")
