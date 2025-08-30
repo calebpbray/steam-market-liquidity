@@ -3,7 +3,10 @@ library(fixest) #feols
 library(dplyr) #mutate
 library(lubridate) #floor_date
 library(zoo) #moving averages, rollmean
-library(scales)
+library(scales) #editing y axes
+library(patchwork) #arranging multiple plots side by side
+library(latex2exp) #LaTeX expressions
+library(ggthemes)
 
 df_trade_delta <- read.csv("../data/tradeTF_steam_trade_volume_2025_07_15.csv")
 df_cs_players <- read.csv("../data/cs_player_count.csv")
@@ -42,33 +45,60 @@ df_master['mos_til_treat'] <- interval(as.Date('2018-03-01'),df_master$month) %/
 df_master['post_treat'] <- ifelse(df_master$mos_til_treat >= 0,1,0)
 names(df_master) <- c("month","dota_avg_players","dota_avg_gain","dota_pct_gain","dota_peak_players","dota_avg_players_3mma","cs_avg_players","cs_avg_gain","cs_pct_gain","cs_peak_players","cs_avg_players_3mma","trade_offer_delta","trade_delta_3mma","mos_til_treat","post_treat")
 
-#create transformed data to plot
-
-df_master['dota_avg_players_trans'] <- df_master['dota_avg_players'] * 1000
-df_master['cs_avg_players_trans'] <- df_master['cs_avg_players'] * 1000
-df_master['trade_delta_trans'] <- df_master['trade_offer_delta'] * 1000
-
 #weekly
 ggplot(data=df_trade_delta, aes(x=date, y=trade_offer_delta)) + 
   geom_line()+
   geom_vline(xintercept = as.Date("2018-03-29"))
 
 #monthly -- FIX THE AXIS STUFF
-ggplot(df_master, aes(x=month)) + 
-  geom_line(aes(y=trade_delta_trans,color="Trade Offer Delta (Left)"))+
-  geom_line(aes(y=dota_avg_players_trans,color="DOTA 2 (Right)"))+
-  geom_line(aes(y=cs_avg_players_trans,color="Counter Strike (Right)"))+
-  scale_y_continuous("Trade Offer Delta",
-                     labels = scales::comma,
-                     sec.axis = sec_axis(transform = ~./1000000,name = "Player Count")) +
-  scale_color_manual(name = "Legend", values = c("Trade Offer Delta (Left)" = "black", "DOTA 2 (Right)" = "red", "Counter Strike (Right)" = "orange")) +
-  geom_vline(xintercept = as.Date("2018-03-01"))
+plot1 <-  ggplot(df_master, aes(x=month)) + 
+  geom_line(linewidth = 1.25,aes(y=trade_offer_delta,color="Trade Offer Delta"))+
+  scale_y_continuous("Avg. Weekly Trade Offers",labels = scales::comma) +
+  scale_x_date(breaks = scales::pretty_breaks(n=10)) +
+  scale_color_manual(name = "Legend", values = c("Trade Offer Delta" = "black")) +
+  geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed",color="gray50") + 
+  geom_label(aes(as.Date("2019-04-01"), 4100000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+  guides(color = FALSE, size = FALSE) +
+  xlab("") +
+  theme(axis.title.x = element_blank()) + theme_few()
+
+plot2 <-  ggplot(df_master, aes(x=month)) + 
+  geom_line(linewidth = 1.25, aes(y=dota_avg_players,color="Dota 2"))+
+  geom_line(linewidth = 1.25, aes(y=cs_avg_players,color="Counter Strike"))+
+  scale_y_continuous("Avg. Concurrent Player Count",labels = scales::comma) +
+  scale_x_date(breaks = scales::pretty_breaks(n=10)) +
+  scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter Strike" = "#EDA338")) +
+  geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed",color="gray50") + 
+  geom_label(aes(as.Date("2019-04-01"), 1200000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+  xlab("") +
+  theme(axis.title.x = element_blank()) + theme_few()
+
+combined <- plot1 / plot2 + plot_layout(axis_titles = "collect")
+combined
+
+ggsave( '../writing/manuscript/figures/trade_delta_and_plyr_ct.pdf', plot = combined)
 
 #3mma
-ggplot(df_master, aes(x=month, y=trade_delta_3mma)) + 
-  geom_line(aes(color="Trade Offer Delta (Left)"))+
-  geom_line(aes(y=dota_avg_players_3mma,color="DOTA 2 (Right)"))+
-  geom_line(aes(y=cs_avg_players_3mma,color="Counter Strike (Right)"))+
-  scale_y_continuous("Trade Offer Delta",labels = scales::comma, sec.axis = sec_axis((~.),name = "Player Count")) +
-  scale_color_manual(name = "Legend", values = c("Trade Offer Delta (Left)" = "black", "DOTA 2 (Right)" = "red", "Counter Strike (Right)" = "orange")) +
-  geom_vline(xintercept = as.Date("2018-03-01"))
+# plot_3mma1 <-  ggplot(df_master, aes(x=month)) + 
+#   geom_line(aes(y=trade_delta_3mma,color="Trade Offer Delta"))+
+#   scale_y_continuous(TeX("Trade Offer $\\Delta$, 3mma"),labels = scales::comma) +
+#   scale_color_manual(name = "Legend", values = c("Trade Offer Delta" = "black")) +
+#   geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed") + 
+#   geom_label(aes(as.Date("2019-04-01"), 3200000), label = "March 29th, 2018", show.legend = FALSE,label.size = NA)+
+#   guides(color = FALSE, size = FALSE)+
+#   xlab("")+
+#   theme(axis.title.x = element_blank()) + theme_few()
+# 
+# plot_3mma2 <-  ggplot(df_master, aes(x=month)) + 
+#   geom_line(aes(y=dota_avg_players_3mma,color="DOTA 2"))+
+#   geom_line(aes(y=cs_avg_players_3mma,color="Counter Strike"))+
+#   scale_y_continuous("Avg. Player Count, 3mma",labels = scales::comma) +
+#   scale_color_manual(NULL,values = c("DOTA 2" = "#FF0000", "Counter Strike" = "#EDA338")) +
+#   geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed") + 
+#   geom_label(aes(as.Date("2019-04-01"), 1200000), label = "March 29th, 2018", show.legend = FALSE,label.size = NA)+
+#   xlab("")+
+#   theme(axis.title.x = element_blank()) + theme_few()
+# 
+# combined_3mma <- plot_3mma1 / plot_3mma2 + plot_layout(axis_titles = "collect")
+# combined_3mma
+
