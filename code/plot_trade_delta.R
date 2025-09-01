@@ -6,7 +6,7 @@ library(zoo) #moving averages, rollmean
 library(scales) #editing y axes
 library(patchwork) #arranging multiple plots side by side
 library(latex2exp) #LaTeX expressions
-library(ggthemes)
+library(ggthemes) #ggplot themes
 
 df_trade_delta <- read.csv("../data/tradeTF_steam_trade_volume_2025_07_15.csv")
 df_cs_players <- read.csv("../data/cs_player_count.csv")
