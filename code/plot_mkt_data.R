@@ -110,6 +110,23 @@ p1 <- ggplot(NULL, aes(x=date, y=log(median_price))) +
 p1
 ggsave( '../writing/manuscript/figures/did_trends.pdf', plot = p1)
 
+#(2 YEAR) daily data weighted by volume sold (monthly data is already weighted by vol_sold and used for points)
+p2 <- ggplot(NULL, aes(x=date, y=log(median_price))) + 
+  geom_point(data=df_cs_moavg,aes(x=month, y=l_median_price, color="Counter Strike")) + 
+  geom_point(data=df_dota_moavg,aes(x=month, y=l_median_price, color="Dota 2")) + 
+  geom_vline(xintercept = as.Date("2018-03-29"),color="gray50",linetype="dashed") + 
+  geom_smooth(data=subset(df_cs, df_cs$date < as.Date("2018-03-29")), method='lm',linetype="longdash",color="#EDA338",aes(weight = volume_sold)) +
+  geom_smooth(data=subset(df_dota, df_dota$date < as.Date("2018-03-29")), method='lm',linetype="longdash",color="#FF0000",aes(weight = volume_sold)) +
+  geom_smooth(data=subset(df_cs, df_cs$date >= as.Date("2018-03-29")), method='lm', color="#EDA338",linetype="longdash",aes(weight = volume_sold)) +
+  geom_smooth(data=subset(df_dota, df_dota$date >= as.Date("2018-03-29")), method='lm', color="#FF0000",linetype="longdash",aes(weight = volume_sold)) +
+  geom_label(aes(as.Date("2018-06-12"), 1.5), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+  scale_x_date(breaks = scales::pretty_breaks(n=8)) +
+  scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter Strike" = "#EDA338")) +
+  xlab("") +
+  ylab("Log Median Price")+
+  theme(axis.title.x = element_blank()) + theme_few()
+p2
+
 #unweighted
 #ggplot(NULL, aes(x=date, y=log(median_price))) +
 #  #geom_point(data=df_cs, color="#EDA338") + 

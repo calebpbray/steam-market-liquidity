@@ -1,0 +1,643 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{natbib}
+\usepackage{amsmath, amssymb,bbm}
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+           
+\usepackage[left=1.0in,top=1.0in,bottom=1.0in,right=1.0in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{siunitx}
+\newcommand\THead[1]{\multicolumn{1}{c}{#1}}
+
+\usepackage{etoolbox}
+
+\makeatletter
+
+% make numeric styles use name format
+\patchcmd{\NAT@test}{\else \NAT@nm}{\else \NAT@nmfmt{\NAT@nm}}{}{}
+
+% define \citepos just like \citet
+\DeclareRobustCommand\citepos
+  {\begingroup
+   \let\NAT@nmfmt\NAT@posfmt% ...except with a different name format
+   \NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+   \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+
+\let\NAT@orig@nmfmt\NAT@nmfmt
+\def\NAT@posfmt#1{\NAT@orig@nmfmt{#1's}}
+
+\makeatother
+
+\begin{document}
+\protected\def\str#1{$^{#1}$}
+
+\sisetup{
+    input-open-uncertainty  = ,
+    input-close-uncertainty = ,
+    table-align-text-pre    = false,
+    round-precision=2,
+    table-space-text-pre    = (,
+    table-space-text-post   = \str{***},
+}
+
+\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Video Game Cosmetics Markets}}\thanks{I thank Elior Cohen and Francisco Scott for their helpful comments. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\author{ Caleb Bray\thanks{\href{https://www.kansascityfed.org/research-staff/caleb-bray/}{Federal Reserve Bank of Kansas City}.  \quad Email: calebpbray@gmail.com} 
+\date{\normalsize{\hspace{0.1in}September 2025}}
+
+\maketitle
+\begin{abstract}
+\noindent This paper studies the transmission of Federal Reserve communication to financial markets and the economy using new measures of the term structure of policy rate uncertainty.  High-frequency movements in the term structure of interest rate uncertainty around FOMC announcements cannot be summarized by a single measure but, instead, are two dimensional.  We characterize these two dimensions as the Level and Slope factors of the term structure of interest rate uncertainty.  These two monetary policy uncertainty factors help to explain changes in Treasury yields and forward real interest rates following FOMC announcements, even after accounting for changes in the expected path of policy rates. Finally, compared to high-frequency instruments derived from interest rate futures, our policy uncertainty factors provide stronger first-stage instruments and imply FOMC forward guidance has been more effective in stimulating economic activity in a standard proxy SVAR.\\
+\end{abstract}
+ 
+
+%\noindent\textbf{JEL Classification:} E32, E52   \\
+%\noindent\textbf{Keywords:} Monetary Policy Uncertainty, Forward Guidance, Proxy VAR \\
+\newpage 
+	 
+\section{Introduction}
+In May 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all time high of \$5 billion (CITE PRICE EMPIRE OR NEWS SOURCE). The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). The developer Valve has fostered this market in combination with their expansive digital PC game distributor, Steam. Players can list their in-game items, also called ``skins,'' on Steam's community marketplace, where other users can purchase them using real currency. This marketplace serves as a valuable source of high frequency data for emerging digital markets and exchanges controlled by a central figure. Using these data we can study the effects of various policy changes and leverage their relative exogeneity to parse out their effects. In this paper, I leverage an exogenous liquidity shock in the form of a 7-day trade restriction imposed on all Counter-Strike items to examine the change in market participants' behavior. After constructing a quality adjusted price, I use an event study difference-in-differences approach to estiamte the effect on both volume and price of Counter-Strike skins sold on the Steam Community Market. I find a persistent positive effect on selling prices and negative effect on volume sold for one year after the imposition of the 7-day trade ban. \\
+
+We make a novel contribution to the growing literature on monetary policy uncertainty by studying shifts in the term structure of interest rate uncertainty around monetary policy announcements. We show that previous approaches, which focus on a single dimension of interest rate uncertainty, omit an important channel through which monetary policy announcements operate.  Specifically, policy announcements transmit in part to financial markets and the macroeconomy by reshaping the term structure of interest rate uncertainty. Using data on interest rate options expiring at horizons ranging from 1-quarter to 5-quarters ahead, we formally test for the number of factors needed to summarize changes in interest rate uncertainty around FOMC announcements. We find strong evidence that two factors are necessary to approximate movements in the term structure.  We refer to the first factor as the level factor as it is strongly correlated with changes in interest rate uncertainty at all horizons.  We denote the second factor as the slope factor and it strongly correlates with changes in the spread between long- and near-horizon measures of interest rate uncertainty.  \\
+
+We establish that changes in the term structure of interest rate uncertainty are an important channel through which monetary policy announcements transmit to longer-term Treasury rates.  For instance, we find that adding our level and slope factors to the \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018} forward-rate regressions substantially increases the $R^2$. These gains in explanatory power are concentrated in real rates, strengthening the evidence from \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018} that monetary policy announcements have powerful effects on far forward real yields.
+
+Movements in the term structure of interest rate uncertainty around FOMC announcements appear to be predominantly driven by forward interest rate guidance. We document that the term structure of interest rate uncertainty slopes upward both on average and when the zero lower bound truncates the distribution of near-term interest rates from below.  Thus, if policymakers convey a longer-than-expected stay at the zero lower bound, as the Federal Reserve did in August 2011, not only is the level of interest rate uncertainty reduced, but the slope of the term structure of interest rate uncertainty is also reduced. The August 9, 2011 FOMC announcement is the largest observed 1-day flattening of the term structure of interest rate uncertainty in our sample which ranges from 1994 through mid 2019. However, we document that this uncertainty channel of forward guidance is also operative away from the zero lower bound. For instance, the next largest observed flattening of the term structure of interest rate uncertainty following the FOMC May 6, 2003 announcement, a forward guidance episode documented in \citet[][pg. 81]{GSS:2005}.\\ 
+
+After establishing the importance of these level and slope factors as a channel through which forward guidance transmits to Treasury rates, we revisit the macroeconomic consequences of FOMC forward guidance. While several studies have demonstrated the ability of forward guidance to shape medium- and longer-term interest rates, the existing literature finds much more varied evidence regarding the macroeconomic effects of FOMC forward guidance. This shortcoming has important implications for interpreting the sensitivity of forward real rates to FOMC announcements. If the movement in real yields reflects the ``Fed information effect,'' as \citet{NakamuraSteinsson:2018} argue, then economic activity would be expected to slow following an FOMC announcement which incites a decline in forward rates. On the other hand, if changes in forward rates reflect shifts in term premia, as \citet{HansonStein:2015} conclude, then a decline in forward rates resulting from Federal Reserve forward guidance should boost economic activity. These alternative interpretations imply very different practical implications for the efficacy of forward guidance as a monetary policy tool.\\
+
+ A critical challenge in assessing the macroeconomic effects of forward guidance arises from the fact that measures of forward guidance surprises around FOMC meetings derived solely from interest rate futures are typically weak instruments in proxy structural vector autoregression (SVAR) settings. Specifically, measures of first-moment forward guidance surprises around FOMC meetings fail to explain a sufficient amount of the month-to-month variation in Treasury yields to serve as reliable instruments in a proxy SVAR \citep{GertlerKaradi:2015}. However, our event-study regressions suggest that our level and slope factors can better explain Treasury yields than can measures of forward guidance derived solely from first-moment interest rate futures and thus may strengthen the high-frequency forward guidance instrument set. \\
+ 
+ We therefore estimate a structural VAR model similar to \citet{GertlerKaradi:2015} using either \citepos{Swanson:2021} forward guidance factor derived from interest rate futures or our level and slope factors derived from interest rate options as external instruments. We find that Swanson's forward guidance factor is a relatively weak instrument and implies contractionary effects from forward guidance inciting lower rates. The puzzling output effects are consistent with the findings in \citet{Lakdawala:2019} and \citet{MAR:2023} which use a similar instrument and present evidence consistent with a ``Fed information effect.''\footnote{\citet{MAR:2023} use \citepos{Swanson:2021} ``forward guidance'' factor. \citet{Lakdawala:2019} uses an updated version of the \cite{GSS:2005} ``path'' factor, the predecessor to \citepos{Swanson:2021} ``forward guidance'' factor.} In contrast, our level and slope factors prove to be strong first-stage instruments, reflecting the power that these factors possess in explaining movements in Treasury yields around FOMC announcements. Moreover, when we use our level and slope factors as external instruments, we estimate that FOMC forward guidance which lowers Treasury rates leads to increases in economic activity, consistent with the standard macroeconomic model we lay out. We further show that our results are robust when we cleanse our policy uncertainty factors of any ex-post predictability with real-time,  publicly-available data, suggesting the strength of our instruments is not an artifact of the endogenous response of monetary policy to macroeconomic news, a concern raised in \citet{BauerSwanson:2023aer,BauerSwanson:2023nber}.  \\ 
+ 
+%Another difficulty with high-frequency measures of forward guidance surprises is that they are ex-post predictable with publicly available data, perhaps because of imperfect information about the Fed's reaction function \citep{BauerSwanson:2023aer,BauerSwanson:2023nber}. 
+ 
+These structural VAR results suggest that movements in forward real rates around FOMC announcements predominantly reflect movements in term premia, as suggested by \citet{HansonStein:2015}, rather than revisions to longer-run growth prospects associated with the ``Fed information'' effect posited in \citet{NakamuraSteinsson:2018}. To bolster this interpretation arising from our proxy SVAR results, we return to our event study regressions to decompose the source of the movements in longer-term Treasury yields between estimates of term premiums and estimates of expected future interest rates. These decomposition regressions suggest that changes in Treasury rates driven by the level and slope factors are indeed concentrated in term premia, consistent with the model of \citet{HansonStein:2015}. However, in contrast to the mechanism in \citet{King:2019}, we show that changes in the term structure of interest rate uncertainty also transmit to Treasury term premia away from the zero lower bound. \\
+ 
+ The remainder of this paper proceeds as follows. Section \ref{sec:model} introduces a simple model which guides our intuition and motivates our empirical specifications.   Section \ref{sec:TermStructure} introduces the data and methodology we use to measure the term structure of interest rate uncertainty. Section \ref{sec:EventStudy} revisits event-study regressions of FOMC announcements on Treasury yields using our level and slope factors. Section \ref{sec:SVAR} studies the macroeconomic effects of forward guidance using a proxy SVAR. Section \ref{sec:Literature} relates our findings to other recent research on monetary policy uncertainty and presents additional evidence on the channels through which FOMC announcements transmit to longer-term Treasury yields and the economy. Section \ref{sec:Conclusion} concludes.
+ 
+\section{Simple Theoretical Model}
+\label{sec:model}
+
+We now describe a simple model which helps guide our intuition and motivates our empirical specifications.  Our simple model features a representative household which maximizes lifetime expected utility over consumption \(C_{t}\).  The household receives endowment income \(e_{t}\) and can purchase nominal bonds with maturities of 1 to \(N\) periods.  \(p^{n}_{t}\) denotes the price of an \(n\)-period bond, which pays one nominal dollar at maturity (\(p^{0}_{t} = 1\)).  We denote the aggregate price level using \(P_{t}\).  The household divides its income between consumption \(C_{t}\) and the amount of the bonds \(b^{n}_{t+1}\) for \(n = 1, \dots, N\) to carry into next period.  \\
+
+The representative household chooses \(C_{t+s}\), and \(b^{n}_{t+s+1} \) for all bond maturities \(n = 1, \dots, N\) and all future periods \(s = 0, 1, 2, \dots\) by solving the following problem:
+\begin{displaymath}
+\mbox{max } \mathbb{E}_{t} \sum_{s=0}^{\infty} \beta^{s}  \, \mbox{log} \left(C_{t+s} \right) 
+\end{displaymath}
+subject to the intertemporal household budget constraint each period,
+\begin{displaymath}
+C_{t} + \sum_{n=1}^{N} p^{n}_{t} \frac{b^{n}_{t+1}}{P_{t}} \leq e_{t} + \sum_{n=1}^{N} p^{n-1}_{t} \frac{b^{n}_{t}}{P_{t}} .    
+\end{displaymath}
+Using a Lagrangian approach, we can derive the following two optimality conditions for the 1- and \(n\)-period bonds.   \\
+\begin{equation}
+p^{1}_{t} = \mathbb{E}_{t} \Bigg\{ \beta \frac{C_{t}}{C_{t+1}} \frac{P_{t}}{P_{t+1}} \Bigg\}
+\end{equation}
+\begin{equation}
+p^{n}_{t} = \mathbb{E}_{t} \Bigg\{ \beta \frac{C_{t}}{C_{t+1}} \frac{P_{t}}{P_{t+1}} p^{n-1}_{t+1}\Bigg\}
+\end{equation}
+\\
+We assume that the central bank sets the one-period gross nominal interest rate \(R_{t}\), which is equal to the inverse of the one-period bond price \(p^{1}_{t}\).  For analytical tractability, we also make two additional assumptions.  First, we assume that all nominal bonds are in zero net supply.  Second, we assume that prices are fixed \(P_{t} = P\)  for all \(t\) such that monetary policy can control the path of real interest rates.  This second assumption is not crucial, however it allows us to derive clearer expressions for longer-term bond yields and the term premium.\footnote{If we don't assume fixed prices, we can derive Equation (5) under the assumption that households have linear utility.  Using a simple two-period model with mean-variance investors, \cite{HansonStein:2015} also show that the term premium depends on uncertainty about future short rates.} \\
+
+After some algebraic manipulation, we can use a second-order approximation of Equation (2) to derive the following expression: 
+\begin{equation}
+ c_t  = \mathbb{E}_t \Big\{ c_{t+n} \Big\}- \frac{1}{2}\, \mathbb{VAR}_t \Big\{c_{t+n}\Big\} - n \, \Big( y^{n}_t + \mbox{log} \big(\beta\big) \Big).
+ \label{eq:MACRO}
+\end{equation}
+In this equation, \(c_{t} = \mbox{log} \left(C_{t}\right)\), \(\mathbb{VAR}_{t} \) denotes the conditional variance, and \(y^{n}_{t}\) is the yield to maturity on an \(n\)-period bond.\footnote{The Appendix contains a detailed derivation of all of the equations in Section \ref{sec:model}.}  Consumption today depends on the expectation and uncertainty about consumption in period \(t+n\) and on the longer-term yield bond.  \\
+
+Moreover, we can decompose the yield to maturity on the \(n\)-period bond into two components:  
+\begin{equation} \label{eq:nominalbondyield}
+y^{n}_t  \approx \frac{1}{n} \, \left[ \, \sum_{i=0}^{n-1} \, \mathbb{E}_t \Big\{r_{t+i}\Big\} \, + \, \frac{1}{2} \mathbb{VAR}_t \Bigg\{ \sum_{i=0}^{n-1}r_{t+i} \Bigg\} \, \right],
+\end{equation}
+where \(r_{t} = \mbox{log} \left(R_{t}\right) \) is the net nominal interest rate controlled by the central bank.  The first component depends on the expected path of short-term interest rates.  The second term reflects the additional compensation the household requires to hold a longer-term security in the face of uncertainty about future short-term interest rates.  \\
+
+Equations (\ref{eq:MACRO}) and (\ref{eq:nominalbondyield}) highlight three key relationships that we will empirically examine in this study.  First, Equation (\ref{eq:nominalbondyield}) shows that uncertainty about future short-term policy rates likely plays a key role in the determination of longer-term bond yields.  Second, however, it shows that the entire path of future short-rate uncertainty matters for the pricing of longer-term bond yields. Thus, in measuring short-rate uncertainty, we need to measure the entire term structure of short-rate uncertainty, not just uncertainty at a fixed horizon.  Finally, Equation (\ref{eq:MACRO}) shows that, all else equal, lower long-term bond yields induce higher household consumption.  Thus, if policy announcements lower uncertainty about the future short-term interest rates, then we should observe lower bond yields and higher economic activity.  In the following sections we present empirical evidence consistent with these predictions of the model.  \\
+
+This simple model also provides further insights into the mechanism through which uncertainty about future monetary policy transmits to bond markets and the macroeconomy.  Following \cite{RudebuschSwanson:2012}, we can derive an expression for the term premium as the difference between the yield to maturity on the \(n\)-period bond \(y^{n}_{t}\) and the yield on a risk-neutral \(n\)-period bond \(\hat{y}^{n}_{t}\):
+  
+\begin{equation}
+TP^{n}_t \triangleq y^{n}_{t} - \hat{y}^{n}_{t} \approx \frac{1}{n} \,  \, \mathbb{VAR}_t \Bigg\{ \sum_{i=0}^{n-1}r_{t+i} \Bigg\}.
+\label{eq:TP}
+\end{equation}
+ \\
+Equation \eqref{eq:TP} highlights a link between term premia and interest rate uncertainty.  Households require higher compensation to hold a longer-term bond when they face higher uncertainty about future short-term interest rates.  This model suggests that forward guidance announcements that provide greater clarity about future short-term interest rates should lower term premia in longer-term nominal bonds.  In Section \ref{sec:Literature}, we present further empirical evidence highlights that policy announcements that lower interest rate uncertainty also lead to a decline in term premia in longer-term bond yields.      
+ 
+\section{The Term Structure of Interest Rate Uncertainty \label{sec:TermStructure}}
+Our simple theoretical model suggests that the term structure of interest rate uncertainty matters for the determination of longer-term bond yields and economic activity.  In this section, we measure and study how FOMC announcements reshape the term structure of interest rate uncertainty, which requires high-frequency measures of interest rate uncertainty at various horizons.  Therefore, we apply the VIX methodology to Eurodollar options maturing at several horizons to measure uncertainty about future short-term interest rates at a daily frequency.  We first describe this methodology and use the resulting uncertainty measures to formally test for the number of factors needed to summarize changes in the term structure of interest rate uncertainty around FOMC announcements. We also relate our VIX-based approach to other measures of option-implied interest rate uncertainty from the previous literature.
+
+\subsection{Measuring Option-Implied Interest Rate Uncertainty}
+The VIX methodology was initially applied to measure option-implied volatility of the S\&P stock index, but the same methodology has since been extended to measure volatility in a number of different markets, including foreign exchange and commodities. However, no exchange currently produces an index to measure option-implied volatility on Eurodollar futures. Eurodollar options are actively traded derivatives which provide investors the option to buy or sell Eurodollar futures at various strike prices.  The existence of an active options market enables us to apply the widely-used, efficient, and model-free VIX methodology to calculate option-implied volatility of Eurodollar futures.\footnote{We purchased the underlying Eurodollar futures and options data from the CME Group. In the Appendix, we provide further details of our application of the VIX methodology to this data.} Eurodollar futures, and therefore options on these futures, settle based on the future value of the London Interbank Offer Rate (LIBOR), a benchmark short-term interest rate that is highly correlated with the federal funds rate. Using all out-of-the-money put and call options of a given expiration date, we use the VIX methodology to calculate the option-implied volatility of short-term interest rates for each horizon from 1- to 5-quarters ahead.\footnote{Eurodollar options most often trade for settlement in March, June, September, and December of a given year.  For each month within a quarter, we assign the horizon based on the next available settlement date 1-5 quarters ahead.  For example, for days in January, February, and March, we compute the 1-quarter ahead horizon using options with a June settlement of the same year.  Thus, our 1-quarter ahead horizon actually refers to a 3-6 month horizon depending on the exact date within the quarter.  This method of assigning horizons leads to some predictable variation in interest rate uncertainty when the options expire. Alternatively, we could average adjacent horizons to hold fixed the horizon throughout the quarter.  However, this would shorten our longest maturity horizon. Moreover, our primary interest is examining the one-day \emph{changes} in our EDX measure, which is less affected by this calendar variation around expiration.} In practice, we find that options at these horizons are sufficiently liquid to reliably calculate implied interest rate volatility at a daily frequency.\\
+
+We refer to our option-implied measures of short-term rate uncertainty as the \(EDX\), short for Eurodollar Volatility Index. By definition, the EDX index measures the  implied volatility of \textit{returns} on Eurodollar futures. To a first order approximation, the return on a Eurodollar future is proportional to the change in interest rates measured in annualized percentage points, with the coefficient of proportionality close to one.\footnote{Let $P^{\prime}(h)$ denote the expected price of a Eurodollar future maturing $h$ periods ahead and let $P(h)$ denote the current price. The expected percent return on the Eurodollar future is therefore given by $R(h)=100\left(\frac{P^{\prime}(h)}{P(h)}-1\right)\approx\frac{100}{P}( P^{\prime}(h) - P(h))=\frac{100}{P}(i - i^{\prime})$, where $P$ denotes the price around which we approximate returns and the last equality uses the fact that Eurodollar futures prices are quoted as 100 less the LIBOR rate. For $P$ near 100 ($i$ near zero), the EDX closely approximates the implied-volatility in LIBOR rates.} Therefore, we report the unit of measurement of our EDX series as annualized percentage points. \\
+
+Table \ref{tab:edx_summarize} reports summary statistics of the EDX-implied term structure of interest rate uncertainty over our 1994-2019 sample. We highlight four stylized facts. First, our EDX measure of implied volatility averages 0.96 percentage points at the four-quarter ahead horizon, which is within the range of root-mean squared error (RMSE) of historical one-year ahead short-term interest rate forecasts compiled by \citet{ReifschneiderTulip:2019}.\footnote{These authors report the average root-mean squared error of four-quarter-ahead short-term interest rate forecasts to be 1.40 percentage points with a range across forecast sources of 0.86 to 1.44 percentage points.}  The proximity of the 4-quarter EDX to the RMSE of forecasts suggests that risk premiums do not significantly distort our implied volatility measures on average. \\
+
+Second, the term structure of interest rate uncertainty is upward sloping.  Figure \ref{fig:edx_daily} shows that the 5-quarter EDX always lies above the shorter-horizon EDX measures.  Third, comparing the second and third rows of Table \ref{tab:edx_summarize} reveals that the term structure of interest rate uncertainty shifted lower and flattened during the 2009-2015 zero lower bound period, likely reflecting not only the truncation of downside interest rate uncertainty by the zero lower bound but also the FOMC's increased transparency, including the addition of interest rates to the FOMC's quarterly economic projections, regular post-meeting press conferences, and forward guidance which became more explicit and covered longer time horizons. \citet{Swanson:2006} and \citet{BundickHerriford:2017} document that greater transparency reduces market-implied interest rate uncertainty. Reinforcing this point, Figure \ref{fig:edx_daily} shows that the flattening of the term structure of interest rate uncertainty persisted after rates were lifted from zero in late 2015.  \\
+
+Finally, the fourth row shows that, on average, the entire term structure of interest rate uncertainty shifts lower around FOMC meetings, echoing the finding in \citet{Baueretal:2021} that the conclusion of FOMC meetings tends to resolve some uncertainty about future interest rates. However, our analysis will focus on shifts in the term structure of policy uncertainty that deviate from this mean pattern and how those deviations correlate with movements in interest rates and economic activity. %This brings us to our final point shown in the fifth row which reports the changes in EDX measures around the FOMC's August 9, 2011 forward guidance announcement which stated that interest rates were expected to remain low at least through mid-2013, several years into the future. 
+
+\subsection{Shifts in the Term Structure of Interest Rate Uncertainty Around FOMC Announcements}
+
+While we construct our EDX measures for every trading day, we aim to identify fluctuations in interest rate uncertainty arising from FOMC announcements.  Therefore, our econometric identification follows the pioneering work of \citet{Kuttner:2001}. He uses a one-day window around FOMC meetings to identify the effect of ``unanticipated'' changes in policy rates on Treasury yields. We make the same identifying assumption as \citet{Kuttner:2001}: the prices of Eurodollar options reflect the expected distribution of future policy rates on the day before FOMC announcements. Then, we attribute the change in the price of Eurodollar options on the day of an FOMC announcement to unanticipated monetary policy. For our baseline results, we study the one-day change in our EDX measures around scheduled FOMC meetings over the 1994-2019 period. We later demonstrate the robustness of our results to other specifications.\\ 
+
+The top panel of Figure \ref{fig:edx_data} shows that shifts in the EDX measures around FOMC announcements exhibit some common variation across horizon. Therefore, following the approach of \citet{GSS:2005}, \citet{NakamuraSteinsson:2018}, and \citet{Swanson:2021} for first-moment monetary policy surprises at various horizons, we look to reduce the dimensions needed for empirical analysis.  Specifically, we analyze the principle components of the changes in the EDX 1-quarter through EDX 5-quarter measures around FOMC meetings. Table \ref{tab:loadings} shows the factor loadings of the first two principal components. These two principal components jointly explain 93\% of the variation in the five EDX series around FOMC announcements. Therefore, it appears that we can capture much of the FOMC-induced shifts in the EDX term structure using only two dimensions. Importantly, using only one dimension of option-implied interest rate uncertainty, which has been the focus of the existing literature on market-based measures of monetary policy uncertainty, explains just 85\% of the variation in these five components. \\
+
+We use a statistical rank test to formally test for the number of factors necessary to summarize the observed changes in the term structure of option-implied interest rate uncertainty around FOMC announcements. We choose to work with the  \citet{KleibergenPaap:2006} rk test statistic, implemented by way of the STATA module developed by \citet{Stata_rk:2010}. When testing the null that the number of factors is zero under homoskedasticity, this test is equivalent to testing the joint significance of the coefficients using OLS. However, the \citet{KleibergenPaap:2006} rk-statistics can be applied in more general settings, including situations in which residuals exhibit heteroskedasticity. \\
+
+In principle, we would like to examine the number of factors needed to summarize all five horizons of our EDX measures, ranging from 1-quarter ahead to 5-quarters ahead. However, the changes in some of the EDX measures are highly correlated with one another, which leads to the inclusion of uninteresting factors summarizing these commonalities.\footnote{Indeed, when including EDX measures at all five contract horizons the \citet{KleibergenPaap:2006} test suggests that five factors are needed. \citet{Swanson:2021} also reduces the dimension of the asset price changes when testing for the number of factors needed to explain changes in interest rate futures, Treasury yields, and asset prices around FOMC announcements to avoid selecting uninteresting factors.} We therefore test for the number of factors needed to describe changes in the EDX 1-quarter, 4-quarter, and 5-quarter measures around FOMC announcements. We choose the 1-quarter and the 5-quarter contracts because they are, respectively, the shortest and longest horizons over which Eurodollar options reliably trade over our sample. We also elect to include changes in the 4-quarter ahead Eurodollar options contracts as this 1-year ahead horizon has been the focus of much of the recent empirical literature on monetary policy uncertainty \citep{HustedRogersSun:2019,DePooteretal:2021,Baueretal:2021}.\footnote{\citet{GSS:2005} and \citet{Swanson:2021} similarly test for the number of factors needed to summarize changes in the first moment of market-implied interest rates around FOMC announcements but, instead, use the \citet{CraggDonald:1997} test.} Our approach is conservative in the sense that if more than one factor is needed to explain changes across these three maturities of interest-rate options contracts, then one factor would be insufficient to explain FOMC-induced shifts across a wider range of interest-rate options contracts.\\ 
+
+%%However, \citet{KleibergenPaap:2006} argue that this test is numerically unstable when testing the null that the number of factors is greater than the true number of factors. In their application, they show that the \citet{CraggDonald:1997} factor test could therefore overestimate the number of factors.} 
+
+Formally, we test whether one factor is sufficient to summarize movements in EDX option-implied volatility contracts around FOMC meetings using the following specification:
+\begin{equation*}
+Y_{t} = F_{t}\Lambda + \varepsilon_{t}
+\end{equation*}
+where $Y_{t}$ is a $204\times3$ matrix containing the one-day change in the EDX 1-quarter, EDX 4-quarter, and EDX 5-quarter around scheduled FOMC meetings from 1994 through mid-2019, $F_{t}$ is a $204\times k$ matrix containing the time series of the $k\leq3$ factors (principal components), and $\Lambda$ is a $k\times3$ matrix with the loading of the $k$ factors on the changes in the three EDX contracts, and $\varepsilon_{t}$ is a vector of error terms.\\
+
+Table \ref{tab:factor_test} shows the results which test the null hypothesis that: $\mathcal{H}_{0}: k=k_{0}$ versus the alternative that $\mathcal{H}_{1}: k>k_{0}$, for $k_{0}=0$, $k_{0}=1$, and $k_{0}=2$. We very strongly reject the null that $k_{0}=0$, consistent with the recent literature that has emphasized the importance of changes in monetary policy uncertainty around FOMC announcements in explaining the transmission of monetary policy. However, in sharp contrast to the existing literature studying monetary policy uncertainty, we also strongly reject the null that $k_{0}=1$, suggesting that a single measure of monetary policy uncertainty is insufficient to explain the observed shifts in the term structure of option-implied interest rate uncertainty around FOMC announcements. Finally, the last row shows that we can not reject the null that $k_{0}=2$ given observed changes in the 1-, 4-, and 5-quarter EDX measures.\footnote{The null that $k_{0}=2$ is also rejected under several choices of the three horizons, suggesting that three factors may be needed. However, to remain conservative, we choose work with two factors since the null that $k_{0}=2$ can not be rejected under every specification. In practice, we found that the third factor has little explanatory power in our applications.} We therefore choose to work with two factors to summarize changes in market-implied interest rate uncertainty around FOMC meetings.\\
+
+The factor loading of the first two principal components in Table \ref{tab:loadings} offer a relatively straightforward interpretation of these two factors: the first principal components loads evenly across most horizons of option-implied interest rate volatility whereas the second principal component loads negatively on shorter horizons and positively at longer horizons. Therefore, we will refer to a scaled version of the first principal component as the EDX Level, and we term a scaled version of the second principal component the EDX Slope. To reinforce these interpretations, we scale the first principal component to have a one-for-one effect on changes in 4-quarter ahead EDX measure around FOMC announcements and we scale the second principal component to have a one-for-one effect on the difference between changes in 5-quarter and 1-quarter ahead EDX measures around FOMC announcements. \\
+
+We can also measure the term structure factors, level and slope, using the methodology in  \citet{Swanson:2006} to compute kernel densities and implied standard deviations in interest rate level space rather than the return space of our VIX methodology.\footnote{We thank Eric Swanson for kindly sharing his code with us to calculate these PDF measures.} Our key findings are robust to using this alternative measure of market-implied interest rate uncertainty and, therefore, our particular measure of interest rate uncertainty is not instrumental for our results.\footnote{Importantly, we find strong evidence from this test that rejects the null that $k_{0}=1$ when measuring monetary-policy uncertainty using the PDF-measure employed in \citet{Swanson:2006}.} Reinforcing this point, our EDX Level and EDX Slope and similar level and slope measures constructed from the PDF-methodology in \citet{Swanson:2006}, denoted by PDF Level and PDF Slope, share respective correlations of 1 and 0.97. Given the strong correlation across the EDX and PDF-measures of the term structure of monetary policy uncertainty, our forthcoming regression results are very similar when we instead employ the PDF measures rather than the EDX measures.\footnote{See \citet{Baueretal:2021} for a comparison of alternative measures of market-based interest rate uncertainty, including a comparison between their measure and our 4-quarter EDX measure.} For brevity, we report these robustness exercises in the Appendix and employ our EDX measure for our baseline results.\\
+
+
+A visual inspection of our EDX level and slope measures reveals that FOMC forward guidance has the potential to both reduce the level and flatten the slope of the term structure of interest rate uncertainty. The bottom panel of Figure \ref{fig:edx_data} plots our EDX level and slope factors and annotates significant FOMC announcements that underlie the observed movements in the EDX level and slope factors. Many, but certainly not all, forward guidance announcements elicit sharp reductions in both the level and slope factors. This was the case for instance after the implicit forward guidance offered by the May-2003 and June-2004 FOMC post-meeting statements, as well as the more explicit calendar- and date-based guidance offered in Dec-2008, Mar-2009, and Aug-2011. The large declines in the EDX slope factor following these announcements underscores that forward guidance has the ability to significantly flatten the term structure of interest rate uncertainty when there is heightened uncertainty about the trajectory of the funds rate, as was the case following the initial Iraq invasion in early 2003; the early stages of the Great Financial Crisis in 2008-2009, which saw severe credit dislocations alongside inflationary pressures; and the summer of 2011 when inflation was rising against a backdrop of still high unemployment.\\ 
+
+However, there are other instances in which FOMC announcements elicited distinct effects on the level and slope of the term structure of interest rate uncertainty. For example, the July-1995 and January-2004 announcements --- the two single largest changes \citet{GSS:2005} document in their path factor --- resulted in large adjustments in the level of interest rate uncertainty but had a much smaller impact on the slope of the term structure of interest rate uncertainty. This foreshadows the key theme of this paper: the term structure of interest rate uncertainty contains distinct information that cannot be sufficiently summarized solely by the level of interest rate uncertainty nor can this information be summarized by available ``first-moment'' monetary policy surprises. %To make this point more concrete, Table \ref{tab:correl} reports pairwise correlations between our level and slope uncertainty factors and all three first-moment monetary policy surprises from \citet{Swanson:2021}: the Fed Funds (FF) factor, forward guidance (FG) factor, and large-scale asset purchase (LSAP) factor. Both the EDX Level and Slope factor are most correlated with \citepos{Swanson:2021} forward guidance factor; however, the correlation with the EDX level factor is 0.49 and just 0.24 for the slope factor.
+
+\section{The Effects of FOMC Announcements on Interest Rates \label{sec:EventStudy}}
+
+We now demonstrate the information contained in the term structure of interest rate uncertainty by revisiting event-study regressions which explore the effects of FOMC announcements on Treasury yields. This literature dates back to \citet{Kuttner:2001} who studied the surprise component of monetary policy announcements as measured by changes in interest rate futures around FOMC announcements. A seminal contribution from \citet{GSS:2005} showed that changes in interest rate futures around FOMC announcements cannot be summarized by a single factor but rather require two factors, a target factor and a path factor. They show that the latter is closely linked to FOMC communication about future policy, or what is now called forward guidance, and transmits most strongly to longer-term Treasury rates. \citet{HansonStein:2015} and  \citet{NakamuraSteinsson:2018}, among others, furthered this line of research by showing that, counter to conventional macroeconomic thought, forward guidance transmits strongly through real forward interest rates. \\
+
+In this section, we revisit these event studies using our more encompassing measures of monetary policy uncertainty. We first study the role these uncertainty factors play in shaping the response of Treasury yields to FOMC announcements in the presence of first moment monetary policy surprises. Consistent with our model's prediction laid out in Equation \eqref{eq:nominalbondyield}, we find that the EDX factors play an economically meaningful and statistically significant role in explaining the response of 10-year Treasury yields to FOMC announcements. We also show that the link between the term structure of policy uncertainty and longer-term yields remains even when measures of first-moment monetary policy surprises are included in the regression. We then use this regression model to quantify the importance of shifts in the term structure of policy uncertainty in transmitting forward guidance through the lens of the FOMC's August 9, 2011 ``mid-2013'' forward guidance.  Our results suggest that FOMC announcements can broadly shape expectations as well as uncertainty surrounding the trajectory of future policy rates to a greater extent than previously recognized. In this regard, we revisit the \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018} regressions of Treasury forward rates around FOMC announcements.  We find significant increases in explanatory power of nominal and real Treasury forward rates from including our EDX Level and Slope factors in their regression specifications.
+
+
+%They go on to link FOMC announcements to a ``reach-for-yield'' channel of monetary policy by which FOMC communication indicating a low future path of policy rates leads investors to increase duration in an effort to preserve returns.  \citet{NakamuraSteinsson:2018} present further evidence that FOMC announcements have significant impacts on distant real yields but propose an alternative explanation for this phenomenon rooted in the ``Fed information effect.'' As described by \cite{RomerRomer:2000}, the ``Fed information effect'' reflects the revelation of the Federal Reserve's private information about the economy inferred by the public from the Federal Reserve's policy actions. These contrasting explanations have diverging predictions for the macroeconomic consequences of FOMC announcements, an issue we will return to in Section \ref{sec:SVAR}.
+
+\subsection{Monetary Policy Uncertainty \& The Response of Treasury Yields To FOMC Announcements \label{sec:baseline_reg}}
+We begin by studying how our EDX level and slope factors correlate with the response of the benchmark 10-year Treasury yield around FOMC announcements. In Table \ref{tab:baseline_edx}, we report results from the following regression:
+\begin{equation}
+\label{eq:baseline_reg1}
+\Delta y^{10}_{t} = \alpha + \beta^{L} L_{t} + \beta^{S} S_{t} + \beta^{X} X_{t} + \varepsilon_{t},
+\end{equation}
+where $\Delta y^{10}_{t}$ is the one-day change in the zero coupon 10-year Treasury yield around FOMC announcements, $L_{t}$ denotes our EDX level factor, $S_{t}$ denotes our EDX slope factor, and $X_{t}$ denotes a vector of controls. Zero-coupon Treasury yield data is produced by the Federal Reserve Board \citep{GSW:2007} and was obtained from Haver Analytics. The far left column shows that including only the EDX level factor in Equation (\ref{eq:baseline_reg1}) elucidates a large positive and statistically significant relationship between longer-term yields and changes in the level of interest rate uncertainty. However, the second column, which adds the EDX slope factor to the regression, shows that the relationship between longer-term yields and interest rate uncertainty is richer than a single measure of interest rate uncertainty might suggest. Adding the EDX slope factor to the regression more than doubles the regression $R^2$ and the regression coefficient on this slope factor is also positive and even larger in magnitude than the coefficient on the EDX level factor. These results confirm the prediction of our model in Section \ref{sec:model} which suggests that the entire path of future short rate uncertainty influences longer-term interest rates.\\
+
+The last three columns of Table \ref{tab:baseline_edx} explore the novelty of the information content of our EDX measures when accounting for various first-moment monetary policy surprises. While there is no agreed upon measure of the first-moment monetary policy surprise, \citet{Swanson:2021} proposes measures of FOMC surprises based on collective movements across a range of interest rates that span measures used in much of the previous literature, including federal funds and Eurodollar futures as well as Treasury rates. \citet{Swanson:2021} decomposes changes in these interest rates and other asset prices around FOMC announcements into three orthogonal factors: a Fed Funds (FF) factor, a Forward Guidance (FG) factor, and a Large-Scale Asset Purchases (LSAP) factor.\\ 
+
+We first add the FF and FG factors to our regression to control for unexpected changes in the target federal funds rate (FF factor) and communication about its future path (FG factor). The FG factor is the most natural first-moment analogue to our EDX measures since it aims to directly measure surprise forward guidance announcements. While the FF factor has no significant effect, the FG factor has a positive and statistically significant effect on the 10-year Treasury rate. Importantly though, these first-moment measures of monetary policy surprises do not encapsulate the information contained in our EDX factors. The next-to-last row of  Table \ref{tab:baseline_edx} reports the p-value of the hypothesis test $ \mathcal{H}_{0}= \beta^{L}=\beta^{S}=0$. The EDX term structure factors remain jointly statically significant in the presence of \citepos{Swanson:2021} FF and FG factors. Inspecting the individual $\beta^{L}$ and $\beta^{S}$ coefficients reveals that the information in the slope factor is most novel relative to first-moment measures of policy surprises. More specifically, the $\beta^{S}$ coefficient is reduced much less than the $\beta^{L}$ when FF and FG factors are included in the regression. Table \ref{tab:correl} reinforces this point by reporting pairwise correlations between our EDX Level and EDX Slope uncertainty factors and the various first-moment monetary policy surprises. Both the EDX Level and Slope factor are most correlated with \citepos{Swanson:2021} FG factor; likely because the EDX factors and the FG factor are all varying in response to the same forward guidance announcements. However, the correlation with the EDX Level factor is 0.49 and just 0.24 for the EDX Slope factor. \\
+
+The last two columns of Table \ref{tab:baseline_edx} show that the relationship between our EDX factors and the 10-year Treasury yield is not driven by LSAP announcements. LSAP announcements were often accompanied by commensurate forward guidance announcements \citep{Swanson:2021}. Therefore, by omitting any measure of LSAP surprises, our estimated effects of the EDX factors on the 10-year Treasury yield could reflect variation in longer-term rates that should be ascribed to LSAPs. The last two columns of Table \ref{tab:baseline_edx} directly address this concern by either including \citepos{Swanson:2021} LSAP factor in the regression or, in the last column, by omitting dates of key LSAP announcements. In either specification, the EDX factors remain both individually and jointly significant. However, there is a reduction in the estimate of both $\beta^{L}$ and $\beta^{S}$ We note however that these last two columns are likely to provide a lower bound on the effect of our EDX factors on the 10-year Treasury yield. For example, \citepos{Swanson:2021} LSAP factor is constructed without referencing measures of second-moment policy surprises. Therefore, variation in longer-term yields not accounted for by the FF and FG factors is likely ascribed to the LSAP factor when it could instead reflect shifts in the term structure of policy uncertainty. Moreover, since key LSAP announcements were often times accompanied by forward guidance announcements, omitting key LSAP announcements from the sample could attenuate the estimated effects of EDX factors on longer-term Treasury yields.\\
+
+Even after accounting for these other policy shock measures, our EDX factors remain an economically significant channel through which forward guidance operates. For both historical and quantitative context, it is useful to revisit the August 9, 2011 forward guidance episode which is the largest one-day decline in our EDX slope factor. On this day, the FOMC revised its forward guidance from signaling low levels of the funds rate ``for an extended period'' to instead state that the Committee expects low levels of the funds rate ``at least through mid-2013.'' Despite no explicit adjustments in its asset purchase program, this first ever use of date-based forward guidance led the 10-year Treasury yield to fall more than 20 basis points. Regression \eqref{eq:baseline_reg1}, when including \citepos{Swanson:2021} FF, FG, and LSAP factors as controls, can explain all but 2 basis points of this decline. This announcement greatly reduced uncertainty about the funds rate several years in the future, thereby flattening in the term structure of interest rate uncertainty.  The decline in the EDX Slope factor explains 9 basis points, or nearly half, of the drop in the 10-year Treasury yield. The rest of the explained 10-year yield decline (about 9 basis points) is roughly split between a reduction in the EDX Level factor (4 basis points) and the Forward Guidance factor (5 basis points). This episode underscores the potential for forward guidance to operate in large part through the term structure of interest rate uncertainty and, in particular, the slope of this term structure.
+
+\subsection{ Monetary Policy Uncertainty \& The Response of Nominal and Real Treasury Forward Rates to FOMC Announcements \label{sec:HansonStein}}
+
+Having established that FOMC forward guidance can shift the term structure of interest rate uncertainty and transmit to longer-term Treasury yields, we now seek a more granular view of this transmission mechanism. This leads us to study the response of nominal and real Treasury forward rates at various horizons to FOMC announcements using our EDX Level and Slope factors. In addition to detailing the breakdown between nominal and real interest rates, as well as isolating effects at specific points on the Treasury forward curve, this analysis also relates our work to \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018}. In standard macroeconomic models, monetary policy only affects real variables due to sticky prices.  Thus, after ten years, one would expect all prices in the economy to adjust and therefore monetary policy should not affect real interest rates far in the future.  Nevertheless, \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018} document that FOMC forward guidance affects forward real rates far into the future. In this section, we show that our EDX measures strengthen the evidence that FOMC announcements transmit to far forward real rates.\\
+
+To illustrate the quantitative importance of interest rate uncertainty in explaining changes in far forward real rates around FOMC announcements, we build directly on the regression models from \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018}. Specifically, each paper regresses changes in $n$-year nominal and real (Treasury Inflation Protected Securities, TIPS) instantaneous Treasury forward rates on first-moment measures of forward guidance around FOMC announcements:
+\begin{equation}
+\label{eq:forward_reg1}
+\Delta f^{X(n)}_{t} = a_{X}(n) + b_{X}(n)F_{t} + \varepsilon^{X(n)}_{t},
+\end{equation}
+where $\Delta f^{X(n)}_{t}$ is the change in the forward nominal rate of security $X$ with maturity $n.$ We consider the change in the nominal forward rate $X(n)=\$(n)$, the forward real rate $X(n)=TIPS(n)$, and the forward break-even inflation rate $X(n)=\pi(n)$. $F_{t}$ is a first-moment measure of forward guidance: the change in the two-year zero-coupon nominal yield for \citet{HansonStein:2015}, denoted by  $\Delta y^{\$(2)}_{t}$, and the policy news surprise for \citet{NakamuraSteinsson:2018}, which is the first principal component of intraday changes in interest rate futures around FOMC announcements, denoted by $PNS_{t}$.\\
+
+We augment this regression model with our EDX Level and Slope factors:
+\begin{equation}
+\label{eq:forward_reg2}
+\Delta f^{X(n)}_{t} = a_{X}(n) + b_{X}(n)F_{t} +\beta^{L}_{X}(n)L_{t}  + \beta^{S}_{X}(n)S_{t} + \varepsilon^{X(n)}_{t},
+\end{equation}
+where $L_{t}$ is our EDX Level factor and $S_{t}$ is our EDX Slope factor constructed as before but now over the \citet{HansonStein:2015} or \citet{NakamuraSteinsson:2018} event dates. Table \ref{tab:HSregs} reports the regression results for the regression models in Equations \eqref{eq:forward_reg1} and \eqref{eq:forward_reg2} for forward nominal, real, and break-even inflation rates for the \citet{HansonStein:2015} specification. Table \ref{tab:NSregs} similarly reports the regression results for the \citet{NakamuraSteinsson:2018} specification.\footnote{For brevity, we focus on maturities of $n$=2, 3, 5, and 10 in Tables \ref{tab:HSregs} and \ref{tab:NSregs}.} \\  
+
+We find that the uncertainty about future short-term policy rates plays a significant role in driving forward interest rates around FOMC announcements. Focusing on the results for forward nominal rates in the left panel of Table \ref{tab:HSregs} and Table \ref{tab:NSregs}, we find that the coefficient estimates on the EDX Slope factor are positive and economically and statistically significant across all horizons. The effect of the EDX slope factor on nominal forward rates peaks at the 3-year horizon for the \citet{NakamuraSteinsson:2018} specification and at the 5-year horizon for the \citet{HansonStein:2015} specification and diminish in magnitude at longer horizons. It is at these intermediate horizons where we also observe the largest increases in explanatory power of our EDX factors. For example, in the \citet{NakamuraSteinsson:2018} specification in Table \ref{tab:NSregs}, adding the EDX Level and Slope factors increases the $R^2$ measure of fit from just 0.01 to 0.32 at the 5-year horizon and we observe still large increases in the adjusted $R^2$ at other horizons. \\
+
+The increased explanatory power of nominal forward rates from our measures of interest rate uncertainty stem from their effects on forward real rates. In the middle and right panels of Tables \ref{tab:HSregs} and \ref{tab:NSregs}, we decompose the nominal forward regression coefficients into their additive real and break-even inflation components. The EDX Level and Slope factors have a positive and statistically significant effect on forward real rates at most horizons for both the \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018} specifications. Moreover, comparing the coefficients on the EDX Level and Slope across nominal and real forward rates reveals that much of the transmission from shifts in policy uncertainty to nominal rates emanates from effects on real forward rates. To be specific, recall that the effect of the EDX Slope factor on nominal forwards peaks somewhere between the 3 to 5-year horizon depending on the regression specification. The effect on real forwards follow a similar pattern, with somewhere between 65-80 percent of the effect of the EDX Slope factor on nominal forward rates arising from real forward rates at these horizons. We also observe that the increases in $R^2$ measures from incorporating our EDX factors are concentrated on the real forwards more so than on the modest increases in explained variation in the break-even inflation regressions. Focusing on the 5-year forward real rate, the $R^{2}$ increases between 22 and 26 points when we introduce our EDX factors. In fact, we observe increases in explained variation in real forward rates across all horizons for both regression specifications, with the increase in explanatory power diminishing at longer horizons.  \\
+
+Tables \ref{tab:HSregs} and  \ref{tab:NSregs} provide evidence that movements in the term structure of interest rate uncertainty appear to be a primary driver of changes in forward nominal and real rates around policy announcements. However, the mechanism through which these rate changes manifest remains unclear. Through the lens of our model in Section \ref{sec:model}, changes in interest rate uncertainty transmit to longer-term interest rates through term premiums and imply that increases in forward rates would dampen economic activity. This is also the case in \citepos{HansonStein:2015} model of yield-oriented investors. In stark contrast, the model of \citet{NakamuraSteinsson:2018} predicts that forward guidance which increases forward rates through the expectations component of yields and would actually stimulate economic activity (See, for example, their Figures III and IV). Given these starkly different economic predictions, in the next section we empirically examine the macroeconomic consequences of FOMC forward guidance using our high-frequency EDX measures. \\
+  
+\section{The Macroeconomic Effects of FOMC Announcements \label{sec:SVAR}}
+
+The meaningful increases in $R^2$ that result from including our EDX Level and Slope factors in the \citet{HansonStein:2015} and \citet{NakamuraSteinsson:2018} regressions strengthen the evidence that FOMC announcements transmit to far forward real rates. This increased explanatory power also make the EDX factors  potentially useful instruments for estimating the macroeconomic effects of forward guidance.  Clearer evidence on the output effects of FOMC forward guidance is needed to help discriminate between the various channels through which forward guidance influences interest rates and the economy; including Fed information effects versus more traditional channels predicted by our model in Section \ref{sec:model}.\\ 
+
+%While our simple model in Section \ref{sec:model} predicts that accommodative forward guidance stimulates economy activity, empirical evidence on 
+The output effects of FOMC forward guidance remains a contested question. \citet{BundickSmith:2020} treat high-frequency forward guidance surprises as an internal instrument and find expansionary effects from accommodative forward guidance that are well accounted for by a standard sticky-price model. But evidence from direct regressions on survey forecast point to a dominant Fed information effect. \citet{NakamuraSteinsson:2018} present evidence based on monthly-frequency regressions that professional forecasters revise down their growth expectations when the FOMC announces a lower-than-expected path for interest rates, consistent with large Fed information effects and similar to the ``Delphic'' interpretation offered for similar regression results in \citet{CEFJ:2012}. However, more recent work has questioned whether these monthly forecast-revision regressions are immune from endogeneity concerns that plague the broader literature seeking to isolate the macroeconomic effects of monetary policy \citep{BauerSwanson:2023aer}. \\
+
+Proxy SVAR models look to be a promising avenue to assess the macroeconomic effects of FOMC forward guidance due to their ability to incorporate high-frequency surprises in a time-series framework that can also account for the Fed's endogenous response to economic fundamentals \citep{CaldaraHerbst:2019}. Proxy SVAR estimates using high-frequency measures of pure FOMC forward guidance have found puzzling output responses that are more consistent with a Fed information effect than they are with standard models \citep{Lakdawala:2019,MAR:2023}. But this approach is not without its own set of challenges. First, pure high-frequency forward guidance surprises have been found to be weak instruments in proxy-SVARs \citep{GertlerKaradi:2015}.\footnote{\citet[][pg. 69]{GertlerKaradi:2015} note that, ``A conceptually nice way to assess the importance of forward guidance would be to follow GSS by isolating the component of the instrument set that reflects surprises in future rates that are orthogonal to surprises in the current rate. This component, which GSS refer to as the `path' factor then in principle captures the effect of pure shocks to forward guidance.  Unfortunately, this decomposition [...] leads to instruments that are too weak in the context of our external instruments setup to credibly identify pure surprises to forward guidance.''} A second concern is that high-frequency FOMC surprises are not entirely exogenous and could be ex-post predictable, perhaps due to information frictions \citep{MAR:2021,BauerSwanson:2023aer}. The two concerns are shown to be related in \citet{BauerSwanson:2023nber} where they demonstrate that purging high-frequency FOMC surprises of predictability greatly diminishes their first-stage instrument strength. As \citet{BauerSwanson:2023nber} nicely explain, both the relevance and exogeneity assumptions necessary to use high-frequency FOMC surprises as external instruments are questionable.   \\
+
+
+We estimate the macroeconomic effects of FOMC forward guidance using our EDX factors as external instruments in a standard proxy-SVAR, while taking account of the challenges with both instrument relevance and exogeneity. Regarding instrument relevance, our event-study evidence suggests that our EDX Level and Slope factors greatly enhance the explanatory power of high-frequency FOMC announcement surprises on Treasury yields. While these event-study regressions are in a 1- or 2-day window around FOMC announcements, we find that the increase in $R^2$ in these regressions translates to the first-stage IV-type regressions of VAR residuals of Treasury yields on our EDX factors. Therefore, expanding the information content from the level of interest rates to include options prices, by way of our EDX factors, can help to address the weak instruments problem that accompanies \citepos{Swanson:2021} forward guidance factor in a proxy SVAR setting.\footnote{In this regard, our work to increase the strength of the forward guidance instrument set compliments recent proposals by \citet{BauerSwanson:2023nber} and \citet{Swanson:2023wp} to address the weak instruments problem in proxy SVAR models of monetary policy by expanding the event set to include speeches and testimony by the Federal Reserve Chair and Vice Chair. While this looks to be a promising avenue, one benefit of our approach to increase the strength of forward guidance instruments by using second-moment policy surprises is that it relies on a publicly available set of pre-defined events. However, once the proprietary event set of \citet{SwansonJayawickrema:2023wp} is publicly made available, an expanded event set combined with our second-moment measures of monetary policy surprises may help provide even sharper estimates of the effects of forward guidance.} Regarding instrument exogeneity, we indeed find that our EDX factors are ex-post predictable using real-time, publicly available data. However, the strength of our instruments is not uniformly diminished by cleansing them of this predictable content. The resulting estimates show that FOMC forward guidance, identified with our EDX factors, increases economic activity following an accommodative forward guidance announcement, countering evidence of strong Fed information effects.  
+
+
+\subsection{Proxy SVAR Data and Description}
+
+We closely follow the proxy SVAR specification in \citet{GertlerKaradi:2015}. We study a four-variable monthly VAR model consisting of $y_{t}=[GS_{t}, 100\times log(ip_{t}), 100\times log(cpi_{t}), ebp_{t}]'$ where $GS_{t}$ is the monthly-average yield on a U.S. government debt security which will serve as our indicator for forward guidance, $100\times log(ip_{t})$ is 100 times the natural log of the index of industrial production, $100\times log(cpi_{t})$ is 100 times the log of the Consumer Price Index (CPI), and $ebp_{t}$ is the \citet{GZ:2012} excess bond premium. In our analysis, we consider $n$-year zero coupon Treasury yields and $n$-year instantaneous Treasury forward rates with maturities $n=2,5,10$. The use of forward rates as a policy indicator departs from \citet{GertlerKaradi:2015} who end their sample in 2012. We argue in the following analysis that considering forward rates sharpens the identification of forward guidance over our sample that encompasses the full seven-year zero lower bound period of 2009-2015.\\
+
+Consider the structural VAR representation of the vector of variables $y_{t}$, where a constant term is suppressed from the notation but is included in the estimation:
+\begin{equation}
+B_{0}y_{t} = B(L)y_{t-1} + \varepsilon_{t},
+\end{equation}
+where $B_{0}$ is the matrix that describes the contemporaneous structural relationships between the variables, $B(L)$ is a 12-th order lag polynomial, and $\varepsilon_{t}$ is a vector of i.i.d. structural shocks, each with unit variance. Without loss of generality, we assume that the first element of $\varepsilon_{t}$, denoted $\varepsilon^{fg}_{t}$, is the forward guidance shock that we seek to recover.\\
+
+We estimate the reduced-form VAR model over an updated sample relative to  \citet{GertlerKaradi:2015}, ranging from 1979:7 through 2019:6 using ordinary least squares:
+\begin{equation}
+y_{t} = A(L)y_{t-1} + u_{t},
+\end{equation}
+where $A(L)=B_{0}^{-1}B(L)$ is the 12-th order reduced-form lag polynomial and $u_{t}$ is the mean zero vector of reduced-form VAR innovations with variance-covariance matrix $\Sigma$.\footnote{In the Appendix, we show results when we estimate the VAR over the same sample that our proxies are available, which leaves a much shorter sample that begins in 1991. The point estimates are similar but, with fewer observations, the confidence bands are wider.} The mapping between $u_{t}$ and $ \varepsilon_{t}$ is given by:
+\begin{equation}
+u_{t} = [u^{1}_{t}, u^{q'}_{t}]' = B_{0}^{-1}\varepsilon_{t} = S\varepsilon_{t} = [S_{1}, S_{2}] [\varepsilon^{fg}_{t}, \varepsilon^{q'}_{t}]' = 
+ \begin{bmatrix}
+    s_{11} & s_{21}  \\
+    s_{21} & s_{22}  
+  \end{bmatrix}
+  [\varepsilon^{fg}_{t}, \varepsilon^{q'}_{t}]',
+\end{equation}
+where $S_{1}=[s_{11}, s_{21}']'$ is a $4\times1$ vector.  $s_{11}$ is a scalar, which measures the impact effect of a one unit forward guidance shock on the forward guidance indicator, and $s_{21}'$ is a $3\times1$ vector that measures the resulting impact effect from this forward guidance shock on the remaining three variables in the VAR. Once $S_{1}$ is identified, the  impulses responses to a forward guidance shock can be estimated. 
+
+\subsection{The Strength of Forward Guidance Proxies}
+We follow the proxy SVAR literature and look to recover $S_{1}$ by using external instruments \citep{StockWatson:2012,MertensRavn:2013,GertlerKaradi:2015}. We are interested in the effects of forward guidance and therefore focus our attention on instruments that can capture changes in the distribution of policy rates over the coming quarters and years rather than unexpected changes in the current target rate. For this purpose, we define the instrument set $Z_{t}$ to potentially consist of \citepos{Swanson:2021} forward guidance factor, which is derived from changes in interest-rate futures and Treasury yields around FOMC announcements, as well as  our EDX Level and Slope factors derived from options on interest rate futures.  To ensure consistency in the availability of these instruments, we extend our level and slope factors back to 1991, using the 1-day change in the EDX 1- through 5-quarter around the same dates used to construct  \citepos{Swanson:2021} forward guidance factor. Therefore, the instrument set is available from 1991:8 through 2019:6.\footnote{\citepos{Swanson:2021} forward guidance factor actually begins in 1991:7 however, due to the aggregation of the high-frequency surprises from daily to monthly, for which we follow the aggregation method outlined in \citet{GertlerKaradi:2015} (cumulatively sum the daily values, aggregate this series to a monthly basis by averaging within the month, and then difference the resulting monthly series), we lose the first month's observation.} We therefore estimate the vector $S_{1}$ using a two-stage least squares regression of $u^{q'}_{t}$ on $u^{1}_{t}$ instrumented by $Z_{t}$.\footnote{Technically, this two-stage regression recovers the $1\times3$ vector $\hat{s}_{21}/\hat{s}_{11}$. $\hat{s}_{11}$ can then be recovered by combining the estimate of $s_{21}/s_{11}$ with the estimate of $\Sigma$ using the relationship $SS'=\Sigma$. See footnote 4 of \citep{GertlerKaradi:2015} for details.}\\
+
+The strength of the instrument set, and therefore the ability to obtain reliable estimates of the macroeconomic effects of forward guidance, is typically determined by the F-statistic from the first-stage regression:
+\begin{equation}
+\label{eq:first_stage}
+u^{1}_{t} = Z_{t}\phi + e_{t},
+\end{equation}
+where $u^{1}_{t}$ are the innovations from the forward guidance indicator equation (the first equation) in the reduced-form VAR model and $e_{t}$ is a white noise error term. The innovations $u^{1}_{t}$ reflect the month-to-month variation in a Treasury yield or Treasury forward rate that cannot be predicted by lagged macroeconomic and financial variables. A fraction of this unpredictable variation reflects the unexpected announcements by the FOMC which economists are attempting to recover; however, it may be a small fraction relative to other forces shifting interest rates month-to-month. The low variation of high-frequency policy news or forward guidance surprises relative to the month-to-month variation in Treasury rates can lead to a low $R^2$ and therefore a low F-statistic in the first-stage regression. \citet{StockWrightYogo:2002} present a broad review of the weak instruments IV literature and conclude that, in most applications, a first-stage F-statistic near ten is necessary to allay concerns over weak instruments.  A primary challenge in identifying the effects of forward guidance shocks in this setting is that the F-statistics from regression \eqref{eq:first_stage} tend to fall uncomfortably below ten when $Z_{t}$ consists of measures of forward guidance surprises constructed from changes in interest rate futures around FOMC announcements, such as the \citet{GSS:2005} path factor \citep{GertlerKaradi:2015}. \\
+
+Table \ref{tab:first_stage} shows the output of the first-stage regression defined in Equation \eqref{eq:first_stage} using $n$-year Treasury yields and Treasury forward rates of various maturities $n$ as the forward guidance indicator. Across all forward guidance indicators, using \citepos{Swanson:2021} forward guidance factor as an instrument, denoted by ``FG Factor'' in the table, fails to register a first-stage F-statistic much above six, echoing the results from \citet{GertlerKaradi:2015}.\footnote{The F-statistics are not directly comparable to \cite{Lakdawala:2019} as he includes both the \citet{GSS:2005} target and path factors in the first-stage regression. \citet{GSS:2005} shows that the target factor has a large and statistically significant effect on 2-year Treasury yields, \citepos{Lakdawala:2019} forward guidance indicator. Similarly, \citet{CaldaraHerbst:2019}, \citet{JarocinskiKaradi:2020}, and \citet{BauerSwanson:2023nber} use futures surprises which reflect both forward guidance as well as unexpected changes in the current policy rate.}\\
+
+The second panel of Table \ref{tab:first_stage} shows that the first-stage F-statistics increase ---and exceed ten in one instance--- when the EDX Level and Slope factors are employed as forward-guidance instruments. However, \citet{BauerSwanson:2023nber} demonstrate that these first-stage F-statistics can substantially diminish once the high-frequency monetary policy instruments are purged of their predictable component. To address this concern, we estimate a similar real-time predictive regression as in \citet{BauerSwanson:2023nber} for our EDX factors. In particular, we regress the EDX Level and EDX Slope (in two separate regressions) on: the surprise component of the most recent nonfarm payrolls release prior to the FOMC announcement (actual payroll growth less the median expectation from the Money Market Services survey), the change in nonfarm payroll employment from one year earlier (constructed using real time data from FRB Philadelphia's real-time data center), the percent change in the S\&P 500 stock price index from 90 days before the FOMC announcement, the change in the slope of the Treasury yield curve (10-yr less 1-yr) from 90 days before the FOMC announcement, and the log change in the Bloomberg Commodity Spot Price index from 90 days before the FOMC announcement. Similar to \citet{BauerSwanson:2023nber}, we find evidence of predictability in our EDX Level and Slope factors, with the joint F-statistics 6.8 and 5.6, respectively.\footnote{The F-statistics for both of the predictive regressions exceed the 1\% critical value. The full regression output is provided in the Appendix.} However, unlike \citet{BauerSwanson:2023nber}, accounting for this predictability does not uniformly diminish the first-stage power of our EDX instruments. To the contrary, the bottom panel of Table \ref{tab:first_stage} shows that in some instances the first-stage F-statistic actually increases when using these orthogonalized EDX factors (i.e. the residuals from the predictive regressions, denoted EDX Level$^{\perp}$ and EDX Slope$^{\perp}$).\\
+ % Moreover, the estimated impulse responses are largely unchanged whether we use the EDX factors or the orthogonalized EDX factors. \\
+
+The strongest proxies arise when we use the 5-year Treasury forward rate as the forward guidance indicator. While  \citet{GertlerKaradi:2015} and \citet{Lakdawala:2019} employ the 1- or 2-year Treasury yield as forward guidance indicators over samples ending around 2012, the results in Table \ref{tab:first_stage} call for using medium-term Treasury forwards as forward guidance indicators over our 1991-2019 sample. For instance, not one of the three forward guidance proxies is statistically significant when the 2-year Treasury yield is the forward guidance indicator. However, when we consider longer horizon, forward Treasury rates as our forward guidance indicator, we find a stronger relationship between the forward guidance indicator and the forward guidance instruments. Over roughly the same sample period we consider, \citet{Swanson:2021} shows that in a tight window around FOMC announcements, forward guidance has its largest effect on 5-year Treasury rates with a diminishing effect at shorter and longer maturities. The need to consider longer-horizon policy indicators to capture the full effects of forward guidance is therefore a likely consequence of our more modern sample which, unlike \citet{GertlerKaradi:2015} and \citet{Lakdawala:2019},  encompasses the full seven year zero lower bound period of 2009 through 2015.  
+
+%Forward rates at medium- and longer-term horizons are most immune from the insensitivity of interest rates arising from the zero lower bound, likely explaining why the first-stage F-statistics  in Table \ref{tab:first_stage} peak for forward guidance indicators at the 5-year horizon on the forward rate Treasury curve.  The findings in \citet{SwansonWilliams:2014} seem consistent with the pattern we observe with our first-stage F-statistics between zero coupon yields and forward rates at various maturities $n$. For instance, while their results suggest that through 2012 the 5-year Treasury yield did not become insensitive to economic news, their Figure 3 (panel E) suggests that by late 2012 the 5-year Treasury yield did begin to experience below average sensitivity to economic news. As the economy moved deeper into the zero lower bound and Federal Reserve forward guidance extended over longer horizons, we speculate that the zero coupon 5-year Treasury yield became further constrained by the zero lower bound. For instance, while the  zero coupon 5-year Treasury yield averaged below 1 percent each month from April 2012 through May 2013, the 5-year Treasury forward rate never averaged below 1.5 percent in any month over this time. Importantly, the relationship between the first-stage F-statistic and the maturity of forward rates is not monotonic as the F-statistics decline at the 10-year horizon for the forward rate indicators across all of our forward guidance instrument sets. This hump-shaped pattern for the F-statistics on the forward rate curve suggests that our indicators are not capturing the effects of LSAP policies that were also employed by the FOMC over our sample. While \citepos{Swanson:2021} forward guidance factor is orthogonalized from LSAP surprises, we make no explicit orthogonalization of our EDX factors. Table \ref{tab:first_stage} therefore offers reassurance that our EDX factors transmit most strongly to medium-term rates and less so to longer-term rates, consistent with our interpretation of these factors as capturing the effects of forward guidance. 
+
+\subsection{Estimated Impulse Responses to a Forward Guidance Shock}
+The varying strength across forward guidance instruments documented in Table \ref{tab:first_stage} leads to starkly different estimates of the output effects of forward guidance. Figure \ref{fig:FGPROXYVAR_FGS5} shows the impulse responses to a forward guidance shock which reduces the 5-year forward Treasury rate by 25 basis points across three different instrument sets. Confidence bands are calculated using 5,000 Wild bootstrap replications, following \citet{GertlerKaradi:2015} and \citet{BauerSwanson:2023nber}.\footnote{In the Appendix, we also report results using the moving block bootstrap procedure proposed in \citet{JentschLunsford:2019}, which \citet{MertensRavn:2019} contend are conservative. We also report 68\% and 95\% error bands in the appendix.} The first column shows that when \citepos{Swanson:2021} forward guidance factor is the external instrument, industrial production declines for the first year following a surprise reduction in expected future interest rates, consistent with the evidence presented in \citet{Lakdawala:2019} and \citet{MAR:2023} in favor of a Fed information effect. We also estimate a temporary decline in prices, although the price response is not estimated with much precision. However, these puzzling impulse responses do not seem entirely consistent with a Fed information effect nor the Fed's systematic response to news \citep[as in][]{BauerSwanson:2023aer}. For instance, if this was a pure Fed information effect then we might expect excess bond premiums to rise but, instead, they fall. Similarly, \citet{CaldaraHerbst:2019} document an inverse relationship between the Fed's systematic policy response and bond premiums, not the positive comovement witnessed in the first column of Figure \ref{fig:FGPROXYVAR_FGS5}. Therefore, the response of industrial production is out of sync with the response of bond premiums and may therefore reflect estimation bias, perhaps from weak instruments. \\
+
+The second column of Figure \ref{fig:FGPROXYVAR_FGS5} provides evidence that when using our EDX factors as instruments, forward guidance announcements which lower forward rates lead to increases --- not declines --- in economic activity and prices. The paths for 5-year forward rates are virtually identical across the first two columns of Figure \ref{fig:FGPROXYVAR_FGS5}. However, when the EDX Level and Slope factors are used as forward guidance proxies, industrial production moves persistently higher in a hump-shaped pattern, eliminating the significant output puzzle seen in the first column. The peak response of industrial production is larger and more precisely estimated when EDX term structure factors are used as instruments relative to when \citepos{Swanson:2021} forward guidance factor is used as an instrument.\footnote{ In terms of magnitude, we estimate a very similar peak response of industrial production to what \citet{BauerSwanson:2023nber} estimate for a 25 basis point shock when using their preferred instrument identified around FOMC meetings and speeches.} Similarly, prices steadily rise over the months following the forward guidance intervention when using the EDX term structure factors, rather than initially declining when \citepos{Swanson:2021} forward guidance factor is used as the external instrument. Though the differences between the price responses across the first two columns of Figure \ref{fig:FGPROXYVAR_FGS5} are less pronounced. Therefore, the primary difference between using the forward guidance factor or our EDX term structure factors as external instruments appears to be concentrated in the response of real economic activity, the key variable of interest in discriminating between the alternative channels of forward guidance.\\
+
+
+The third column of Figure \ref{fig:FGPROXYVAR_FGS5} employs the orthogonalized EDX term structure factors as external instruments. Comparing across the second and third columns reveals that the estimated impulse responses are largely unchanged whether we use the EDX factors or the orthogonalized EDX factors. The point estimates show slightly larger peak responses of the Consumer Price Index and industrial production and a larger initial decline in the excess bond premium; qualitatively similar to what \citet{MAR:2021} and \citet{BauerSwanson:2023nber} find when orthogonalizing their external instrument with respect to information outside of the SVAR. However, these differences across the second and third columns of Figure \ref{fig:FGPROXYVAR_FGS5} appear to be small, suggesting our high-frequency EDX factors are not especially confounded by information frictions, such as those emphasized in \citet{MAR:2021} and \citet{BauerSwanson:2023aer,BauerSwanson:2023nber}. 
+
+\section{Relationship to Other Work and Additional Results\label{sec:Literature}}
+We find evidence that policy announcements which offer greater clarity over the future path of short-term interest rates both lower long-term yields and increase economic activity, consistent with our simple theoretical model in Section \ref{sec:model}. Our model in Section \ref{sec:model} further predicts that this transmission occurs largely through term premiums on longer-term bonds. 
+
+%forward guidance announcements transmit to interest rates and the economy through the term structure of monetary policy uncertainty. Our simple theoretical model in Section \ref{sec:model} predicts that this transmission occurs largely through term premiums on longer-term bonds. Our event study regressions in Section \ref{sec:EventStudy} as well as the proxy SVAR model presented in Section \ref{sec:SVAR} largely corroborate this simple model's predictions.  
+%interest rate uncertainty easing forward guidance announcement both lowers real forward yields and increases economic activity.  
+%Our simple theoretical model in Section \ref{sec:model} argues that Therefore, the evidence presented from our event-study regressions in Section \ref{sec:HansonStein}, as well as the proxy SVAR models presented in Section \ref{sec:SVAR}, offer support for the ``term premium'' interpretation of the effects of monetary policy announcements on yields rather than operating through the expected future path of short rates as would be the case according to the ``Fed information effect.'' \\
+
+We now further explore this model prediction by directly regressing our level and slope factor on individual components of Treasury yields as estimated by affine term structure models: the risk-neutral yield which proxies the expected path of future interest rates and the estimated term premium component.  The specific decomposition we rely is generated by the model of \cite{AdrianCrumpMoench:2013}.\footnote{We reserve this exercise for further exploration, as opposed to including it in our baseline analysis, because typical term structure models assume homoskedasticity. Therefore, there is some tension by regressing term-premium measures derived from models assuming constant variances on time-varying measures of interest rate volatility.} Estimates of the risk-neutral expected path of rates and the term premium are available at a daily frequency from the Federal Reserve Bank of New York for 1- to 10-year zero-coupon bonds and were obtained through Haver Analytics. We focus on the benchmark 10-year yield which was the focus of our analysis in Section \ref{sec:baseline_reg}. We estimate regressions of the form:
+\begin{align}
+\Delta rn^{10}_{t} & = \alpha_{rn} + \beta^{L}_{rn} L_{t} + \beta_{rn}^{S} S_{t} + \beta_{rn}^{X} X_{t} + \varepsilon^{rn}_{t}, \label{eq:rn_reg}  \\
+\Delta tp^{10}_{t} & = \alpha_{tp} + \beta_{tp}^{L} L_{t} + \beta_{tp}^{S} S_{t} + \beta_{tp}^{X} X_{t} + \varepsilon^{tp}_{t}, \label{eq:tp_reg}
+\end{align}
+where $\Delta rn^{10}_{t}$ denotes the one-day change in the risk-neutral component of the zero coupon 10-year Treasury yield and $\Delta tp^{10}_{t}$ denotes the one-day change in the term premium component of the zero coupon 10-year Treasury yield, calculated around scheduled FOMC meetings. As in our baseline regression, $X_{t}$ denotes a vector of controls, including \citepos{Swanson:2021} FF Factor, FG Factor, and LSAP Factor.  \\
+
+These regression results suggest that our EDX term structure factors operate on longer-term yields primarily through term premiums. In particular, these two regression equations essentially decompose the coefficient estimates on the 10-year yield from Table \ref{tab:baseline_edx} into two additive terms, a term on the risk neutral yield and term on the term premium.\footnote{The decomposition is not exact due to fitting errors in the affine term structure model.} The estimates in Table \ref{tab:termpremium_edx} reveal that the positive relationship between our EDX factors and the 10-year Treasury yield emanate largely through the term premium component. In particular, the coefficients $\beta_{tp}^{L}$ and $\beta_{tp}^{S}$ are estimated to be positive and statistically significant. In contrast, the coefficients $\beta_{rn}^{L}$ and $\beta_{rn}^{S}$ are estimated to be jointly insignificant.  \\
+% Contrary to the predictions of the ``reach-for-yield'' mechanism proposed by \citet{HansonStein:2015}, the coefficient $\beta_{tp}^{F}$ is typically negative and statistically insignificant.  \\
+
+These yield component regressions offer further evidence that policy announcements operate on longer-term yields in large part by moving the term structure of interest rate uncertainty which translates positively to term premiums. The theoretical model in \cite{King:2019} posits a similar mechanism through which forward guidance operates on longer-term yields when policy rates are resting at the zero lower bound. However, in the second and fourth (right) columns of Table \ref{tab:termpremium_edx}, we provide empirical evidence that the linkages between interest rate uncertainty and longer-term yields remains operative in samples when the federal funds rate is not at the zero lower bound. We re-estimate the regression model in Equations \eqref{eq:rn_reg} and \eqref{eq:tp_reg} omitting the zero lower bound period of December-2008 through December-2015 from our regression model. Over this sub-sample, we continue to estimate that  $\beta_{tp}^{L}$ and  $\beta_{tp}^{S}$ are positive and statistically significant. Moreover, over this sub-sample, the F-statistic testing the null hypothesis that $\mathcal{H}_{0}: \beta_{tp}^{L} = \beta_{tp}^{S} = 0$ remains reliably above the five percent critical value. Therefore, these sub-sample estimates suggest that channels other than those put forth by \cite{King:2019}, are quantitatively important in understanding the transmission of forward guidance to longer-term rates. However, consistent with \citepos{King:2019} prediction that the effects of forward guidance on term premiums are stronger at the zero lower bound, we estimate larger point estimates of the effects from changes in interest rate uncertainty on term premiums over our full sample versus the Non-ZLB sample. \\%This results from this decomposition regression offer support for the ``term premium'' interpretation of the effects of monetary policy announcements on yields rather than operating through the expected future path of short rates as would be the case according to the ``Fed information effect.'' \\
+
+\section{Conclusion \label{sec:Conclusion}}
+This paper argues that the effects of FOMC announcements on interest rates and economy activity partly transmit through changes in the term structure of interest rate uncertainty. While several recent contributions have pointed to changes in interest rate uncertainty as an important mechanism through which monetary policy operates, our results suggest that focusing on just a single dimension of interest rate uncertainty can be misleading. Therefore, much in the spirit of \citet{GSS:2005}, we argue that there is not just one, but rather there are two relevant dimensions of monetary policy uncertainty. One implication of our proposal of a more encompassing approach to measuring monetary policy uncertainty is that forward interest rate guidance  --- operating through changes in the term structure of interest rate uncertainty ---  appears to be a more efficacious policy tool than currently available forward guidance proxies might otherwise suggest.
+\clearpage
+
+\bibliographystyle{aea}
+\bibliography{references}
+\clearpage
+
+\begin{table}[h!] 
+\textbf{\caption{Summary Statistics of EDX Measures of Market-Implied Interest Rate Uncertainty  \label{tab:edx_summarize}}} \vspace{0.2in}
+	\centering
+	\scalebox{1}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=3.2] S[table-format=3.2] S[table-format=3.2] S[table-format=3.2] S[table-format=3.2]} \hline \hline
+							& {EDX 1Q} 	& {EDX 2Q}	& {EDX 3Q}	& {EDX 4Q}	& {EDX 5Q} 	\\ \hline
+	Full Sample Mean		& 0.36		& 0.57		& 0.77		& 0.96		& 1.13		\\
+	Non-ZLB Sample Mean		& 0.40		& 0.63		& 0.85		& 1.04		& 1.21		\\
+	ZLB Sample Mean			& 0.27		& 0.41		& 0.57		& 0.74		& 0.92		\\ 
+	Change around FOMC Meetings & -0.02	& -0.02	& -0.02	& -0.02	& -0.02 \\ \hline \hline
+	\end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{The units of the EDX series are annualized percentage points. The full sample period is January 1994 -- June 2019. The ZLB Sample encompasses the period from December 16, 2008 through December 16, 2015.  The change in the EDX measures are calculated over a one-day window around scheduled FOMC meetings. }
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+
+\begin{table}[h!] 
+\textbf{\caption{Principle Component Analysis of the Changes in the Term Structure of Interest Rate Uncertainty Around FOMC Announcements  \label{tab:loadings}}} \vspace{0.2in}
+	\centering
+	\scalebox{1}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=3.2] S[table-format=3.2]} \hline \hline
+	{\hspace{1.25in}}				& {\hspace{0.2in} EDX Level Factor \hspace{0.2in}} & {\hspace{0.2in} EDX Slope Factor \hspace{0.2in}}\\ \hline
+	$\Delta $EDX 1Q			& 0.80				& -0.56				\\
+	$\Delta $EDX 2Q			& 0.93				& -0.27				\\
+	$\Delta $EDX 3Q			& 1.01				&  0.10				\\
+	$\Delta $EDX 4Q			& 1.00				&  0.31				\\
+	$\Delta $EDX 5Q			& 0.92				&  0.44				\\
+	Cumulative R$^{2}$		& 0.85				&  0.93				\\ \hline \hline
+	\end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{The first column reports the factor loadings on the (rotated) first principal component while the second column reports the factor loadings on the (rotated) second principal component. As these loadings suggest, we normalize the EDX Level Factor to have a one for one effect on the $\Delta$EDX 4Q and we normalize the EDX Slope Factor to have a one for one effect on the $\Delta$EDX5Q - $\Delta$EDX1Q.  The change in the EDX measures are calculated over a one-day window around scheduled FOMC meetings. The sample period is January 1994 -- June 2019, resulting in 204 observations. }
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+\begin{table}[h!] 
+	\textbf{\caption{Testing the Number of Factors Needed to Summarize Changes in the Term Structure of Interest Rate Uncertainty Around FOMC Announcements \label{tab:factor_test}}} \vspace{0.1in}
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=9.0] S[table-format=1.2] S[table-format=2.2] S[table-format=1.2]} 			\hline \hline
+	Number of factors 		&								& 										& 			\\
+	under the null			& {Degrees of Freedom (dof)}	& {rk-statistic $\sim \chi^{2}(dof)$}	& {p-value} \\	\hline
+	$k_{0}=0$        		&  9   							&  51.72   								& [0.00]   	\\
+	$k_{0}=1$        		&  4   							&  26.87   								& [0.00]   	\\
+	$k_{0}=2$        		&  1   							&  0.86   								& [0.35]   	\\ \hline \hline
+ \end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{This table shows results from the \citet{KleibergenPaap:2006} test for the number of factors underlying changes in the EDX 1-quarter, EDX 4-quarter, and EDX 5-quarter measures of option-implied interest rate uncertainty around scheduled FOMC meetings.  Eicker-White heteroskedasticity-robust covariance matrix is used in constructing the test statistic. Number of observations: 204.  The sample period is January 1994 -- June 2019. The change in the EDX measures are calculated over a one-day window around scheduled FOMC meetings.}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+%\begin{table}[h!] 
+%	\textbf{\caption{Correlation Between First Moment Monetary Policy Surprises \& The Term Structure of Monetary Policy Uncertainty \label{tab:correlation_edx}}} \vspace{0.1in}
+%	\centering
+%	\scalebox{0.9}{%
+%	\begin{threeparttable}
+%	\begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]} \hline \hline
+%	
+%								
+%				& {$\Delta$ 2-yr}	& {Target}		& {Path}    & {PNS} \\ \hline
+%EDX Level      	& 0.38     			& 0.18     		& 0.49   	& 0.53  \\
+%EDX Slope      	& 0.33    			& -0.05     	& 0.38     	& 0.34  \\
+% $\Delta$ 2-yr 	& 			     	& 0.26     		& 0.91     	& 0.94  \\
+%Target   		& 			   		& 			    & 			& 0.32  \\
+%Path     		& 			 		& 			   	& 			& 0.95  \\ \hline\hline  \end{tabular}
+%	\begin{tablenotes}
+%	\item \footnotesize{Number of observations: 208.  The sample period is January 1994 -- December 2019. All measures are calculated over a one-day window around scheduled FOMC meetings.}
+%	\end{tablenotes}
+%	\end{threeparttable}
+%	}	%
+%\end{table}
+%\clearpage
+
+\begin{table}[h!] 
+	\textbf{\caption{Monetary Policy Uncertainty \& The Response of Treasury Yields To FOMC Announcements \label{tab:baseline_edx}}} \vspace{0.1in}
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c } \hline \hline
+								& \multicolumn{10}{c}{Dependent Variable: $\Delta$ 10-yr Treasury Yield}								\\ \cmidrule{2-11}
+ EDX Level          			&  1.00\str{***}	& &  1.00\str{***}		& &  0.59\str{**}		& &  0.45\str{***}   	& &  0.43\str{**}  		& \\
+                    			&  [0.00]  			& &  [0.00] 			& &  [0.01]  			& &  [0.01]  			& &  [0.02]  			& \\
+ EDX Slope          			&         			& &  1.51\str{***}		& &  1.26\str{***}		& &  1.08\str{***}		& &  1.05\str{***}    	& \\
+                    			&         			& &  [0.00]  			& &  [0.00]  			& &  [0.00]  			& &  [0.00]  			& \\
+ FF Factor 	            		&         			& &         			& &  0.01\str{}			& &  0.00\str{}			& &  0.00\str{}   		& \\
+                    			&         			& &         			& &  [0.44]  			& &  [0.54]       		& &  [0.55]       		& \\
+ FG Factor             			&         			& &         			& &  0.02\str{***}    	& & 0.02\str{***} 		& &  0.02\str{***}    	& \\
+                    			&         			& &         			& &  [0.00]       		& & [0.00]  			& &  [0.00]  			& \\
+ LSAP Factor           			&         			& &         			& &         			& & -0.06\str{***}		& &         			& \\
+                    			&         			& &         			& &         			& & [0.00]  			& &         			& \\
+ Omit LSAP Dates       			&   {No}   			& &   {No}   			& & {No}    			& & {No}    			& &  {Yes} 				& \\
+								&         			& &         			& &         			& & 		  			& &         			& \\
+R$^2$       					&  0.15   			& &  0.33   			& &  0.40   			& & 0.65   				& &  0.38   			& \\
+ EDX F-test 		 			&  		  			& &  [0.00]  			& &  [0.00]  			& & [0.00]  			& &  [0.00]  			& \\ \hline\hline  \end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{The EDX F-test row shows the [p-value] for the hypothesis test that the regression coefficients on the EDX Level and EDX Slope are jointly zero.  Heteroskedasticity-consistent standard errors are used to calculate [p-values] shown below coefficient estimates. Number of observations: 204. Number of observations without LSAP dates: 195.  The sample period is January 1994 -- June 2019. All changes in yields and the EDX measures are calculated over a one-day window around scheduled FOMC meetings. FF Factor, FG Factor, and LSAP Factor are from \citet{Swanson:2021}.}
+	\item \footnotesize{$^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+\begin{table}[h!] 
+	\textbf{\caption{Correlation between Monetary Policy Uncertainty Surprises and First-Moment Monetary Policy Surprises \label{tab:correl}}} \vspace{0.1in}
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=2.2] c S[table-format=2.2] c S[table-format=2.2] c} 				\hline \hline
+								& {FF Factor}		& & {FG Factor}			& & {LSAP Factor}		&	\\ \cmidrule{2-7}
+ EDX Level          			&  0.24				& &  0.49				& &  -0.07				&  	\\
+                    			&  					& &  					& &			  			&  	\\
+ EDX Slope          			&  -0.11       		& &  0.24				& &  -0.08				& 	\\ \hline\hline  \end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{Nomber of Observations: 204. The sample period is January 1994 -- June 2019. The EDX measures are calculated over a one-day window around scheduled FOMC meetings. FF Factor, FG Factor, and LSAP Factor are from \citet{Swanson:2021}.}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+ 
+
+\begin{landscape}
+\begin{table}[h!]
+	\textbf{\caption{The Response of US Treasury Forwards Around FOMC Announcements: Hanson and Stein (2015)\label{tab:HSregs}}}
+	\centering
+	\scalebox{0.8}{%
+		\begin{threeparttable}
+			\begin{tabular}{l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] }
+				\hline\hline
+							&																																																												\\
+							& \multicolumn{4}{l}{Nominal Forward Rates} 									& & \multicolumn{4}{l}{Real Forward Rates} 										& & \multicolumn{4}{l}{Inflation Forward Rates} 								\\ \cline{2-5} \cline{7-10} \cline{12-15}								
+				Maturity   	& { $\Delta$ 2-yr} 	& {EDX Level}		& {EDX Slope}   	& {R$^2$} 			& & { $\Delta$ 2-yr}& {EDX Level}		& {EDX Slope}   	& {R$^2$} 			& & { $\Delta$ 2-yr}& {EDX Level}		& {EDX Slope}   	& {R$^2$} 			\\ \hline
+				2-Year 		& 1.20\str{***} 	& 					& 					& 0.83				& & 0.88\str{***}	& 					& 					& 0.40				& &  0.32\str{***}	& 					& 					& 0.08				\\
+							& [0.00]			& 					& 					& 					& & [0.00]			& 					& 					& 					& & [0.00]			& 					& 					& 					\\
+							& 1.11\str{***}		& 0.16				& 0.32\str{*} 		& 0.86	 			& & 0.73\str{***}	& 0.54\str{**}		& 0.41\str{}		& 0.51				& & 0.38\str{***}	& -0.38				& -0.09				& 0.15				\\
+							& [0.00]			& [0.11]			& [0.17]			& 					& & [0.00]			& [0.03]			& [0.25]			& 					& & [0.00]			& [0.13]			& [0.80]			& 					\\
+							&					&					&					&					& & 				& 					& 					& 					& & 				& 					& 					& 					\\
+				3-Year 		& 1.16\str{***}	 	& 					& 					& 0.63				& & 0.87\str{***}	& 					& 					& 0.40				& & 0.28\str{***}	& 					& 					& 0.12				\\
+							& [0.00]			& 					& 					& 					& & [0.00]			& 					& 					& 					& & [0.00]			& 					& 					& 					\\
+							& 0.98\str{***}	 	& 0.45\str{***}		& 0.59\str{***} 	& 0.73 				& & 0.65\str{***}	& 0.69\str{***}		& 0.65\str{**}		& 0.62				& & 0.32\str{***}	& -0.24				& -0.06				& 0.17				\\
+							& [0.00]			& [0.01]			& [0.00]			& 					& & [0.00]			& [0.00]			& [0.04]			& 					& & [0.01]			& [0.18]			& [0.83]			& 					\\ 
+							&					&					&					&					& & 				& 					& 					&	 				& & 				& 					& 					& 					\\
+				5-Year  	& 0.84\str{***} 	& 					& 					& 0.30				& & 0.65\str{***} 	& 					& 					& 0.24				& & 0.19\str{**} 	& 					& 					& 0.05				\\
+							& [0.00]			& 					& 					& 					& & [0.00]			& 					& 					& 					& & [0.01]			& 					& 					& 					\\
+							& 0.54\str{***} 	& 0.96\str{***}		& 0.93\str{***} 	& 0.55	 			& & 0.43\str{***}	& 0.86\str{***} 	& 0.61\str{***}		& 0.46				& & 0.11			& 0.11				& 0.32\str{**}		& 0.10				\\
+							& [0.00]			& [0.00]			& [0.00]			& 					& & [0.00]			& [0.01] 			& [0.00]			& 					& & [0.20] 			& [0.42] 			& [0.05] 			& 					\\ 
+							&					&					&					&					& & 				& 					& 					& 					& & 				& 					& 					& 					\\
+				10-Year 	& 0.45\str{***} 	& 					& 					& 0.09				& & 0.42\str{***} 	& 					& 					& 0.18				& & 0.03			& 					& 					& 0.001				\\
+							& [0.00]			& 					& 					& 					& & [0.00]			& 					& 					& 					& & [0.81] 			& 					& 					& 					\\
+							& 0.23\str{*} 		& 0.75\str{***}		& 0.67\str{***} 	& 0.26	 			& & 0.27\str{***}	& 0.43\str{**}		& 0.50\str{***}		& 0.31				& & -0.05			& 0.32\str{**}		& 0.17				& 0.06				\\
+							& [0.08]			& [0.01]			& [0.00]			& 					& & [0.00]			& [0.02] 			& [0.01]			& 					& & [0.69] 			& [0.03]			& [0.27]			& 					\\
+							&					&					&					&					& & 				& 					& 					& 					& & 				& 					& 					& 					\\	 \hline\hline
+			\end{tabular}
+			\begin{tablenotes}
+				\item \footnotesize{In each of the three panels, each row reports coefficients from the following regression both with and without our EDX factors: $\Delta f^{X(n)}_{t} = a_{X}(n) + b_{X}(n)\Delta y^{\$(2)}_{t} +\beta^{L}_{X}(n)L_{t}  + \beta^{S}_{X}(n)S_{t} + \Delta \varepsilon^{X(n)}_{t}$, where $\Delta f^{X(n)}_{t}$ is the change in the forward nominal rate ($X(n)=\$(n)$), the forward real rate ($X(n)=TIPS(n)$), or the forward break-even inflation rate ($X(n)=\pi(n)$) at maturity $n$, $\Delta y^{\$(2)}_{t}$ is the change in the two-year zero-coupon nominal yield, $L_{t}$ is our level factor, and $S_{t}$ is our slope factor (derived from changes in EDX 1Q through EDX 5Q around FOMC meetings). All changes in yields and the EDX measures are calculated over two days, following \citet{HansonStein:2015}.  The sample period is January 1999 through February 2012, dropping 5 LSAP dates omitted by \citet{HansonStein:2015}, resulting in 107 observations. The sample begins in 2004 for the 2- and 3-year maturities, leaving 64 observations.}
+				\item \footnotesize{Heteroskedasticity-consistent standard errors are used to calculate [p-values]  shown below coefficient estimates. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+			\end{tablenotes}
+		\end{threeparttable}
+	}% end scalebox
+\end{table}
+\end{landscape}
+\clearpage
+
+\begin{landscape}
+\begin{table}[h!]
+	\textbf{\caption{The Response of US Treasury Forwards Around FOMC Announcements: Nakamura and Steinsson (2018)\label{tab:NSregs}}}
+	\centering
+	\scalebox{0.8}{%
+		\begin{threeparttable}
+			\begin{tabular}{l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] }
+				\hline\hline
+							&																																																												\\
+							& \multicolumn{4}{l}{Nominal Forward Rates} 									& & \multicolumn{4}{l}{Real Forward Rates} 										& & \multicolumn{4}{l}{Inflation Forward Rates} 								\\ \cline{2-5} \cline{7-10} \cline{12-15}								
+				Maturity   	& { PNS} 			& {EDX Level}		& {EDX Slope}   	& {R$^2$} 			& & { PNS}			& {EDX Level}		& {EDX Slope}   	& {R$^2$} 			& & { PNS}			& {EDX Level}		& {EDX Slope}   	& {R$^2$} 			\\ \hline
+				2-Year  	& 1.14\str{**} 		& 					& 					& 0.15				& & 0.99\str{***} 	& 					& 					& 0.12				& & 0.15\str{} 		& 					& 					& 0.01				\\
+							& [0.01]			& 					& 					& 					& & [0.00]			& 					& 					& 					& & [0.51]			& 					& 					& 					\\
+							& 1.22\str{***} 	& 0.17\str{}		& 2.19\str{***} 	& 0.45	 			& & 0.92\str{***}	& 0.51\str{**} 		& 1.71\str{***}		& 0.35				& & 0.29			& -0.34				& 0.49\str{*}		& 0.09				\\
+							& [0.00]			& [0.58]			& [0.00]			& 					& & [0.00]			& [0.03] 			& [0.00]			& 					& & [0.16] 			& [0.17] 			& [0.08] 			& 					\\ 
+							&					&					&					&					& & 				& 					& 					& 					& & 				& 					& 					& 					\\
+				3-Year 		& 0.82\str{*} 		& 					& 					& 0.06				& & 0.88\str{***} 	& 					& 					& 0.08				& & -0.06			& 					& 					& 0.00				\\
+							& [0.05]			& 					& 					& 					& & [0.01]			& 					& 					& 					& & [0.66] 			& 					& 					& 					\\
+							& 0.78\str{***} 	& 0.60\str{*}		& 2.60\str{***} 	& 0.43	 			& & 0.70\str{***}	& 0.92\str{**}		& 2.09\str{***}		& 0.39				& &  0.08			& -0.33\str{}		& 0.51\str{**}		& 0.11				\\
+							& [0.01]			& [0.05]			& [0.00]			& 					& & [0.00]			& [0.00] 			& [0.00]			& 					& & [0.62] 			& [0.15]			& [0.02]			& 					\\
+							&					&					&					&					& & 				& 					& 					& 					& & 				& 					& 					& 					\\	 
+				5-Year 		& 0.26\str{} 		& 					& 					& 0.01				& & 0.47\str{***}	& 					& 					& 0.05				& & -0.21\str{**}	& 					& 					& 0.04				\\
+							& [0.18]			& 					& 					& 					& & [0.00]			& 					& 					& 					& & [0.01]			& 					& 					& 					\\
+							& 0.07			 	& 0.90\str{***}		& 1.92\str{***} 	& 0.32	 			& & 0.21\str{}		& 0.99\str{***}		& 1.38\str{***}		& 0.31				& & -0.16\str{*}	& -0.09\str{}		& 0.55\str{***}		& 0.12				\\
+							& [0.77]			& [0.00]			& [0.00]			& 					& & [0.15]			& [0.00]			& [0.00]			& 					& & [0.09]			& [0.63]			& [0.00]			& 					\\			
+							&					&					&					&					& & 				& 					& 					& 					& & 				& 					& 					& 					\\
+				10-Year 	& -0.08			 	& 					& 					& 0.00				& & 0.12\str{}		& 					& 					& 0.01				& & -0.20\str{**}	& 					& 					& 0.03				\\
+							& [0.67]			& 					& 					& 					& & [0.30]			& 					& 					& 					& & [0.03]			& 					& 					& 					\\
+							& -0.13			 	& 0.25				& 0.74\str{***} 	& 0.09 				& & 0.04\str{}		& 0.31\str{}		& 0.33\str{*}		& 0.05				& & -0.17			& -0.05				& 0.41\str{**}		& 0.07				\\
+							& [0.46]			& [0.33]			& [0.00]			& 					& & [0.76]			& [0.15]			& [0.09]			& 					& & [0.13]			& [0.78]			& [0.04]			& 					\\ 
+							&					&					&					&					& & 				& 					& 					&	 				& & 				& 					& 					& 					\\\hline\hline
+			\end{tabular}
+			\begin{tablenotes}
+				\item \footnotesize{In each of the three panels, each row reports coefficients from the following regression both with and without our EDX factors: $\Delta f^{X(n)}_{t} = a_{X}(n) + b_{X}(n)PNS_{t} +\beta^{L}_{X}(n)L_{t}  + \beta^{S}_{X}(n)S_{t} + \Delta \varepsilon^{X(n)}_{t}$, where $\Delta f^{X(n)}_{t}$ is the change in the forward nominal rate ($X(n)=\$(n)$), the forward real rate ($X(n)=TIPS(n)$), or the forward break-even inflation rate ($X(n)=\pi(n)$) at maturity $n$, $PNS_{t}$ is \citepos{NakamuraSteinsson:2018} policy news shock, $L_{t}$ is our EDX Level factor, and $S_{t}$ is our EDX Slope factor (derived from changes in EDX 1Q through EDX 5Q around FOMC meetings). All changes in yields and the EDX measures are calculated over one day.  The sample period is all regularly scheduled FOMC meetings from January 2000 through March 19, 2014, dropping July 2008 through June 2009, omitted by \citet{NakamuraSteinsson:2018}, resulting in 106 observations. Finally, for the 2-year and 3-year yields and real forwards the sample begins in January 2004 resulting in 74 observations.}
+				\item \footnotesize{Heteroskedasticity-consistent standard errors are used to calculate [p-values] shown below coefficient estimates. $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+			\end{tablenotes}
+		\end{threeparttable}
+	}% end scalebox
+\end{table}
+\end{landscape}
+\clearpage
+
+\begin{table}[h!] 
+\textbf{\caption{The Strength of Forward Guidance Instruments: First-Stage Regressions} \label{tab:first_stage}} \vspace{0.2in} 
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=2.2]} \hline \hline
+								 \multicolumn{4}{c}{Instrument Set: \citet{Swanson:2021} Forward Guidance Factor}		\\ \hline			
+	Forward Guidance Indicator	& \THead{FG Factor}				& \THead{}						& \THead{F-statistic} 	\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){4-4} 
+	2-year Treasury Yield 		& -0.00							& 								& 0.07					\\
+	5-year Treasury Yield		& 0.02							& 								& 0.83					\\
+	10-year Treasury Yield		& 0.02							& 								& 2.36					\\
+								&																						\\
+	2-year Forward Rate 		& 0.01							& 								& 0.50					\\
+	5-year Forward Rate			& 0.04\str{**}					& 								& 6.14					\\
+	10-year Forward Rate		& 0.03							& 								& 3.49					\\
+								&																						\\
+								 \multicolumn{4}{c}{Instrument Set: EDX Factors}										\\ \hline	
+	Forward Guidance Indicator	& \THead{EDX Level}				& \THead{EDX Slope}				& \THead{F-statistic} 	\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+	2-year Treasury Yield 		& 0.78							& -0.07 						& 1.18					\\
+	5-year Treasury Yield		& 1.26\str{*}					&  1.11 						& 3.82					\\
+	10-year Treasury Yield		& 1.35\str{**}					&  1.40\str{*} 					& 5.69					\\
+								&																						\\
+	2-year Forward Rate 		& 0.83							&  1.50\str{*} 					& 2.51					\\
+	5-year Forward Rate			& 2.11\str{**}					&  2.22\str{**} 				& 11.02					\\
+	10-year Forward Rate		& 0.76							&  1.14			 				& 2.27					\\
+								&																						\\
+								 \multicolumn{4}{c}{Instrument Set: Orthogonalized EDX Factors}							\\ \hline	
+	Forward Guidance Indicator	& \THead{EDX Level$^{\perp}$}	& \THead{EDX Slope$^{\perp}$}	& \THead{F-statistic} 	\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+	2-year Treasury Yield 		& 0.20							& 0.30							& 0.16					\\
+	5-year Treasury Yield		& 0.87							& 1.30\str{*}					& 2.71					\\
+	10-year Treasury Yield		& 1.12\str{*}					& 1.48\str{*}					& 4.72					\\
+								&																						\\
+	2-year Forward Rate 		& 0.41							& 1.66\str{*} 					& 2.07					\\
+	5-year Forward Rate			& 2.23\str{***}					& 2.04\str{**}					& 11.26					\\
+	10-year Forward Rate		& 1.05							& 0.85 							& 2.28					\\ \hline\hline
+	\end{tabular}
+	\begin{tablenotes}
+	\item \footnotesize{Notes:   Sample Period: 1991:07 -- 2019:06. Observations: 335. Heteroskedasticity-consistent standard errors are used to calculate p-values.FG Factor is from \citet{Swanson:2021}.  $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+
+\begin{table}[h!] 
+	\textbf{\caption{10-yr Yield Decomposition: Monetary Policy Surprises \& The Term Structure of Monetary Policy Uncertainty \label{tab:termpremium_edx}}} \vspace{0.1in}
+	\centering
+	\scalebox{0.9}{%
+	\begin{threeparttable}
+	\begin{tabular}{l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] } \hline \hline
+				& \multicolumn{3}{c}{$\Delta$ 10-yr Risk Neutral Yield} 	& & \multicolumn{3}{c}{$\Delta$ 10-yr Term Premium} 	\\ \cmidrule{2-4} \cmidrule{6-8}
+ EDX Level          			&  -0.05			& &  -0.12\str{} 		& &  0.54\str{***}		& &  0.34\str{*} 			\\
+                    			&  [0.72]  			& &  [0.49]  			& & [0.01]  			& &  [0.10]  				\\
+ EDX Slope          			&   0.34\str{*}   	& &  0.36\str{*} 		& &  0.78\str{***}		& &  0.48\str{**}			\\
+                    			&  [0.07]      		& &  [0.07]  			& & [0.00]  			& &  [0.01]  				\\
+ FF Factor 	            		&   0.03\str{***}   & &  0.03\str{***} 		& & -0.03\str{***}		& &  -0.03\str{***}			\\
+                    			&  [0.00]      		& &  [0.00]  			& & [0.00]  			& &  [0.01]       			\\
+ FG Factor             			&  0.03\str{***}    & &  0.03\str{***} 		& & -0.00\str{}    		& & -0.00\str{} 			\\
+                    			&  [0.00]       	& &  [0.10]  			& & [0.27]       		& & [0.41]  				\\
+ LSAP Factor           			&  -0.01\str{**}    & &  -0.02\str{} 		& & -0.05\str{***}      & & -0.03\str{**}			\\
+                    			&   [0.05]      	& &  [0.13]  			& & [0.00]     			& & [0.01]  				\\
+ Omit ZLB Dates       			& 	 {No}    		& & {Yes}    			& & {No}    			& & {Yes}    				\\
+								&         			& &  					& &         			& & 		  				\\
+R$^2$       					&  0.49   			& &  0.53 				& &  0.41   			& & 0.23   					\\
+ EDX F-test 		 			&  [0.18]		  	& &  [0.17]  			& &  [0.00]  			& & [0.01]  				\\ \hline\hline  \end{tabular}
+\begin{tablenotes}
+	\item \footnotesize{The EDX F-test row shows the [p-value] for the hypothesis test that the regression coefficients on the EDX Level and EDX Slope are jointly zero.  Heteroskedasticity-consistent standard errors are used to calculate [p-values]  shown below coefficient estimates.  The ``Full Sample'' period is January 1994 -- June 2019 resulting in 204 observations. The ``Non-ZLB Sample'' period is January 1994 -- June 2019, excluding December 2008 -- December 2015, resulting in 147 observations. The risk neutral yield and term premium measures are the \citet{AdrianCrumpMoench:2013} estimates provided by the Federal Reserve Bank of New York. All changes in yields and the EDX measures are calculated over a one-day window around scheduled FOMC meetings. FF Factor, FG Factor, and LSAP Factor are from \citet{Swanson:2021}.}
+	\item \footnotesize{$^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$}
+	\end{tablenotes}
+	\end{threeparttable}
+	}	%
+\end{table}
+\clearpage
+
+
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{Daily EDX Measures of Option-Implied Interest Rate Volatility at Select Horizons \label{fig:edx_daily}}}
+\begin{center}
+\includegraphics[width=6.4in]{EDXPlot.pdf}
+\end{center}
+\footnotesize{Note:  This figure plots the daily EDX 1Q, EDX 4Q, and EDX 5Q from 1994 through 2019.   }
+\end{figure}
+\clearpage
+
+\begin{landscape}
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{Changes in the Term Structure of Interest Rate Uncertainty Around FOMC Announcements \label{fig:edx_data}}}
+\begin{center}
+\includegraphics[width=8.25in]{EDXFOMCAnnotate.pdf}
+\end{center}
+\vspace{-0.10in}
+\footnotesize{Note:  The top panel shows the 1-day change in the EDX 1Q through the EDX 5Q around scheduled FOMC meetings from 1994 through mid-2019. The bottom panel shows the first two principal components from these five series which, after scaling, we call the EDX Level and EDX Slope Factors.  }
+\end{figure}
+\end{landscape}
+\clearpage
+
+
+\begin{figure}[h]
+\vspace{-0.25in}
+\textbf{\caption{SVAR Impulse Responses to Identified Forward Guidance Shocks\label{fig:FGPROXYVAR_FGS5}}}
+\vspace{-0.0in}
+\includegraphics[width=6.5in]{FGPROXYVAR_WildBS_90.pdf}
+\footnotesize{Note:  Each column shows impulse responds from a separate structural VAR, each identified using different external instruments. The reduced form VARs are estimated from July 1979 through June 2019 and the external instruments identifying equations are estimated from August 1991 through June 2019.  }
+\end{figure}
+
+
+\end{document}
