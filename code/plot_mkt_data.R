@@ -94,16 +94,16 @@ df_dota_moavg_1yr <- df_dota_moavg[df_dota_moavg$month >= as.Date("2017-03-29") 
 #daily data weighted by volume sold (monthly data is already weighted by vol_sold and used for points) (USE THIS ONE IN PAPER!!)
 #did_trends.png
 p1 <- ggplot(NULL, aes(x=date, y=log(median_price))) + 
-        geom_point(data=df_cs_moavg_1yr,aes(x=month, y=l_median_price, color="Counter Strike")) + 
+        geom_point(data=df_cs_moavg_1yr,aes(x=month, y=l_median_price, color="Counter-Strike")) + 
         geom_point(data=df_dota_moavg_1yr,aes(x=month, y=l_median_price, color="Dota 2")) + 
         geom_vline(xintercept = as.Date("2018-03-29"),color="gray50",linetype="dashed") + 
         geom_smooth(data=subset(df_cs_1yr, df_cs_1yr$date < as.Date("2018-03-29")), method='lm',linetype="longdash",color="#EDA338",aes(weight = volume_sold)) +
         geom_smooth(data=subset(df_dota_1yr, df_dota_1yr$date < as.Date("2018-03-29")), method='lm',linetype="longdash",color="#FF0000",aes(weight = volume_sold)) +
         geom_smooth(data=subset(df_cs_1yr, df_cs_1yr$date >= as.Date("2018-03-29")), method='lm', color="#EDA338",linetype="longdash",aes(weight = volume_sold)) +
         geom_smooth(data=subset(df_dota_1yr, df_dota_1yr$date >= as.Date("2018-03-29")), method='lm', color="#FF0000",linetype="longdash",aes(weight = volume_sold)) +
-        geom_label(aes(as.Date("2018-06-12"), 1.5), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+        geom_label(aes(as.Date("2018-05-16"), 1.5), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
         scale_x_date(breaks = scales::pretty_breaks(n=8)) +
-        scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter Strike" = "#EDA338")) +
+        scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter-Strike" = "#EDA338")) +
         xlab("") +
         ylab("Log Median Price")+
         theme(axis.title.x = element_blank()) + theme_few()
@@ -182,25 +182,55 @@ summary(didreg_mos_hat1)
 didreg_mos_1yr_hat1 <- feols(log_p_hat ~ post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
 summary(didreg_mos_1yr_hat1)
 
-#daily data event study
+#daily data event study -- PRICE
 didreg_hat2 <- feols(log_p_hat ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:100) | item+date, weights= ~volume_sold, data=df_all)
 summary(didreg_hat2)
 iplot(didreg_hat2, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Fitted Log Median Price")
 
 didreg_1yr_hat2 <- feols(log_p_hat ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:100) | item+date, weights= ~volume_sold, data=df_all_1yr)
 summary(didreg_1yr_hat2)
+#save iplot
+pdf("../writing/manuscript/figures/did_days_1yr_phat_iplot.pdf")
 iplot(didreg_1yr_hat2, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Fitted Log Median Price")
+dev.off()
 
-#monthly data event study -- WHY ARE THESE TWO OPPOSITE??
+#monthly data event study -- PRICE (WHY ARE THESE TWO OPPOSITE??)
 didreg_mos_hat2 <- feols(log_p_hat ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos)
 summary(didreg_mos_hat2)
 iplot(didreg_mos_hat2,xlab="Months Until Treatment",main="Effect on Fitted Log Median Price")
 
 didreg_mos_1yr_hat2 <- feols(log_p_hat ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
 summary(didreg_mos_1yr_hat2)
+#save iplot
+pdf("../writing/manuscript/figures/did_mos_1yr_phat_iplot.pdf")
 iplot(didreg_mos_1yr_hat2,xlab="Months Until Treatment",main="Effect on Fitted Log Median Price")
+dev.off()
 
-#EXTRAS
+#daily data event study -- VOL SOLD
+didreg_hat3 <- feols(volume_sold ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:100) | item+date, data=df_all)
+summary(didreg_hat3)
+iplot(didreg_hat3, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Volume Sold")
+
+didreg_1yr_hat3 <- feols(volume_sold ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:100) | item+date, data=df_all_1yr)
+summary(didreg_1yr_hat3)
+#save iplot
+pdf("../writing/manuscript/figures/did_days_1yr_vol_iplot.pdf")
+iplot(didreg_1yr_hat3, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Volume Sold")
+dev.off()
+
+#monthly data event study -- VOL SOLD
+didreg_mos_hat3 <- feols(volume_sold ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+summary(didreg_mos_hat3)
+iplot(didreg_mos_hat3,xlab="Months Until Treatment",main="Effect on Volume Sold")
+
+didreg_mos_1yr_hat3 <- feols(volume_sold ~ i(mos_til_treat,treated_unit,ref=-1) | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
+summary(didreg_mos_1yr_hat3)
+#save iplot
+pdf("../writing/manuscript/figures/did_mos_1yr_vol_iplot.pdf")
+iplot(didreg_mos_1yr_hat3,xlab="Months Until Treatment",main="Effect on Volume Sold")
+dev.off()
+
+#EXTRAS--------------------------------------------------------------------------------------------
 #raw price did regs
 didreg1 <- feols(log(median_price) ~ post_treat*treated_unit |item+date, weights= ~volume_sold, data=df_all)
 summary(didreg1)
