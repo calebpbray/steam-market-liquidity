@@ -127,6 +127,20 @@ p2 <- ggplot(NULL, aes(x=date, y=log(median_price))) +
   theme(axis.title.x = element_blank()) + theme_few()
 p2
 
+#plot monthly average difference in prices between CS and dota (CS minus dota)
+df_merge <- merge(df_cs_moavg,df_dota_moavg,by="month")
+df_merge['l_p_diff'] <- df_merge$l_median_price.x - df_merge$l_median_price.y
+
+p3 <- ggplot(df_merge, aes(x=month, y=l_p_diff)) + 
+  geom_point() +
+  geom_vline(xintercept = as.Date("2018-03-29"),color="gray50",linetype="dashed") + 
+  geom_label(aes(as.Date("2018-06-12"), 1.5), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+  scale_x_date(breaks = scales::pretty_breaks(n=8)) +
+  xlab("") +
+  ylab("Log Median Price Difference")+
+  theme(axis.title.x = element_blank()) + theme_few()
+p3
+
 #unweighted
 #ggplot(NULL, aes(x=date, y=log(median_price))) +
 #  #geom_point(data=df_cs, color="#EDA338") + 
@@ -187,7 +201,7 @@ didreg_hat2 <- feols(log_p_hat ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:
 summary(didreg_hat2)
 iplot(didreg_hat2, xlim=c(-50,50),xlab="Days Until Treatment",main="Effect on Fitted Log Median Price")
 
-didreg_1yr_hat2 <- feols(log_p_hat ~ i(days_til_treat,treated_unit,ref=-1,keep=-100:100) | item+date, weights= ~volume_sold, data=df_all_1yr)
+didreg_1yr_hat2 <- feols(log_p_hat ~ i(days_til_treat,treated_unit,ref=0,keep=-100:100) | item+date, weights= ~volume_sold, data=df_all_1yr)
 summary(didreg_1yr_hat2)
 #save iplot
 pdf("../writing/manuscript/figures/did_days_1yr_phat_iplot.pdf")
