@@ -1,24 +1,61 @@
 item,grade,origin_date,origin,grade_rarity,grade_count,drop_rarity
-AK-47 | Aquamarine Revenge,Covert,2015-05-26,Falchion Case,0.0765784,728339,0.000256
-AK-47 | Blue Laminate,Restricted,2013-12-18,eSports 2013 Winter Case,0.083733991,796396,0.0064
-AK-47 | Elite Build,Mil-spec,2015-04-15,Chroma 2 Case,0.28290161,2690684,0.032
-AK-47 | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,0.029328913,278948,0.00128
-AWP | Elite Build,Classified,2016-02-18,Operation Wildfire Case,0.029328913,278948,0.00128
-AWP | Hyper Beast,Covert,2015-05-26,Falchion Case,0.0765784,728339,0.000256
-AWP | Man-o'-war,Covert,2015-01-08,Chroma Case,0.0765784,728339,0.000256
-AWP | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,0.029328913,278948,0.00128
-AWP | Worm God,Restricted,2015-04-15,Chroma 2 Case,0.083733991,796396,0.0064
-Glock-18 | Steel Disruption,Restricted,2014-07-10,eSports 2014 Summer Case,0.083733991,796396,0.0064
-Glock-18 | Water Elemental,Classified,2014-07-01,Operation Breakout Weapon Case,0.029328913,278948,0.00128
-M4A1-S | Basilisk,Classified,2014-11-11,Operation Vanguard Weapon Case,0.029328913,278948,0.00128
-M4A1-S | Cyrex,Covert,2014-07-01,Operation Breakout Weapon Case,0.0765784,728339,0.000256
-M4A4 | Bullet Rain,Covert,2014-07-10,eSports 2014 Summer Case,0.0765784,728339,0.000256
-M4A4 | Evil Daimyo,Restricted,2015-05-26,Falchion Case,0.083733991,796396,0.0064
-M4A4 | Griffin,Restricted,2014-11-11,Operation Vanguard Weapon Case,0.083733991,796396,0.0064
-M4A4 | 龍王 (Dragon King),Classified,2015-01-08,Chroma Case,0.029328913,278948,0.00128
-USP-S | Blood Tiger,Mil-spec,2014-07-10,eSports 2014 Summer Case,0.28290161,2690684,0.032
-USP-S | Caiman,Classified,2014-06-11,Huntsman Case,0.029328913,278948,0.00128
-USP-S | Guardian,Restricted,2014-02-20,Operation Phoenix Weapon Case,0.083733991,796396,0.0064
-USP-S | Kill Confirmed,Covert,2015-09-17,Shadow Case,0.0765784,728339,0.000256
-USP-S | Torque,Mil-spec,2015-05-26,Falchion Case,0.28290161,2690684,0.032
-USP-S | Stainless,Mil-spec,2014-02-12,CS:GO Weapon Case 3,0.28290161,2690684,0.032
+AK-47 | Aquamarine Revenge,Covert,2015-05-26,Falchion Case,0.0765784,728339.0,0.000256
+AK-47 | Blue Laminate,Restricted,2013-12-18,eSports 2013 Winter Case,0.083733991,796396.0,0.0064
+AK-47 | Elite Build,Mil-spec,2015-04-15,Chroma 2 Case,0.28290161,2690684.0,0.032
+AK-47 | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,0.029328913,278948.0,0.00128
+AK-47 | Jaguar,Covert,2014-07-10,eSports 2014 Summer Case,0.0765784,728339.0,0.000256
+AK-47 | Fire Serpent,Covert,2013-09-19,Operation Bravo Case,0.0765784,728339.0,0.000256
+AK-47 | Red Laminate,Classified,2013-08-14,eSports 2013 Case,0.029328913,278948.0,0.00128
+AK-47 | Wasteland Rebel,Covert,2014-11-11,Operation Vanguard Weapon Case,0.0765784,728339.0,0.000256
+AWP | Elite Build,Classified,2016-02-18,Operation Wildfire Case,0.029328913,278948.0,0.00128
+AWP | Hyper Beast,Covert,2015-05-26,Falchion Case,0.0765784,728339.0,0.000256
+AWP | Man-o'-war,Covert,2015-01-08,Chroma Case,0.0765784,728339.0,0.000256
+AWP | Redline,Classified,2013-12-18,Winter Offensive Weapon Case,0.029328913,278948.0,0.00128
+AWP | Worm God,Restricted,2015-04-15,Chroma 2 Case,0.083733991,796396.0,0.0064
+AWP | Corticera,Classified,2014-07-10,eSports 2014 Summer Case,0.029328913,278948.0,0.00128
+AWP | Asiimov,Covert,2014-02-20,Operation Phoenix Weapon Case,0.0765784,728339.0,0.000256
+AWP | Graphite,Classified,2013-09-19,Operation Bravo Case,0.029328913,278948.0,0.00128
+Glock-18 | Steel Disruption,Restricted,2014-07-10,eSports 2014 Summer Case,0.083733991,796396.0,0.0064
+Glock-18 | Water Elemental,Classified,2014-07-01,Operation Breakout Weapon Case,0.029328913,278948.0,0.00128
+Glock-18 | Grinder,Restricted,2014-11-11,Operation Vanguard Weapon Case,0.083733991,796396.0,0.0064
+Glock-18 | Wraiths,Mil-spec,2015-09-17,Shadow Case,0.28290161,2690684.0,0.032
+Glock-18 | Bunsen Burner,Mil-spec,2015-05-26,Falchion Case,0.28290161,2690684.0,0.032
+Glock-18 | Blue Fissure,Mil-spec,2014-02-12,CS:GO Weapon Case 3,0.28290161,2690684.0,0.032
+Glock-18 | Dragon Tattoo,Restricted,2013-08-14,CS:GO Weapon Case,0.083733991,796396.0,0.0064
+M4A1-S | Basilisk,Classified,2014-11-11,Operation Vanguard Weapon Case,0.029328913,278948.0,0.00128
+M4A1-S | Cyrex,Covert,2014-07-01,Operation Breakout Weapon Case,0.0765784,728339.0,0.000256
+M4A1-S | Blood Tiger,Mil-spec,2013-11-08,CS:GO Weapon Case 2,0.28290161,2690684.0,0.032
+M4A1-S | Guardian,Covert,2013-12-18,Winter Offensive Weapon Case,0.0765784,728339.0,0.000256
+M4A1-S | Bright Water,Restricted,2013-09-19,Operation Bravo Case,0.083733991,796396.0,0.0064
+M4A1-S | Dark Water,Restricted,2013-08-14,CS:GO Weapon Case,0.083733991,796396.0,0.0064
+M4A1-S | Atomic Alloy,Classified,2014-06-11,Huntsman Case,0.029328913,278948.0,0.00128
+M4A4 | Bullet Rain,Covert,2014-07-10,eSports 2014 Summer Case,0.0765784,728339.0,0.000256
+M4A4 | Evil Daimyo,Restricted,2015-05-26,Falchion Case,0.083733991,796396.0,0.0064
+M4A4 | Griffin,Restricted,2014-11-11,Operation Vanguard Weapon Case,0.083733991,796396.0,0.0064
+M4A4 | 龍王 (Dragon King),Classified,2015-01-08,Chroma Case,0.029328913,278948.0,0.00128
+M4A4 | Zirka,Restricted,2013-09-19,Operation Bravo Case,0.083733991,796396.0,0.0064
+M4A4 | Desert Strike,Covert,2014-06-11,Huntsman Case,0.0765784,728339.0,0.000256
+M4A4 | Faded Zebra,Mil-spec,2013-08-14,eSports 2013 Case,0.28290161,2690684.0,0.032
+USP-S | Blood Tiger,Mil-spec,2014-07-10,eSports 2014 Summer Case,0.28290161,2690684.0,0.032
+USP-S | Caiman,Classified,2014-06-11,Huntsman Case,0.029328913,278948.0,0.00128
+USP-S | Guardian,Restricted,2014-02-20,Operation Phoenix Weapon Case,0.083733991,796396.0,0.0064
+USP-S | Kill Confirmed,Covert,2015-09-17,Shadow Case,0.0765784,728339.0,0.000256
+USP-S | Torque,Mil-spec,2015-05-26,Falchion Case,0.28290161,2690684.0,0.032
+USP-S | Stainless,Mil-spec,2014-02-12,CS:GO Weapon Case 3,0.28290161,2690684.0,0.032
+USP-S | Serum,Classified,2013-11-08,CS:GO Weapon Case 2,0.029328913,278948.0,0.00128
+USP-S | Overgrowth,Restricted,2013-09-19,Operation Bravo Case,0.083733991,796396.0,0.0064
+P2000 | Corticera,Classified,2014-07-10,eSports 2014 Summer Case,0.029328913,278948.0,0.00128
+P2000 | Ocean Foam,Classified,2013-09-19,Operation Bravo Case,0.029328913,278948.0,0.00128
+P2000 | Fire Elemental,Covert,2014-11-11,Operation Vanguard Weapon Case,0.0765784,728339.0,0.000256
+P2000 | Handgun,Restricted,2015-05-26,Falchion Case,0.083733991,796396.0,0.0064
+P2000 | Ivory,Mil-spec,2014-07-01,Operation Breakout Weapon Case,0.28290161,2690684.0,0.032
+P2000 | Pulse,Mil-spec,2014-06-11,Huntsman Case,0.28290161,2690684.0,0.032
+P2000 | Red FragCam,Mil-spec,2014-02-12,CS:GO Weapon Case 3,0.28290161,2690684.0,0.032
+AUG | Bengal Tiger, Classified,2014-07-10,eSports 2014 Summer Case,,,
+AUG | Wings,Mil-spec,2013-08-14,CS:GO Weapon Case,0.28290161,2690684.0,0.032
+AUG | Torque,Restricted,2014-06-11,Huntsman Case,0.083733991,796396.0,0.0064
+AUG | Chameleon,Covert,2014-02-20,Operation Phoenix Weapon Case,0.0765784,728339.0,0.000256
+SG 553 | Pulse,Restricted,2014-02-20,Operation Phoenix Weapon Case,0.083733991,796396.0,0.0064
+SG 553 | Cyrex,Classified,2015-05-26,Falchion Case,0.029328913,278948.0,0.00128
+SG 553 | Ultraviolet,Mil-spec,2013-08-14,CS:GO Weapon Case,0.28290161,2690684.0,0.032
+SG 553 | Wave Spray,Mil-spec,2013-09-19,Operation Bravo Case,0.28290161,2690684.0,0.032
