@@ -50,7 +50,7 @@
 %    table-space-text-post   = \str{***},
 %}
 
-\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Video Game Cosmetics Markets}}\thanks{I thank Elior Cohen and Francisco Scott for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Video Game Skin Markets}}\thanks{I thank Elior Cohen and Francisco Scott for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
 \author{\vspace{5mm} Caleb Bray \\ \vspace{-0.8mm}}
 \date{\normalsize{\hspace{0.1in}September 2025}}
 
@@ -89,7 +89,7 @@ Crucially however, other games that had items listed on the Steam Community Mark
 The estimate the treatment effect of this exogenous shock, I leveraged a novel dataset of item sales on the Steam Community Market. These data are pulled from Steam's Web API via webscraping and provide daily median sale price and volume sold for items listed on the Steam Community Market. Because the number of unique items is large, and some items are infrequently sold on the Steam Community Market, I take a subset of items from Dota 2 and Counter-Strike that is broadly representative of the market as a whole. \hyperlink{tab:cs-dota2-compare}{Table 1} shows the charactistics of the subset of items I use in my regressions.
 
 
-%MAYBE MAKE THIS INTO TWO PART TABLE WITH DAILY VS MONTHLY?
+%MAYBE MAKE THIS INTO TWO PART TABLE WITH DAILY VS MONTHLY? -- meh probably not
 \begin{table}[h]
 \textbf{\caption{Counter-Strike and Dota 2 Items Summary}}
 \label{tab:cs-dota2-compare}
@@ -97,16 +97,20 @@ The estimate the treatment effect of this exogenous shock, I leveraged a novel d
 \begin{tabular}{lllll}
                    & Counter-Strike & Dota 2 & Total &  \\
 \hline
-Observations           & 552            & 1359          & 1911           &  \\
-Unique Items          & 23              & 57             & 80               &  \\ %GET UP TO 60 UNIQUE ITEMS FOR BOTH!
-Oldest Origin Date   & 2013-12-18 & 2012-07-12 & 2012-07-12 &  \\
+Observations           & 2940            & 2724          & 4299           &  \\
+Unique Items          & 60              & 57             & 117               &  \\
+Oldest Origin Date   & 2013-08-14 & 2012-07-12 & 2012-07-12 &  \\
 Newest Origin Date  & 2016-02-18 & 2016-10-05 & 2016-10-05 &  \\
-Median Sale Price     & \$4.29         & \$3.84        & \$4.25        & \\ %FIX CALCULATIONS TO USE DF_ALL_MOS
-Grade Rarity		&				&			&			& \\
+Median Sale Price     & \$4.26         & \$3.84        & \$4.24        & \\ 
+				    & (\$7.28)       &(\$36.97)  &(\$11.30)      &  \\
+Volume Sold            & 20524.25      &  1337.08     &  11296.52   & \\ 
+                              &  (37685.37)     &  (2186.46)    & (28831.76) & \\
+Grade Rarity		   &	0.201	       &  0.182	           &  0.191       & \\
+				    & (0.104)             & (0.056)		& (0.082)        & \\
 \hline
 \end{tabular}
 \end{center}
-\footnotesize{Note: Median Price, and Grade Rarity are averages weighted by volume sold with standard deviation in parentheses below. Counter-Strike items have greater variation in quality that is represented as separate listings on the Steam Community Market. For example: ``AK-47 $\vert$ Redline (Field-Tested)'' and ``AK-47 $\vert$ Redline (Well-Worn)'' have separate listings.}
+\footnotesize{Note: Median Price and Grade Rarity are monthly averages weighted by volume sold with weighted standard deviation in parentheses below. Volume Sold is a monthly average. Counter-Strike items have greater variation in quality that is represented as separate listings on the Steam Community Market. For example: ``AK-47 $\vert$ Redline (Field-Tested)'' and ``AK-47 $\vert$ Redline (Well-Worn)'' have separate listings.}
 \end{table}
 
 \end{document}

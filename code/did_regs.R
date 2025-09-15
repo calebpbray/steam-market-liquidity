@@ -165,7 +165,7 @@ df_all_mos['log_p_hat'] <- predict(p_reg_mos,df_all_mos,weights=df_all_mos$volum
 df_all_mos_1yr['log_p_hat'] <- predict(p_reg_mos_1yr,df_all_mos_1yr,weights=df_all_mos_1yr$volume_sold,interval="prediction")[,1]
 
 #crude DiD
-didreg_mos_hat1 <- feols(log_p_hat ~ l_avg_players + post_treat*treated_unit | month, weights= ~log(volume_sold), data=df_all_mos)
+didreg_mos_hat1 <- feols(log_p_hat ~ l_avg_players + post_treat*treated_unit | item+month, weights= ~log(volume_sold), data=df_all_mos)
 summary(didreg_mos_hat1)
 
 didreg_mos_1yr_hat1 <- feols(log_p_hat ~ l_avg_players + post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
@@ -176,10 +176,11 @@ summary(didreg_mos_1yr_hat1)
 #summary(didreg_mos_1yr_hat2)
 
 #looks promising, need to reduce post-treat SEs
-didreg_mos_hat2 <- feols(log_p_hat ~ log(avg_players) + i(mos_til_treat, treated_unit, ref=-1) | item+month, weights=~log(volume_sold),data=df_all_mos)
+didreg_mos_hat2 <- feols(log_p_hat ~ avg_players + i(mos_til_treat, treated_unit, ref=-1) | item+month, weights=~log(volume_sold),data=df_all_mos)
 summary(didreg_mos_hat2)
-iplot(didreg_mos_hat2)
-
+pdf("../writing/manuscript/figures/did_mos_2yr_phat_iplot.pdf")
+iplot(didreg_mos_hat2,xlab="Months Until Treatment",main="Effect on Log Quality Adjusted Price")
+dev.off()
 # didreg_mos_hat2 <- plm(log_p_hat ~ log(avg_players) + i(mos_til_treat, treated_unit, ref = -1) index=c("item", "month"), weights=volume_sold, data=df_all_mos)
 # summary(didreg_mos_hat2)
 # iplot(didreg_mos_hat2)
@@ -202,7 +203,7 @@ iplot(didreg_mos_1yr_hat2)
 #coefplot(didreg_mos_1yr_hat2)
 
 # VOLUME SOLD REGS
-didreg_mos_hat3 <- feols(volume_sold ~ l_avg_players + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+didreg_mos_hat3 <- feols(volume_sold ~ avg_players + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
 summary(didreg_mos_hat3)
 pdf("../writing/manuscript/figures/did_mos_2yr_vol_iplot.pdf")
 iplot(didreg_mos_hat3,xlab="Months Until Treatment",main="Effect on Volume Sold")
@@ -211,7 +212,7 @@ dev.off()
 # SUN & ABRAHAM DID
 df_all_mos['treat_time'] <- as.Date(ifelse(df_all_mos$treated_unit == 0,as.Date("2025-04-01"),as.Date("2018-04-01")))
 
-sunab_mos_hat <- feols(log_p_hat ~ log(avg_players) + sunab(treat_time, month) | item+month, weights=~volume_sold,data=df_all_mos)
+sunab_mos_hat <- feols(log_p_hat ~ avg_players + sunab(treat_time, month) | item+month, weights=~volume_sold,data=df_all_mos)
 summary(sunab_mos_hat)
 iplot(sunab_mos_hat)
 
