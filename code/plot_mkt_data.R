@@ -101,7 +101,7 @@ p1 <- ggplot(NULL, aes(x=date, y=log(median_price))) +
         geom_smooth(data=subset(df_dota_1yr, df_dota_1yr$date < as.Date("2018-03-29")), method='lm',linetype="longdash",color="#FF0000",aes(weight = volume_sold)) +
         geom_smooth(data=subset(df_cs_1yr, df_cs_1yr$date >= as.Date("2018-03-29")), method='lm', color="#EDA338",linetype="longdash",aes(weight = volume_sold)) +
         geom_smooth(data=subset(df_dota_1yr, df_dota_1yr$date >= as.Date("2018-03-29")), method='lm', color="#FF0000",linetype="longdash",aes(weight = volume_sold)) +
-        geom_label(aes(as.Date("2018-05-16"), 1.5), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+        geom_label(aes(as.Date("2018-06-14"), 1.5), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
         scale_x_date(breaks = scales::pretty_breaks(n=8)) +
         scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter-Strike" = "#EDA338")) +
         xlab("") +
