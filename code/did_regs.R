@@ -1,7 +1,7 @@
 library(ggplot2) #plotting
 library(fixest) #fixed effects ols
-library(plm) #alt-fixed effects package
-library(did) #callaway & santa anna DiD
+#library(plm) #alt-fixed effects package
+#library(did) #callaway & santa anna DiD
 library(dplyr) #dataframe manipulation
 library(lubridate) #date handling
 library(scales) #editing y axes
@@ -45,11 +45,19 @@ df_all <- df_all_raw[df_all_raw$date >= as.Date("2016-03-29") & df_all_raw$date 
 #df_dota['D'] <- df_dota['treated_unit']*df_dota['post_treat']
 #df_all['D'] <- df_all['treated_unit']*df_all['post_treat']
 
-#groupby month and average
+#groupby month and take weighted averages (but sum vol_sold)
 df_all_mos <- df_all %>% 
   mutate(month = lubridate::floor_date(date, 'month')) %>%
   group_by(item,month) %>%
-  summarize(across(c('median_price','rolling_30day_sd','ewm_30day_sd','expanding_sd','total_sd','pre_sd','post_sd','volume_sold','rel_rarity','grade_rarity','l_median_price','rel_age_mos'),mean))
+  summarize(
+    median_price = weighted.mean(median_price,volume_sold),
+    l_median_price = weighted.mean(l_median_price,volume_sold),
+    rel_rarity = weighted.mean(rel_rarity,volume_sold),
+    grade_rarity = weighted.mean(grade_rarity,volume_sold),
+    rel_age_mos = weighted.mean(rel_age_mos,volume_sold),
+    volume_sold = sum(volume_sold)
+  )
+#  summarize(across(c('median_price','rel_rarity','grade_rarity','l_median_price','rel_age_mos'),weighted.mean())
 df_all_mos['mos_til_treat'] <- interval(as.Date('2018-03-01'),df_all_mos$month) %/% months(1)
 df_all_mos['post_treat'] <- ifelse(df_all_mos$mos_til_treat >= 0,1,0)
 df_all_mos['treated_unit'] <- 0 #assign all values to 0
@@ -82,21 +90,21 @@ df_cs_moavg_1yr <- df_cs_moavg[df_cs_moavg$month >= as.Date("2017-03-29") & df_c
 df_dota_moavg_1yr <- df_dota_moavg[df_dota_moavg$month >= as.Date("2017-03-29") & df_dota_moavg$month <= as.Date("2019-03-29"), ]
 
 #create event study dummies by hand
-reg_list <- c()
-for (i in -11:12) {
-  if (i != -1) {
-    if (i < 0) {
-      var_name <- paste0("treatedXpNEG",-1*i)
-      df_all_mos_1yr[[var_name]] <- ifelse(df_all_mos_1yr$mos_til_treat == i,1,0)*df_all_mos_1yr$treated_unit
-      reg_list <-append(reg_list,var_name)
-    }
-  else{
-  var_name <- paste0("treatedXp",i)
-  df_all_mos_1yr[[var_name]] <- ifelse(df_all_mos_1yr$mos_til_treat == i,1,0)*df_all_mos_1yr$treated_unit
-  reg_list <-append(reg_list,var_name)
-  }
-  }
-}
+#reg_list <- c()
+# for (i in -11:12) {
+#   if (i != -1) {
+#     if (i < 0) {
+#       var_name <- paste0("treatedXpNEG",-1*i)
+#       df_all_mos_1yr[[var_name]] <- ifelse(df_all_mos_1yr$mos_til_treat == i,1,0)*df_all_mos_1yr$treated_unit
+#       reg_list <-append(reg_list,var_name)
+#     }
+#   else{
+#   var_name <- paste0("treatedXp",i)
+#   df_all_mos_1yr[[var_name]] <- ifelse(df_all_mos_1yr$mos_til_treat == i,1,0)*df_all_mos_1yr$treated_unit
+#   reg_list <-append(reg_list,var_name)
+#   }
+#   }
+# }
 
 #join on player counts
 df_cs_players <- read.csv("../data/cs_player_count.csv")
@@ -157,23 +165,24 @@ df_all_mos['log_p_hat'] <- predict(p_reg_mos,df_all_mos,weights=df_all_mos$volum
 df_all_mos_1yr['log_p_hat'] <- predict(p_reg_mos_1yr,df_all_mos_1yr,weights=df_all_mos_1yr$volume_sold,interval="prediction")[,1]
 
 #crude DiD
-didreg_mos_hat1 <- feols(log_p_hat ~ log(avg_players) + post_treat*treated_unit | month, weights= ~volume_sold, data=df_all_mos)
+didreg_mos_hat1 <- feols(log_p_hat ~ l_avg_players + post_treat*treated_unit | month, weights= ~log(volume_sold), data=df_all_mos)
 summary(didreg_mos_hat1)
 
-didreg_mos_1yr_hat1 <- feols(log_p_hat ~ log(avg_players) + post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
+didreg_mos_1yr_hat1 <- feols(log_p_hat ~ l_avg_players + post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
 summary(didreg_mos_1yr_hat1)
 
 #formula_string <- paste0(paste("log_p_hat ~", paste(reg_list, collapse = " + "),"| item + month"))
 #didreg_mos_1yr_hat2 <- plm(log_p_hat ~ treatedXpNEG11 + treatedXpNEG10 + treatedXpNEG9 + treatedXpNEG8 + treatedXpNEG7 + treatedXpNEG6 + treatedXpNEG5 + treatedXpNEG4 + treatedXpNEG3 + treatedXpNEG2 + treatedXp0 + treatedXp1 + treatedXp2 + treatedXp3 + treatedXp4 + treatedXp5 + treatedXp6 + treatedXp7 + treatedXp8 + treatedXp9 + treatedXp10 + treatedXp11 + treatedXp12,index=c("item", "month"), weights=volume_sold, data=df_all_mos_1yr)
 #summary(didreg_mos_1yr_hat2)
 
-didreg_mos_hat2 <- feols(log_p_hat ~ log(avg_players) + i(mos_til_treat, treated_unit, ref=-1) | item+month, weights=~volume_sold,data=df_all_mos)
+#looks promising, need to reduce post-treat SEs
+didreg_mos_hat2 <- feols(log_p_hat ~ log(avg_players) + i(mos_til_treat, treated_unit, ref=-1) | item+month, weights=~log(volume_sold),data=df_all_mos)
 summary(didreg_mos_hat2)
 iplot(didreg_mos_hat2)
 
-didreg_mos_hat2 <- plm(log_p_hat ~ log(avg_players) + i(mos_til_treat, treated_unit, ref = -1) index=c("item", "month"), weights=volume_sold, data=df_all_mos)
-summary(didreg_mos_hat2)
-iplot(didreg_mos_hat2)
+# didreg_mos_hat2 <- plm(log_p_hat ~ log(avg_players) + i(mos_til_treat, treated_unit, ref = -1) index=c("item", "month"), weights=volume_sold, data=df_all_mos)
+# summary(didreg_mos_hat2)
+# iplot(didreg_mos_hat2)
 
 #didreg_mos_1yr_hat2 <- feols(log_p_hat ~ log(avg_players) + treatedXpNEG11 + treatedXpNEG10 + treatedXpNEG9 + treatedXpNEG8 + treatedXpNEG7 + treatedXpNEG6 + treatedXpNEG5 + treatedXpNEG4 + treatedXpNEG3 + treatedXpNEG2 + treatedXp0 + treatedXp1 + treatedXp2 + treatedXp3 + treatedXp4 + treatedXp5 + treatedXp6 + treatedXp7 + treatedXp8 + treatedXp9 + treatedXp10 + treatedXp11 + treatedXp12 | item + month, weights= ~volume_sold, data=df_all_mos_1yr)
 #summary(didreg_mos_1yr_hat2)
@@ -193,7 +202,7 @@ iplot(didreg_mos_1yr_hat2)
 #coefplot(didreg_mos_1yr_hat2)
 
 # VOLUME SOLD REGS
-didreg_mos_hat3 <- feols(volume_sold ~ log(avg_players) + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+didreg_mos_hat3 <- feols(volume_sold ~ l_avg_players + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
 summary(didreg_mos_hat3)
 pdf("../writing/manuscript/figures/did_mos_2yr_vol_iplot.pdf")
 iplot(didreg_mos_hat3,xlab="Months Until Treatment",main="Effect on Volume Sold")
@@ -221,3 +230,18 @@ iplot(list(didreg_mos_hat3, sunab_mos_hat2), sep = 0.5, ref.line = -1,
       main = 'Effect on Volume Sold')
 legend("bottomleft", col = c(1, 2), pch = c(20, 17), 
        legend = c("TWFE", "Sun & Abraham (2020)"))
+
+#NO PRICE ADJUSTMENT
+didreg_hat1 <- feols(l_median_price ~ avg_players + rel_age_mos + I(rel_age_mos^2) + grade_rarity + I(grade_rarity^2) + post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos)
+summary(didreg_hat1)
+
+didreg_1yr_hat1 <- feols(l_median_price ~ avg_players + rel_age_mos + I(rel_age_mos^2) + grade_rarity + I(grade_rarity^2) + post_treat*treated_unit | item+month, weights= ~volume_sold, data=df_all_mos_1yr)
+summary(didreg_1yr_hat1)
+
+didreg_hat2 <- feols(l_median_price ~ rel_age_mos + I(rel_age_mos^2) + grade_rarity + I(grade_rarity^2) + avg_players + i(mos_til_treat, treated_unit, ref=-1) | item+month, weights=~volume_sold,data=df_all_mos)
+summary(didreg_hat2)
+iplot(didreg_hat2)
+
+didreg_1yr_hat2 <- feols(l_median_price ~ rel_age_mos + I(rel_age_mos^2) + grade_rarity + I(grade_rarity^2) + avg_players + i(mos_til_treat, treated_unit, ref=-1) | item+month, weights=~volume_sold,data=df_all_mos_1yr)
+summary(didreg_1yr_hat2)
+iplot(didreg_1yr_hat2)

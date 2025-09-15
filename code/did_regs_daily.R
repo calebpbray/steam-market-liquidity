@@ -1,6 +1,6 @@
 library(ggplot2) #plotting
 library(fixest) #fixed effects ols
-library(plm) #alt-fixed effects package
+#library(plm) #alt-fixed effects package
 library(dplyr) #dataframe manipulation
 library(lubridate) #date handling
 library(scales) #editing y axes
@@ -117,9 +117,9 @@ summary(didreg_1yr_hat1)
 #didreg_1yr_hat2 <- plm(log_p_hat ~ treatedXpNEG11 + treatedXpNEG10 + treatedXpNEG9 + treatedXpNEG8 + treatedXpNEG7 + treatedXpNEG6 + treatedXpNEG5 + treatedXpNEG4 + treatedXpNEG3 + treatedXpNEG2 + treatedXp0 + treatedXp1 + treatedXp2 + treatedXp3 + treatedXp4 + treatedXp5 + treatedXp6 + treatedXp7 + treatedXp8 + treatedXp9 + treatedXp10 + treatedXp11 + treatedXp12,index=c("item", "month"), weights=volume_sold, data=df_all_1yr)
 #summary(didreg_1yr_hat2)
 
-didreg_hat2 <- feols(log_p_hat ~ avg_players + i(days_til_treat, treated_unit, ref=-1,keep=-110:110) | item+date, weights=~volume_sold,data=df_all)
+didreg_hat2 <- feols(log_p_hat ~ l_avg_players + i(days_til_treat, treated_unit, ref=-1,keep=-160:160) | item+date, weights=~volume_sold,data=df_all)
 summary(didreg_hat2)
-iplot(didreg_hat2, xlim=c(-100,100))
+iplot(didreg_hat2, xlim=c(-150,150))
 
 #didreg_hat2 <- plm(log_p_hat ~ avg_players + i(mos_til_treat, treated_unit, ref = -1) index=c("item", "date"), weights=volume_sold, data=df_all)
 #summary(didreg_hat2)
@@ -128,10 +128,10 @@ iplot(didreg_hat2, xlim=c(-100,100))
 #didreg_1yr_hat2 <- feols(log_p_hat ~ log(avg_players) + treatedXpNEG11 + treatedXpNEG10 + treatedXpNEG9 + treatedXpNEG8 + treatedXpNEG7 + treatedXpNEG6 + treatedXpNEG5 + treatedXpNEG4 + treatedXpNEG3 + treatedXpNEG2 + treatedXp0 + treatedXp1 + treatedXp2 + treatedXp3 + treatedXp4 + treatedXp5 + treatedXp6 + treatedXp7 + treatedXp8 + treatedXp9 + treatedXp10 + treatedXp11 + treatedXp12 | item + month, weights= ~volume_sold, data=df_all_1yr)
 #summary(didreg_1yr_hat2)
 
-didreg_1yr_hat2 <- feols(log_p_hat ~ avg_players + i(days_til_treat, treated_unit, ref = -1,keep=-150:150) | item+date, weights=~volume_sold,data=df_all_1yr)
+didreg_1yr_hat2 <- feols(log_p_hat ~ l_avg_players + i(days_til_treat, treated_unit, ref = -1,keep=-150:150) | item+date,weights=~volume_sold,data=df_all_1yr)
 summary(didreg_1yr_hat2)
 pdf("../writing/manuscript/figures/did_1yr_daily_phat_iplot.pdf")
-iplot(didreg_1yr_hat2,xlim=c(-100,100))
+iplot(didreg_1yr_hat2,xlim=c(-50,50))
 dev.off()
 
 #coefs <- summary(didreg_1yr_hat2)$coefficients

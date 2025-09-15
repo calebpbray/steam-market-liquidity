@@ -39,12 +39,12 @@ with open(home_dir + r"\dota_item_list.txt", 'r') as file:
 #glock water elemental, stat trak glock grinder, p90 elite build, mp9 ruby poison dart, mp9 deadly poison, usps stainless
 
 #%% PULL DATA
-#skip for now, only want Dota 2 items
-#for item in cs_item_list:
-#    df = pull_cs_price_history(item,request,cs_data_dir)
+
+for item in cs_item_list:
+    df = pull_cs_price_history(item,request,cs_data_dir)
     
-for item in dota_item_list:
-    df = pull_dota_price_history(item,request,dota_data_dir)
+#for item in dota_item_list:
+#    df = pull_dota_price_history(item,request,dota_data_dir)
 
 #%% JOIN TOGETHER CSVs BY GAME
 #map pd.concat onto every csv in data/cs and data/dota2 respectively
