@@ -40,6 +40,9 @@
 \begin{document}
 \protected\def\str#1{$^{#1}$}
 
+%remove annoying "Underfull hbox" warnings/linting
+\hbadness=99999
+
 %siunitx setup
 %\sisetup{
 %    input-open-uncertainty  = ,
@@ -50,7 +53,7 @@
 %    table-space-text-post   = \str{***},
 %}
 
-\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Video Game Skin Markets}}\thanks{I thank Elior Cohen and Francisco Scott for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Skin Markets}}\thanks{I thank Elior Cohen and Francisco Scott for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
 \author{\vspace{5mm} Caleb Bray \\ \vspace{-0.8mm}}
 \date{\normalsize{\hspace{0.1in}September 2025}}
 
@@ -65,7 +68,7 @@
 \newpage 
 	 
 \section{Introduction}
-In May 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all time high of \$5 billion (CITE PRICE EMPIRE OR NEWS SOURCE). The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). \\
+In May 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all-time high of \$5 billion (CITE PRICE EMPIRE OR NEWS SOURCE). The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). \\
 
 The developer Valve fostered this market in combination with their expansive digital PC game distributor, Steam. In addition to purchasing PC games on Steam, users can list their in-game items, also called ``skins,'' on Steam's community marketplace, where other users can purchase them using real currency. This marketplace serves as a valuable source of high frequency data for emerging digital markets and exchanges controlled by a central figure. Using these data we can study the effects of various policy changes and leverage their relative exogeneity to parse out their effects. In this paper, I leverage an exogenous liquidity shock in the form of a 7-day trade restriction imposed on all Counter-Strike items to examine the change in market participants' behavior. After constructing a quality adjusted price, I use an event study difference-in-differences (DID) approach to estimate the effect on both quantity and price of Counter-Strike skins sold on the Steam Community Market. I find a persistent positive effect on selling prices and negative effect on quantity sold for one year after the imposition of the 7-day trade ban. \\
 
@@ -76,20 +79,17 @@ Skins in Counter-Strike hold significant monetary value despite being purely cos
 \vspace{-10mm}
 \textbf{\caption{Monthly Averages of Weekly Trade Offers and Player Counts \label{fig:trade_delta}}}
 \begin{center}
-\includegraphics[width=7in]{./figures/trade_delta_and_plyr_ct.pdf}
+\includegraphics[width=7.3in]{./figures/trade_delta_and_plyr_ct.pdf}
 \end{center}
 \footnotesize{Note: Steam trade offer data includes trade offers for all Steam items and is estimated from the difference in trade offer ID between trades. Top chart is sourced from Trade.TF and bottom figure is sourced from Steam Charts.}
 \end{figure}
 
 To rein in scamming, phishing, speculation, third party gambling sites, and eSports skin betting, Valve instituted a 7-day trade ban for all Counter-Strike items on March 29th, 2018. This acted as an exogenous liquidity shock by restricting the trade and sale of all newly acquired Counter-Strike items for 7 days. This policy continues to be in effect, such that anytime a user acquires a new Counter-Strike skin via unboxing, trade, or purchase from the Steam Community Market, this item cannot be traded or sold for 7 days. This policy change also affected third party exchanges as items are listed and exchanged on these sites via users trading with automated bot accounts on Steam. \\
 
-Crucially however, other games that had items listed on the Steam Community Market were unaffected at the time. This enabled me to use a DID approach to estimate the treatment effect of this overnight policy change using items from the game Dota 2 as an untreated group. Dota 2 is the only game with a comparably large skin market that behaves similarly to Counter-Strike. Dota 2 is another game developed by Valve, thus the items in Dota 2 are also purely cosmetic with no gameplay effects and they are unlocked in a similar fashion by paying to acquire ``treasures'' that act like slot machines. Dota 2 and Counter-Strike also have similarly sized player bases and skin markets. \hyperref{fig:trade_delta}{Figure 1} shows the monthly averages for weekly trade offers on Steam and concurrent player counts for Counter-Strike and Dota 2. \\
-
-\section{Data}
-The estimate the treatment effect of this exogenous shock, I leveraged a novel dataset of item sales on the Steam Community Market. These data are pulled from Steam's Web API via webscraping and provide daily median sale price and volume sold for items listed on the Steam Community Market. Because the number of unique items is large, and some items are infrequently sold on the Steam Community Market, I take a subset of items from Dota 2 and Counter-Strike that is broadly representative of the market as a whole. \hyperlink{tab:cs-dota2-compare}{Table 1} shows the charactistics of the subset of items I use in my regressions.
-
+Crucially however, other games that had items listed on the Steam Community Market were unaffected at the time. This enabled me to use a DID approach to estimate the treatment effect of this overnight policy change using items from the game Dota 2 as an untreated group. Dota 2 is the only game with a comparably large skin market that behaves similarly to Counter-Strike. Dota 2 is another game developed by Valve, thus the items in Dota 2 are also purely cosmetic with no gameplay effects, and they are unlocked similarly by paying to acquire ``treasures'' that act like slot machines. Dota 2 and Counter-Strike also have similarly sized player bases and skin markets. \hyperref[fig:trade_delta]{Figure 1}  shows the monthly averages for weekly trade offers on Steam and concurrent player counts for Counter-Strike and Dota 2. \\
 
 %MAYBE MAKE THIS INTO TWO PART TABLE WITH DAILY VS MONTHLY? -- meh probably not
+\vspace{-5mm}
 \begin{table}[h]
 \textbf{\caption{Counter-Strike and Dota 2 Items Summary}}
 \label{tab:cs-dota2-compare}
@@ -110,7 +110,15 @@ Grade Rarity		   &	0.201	       &  0.182	           &  0.191       & \\
 \hline
 \end{tabular}
 \end{center}
-\footnotesize{Note: Median Price and Grade Rarity are monthly averages weighted by volume sold with weighted standard deviation in parentheses below. Volume Sold is a monthly average. Counter-Strike items have greater variation in quality that is represented as separate listings on the Steam Community Market. For example: ``AK-47 $\vert$ Redline (Field-Tested)'' and ``AK-47 $\vert$ Redline (Well-Worn)'' have separate listings.}
+\footnotesize{Note: Median Price and Grade Rarity are monthly averages weighted by volume sold with weighted standard deviation in parentheses below. Volume Sold is a monthly average. Origin date and grade rarity are provided by csgoskins.gg and backpack.tf respectively.}
 \end{table}
+\section{Data and Methods}
+To estimate the treatment effect of this exogenous shock, I leveraged a novel dataset of item sales on the Steam Community Market. These data are pulled from Steam's Web API via webscraping and provide daily median sale price and volume sold for items listed on the Steam Community Market. I take a subset of items from Dota 2 and Counter-Strike that is broadly representative of the market as a whole because the number of unique items is large, and some items are infrequently sold on the Steam Community Market. Additionally, Dota 2 faced the exact same 7-day trade ban on May 25, 2020, so I limit the dataset to cover 2 years before and after Counter-Strike's trade ban, a period covering March 29th, 2016 to March 29th, 2020. \hyperref[tab:cs-dota2-compare]{Table 1} shows the characteristics of the subset of items I use in my regressions.
+
+As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variation within games (and to some extent between games) in item attributes. Following the hedonic pricing literature (CITES HERE ROSEN), I estimate the treatment effect on fitted quality-adjusted prices.
+
+\begin{equation}
+    \hat{p}_{it} = \beta_0 + \beta_1 ItemAge_{it} + \beta_2 ItemAge_{it}^2 + \beta_3 GradeRarity_{i} + \beta_4 GradeRarity_{i}^2 + \varepsilon_{it} \label{eq:phat_reg}
+\end{equation}
 
 \end{document}

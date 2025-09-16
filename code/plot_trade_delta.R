@@ -57,7 +57,7 @@ plot1 <-  ggplot(df_master, aes(x=month)) +
   scale_x_date(breaks = scales::pretty_breaks(n=10)) +
   scale_color_manual(name = "Legend", values = c("Trade Offer Delta" = "black")) +
   geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed",color="gray50") + 
-  geom_label(aes(as.Date("2019-04-01"), 4100000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+  geom_label(aes(as.Date("2019-09-20"), 4100000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
   guides(color = FALSE, size = FALSE) +
   xlab("") +
   theme(axis.title.x = element_blank()) + theme_few()
@@ -69,9 +69,9 @@ plot2 <-  ggplot(df_master, aes(x=month)) +
   scale_x_date(breaks = scales::pretty_breaks(n=10)) +
   scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter Strike" = "#EDA338")) +
   geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed",color="gray50") + 
-  geom_label(aes(as.Date("2019-04-01"), 1200000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
+  geom_label(aes(as.Date("2019-09-20"), 1200000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
   xlab("") +
-  theme(axis.title.x = element_blank()) + theme_few()
+  theme(axis.title.x = element_blank(),legend.text=element_text(size=12)) + theme_few()
 
 combined <- plot1 / plot2 + plot_layout(axis_titles = "collect")
 combined
