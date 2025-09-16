@@ -154,7 +154,7 @@ df_all_mos_1yr['player_gain'] <- as.numeric(ifelse(df_all_mos_1yr$treated_unit==
 df_all_mos['player_pct_gain'] <- as.numeric(ifelse(df_all_mos$treated_unit==1,df_all_mos$cs_plyr_pct_gain,df_all_mos$dota_plyr_pct_gain))
 df_all_mos_1yr['player_pct_gain'] <- as.numeric(ifelse(df_all_mos_1yr$treated_unit==1,df_all_mos_1yr$cs_plyr_pct_gain,df_all_mos_1yr$dota_plyr_pct_gain))
 
-#price adjustment
+#price adjustment -- think about adding cube term for grade rarity?
 p_reg_mos <- lm(log(median_price) ~ rel_age_mos + I(rel_age_mos^2) + grade_rarity + I(grade_rarity^2), weights=volume_sold, data=df_all_mos)
 summary(p_reg_mos)
 
