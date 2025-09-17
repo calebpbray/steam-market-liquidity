@@ -31,6 +31,7 @@ df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2016-03-29") & df_dota_raw$d
 df_all <- df_all_raw[df_all_raw$date >= as.Date("2016-03-29") & df_all_raw$date <= as.Date("2020-03-29"), ]
 
 #remove dragonclaw hook
+df_dota <- df_dota[!grepl("Dragonclaw Hook",df_dota$item),]
 df_all <- df_all[!grepl("Dragonclaw Hook",df_all$item),]
 
 #groupby month and take weighted averages (but sum vol_sold)
@@ -125,7 +126,7 @@ df_all_mos_1yr['player_gain'] <- as.numeric(ifelse(df_all_mos_1yr$treated_unit==
 df_all_mos['player_pct_gain'] <- as.numeric(ifelse(df_all_mos$treated_unit==1,df_all_mos$cs_plyr_pct_gain,df_all_mos$dota_plyr_pct_gain))
 df_all_mos_1yr['player_pct_gain'] <- as.numeric(ifelse(df_all_mos_1yr$treated_unit==1,df_all_mos_1yr$cs_plyr_pct_gain,df_all_mos_1yr$dota_plyr_pct_gain))
 
-#group by age -- need to remove Dragonclaw Hook 
+#group by age
 df_cs_mos_grp_age <- df_all_mos[df_all_mos$treated_unit == 1,] %>%
   mutate(age_grp = cut(rel_age_mos, breaks=c(0:93))) %>%
   group_by(age_grp) %>%
@@ -141,7 +142,16 @@ df_dota_mos_grp_age <- df_all_mos[df_all_mos$treated_unit == 0,] %>%
 df_cs_mos_grp_age['age_grp'] <- as.numeric(rownames(df_cs_mos_grp_age))-1
 df_dota_mos_grp_age['age_grp'] <- as.numeric(rownames(df_dota_mos_grp_age))-1
 
+#group by grade_rarity 
+df_cs_mos_grp_rare <- df_all_mos[df_all_mos$treated_unit == 1,] %>%
+  group_by(grade_rarity) %>%
+  summarize(median_price = weighted.mean(median_price, volume_sold),
+            l_median_price = weighted.mean(l_median_price, volume_sold))
 
+df_dota_mos_grp_rare <- df_all_mos[df_all_mos$treated_unit == 0,] %>%
+  group_by(grade_rarity) %>%
+  summarize(median_price = weighted.mean(median_price, volume_sold),
+            l_median_price = weighted.mean(l_median_price, volume_sold))
 
 #age X price
 plot1 <-  ggplot(NULL,aes(x=age_grp,y=l_median_price)) + 
@@ -158,15 +168,15 @@ plot1 <-  ggplot(NULL,aes(x=age_grp,y=l_median_price)) +
 plot1
 
 #rarity X price
-plot1 <-  ggplot(NULL,aes(x=age_grp,y=l_median_price)) + 
-  geom_point(data=df_cs_mos_grp_age,aes(color="Counter-Strike")) +
-  geom_point(data=df_dota_mos_grp_age,aes(color="Dota 2")) + 
-  geom_smooth(data=df_cs_mos_grp_age,method = "lm", formula = y ~ x + I(x^2), alpha = 0.2,aes(color="Counter-Strike")) +
-  geom_smooth(data=df_dota_mos_grp_age,method = "lm", formula = y ~ x + I(x^2),alpha = 0.2, aes(color="Dota 2")) +
+plot2 <-  ggplot(NULL,aes(x=grade_rarity,y=l_median_price)) + 
+  geom_point(data=df_all_mos[df_all_mos$treated_unit == 1,],aes(color="Counter-Strike")) +
+  geom_point(data=df_all_mos[df_all_mos$treated_unit == 0,],aes(color="Dota 2")) + 
+  geom_smooth(data=df_all_mos[df_all_mos$treated_unit == 1,],method = "lm", formula = y ~ x + I(x^2), alpha = 0.2,aes(color="Counter-Strike")) +
+  geom_smooth(data=df_all_mos[df_all_mos$treated_unit == 0,],method = "lm", formula = y ~ x + I(x^2),alpha = 0.2, aes(color="Dota 2")) +
   #geom_point(data=df_dota_mos_grp_age, aes(y=median_price,color="Dota 2"),show.legend=TRUE) +
   #geom_point(data=df_dota_moavg, aes(y=l_median_price,color="Dota 2")) +
   scale_y_continuous("Log Median Price",labels = scales::comma) +
   scale_color_manual(NULL, name = "Legend", values = c("Counter-Strike" = "#EDA338", "Dota 2" = "#FF0000")) +
-  xlab("Relative Age (Months)") +
+  xlab("Grade Rarity") +
   theme(axis.title.x = element_blank()) + theme_few()
-plot1
+plot2

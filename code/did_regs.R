@@ -30,6 +30,10 @@ df_cs <- df_cs_raw[df_cs_raw$date >= as.Date("2016-03-29") & df_cs_raw$date <= a
 df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2016-03-29") & df_dota_raw$date <= as.Date("2020-03-29"), ]
 df_all <- df_all_raw[df_all_raw$date >= as.Date("2016-03-29") & df_all_raw$date <= as.Date("2020-03-29"), ]
 
+#remove Dragonclaw Hook
+df_dota <- df_dota[!grepl("Dragonclaw Hook",df_dota$item),]
+df_all <- df_all[!grepl("Dragonclaw Hook",df_all$item),]
+
 #keep data within 1 years of treatment
 #df_cs <- df_cs_raw[df_cs_raw$date >= as.Date("2017-03-29") & df_cs_raw$date <= as.Date("2019-03-29"), ]
 #df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2017-03-29") & df_dota_raw$date <= as.Date("2019-03-29"), ]

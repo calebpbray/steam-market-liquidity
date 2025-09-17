@@ -8,7 +8,7 @@
 \hypersetup{colorlinks,breaklinks,
             linkcolor=darkblue,urlcolor=darkblue,
             anchorcolor=darkblue,citecolor=darkblue}
-           
+       
 \usepackage[left=1.0in,top=1.0in,bottom=1.0in,right=1.0in]{geometry}
 \renewcommand{\baselinestretch}{1.25}
 \usepackage{threeparttable}
@@ -19,6 +19,8 @@
 
 \usepackage{etoolbox}
 \usepackage{hyperref}
+\usepackage{sepfootnotes}
+
 
 \makeatletter
 
@@ -115,10 +117,19 @@ Grade Rarity		   &	0.201	       &  0.182	           &  0.191       & \\
 \section{Data and Methods}
 To estimate the treatment effect of this exogenous shock, I leveraged a novel dataset of item sales on the Steam Community Market. These data are pulled from Steam's Web API via webscraping and provide daily median sale price and volume sold for items listed on the Steam Community Market. I take a subset of items from Dota 2 and Counter-Strike that is broadly representative of the market as a whole because the number of unique items is large, and some items are infrequently sold on the Steam Community Market. Additionally, Dota 2 faced the exact same 7-day trade ban on May 25, 2020, so I limit the dataset to cover 2 years before and after Counter-Strike's trade ban, a period covering March 29th, 2016 to March 29th, 2020. \hyperref[tab:cs-dota2-compare]{Table 1} shows the characteristics of the subset of items I use in my regressions.
 
-As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variation within games (and to some extent between games) in item attributes. Following the hedonic pricing literature (CITES HERE ROSEN), I estimate the treatment effect on fitted quality-adjusted prices. \hyperref[eq:phat_reg]{Equation 1} shows the reduced form equation used to adjust prices. I add square terms to both Item Age (which is simply the number of months since the item was added to the game) and Grade Rarity to allow for nonlinearity in their relationships with actual price. Intuitively, items tend to experience appreciation in the medium-term as their age makes them rarer, but 
+%Foot notes for below paragraph (line 125)
+\sepfootnotecontent{1}{In both Counter-Strike and Dota 2, these grades are developer assigned and rough proxies for their rarity.  In Counter-Strike (in order of increasing rarity) these grades are: ``Mil-spec,'' ``Restricted,'' ``Classified,'' and ``Covert.'' In Dota 2 the grades are: ``Rare,'' ``Mythical,'' ``Immortal.''}
+\sepfootnotecontent{2}{One key assumption is that today's grade rarity applies to the 2016-2018 time period. This is reasonable because case opening odds for Counter-Strike and Dota 2 items have remained stable over time.}
+\sepfootnotecontent{3}{The grades of Dota 2 items are not directly attached to their treasure opening odds. Dota 2 items have a separate drop rarity that depends on the treasure an item is contained in. A single item may appear in multiple different treasures with varying drop rarity. Additionally, the chances of obtaining an item with higher drop rarity tier from a given treasure increases with subsequent treasure openings.}
 
+As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variation within games (and to some extent between games) in item attributes. Following the hedonic pricing literature (CITES HERE ROSEN), I estimate the treatment effect on fitted quality-adjusted prices. \hyperref[eq:phat_reg]{Equation 1} shows the reduced form equation used to adjust prices for item $i$ in period $t$. I add square terms to both item age (which is simply the number of months since the item was added to the game) and grade rarity to allow for nonlinearity in their relationships with actual price. In plotting both item age and grade rarity against actual log median price, both appear to fit reasonably well to a quadratic curve, but I do not add higher order terms in order to avoid overfitting. Intuitively, items tend to experience price appreciation in the medium-term as their age makes them rarer, but fall off in the longer term as newer, more aesthetically pleasing skins are released. Grade rarity\sepfootnote{1} is represented as the share of items of a certain ``grade'' that currently exist in the market and follows a concave down curve in relation to actual price\sepfootnote{2}. This relationship can be explained by the large chance one has to unbox lower tier items. In Counter-Strike the lowest two grade tiers have a 79.92\% and 15.98\% chance of being unboxed respectively. In Dota 2, these odds are even more skewed as on average the lowest two grade of items have a 99\% chance of being unboxed on first time opening\sepfootnote{3}. \\
 \begin{equation}
-    \hat{p}_{it} = \beta_0 + \beta_1 ItemAge_{it} + \beta_2 ItemAge_{it}^2 + \beta_3 GradeRarity_{i} + \beta_4 GradeRarity_{i}^2 + \varepsilon_{it} \label{eq:phat_reg}
+    \log(\hat{p}_{it}) = \beta_0 + \beta_1 ItemAge_{it} + \beta_2 ItemAge_{it}^2 + \beta_3 GradeRarity_{i} + \beta_4 GradeRarity_{i}^2 + \varepsilon_{it} \label{eq:phat_reg}
+\end{equation}
+
+I use this quality adjusted price to estimate the average treatment effect on the treated (ATT) in a simple DID setting, shown in \hyperref[eq:did]{Equation 2}. To account for endogenous swings in player counts I also add the natural logarithm of monthly concurrent players for both Counter-Strike and Dota 2.
+\begin{equation}
+    \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \delta Treated_i\times Post_t + \alpha_i + \alpha_t + \varepsilon_{it} \label{eq:did}
 \end{equation}
 
 \end{document}
