@@ -20,6 +20,7 @@
 \usepackage{etoolbox}
 \usepackage{hyperref}
 \usepackage{sepfootnotes}
+\usepackage{dsfont}
 
 
 \makeatletter
@@ -122,14 +123,30 @@ To estimate the treatment effect of this exogenous shock, I leveraged a novel da
 \sepfootnotecontent{2}{One key assumption is that today's grade rarity applies to the 2016-2018 time period. This is reasonable because case opening odds for Counter-Strike and Dota 2 items have remained stable over time.}
 \sepfootnotecontent{3}{The grades of Dota 2 items are not directly attached to their treasure opening odds. Dota 2 items have a separate drop rarity that depends on the treasure an item is contained in. A single item may appear in multiple different treasures with varying drop rarity. Additionally, the chances of obtaining an item with higher drop rarity tier from a given treasure increases with subsequent treasure openings.}
 
-As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variation within games (and to some extent between games) in item attributes. Following the hedonic pricing literature (CITES HERE ROSEN), I estimate the treatment effect on fitted quality-adjusted prices. \hyperref[eq:phat_reg]{Equation 1} shows the reduced form equation used to adjust prices for item $i$ in period $t$. I add square terms to both item age (which is simply the number of months since the item was added to the game) and grade rarity to allow for nonlinearity in their relationships with actual price. In plotting both item age and grade rarity against actual log median price, both appear to fit reasonably well to a quadratic curve, but I do not add higher order terms in order to avoid overfitting. Intuitively, items tend to experience price appreciation in the medium-term as their age makes them rarer, but fall off in the longer term as newer, more aesthetically pleasing skins are released. Grade rarity\sepfootnote{1} is represented as the share of items of a certain ``grade'' that currently exist in the market and follows a concave down curve in relation to actual price\sepfootnote{2}. This relationship can be explained by the large chance one has to unbox lower tier items. In Counter-Strike the lowest two grade tiers have a 79.92\% and 15.98\% chance of being unboxed respectively. In Dota 2, these odds are even more skewed as on average the lowest two grade of items have a 99\% chance of being unboxed on first time opening\sepfootnote{3}. \\
+As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variation within games (and to some extent between games) in item attributes. Following the hedonic pricing literature (CITES HERE ROSEN), I estimate the treatment effect on fitted quality-adjusted prices. \hyperref[eq:phat_reg]{Equation 1} shows the reduced form equation used to adjust prices for item \(i\) in period \(t\) weighted by volume sold. I add square terms to both item age (which is simply the number of months since the item was added to the game) and grade rarity to allow for nonlinearity in their relationships with actual price. In plotting both item age and grade rarity against actual log median price, both appear to fit reasonably well to a quadratic curve, but I do not add higher order terms in order to avoid overfitting. Intuitively, items tend to experience price appreciation in the medium-term as their age makes them rarer, but fall off in the longer term as newer, more aesthetically pleasing skins are released. Grade rarity\sepfootnote{1} is represented as the share of items of a certain ``grade'' that currently exist in the market and follows a concave down curve in relation to actual price\sepfootnote{2}. This relationship can be explained by the large chance one has to unbox lower tier items. In Counter-Strike the lowest two grade tiers have a 79.92\% and 15.98\% chance of being unboxed respectively. In Dota 2, these odds are even more skewed as on average the lowest two grade of items have a 99\% chance of being unboxed on first time opening\sepfootnote{3}. \\
 \begin{equation}
     \log(\hat{p}_{it}) = \beta_0 + \beta_1 ItemAge_{it} + \beta_2 ItemAge_{it}^2 + \beta_3 GradeRarity_{i} + \beta_4 GradeRarity_{i}^2 + \varepsilon_{it} \label{eq:phat_reg}
 \end{equation}
+\vspace{10mm}
 
-I use this quality adjusted price to estimate the average treatment effect on the treated (ATT) in a simple DID setting, shown in \hyperref[eq:did]{Equation 2}. To account for endogenous swings in player counts I also add the natural logarithm of monthly concurrent players for both Counter-Strike and Dota 2.
+I use this quality adjusted price to estimate the average treatment effect on the treated (ATT) in a simple DID setting, shown in \hyperref[eq:did]{Equation 2}. To control for endogenous swings in player counts affecting demand I include the natural log of monthly concurrent players for both Counter-Strike and Dota 2. I also use item- and month-level fixed effects to control for serial correlation. \hyperref[tab:regs]{Table 2} shows the results for both regressions.
 \begin{equation}
-    \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \delta Treated_i\times Post_t + \alpha_i + \alpha_t + \varepsilon_{it} \label{eq:did}
+    \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \delta Treated_i\times Post_t + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:did}
 \end{equation}
+
+To show the validity of my identification strategy, I conduct an event study regression as shown in \hyperref[eq:event_study]{Equation 3}. In this specification, I add dummy terms for each period (excluding period -1 to act as a reference) interacted with treatment status to recover treatment effect dynamics. \hyperref[fig:event_study]{Figure 2} shows the results of the event study.
+
+\begin{equation}
+\log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \sum_{k\neq-1}\delta_{k}\cdot\mathds{1}(k=t-e)_{i}\cdot Treated_{i} + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:event_study}
+\end{equation}
+
+\begin{figure}[h]
+\vspace{-10mm}
+\textbf{\caption{Event Study \label{fig:event_study}}}
+\begin{center}
+\makebox[0pt]{\includegraphics{./figures/did_mos_2yr_phat_iplot.pdf}}
+\end{center}
+\footnotesize{Note: }
+\end{figure}
 
 \end{document}
