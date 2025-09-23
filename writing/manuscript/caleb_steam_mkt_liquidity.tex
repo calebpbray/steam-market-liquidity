@@ -98,18 +98,20 @@ Crucially however, other games that had items listed on the Steam Community Mark
 \label{tab:cs-dota2-compare}
 \begin{center}
 \begin{tabular}{lllll}
-                   & Counter-Strike & Dota 2 & Total &  \\
+                        & Counter-Strike    & Dota 2    & Total &  \\
 \hline
-Observations           & 2940            & 2724          & 4299           &  \\
-Unique Items          & 60              & 57             & 117               &  \\
-Oldest Origin Date   & 2013-08-14 & 2012-07-12 & 2012-07-12 &  \\
-Newest Origin Date  & 2016-02-18 & 2016-10-05 & 2016-10-05 &  \\
-Median Sale Price     & \$4.26         & \$3.84        & \$4.24        & \\ 
-				    & (\$7.28)       &(\$36.97)  &(\$11.30)      &  \\
-Volume Sold            & 20524.25      &  1337.08     &  11296.52   & \\ 
-                              &  (37685.37)     &  (2186.46)    & (28831.76) & \\
-Grade Rarity		   &	0.201	       &  0.182	           &  0.191       & \\
-				    & (0.104)             & (0.056)		& (0.082)        & \\
+Observations            & 2940          & 2724          & 4299  &  \\
+Unique Items            & 60            & 57            & 117   &  \\
+Oldest Origin Date      & 2013-08-14    & 2012-07-12    & 2012-07-12 &  \\
+Newest Origin Date      & 2016-02-18    & 2016-10-05    & 2016-10-05 &  \\
+Median Sale Price       & \$4.26        & \$3.84        & \$4.24    & \\ 
+                        & (\$7.28)      & (\$36.97)     & (\$11.30) &  \\
+Log Median Sale Price   & 0.517         & -0.064        & 0.484 & \\
+                        & (1.379)       & (1.160)       & (1.374)   & \\
+Volume sold             & 20524.25      &  1337.08      & 11296.52  & \\ 
+                        & (37685.37)    & (2186.46)     & (28831.76) & \\
+Grade rarity            &	0.201       & 0.182         & 0.191 & \\
+                        & (0.104)       & (0.056)       & (0.082)   & \\
 \hline
 \end{tabular}
 \end{center}
@@ -134,7 +136,7 @@ I use this quality adjusted price to estimate the average treatment effect on th
     \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \delta Treated_i\times Post_t + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:did}
 \end{equation}
 
-To show the validity of my identification strategy, I conduct an event study regression as shown in \hyperref[eq:event_study]{Equation 3}. In this specification, I add dummy terms for each period (excluding period -1 to act as a reference) interacted with treatment status to recover treatment effect dynamics. Thus \(\delta_k\) is the average treatment effect of being \(k\) months before/after treatment at period \(e\). \hyperref[fig:event_study]{Figure 2} shows the results of the event study.
+To show the validity of my identification strategy, I conduct an event study regression as shown in \hyperref[eq:event_study]{Equation 3}. In this specification, I add dummy terms for each period (excluding period -1 to act as a reference) interacted with treatment status to recover treatment effect dynamics. Thus, \(\delta_k\) is the average treatment effect of being \(k\) months before/after treatment at period \(e\). \hyperref[fig:event_study]{Figure 2} shows the results of the event study.
 
 \begin{equation}
 \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \sum_{k\neq-1}\delta_{k}\cdot\mathds{1}(k=t-e)_{t}\cdot Treated_{i} + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:event_study}
@@ -142,6 +144,7 @@ To show the validity of my identification strategy, I conduct an event study reg
 
 
 \section{Results}
+As expected with heterogenous goods, my simple DID specification achieves both a more significant negative result and larger \(R^2\) when quality adjusted prices are regressed on \(Treated \times Post\).
 
 \begin{figure}[h]
 \vspace{-10mm}
@@ -149,7 +152,7 @@ To show the validity of my identification strategy, I conduct an event study reg
 \begin{center}
 \makebox[0pt]{\includegraphics{./figures/did_mos_2yr_phat_iplot.pdf}}
 \end{center}
-\footnotesize{Note: }
+\footnotesize{Note: The last period, \(t=24\) is excluded and shown here as 0 due to collinearity.}
 \end{figure}
 
 % \begin{table}[h]
