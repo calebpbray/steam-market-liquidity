@@ -56,7 +56,7 @@
 %    table-space-text-post   = \str{***},
 %}
 
-\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Skin Markets}}\thanks{I thank Elior Cohen and Francisco Scott for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Skin Markets}}\thanks{I thank Elior Cohen, Francisco Scott, Jordan Pandolfo, and Brent Bundick for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
 \author{\vspace{5mm} Caleb Bray \\ \vspace{-0.8mm}}
 \date{\normalsize{\hspace{0.1in}September 2025}}
 
@@ -134,12 +134,20 @@ As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variati
 
 \begin{figure}[ht]
 \vspace{-20mm}
-\textbf{\caption{Event Study \label{fig:event_study}}}
+\textbf{\caption{Event Studies \label{fig:event_study}}}
 \vspace{-5mm}
 \begin{center}
-\makebox[0pt]{\includegraphics[height=5.5in]{./figures/did_mos_2yr_phat_iplot.pdf}}
+\hspace{-5mm}
+\makebox[0pt]{\includegraphics[height=4.5in]{./figures/did_mos_2yr_phat_iplot.pdf}}
 \end{center}
+\vspace{-15mm}
+\begin{center}
+\hspace{-5mm}
+\makebox[0pt]{\includegraphics[height=4.5in]{./figures/did_mos_2yr_vol_iplot.pdf}}
+\end{center}
+\begin{center}
 \footnotesize{Note: The last period, \(t=24\) is excluded and shown here as 0 due to collinearity.}
+\end{center}
 \end{figure}
 
 I use this quality adjusted price to estimate the average treatment effect on the treated (ATT) in a simple DID setting, shown in \hyperref[eq:did]{Equation 2}. To control for endogenous swings in player counts affecting demand I include the natural log of monthly concurrent players for both Counter-Strike and Dota 2. I also use item- and month-level fixed effects to control for serial correlation. \\ 
