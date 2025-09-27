@@ -97,7 +97,7 @@ Crucially however, other games that had items listed on the Steam Community Mark
 \textbf{\caption{Counter-Strike and Dota 2 Items Summary}}
 \label{tab:cs-dota2-compare}
 \begin{center}
-\begin{tabular}{lllll}
+\begin{tabular}{lcccc}
                         & Counter-Strike    & Dota 2    & Total &  \\
 \hline
 Observations            & 2940          & 2675          & 5615  &  \\
@@ -165,10 +165,53 @@ To show the validity of my identification strategy, I conduct an event study reg
 \end{equation}
 
 \section{Results}
-I find that when player count is fixed, and item and time fixed effects are added, there is \(\sim 4.2\%\) decrease in quality-adjusted prices of Counter-Strike items post trade ban implementation. This model is able to account for 99\% of the variation in quality adjusted prices, but only 13\% of the variation between items within a given period, likely due to the strong item fixed effects. As expected with heterogenous goods, my simple DID specification achieves both a more significant negative result and larger \(R^2\) when quality adjusted prices are regressed on \(Treated \times Post\). The results of both regressions can be found in Tables \hyperref[tab:p_hat_reg]{2} and \hyperref[tab:did_regs]{3}. \\
+I find that when player count is fixed, and item and time fixed effects are added, there is \(\sim 4.2\%\) decrease in quality-adjusted prices of Counter-Strike items post trade ban implementation. This model is able to account for 99\% of the variation in quality adjusted prices, but only 13\% of the variation between items within a given period, likely due to the strong item fixed effects. As expected with heterogenous goods, my simple DID specification achieves both a more significant negative result and larger \(R^2\) when quality adjusted prices are regressed on \(Treated \times Post\). The results of both regressions can be found in Tables \hyperref[tab:phat_reg]{2} and \hyperref[tab:did_regs]{3}. \\
 
 The results are robust to quality differences in items due to the wide range of qualities captured in the data set as shown in \hyperref[tab:cs-dota2-compare]{Table 1} and the relatively high \(R^2\) of my quality adjustment regression. The quality adjustment regression from \hyperref[eq:phat_reg]{Equation 1} performs well despite the many unquantifiable characteristics belonging to skins in both Dota 2 and Counter-Strike, with an adjusted \(R^2\) of 0.45. As predicted, Item Age, Grade Rarity, and their square terms are strongly statistically significant.\\
 
+
+\begin{table}[ht]
+\begin{minipage}[b]{0.56\linewidth}
+\centering
+\caption{Quality Adjustment Results}\vspace{5mm}
+\begin{tabular}{lc}
+    \hline
+     & \(\log(p_{it})\) \\ \hline \hline
+    \(\beta_0\)         & $1.595^{***}$ \\
+                        & $(0.075)$ \\
+    $ItemAge$           & $0.029^{***}$ \\ 
+                        & $(0.003)$ \\
+    $Item Age^2$        & $-0.001^{***}$ \\
+                        & $(0.000)$ \\
+    $GradeRarity$       & $-19.43^{***}$ \\ 
+                        & $( 0.894)$ \\
+    $Grade Rarity^2$    & $38.37^{***}$ \\
+                        & $(2.623)$ \\ \hline
+    N        & 5615 \\
+    Adjusted \(R^2\)    & 0.452 \\ \hline \hline
+   \end{tabular}
+    \label{tab:phat_reg}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\caption{DID Results}\vspace{5mm}
+\begin{tabular}{lcc}
+    \hline
+     & \(\log(\hat{p}_{it})\) & Volume Sold \\ \hline \hline
+    $\log(ConcurrentPlayers)$           & $-0.050^{***}$ & $-12555.1^{***}$ \\ 
+                                        & $(0.012)$      & $(2124.41)$ \\
+    $Treated_i\times Post_t$            & $-0.043^{***}$ & $-18421.7^{***}$ \\
+                                        & $(0.010)$      & $(4120.30)$ \\ \hline
+    N                                   & 5579           & 5579 \\
+    Adjusted \(R^2\)                    & 0.997          & 0.742 \\
+    Within \(R^2\)                      & 0.130          & 0.080 \\ \hline
+    Item and Month Level FEs  & \Checkmark     & \Checkmark  \\ \hline \hline
+   \end{tabular}
+    \label{tab:did_regs}
+\end{minipage}\vspace{5mm}
+
+\footnotesize{Note: $^{*}\, p<0.5$; $^{**}\, p<0.01$; $^{***}\, p<0.001$}
+\end{table}
 
 
 

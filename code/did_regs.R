@@ -207,10 +207,13 @@ iplot(didreg_mos_1yr_hat2)
 #coefplot(didreg_mos_1yr_hat2)
 
 # VOLUME SOLD REGS
-didreg_mos_hat3 <- feols(volume_sold ~ avg_players + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+didreg_mos_hat3 <- feols(volume_sold ~ l_avg_players + post_treat*treated_unit | item+month, weights= ~log(volume_sold), data=df_all_mos)
 summary(didreg_mos_hat3)
+
+didreg_mos_hat4 <- feols(volume_sold ~ avg_players + i(mos_til_treat,treated_unit,ref=-1) | item+month, data=df_all_mos)
+summary(didreg_mos_hat4)
 pdf("../writing/manuscript/figures/did_mos_2yr_vol_iplot.pdf")
-iplot(didreg_mos_hat3,xlab="Months Until Treatment",main="Effect on Volume Sold")
+iplot(didreg_mos_hat4,xlab="Months Until Treatment",main="Effect on Volume Sold")
 dev.off()
 
 # SUN & ABRAHAM DID
