@@ -13,6 +13,9 @@
 \renewcommand{\baselinestretch}{1.25}
 \usepackage{threeparttable}
 \usepackage{booktabs}
+\usepackage{listings}
+\usepackage{subcaption}
+\captionsetup[subcaption]{labelformat=empty}
 \usepackage{pdflscape}
 %\usepackage{siunitx}
 \newcommand\THead[1]{\multicolumn{1}{c}{#1}}
@@ -22,6 +25,9 @@
 \usepackage{sepfootnotes}
 \usepackage{dsfont}
 \usepackage{bbding}
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
 
 \makeatletter
 
@@ -71,7 +77,7 @@
 \newpage 
 	 
 \section{Introduction}
-In May 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all-time high of \$5 billion (CITE PRICE EMPIRE OR NEWS SOURCE). The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). \\
+In March 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all-time high of \$4.3 billion \citep{bloomberg2025-03-07}. The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). \\
 
 The developer Valve fostered this market in combination with their expansive digital PC game distributor, Steam. In addition to purchasing PC games on Steam, users can list their in-game items, also called ``skins,'' on Steam's community marketplace, where other users can purchase them using real currency. This marketplace serves as a valuable source of high frequency data for emerging digital markets and exchanges controlled by a central figure. Using these data we can study the effects of various policy changes and leverage their relative exogeneity to parse out their effects. In this paper, I leverage an exogenous liquidity shock in the form of a 7-day trade restriction imposed on all Counter-Strike items to examine the change in market participants' behavior. After constructing a quality adjusted price, I use an event study difference-in-differences (DID) approach to estimate the effect on both quantity and price of Counter-Strike skins sold on the Steam Community Market. I find a persistent positive effect on selling prices and negative effect on quantity sold for one year after the imposition of the 7-day trade ban. \\
 
@@ -80,7 +86,7 @@ Skins in Counter-Strike hold significant monetary value despite being purely cos
 
 \begin{figure}[h]
 \vspace{-10mm}
-\textbf{\caption{Monthly Averages of Weekly Trade Offers and Player Counts \label{fig:trade_delta}}}
+\textbf{\caption{Monthly Averages of Weekly Trade Offers and Player Counts \label{fig:trade_delta}}}\vspace{-5mm}
 \begin{center}
 \includegraphics[width=7.3in]{./figures/trade_delta_and_plyr_ct.pdf}
 \end{center}
@@ -92,14 +98,14 @@ To rein in scamming, phishing, speculation, third party gambling sites, and eSpo
 Crucially however, other games that had items listed on the Steam Community Market were unaffected at the time. This enabled me to use a DID approach to estimate the treatment effect of this overnight policy change using items from the game Dota 2 as an untreated group. Dota 2 is the only game with a comparably large skin market that behaves similarly to Counter-Strike. Dota 2 is another game developed by Valve, thus the items in Dota 2 are also purely cosmetic with no gameplay effects, and they are unlocked similarly by paying to acquire ``treasures'' that act like slot machines. Dota 2 and Counter-Strike also have similarly sized player bases and skin markets. \hyperref[fig:trade_delta]{Figure 1}  shows the monthly averages for weekly trade offers on Steam and concurrent player counts for Counter-Strike and Dota 2. \\
 
 %MAYBE MAKE THIS INTO TWO PART TABLE WITH DAILY VS MONTHLY? -- meh probably not
-\vspace{-5mm}
 \begin{table}[h]
 \textbf{\caption{Counter-Strike and Dota 2 Items Summary}}
 \label{tab:cs-dota2-compare}
 \begin{center}
 \begin{tabular}{lcccc}
-                        & Counter-Strike    & Dota 2    & Total &  \\
 \hline
+                        & Counter-Strike    & Dota 2    & Combined &  \\
+\toprule
 Observations            & 2940          & 2675          & 5615  &  \\
 Unique Items            & 60            & 56            & 116   &  \\
 Oldest Origin Date      & 2013-08-14    & 2014-05-08    & 2013-08-14 &  \\
@@ -110,9 +116,9 @@ Log Median Sale Price   & 0.517         & -0.064        & 0.484 & \\
                         & (1.379)       & (1.160)       & (1.253)   & \\
 Volume Sold             & 20524.25      &  1356.84      & 11392.85  & \\ 
                         & (37685.37)    & (2201.17)     & (28938.78) & \\
-Grade Rarity            & 0.154         & 0.110         & 0.152 & \\
+Grade Rarity            & 0.154         & 0.110         & 0.152 & \\ 
                         & (0.109)       & (0.065)       & (0.107)   & \\
-\hline
+\bottomrule
 \end{tabular}
 \end{center}
 \footnotesize{Note: Median Price and Grade Rarity are monthly averages weighted by volume sold with weighted standard deviation in parentheses below. Volume Sold is a monthly average. Origin date and grade rarity are provided by csgoskins.gg and backpack.tf respectively.}
@@ -126,13 +132,13 @@ To estimate the treatment effect of this exogenous shock, I leveraged a novel da
 \end{equation}
 
 %Foot notes for below paragraph (line 125)
-\sepfootnotecontent{1}{In both Counter-Strike and Dota 2, these grades are developer assigned and rough proxies for their rarity.  In Counter-Strike (in order of increasing rarity) these grades are: ``Mil-spec,'' ``Restricted,'' ``Classified,'' and ``Covert.'' In Dota 2 the grades are: ``Rare,'' ``Mythical,'' ``Legendary,'' and ``Immortal.''}
+\sepfootnotecontent{1}{In both Counter-Strike and Dota 2, grades are assigned as rough proxies for their rarity. In Counter-Strike (in order of increasing rarity) these grades are: ``Mil-spec,'' ``Restricted,'' ``Classified,'' and ``Covert.'' In Dota 2 the grades are: ``Rare,'' ``Mythical,'' ``Legendary,'' and ``Immortal.''}
 \sepfootnotecontent{2}{One key assumption is that today's grade rarity applies to the 2016-2018 time period. This is reasonable because case opening odds for Counter-Strike and Dota 2 items have remained stable over time.}
 \sepfootnotecontent{3}{Dota 2 items have a drop rarity separate from item grade, and a single item may appear in multiple different treasures with varying drop rarities. The chances of obtaining an item with higher drop rarity tier from a given treasure increases with subsequent treasure openings.}
 
 As seen in \hyperref[tab:cs-dota2-compare]{Table 1}, there exists a wide variation within and between games in item attributes. Following the hedonic pricing literature (CITES HERE ROSEN), I estimate the treatment effect on fitted quality-adjusted prices. \hyperref[eq:phat_reg]{Equation 1} shows the reduced form equation used to adjust prices for item \(i\) in period \(t\) weighted by volume sold. I add square terms to both item age (the number of months since the item was added to the game) and grade rarity to allow for nonlinearity in their relationships with actual price. In plotting both item age and grade rarity against actual log median price, both appear to fit reasonably well to a quadratic curve, but I do not add higher order terms in order to avoid overfitting. Intuitively, items tend to experience price appreciation in the medium-term as their age makes them rarer, but fall off in the longer term as newer, more aesthetically pleasing skins are released. Grade rarity\sepfootnote{1} is represented as the share of items of a certain ``grade'' that currently exist in the market and follows a decreasing concave down curve in relation to actual price\sepfootnote{2}. This relationship can be explained by the large chance one has to unbox lower tier items. In Counter-Strike the lowest two grade tiers have a 79.92\% and 15.98\% chance of being unboxed respectively. In Dota 2, these odds are further skewed as on average the lowest two grade of items have a 99\% chance of being unboxed on first time opening\sepfootnote{3}. \\
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
 \vspace{-20mm}
 \textbf{\caption{Event Studies \label{fig:event_study}}}
 \vspace{-5mm}
@@ -159,24 +165,25 @@ I use this quality adjusted price to estimate the average treatment effect on th
 To show the validity of my identification strategy, I conduct an event study regression as shown in \hyperref[eq:event_study]{Equation 3}. In this specification, I add dummy terms for each period (excluding period -1 to act as a reference) interacted with treatment status to recover treatment effect dynamics. Thus, \(\delta_k\) is the average treatment effect of being \(k\) months before/after treatment at period \(e\). \hyperref[fig:event_study]{Figure 2} shows the results of the event study. \\
 
 
-\vspace{-15mm}
+\vspace{-10mm}
 \begin{equation}
 \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \sum_{k\neq-1}\delta_{k}\cdot\mathds{1}(k=t-e)_{t}\cdot Treated_{i} + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:event_study}
 \end{equation}
 
 \section{Results}
-I find that when player count is fixed, and item and time fixed effects are added, there is \(\sim 4.2\%\) decrease in quality-adjusted prices of Counter-Strike items post trade ban implementation. This model is able to account for 99\% of the variation in quality adjusted prices, but only 13\% of the variation between items within a given period, likely due to the strong item fixed effects. As expected with heterogenous goods, my simple DID specification achieves both a more significant negative result and larger \(R^2\) when quality adjusted prices are regressed on \(Treated \times Post\). The results of both regressions can be found in Tables \hyperref[tab:phat_reg]{2} and \hyperref[tab:did_regs]{3}. \\
+I find that when player count is fixed, and item and time fixed effects are added, there is \(\sim 4.2\%\) decrease in quality-adjusted prices of Counter-Strike items post trade ban implementation. This model is able to account for 99\% of the variation in quality adjusted prices, but only 13\% of the variation between items within a given period, likely due to the strong item fixed effects. As expected with heterogenous goods, my simple DID specification achieves both a more significant negative result and larger \(R^2\) when quality adjusted prices are regressed on \(Treated \times Post\). The results of both regressions can be found in Table \hyperref[tab:phat_reg]{2}. \\
 
 The results are robust to quality differences in items due to the wide range of qualities captured in the data set as shown in \hyperref[tab:cs-dota2-compare]{Table 1} and the relatively high \(R^2\) of my quality adjustment regression. The quality adjustment regression from \hyperref[eq:phat_reg]{Equation 1} performs well despite the many unquantifiable characteristics belonging to skins in both Dota 2 and Counter-Strike, with an adjusted \(R^2\) of 0.45. As predicted, Item Age, Grade Rarity, and their square terms are strongly statistically significant.\\
 
+When volume sold is regressed on my DID term and concurrent players, the DID term has a negative coefficient of \(-15703.3\) as expected, but the estimated effect of concurrent players is negative as well. Similarly, in my regression of quality adjusted price on the DID term and concurrent players, I observed a similarly negative coefficient on \(\log(ConcurrentPlayers)\). This is unexpected as I would expect more players playing the game to push prices up as demand for skins increases. The player count term seems to be capturing a moving ``game effect'' and the negative value may be attached to the higher prices Counter-Strike items sell for despite having lower player counts than Dota 2 over the majority of the 2-year window I analyze. Given the fluctuations in player counts over this time period, the interpretation of this coefficient is ambiguous, as in 2020 Counter-Strike slips above Dota 2 in concurrent player counts as seen in \hyperref[fig:trade_delta]{Figure 1}.
 
-\begin{table}[ht]
-\begin{minipage}[b]{0.56\linewidth}
-\centering
-\caption{Quality Adjustment Results}\vspace{5mm}
-\begin{tabular}{lc}
+\begin{table}[ht!]
+  \renewcommand{\arraystretch}{1.25}%
+  \centering
+  \caption{Quality Adjustment and DID Regression Results}
+  \begin{tabular}[t]{lc}
     \hline
-     & \(\log(p_{it})\) \\ \hline \hline
+     & \(\log(p_{it})\) \\ \toprule
     \(\beta_0\)         & $1.595^{***}$ \\
                         & $(0.075)$ \\
     $ItemAge$           & $0.029^{***}$ \\ 
@@ -187,47 +194,38 @@ The results are robust to quality differences in items due to the wide range of 
                         & $( 0.894)$ \\
     $Grade Rarity^2$    & $38.37^{***}$ \\
                         & $(2.623)$ \\ \hline
-    N        & 5615 \\
-    Adjusted \(R^2\)    & 0.452 \\ \hline \hline
-   \end{tabular}
-    \label{tab:phat_reg}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.4\linewidth}
-\centering
-\caption{DID Results}\vspace{5mm}
-\begin{tabular}{lcc}
+    N                   & 5615 \\
+    Adjusted \(R^2\)    & 0.452 \\ 
+    \bottomrule
+  \end{tabular}\label{tab:phat_reg}
+  \quad
+  \begin{tabular}[t]{lcc}
     \hline
-     & \(\log(\hat{p}_{it})\) & Volume Sold \\ \hline \hline
-    $\log(ConcurrentPlayers)$           & $-0.050^{***}$ & $-12555.1^{***}$ \\ 
-                                        & $(0.012)$      & $(2124.41)$ \\
-    $Treated_i\times Post_t$            & $-0.043^{***}$ & $-18421.7^{***}$ \\
-                                        & $(0.010)$      & $(4120.30)$ \\ \hline
-    N                                   & 5579           & 5579 \\
-    Adjusted \(R^2\)                    & 0.997          & 0.742 \\
-    Within \(R^2\)                      & 0.130          & 0.080 \\ \hline
-    Item and Month Level FEs  & \Checkmark     & \Checkmark  \\ \hline \hline
-   \end{tabular}
-    \label{tab:did_regs}
-\end{minipage}\vspace{5mm}
+                                        & \(\log(\hat{p}_{it})\) & Volume Sold \\ \toprule
+    $\log(ConcurrentPlayers)$           & $-0.050^{***}$         & $-10008.6^{***}$ \\ 
+                                        & $(0.012)$              & $(1625.77)$ \\
+    $Treated\times Post$                & $-0.043^{***}$         & $-15703.3^{***}$ \\
+                                        & $(0.010)$              & $(3340.88)$ \\ \hline
+    N                                   & 5579                   & 5579 \\
+    Adjusted \(R^2\)                    & 0.997                  & 0.742 \\
+    Within \(R^2\)                      & 0.130                  & 0.080 \\ \hline
+    Item and Month FEs                  & \Checkmark             & \Checkmark  \\
+    \bottomrule
+  \end{tabular}\label{tab:did_regs}
+\vspace{5mm}
 
-\footnotesize{Note: $^{*}\, p<0.5$; $^{**}\, p<0.01$; $^{***}\, p<0.001$}
+{\raggedright \footnotesize{Note: $^{*}\, p<0.5$; $^{**}\, p<0.01$; $^{***}\, p<0.001$. Standard errors are shown in parentheses below their respective estimates. Both regressions with price as a dependent variable are weighted by Volume Sold.} \par}
 \end{table}
 
+There are also possible violations of the ``Stable Unit Treatment Value Assumption'' (SUTVA) in my identification strategy. Items from both games are listed on the Steam Community Marketplace, so Dota 2 items such as the expensive ``Dragonclaw Hook'' became valuable intermediates in Counter-Strike skin trading. Prices for Dragonclaw Hooks peaked shortly after the implementation of Counter-Strike's trade ban. As such, there are likely spillovers to Dota 2 items as users purchased Dota 2 items in order to get around the 7-day trade ban. Additionally, there are likely pre-trends I was unable to control for as seen in \hyperref[fig:event_study]{Figure 2} which are most likely attached to major game updates that affect the in-game appearances of items and draw new players. However, the consistent negative treatment effect estimates for 2 years after treatment do suggest that there is a nonnegligible negative effect overall.
 
+The results are otherwise intuitive. Quality adjusted prices and quantity sold decrease as Counter-Strike items become less valuable as assets. The items retained significant aesthetic value as their price level remained above Dota 2 items. This shock appeared as a one-time downward shift in price level for Counter-Strike items that gradually faded away as the market for Counter-Strike items continued to grow.
 
-% \begin{table}[h]
-% \textbf{\caption{Regression Results}}
-% \label{tab:regs}
-% \begin{center}
-% \begin{tabular}{lllll}
-%                    & Item & Dota 2 & Total &  \\
+\section{Conclusion}
+This paper argues that virtual marketplaces such as the Steam Community Marketplace can be valuable sources of data to explore the effects of sudden transaction cost increases. This market is most similar to ``Over the Counter'' financial markets where transaction cost shocks greatly decrease trade volume. Using a simple DID identification strategy comparing Counter-Strike items to Dota 2 items, I find that the 7-day trade ban imposed on Counter-Strike items caused quality adjusted prices to decline by \(\sim 4.2\%\) and decreased the monthly volume sold by -15703.3. This effect manifested as a one time downward shift in quality adjusted prices that attenuated over time as Counter-Strike items retained their aesthetic value but lost some of their investment value.
 
-% \hline
-
-% \hline
-% \end{tabular}
-% \end{center}
-% \footnotesize{Note: Median Price and Grade Rarity are monthly averages weighted by volume sold with weighted standard deviation in parentheses below. Volume Sold is a monthly average. Origin date and grade rarity are provided by csgoskins.gg and backpack.tf respectively.}
-
+%\bibliographystyle{aea}
+\printbibliography
+\clearpage
 
 \end{document}
