@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  29 SEP 2025 22:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  30 SEP 2025 00:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -345,59 +345,66 @@ Package: sepfootnotes 2024/07/05 v0.3d Footnotes in separate file
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 ) (c:/texlive/2025/texmf-dist/tex/latex/bbding/bbding.sty
 Package: bbding 1999/04/15 v1.01 Dingbats symbols
+) (./biblatex-aer.tex (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/biblatex-chicago.sty
+Package: biblatex-chicago 2022/07/02 v 3.18 biblatex style
+ (c:/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty (c:/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count327
+\xs_countb=\count328
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
  (c:/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count327
+\lrq@indent=\count329
  (c:/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count328
-\c@listtotal=\count329
-\c@listcount=\count330
-\c@liststart=\count331
-\c@liststop=\count332
-\c@citecount=\count333
-\c@citetotal=\count334
-\c@multicitecount=\count335
-\c@multicitetotal=\count336
-\c@instcount=\count337
-\c@maxnames=\count338
-\c@minnames=\count339
-\c@maxitems=\count340
-\c@minitems=\count341
-\c@citecounter=\count342
-\c@maxcitecounter=\count343
-\c@savedcitecounter=\count344
-\c@uniquelist=\count345
-\c@uniquename=\count346
-\c@refsection=\count347
-\c@refsegment=\count348
-\c@maxextratitle=\count349
-\c@maxextratitleyear=\count350
-\c@maxextraname=\count351
-\c@maxextradate=\count352
-\c@maxextraalpha=\count353
-\c@abbrvpenalty=\count354
-\c@highnamepenalty=\count355
-\c@lownamepenalty=\count356
-\c@maxparens=\count357
-\c@parenlevel=\count358
-\blx@tempcnta=\count359
-\blx@tempcntb=\count360
-\blx@tempcntc=\count361
-\c@blx@maxsection=\count362
-\blx@maxsegment@0=\count363
-\blx@notetype=\count364
-\blx@parenlevel@text=\count365
-\blx@parenlevel@foot=\count366
-\blx@sectionciteorder@0=\count367
-\blx@sectionciteorderinternal@0=\count368
-\blx@entrysetcounter=\count369
-\blx@biblioinstance=\count370
+\c@tabx@nest=\count330
+\c@listtotal=\count331
+\c@listcount=\count332
+\c@liststart=\count333
+\c@liststop=\count334
+\c@citecount=\count335
+\c@citetotal=\count336
+\c@multicitecount=\count337
+\c@multicitetotal=\count338
+\c@instcount=\count339
+\c@maxnames=\count340
+\c@minnames=\count341
+\c@maxitems=\count342
+\c@minitems=\count343
+\c@citecounter=\count344
+\c@maxcitecounter=\count345
+\c@savedcitecounter=\count346
+\c@uniquelist=\count347
+\c@uniquename=\count348
+\c@refsection=\count349
+\c@refsegment=\count350
+\c@maxextratitle=\count351
+\c@maxextratitleyear=\count352
+\c@maxextraname=\count353
+\c@maxextradate=\count354
+\c@maxextraalpha=\count355
+\c@abbrvpenalty=\count356
+\c@highnamepenalty=\count357
+\c@lownamepenalty=\count358
+\c@maxparens=\count359
+\c@parenlevel=\count360
+\blx@tempcnta=\count361
+\blx@tempcntb=\count362
+\blx@tempcntc=\count363
+\c@blx@maxsection=\count364
+\blx@maxsegment@0=\count365
+\blx@notetype=\count366
+\blx@parenlevel@text=\count367
+\blx@parenlevel@foot=\count368
+\blx@sectionciteorder@0=\count369
+\blx@sectionciteorderinternal@0=\count370
+\blx@entrysetcounter=\count371
+\blx@biblioinstance=\count372
 \labelnumberwidth=\skip55
 \labelalphawidth=\skip56
 \biblabelsep=\skip57
@@ -409,84 +416,86 @@ Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 \blx@bcfin=\read2
 \blx@bcfout=\write3
 \blx@langwohyphens=\language90
-\c@mincomprange=\count371
-\c@maxcomprange=\count372
-\c@mincompwidth=\count373
+\c@mincomprange=\count373
+\c@maxcomprange=\count374
+\c@mincompwidth=\count375
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'chicago-authordate.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count374
-\c@savedafterword=\count375
-\c@annotator=\count376
-\c@savedannotator=\count377
-\c@author=\count378
-\c@savedauthor=\count379
-\c@bookauthor=\count380
-\c@savedbookauthor=\count381
-\c@commentator=\count382
-\c@savedcommentator=\count383
-\c@editor=\count384
-\c@savededitor=\count385
-\c@editora=\count386
-\c@savededitora=\count387
-\c@editorb=\count388
-\c@savededitorb=\count389
-\c@editorc=\count390
-\c@savededitorc=\count391
-\c@foreword=\count392
-\c@savedforeword=\count393
-\c@holder=\count394
-\c@savedholder=\count395
-\c@introduction=\count396
-\c@savedintroduction=\count397
-\c@namea=\count398
-\c@savednamea=\count399
-\c@nameb=\count400
-\c@savednameb=\count401
-\c@namec=\count402
-\c@savednamec=\count403
-\c@translator=\count404
-\c@savedtranslator=\count405
-\c@shortauthor=\count406
-\c@savedshortauthor=\count407
-\c@shorteditor=\count408
-\c@savedshorteditor=\count409
-\c@labelname=\count410
-\c@savedlabelname=\count411
-\c@institution=\count412
-\c@savedinstitution=\count413
-\c@lista=\count414
-\c@savedlista=\count415
-\c@listb=\count416
-\c@savedlistb=\count417
-\c@listc=\count418
-\c@savedlistc=\count419
-\c@listd=\count420
-\c@savedlistd=\count421
-\c@liste=\count422
-\c@savedliste=\count423
-\c@listf=\count424
-\c@savedlistf=\count425
-\c@location=\count426
-\c@savedlocation=\count427
-\c@organization=\count428
-\c@savedorganization=\count429
-\c@origlocation=\count430
-\c@savedoriglocation=\count431
-\c@origpublisher=\count432
-\c@savedorigpublisher=\count433
-\c@publisher=\count434
-\c@savedpublisher=\count435
-\c@language=\count436
-\c@savedlanguage=\count437
-\c@origlanguage=\count438
-\c@savedoriglanguage=\count439
-\c@pageref=\count440
-\c@savedpageref=\count441
+\c@afterword=\count376
+\c@savedafterword=\count377
+\c@annotator=\count378
+\c@savedannotator=\count379
+\c@author=\count380
+\c@savedauthor=\count381
+\c@bookauthor=\count382
+\c@savedbookauthor=\count383
+\c@commentator=\count384
+\c@savedcommentator=\count385
+\c@editor=\count386
+\c@savededitor=\count387
+\c@editora=\count388
+\c@savededitora=\count389
+\c@editorb=\count390
+\c@savededitorb=\count391
+\c@editorc=\count392
+\c@savededitorc=\count393
+\c@foreword=\count394
+\c@savedforeword=\count395
+\c@holder=\count396
+\c@savedholder=\count397
+\c@introduction=\count398
+\c@savedintroduction=\count399
+\c@namea=\count400
+\c@savednamea=\count401
+\c@nameb=\count402
+\c@savednameb=\count403
+\c@namec=\count404
+\c@savednamec=\count405
+\c@translator=\count406
+\c@savedtranslator=\count407
+\c@shortauthor=\count408
+\c@savedshortauthor=\count409
+\c@shorteditor=\count410
+\c@savedshorteditor=\count411
+\c@labelname=\count412
+\c@savedlabelname=\count413
+\c@institution=\count414
+\c@savedinstitution=\count415
+\c@lista=\count416
+\c@savedlista=\count417
+\c@listb=\count418
+\c@savedlistb=\count419
+\c@listc=\count420
+\c@savedlistc=\count421
+\c@listd=\count422
+\c@savedlistd=\count423
+\c@liste=\count424
+\c@savedliste=\count425
+\c@listf=\count426
+\c@savedlistf=\count427
+\c@location=\count428
+\c@savedlocation=\count429
+\c@organization=\count430
+\c@savedorganization=\count431
+\c@origlocation=\count432
+\c@savedoriglocation=\count433
+\c@origpublisher=\count434
+\c@savedorigpublisher=\count435
+\c@publisher=\count436
+\c@savedpublisher=\count437
+\c@language=\count438
+\c@savedlanguage=\count439
+\c@origlanguage=\count440
+\c@savedoriglanguage=\count441
+\c@pageref=\count442
+\c@savedpageref=\count443
 \shorthandwidth=\skip63
 \shortjournalwidth=\skip64
 \shortserieswidth=\skip65
@@ -510,47 +519,55 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
-\c@textcitecount=\count442
-\c@textcitetotal=\count443
-\c@textcitemaxnames=\count444
-\c@biburlbigbreakpenalty=\count445
-\c@biburlbreakpenalty=\count446
-\c@biburlnumpenalty=\count447
-\c@biburlucpenalty=\count448
-\c@biburllcpenalty=\count449
+\c@textcitecount=\count444
+\c@textcitetotal=\count445
+\c@textcitemaxnames=\count446
+\c@biburlbigbreakpenalty=\count447
+\c@biburlbreakpenalty=\count448
+\c@biburlnumpenalty=\count449
+\c@biburlucpenalty=\count450
+\c@biburllcpenalty=\count451
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count450
+\c@smartand=\count452
 )
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
- (c:/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'standard'...
-Package biblatex Info: ... file 'standard.bbx' found.
- (c:/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count451
-\c@bbx:relatedtotal=\count452
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (c:/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'chicago-authordate'...
+Package biblatex Info: ... file 'chicago-authordate.bbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.bbx
+File: chicago-authordate.bbx 2022/11/17 v 3.18b biblatex bibliography style
+\lositemsep=\skip77
+Package biblatex Info: Delimiter 'revsdnamedelim' in context '' already defined, overwriting.
+\cms@tempcnta=\count453
+\cms@tempcntb=\count454
+\c@bbx:relatedcount=\count455
+\c@bbx:relatedtotal=\count456
+)
+Package biblatex Info: Trying to load citation style 'chicago-authordate'...
+Package biblatex Info: ... file 'chicago-authordate.cbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.cbx
+File: chicago-authordate.cbx 2022/07/02 v 3.18 biblatex citation style
+Package biblatex Info: Trying to load citation style 'chicago-dates-common'...
+Package biblatex Info: ... file 'chicago-dates-common.cbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/chicago-dates-common.cbx
+File: chicago-dates-common.cbx 2024/04/15 v 3.20 biblatex citation style
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
-Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\citetitle'.
+Package biblatex Info: Redefining '\footfullcite'.
+Package biblatex Info: Redefining '\fullcite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
 Package biblatex Info: Redefining '\cites'.
 Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
+Package biblatex Info: Redefining '\footcites'.
+Package biblatex Info: Redefining '\footcitetexts'.
+\c@cms@punct=\count457
+Package biblatex Info: Delimiter 'dateeradelim' in context '' already defined, overwriting.
+))
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
@@ -562,7 +579,7 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2025-08-13 L3 programming layer (loader) 
  (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count453
+\l__color_backend_stack_int=\count458
 ))
 Package biblatex Info: ... and expl3
 (biblatex)             2025-08-13 L3 programming layer (loader) 
@@ -572,45 +589,45 @@ Package biblatex Info: ... and expl3
 Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
-))
-\@quotelevel=\count454
-\@quotereset=\count455
+))))
+\@quotelevel=\count459
+\@quotereset=\count460
  (./caleb_steam_mkt_liquidity.aux)
 \openout1 = `caleb_steam_mkt_liquidity.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
  (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count456
+\scratchcounter=\count461
 \scratchdimen=\dimen197
 \scratchbox=\box58
-\nofMPsegments=\count457
-\nofMParguments=\count458
+\nofMPsegments=\count462
+\nofMParguments=\count463
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count459
+\MPscratchCnt=\count464
 \MPscratchDim=\dimen198
-\MPnumerator=\count460
-\makeMPintoPDFobject=\count461
+\MPnumerator=\count465
+\makeMPintoPDFobject=\count466
 \everyMPtoPDFconversion=\toks26
 )
-Package hyperref Info: Link coloring ON on input line 49.
+Package hyperref Info: Link coloring ON on input line 50.
  (./caleb_steam_mkt_liquidity.out) (./caleb_steam_mkt_liquidity.out)
 \@outlinefile=\write4
 \openout4 = `caleb_steam_mkt_liquidity.out'.
@@ -650,14 +667,27 @@ Package hyperref Info: Link coloring ON on input line 49.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count462
+\c@lstlisting=\count467
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english' -> 'cms-american'...
+Package biblatex Info: ... file 'cms-american.lbx' found.
+(c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/cms-american.lbx
+File: cms-american.lbx 2022/07/02 v 3.18 biblatex localization
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/american.lbx
+File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-(c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-)
+))
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -666,13 +696,13 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'caleb_steam_mkt_liquidity.bbl' found.
  (./caleb_steam_mkt_liquidity.bbl)
-Package biblatex Info: Reference section=0 on input line 49.
-Package biblatex Info: Reference segment=0 on input line 49.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+Package biblatex Info: Reference section=0 on input line 50.
+Package biblatex Info: Reference segment=0 on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -682,13 +712,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 [2]
-<./figures/trade_delta_and_plyr_ct.pdf, id=41, 655.44875pt x 407.5225pt>
+<./figures/trade_delta_and_plyr_ct.pdf, id=42, 655.44875pt x 407.5225pt>
 File: ./figures/trade_delta_and_plyr_ct.pdf Graphic file (type pdf)
 <use ./figures/trade_delta_and_plyr_ct.pdf>
-Package pdftex.def Info: ./figures/trade_delta_and_plyr_ct.pdf  used on input line 92.
+Package pdftex.def Info: ./figures/trade_delta_and_plyr_ct.pdf  used on input line 93.
 (pdftex.def)             Requested size: 527.57121pt x 328.01451pt.
 
-Overfull \hbox (57.8162pt too wide) in paragraph at lines 92--93
+Overfull \hbox (57.8162pt too wide) in paragraph at lines 93--94
  [] 
  []
 
@@ -697,26 +727,26 @@ Overfull \hbox (57.8162pt too wide) in paragraph at lines 92--93
 [3 <./figures/trade_delta_and_plyr_ct.pdf>]
 
 [4]
-<./figures/did_mos_2yr_phat_iplot.pdf, id=64, 505.89pt x 505.89pt>
+<./figures/did_mos_2yr_phat_iplot.pdf, id=65, 505.89pt x 505.89pt>
 File: ./figures/did_mos_2yr_phat_iplot.pdf Graphic file (type pdf)
 <use ./figures/did_mos_2yr_phat_iplot.pdf>
-Package pdftex.def Info: ./figures/did_mos_2yr_phat_iplot.pdf  used on input line 148.
+Package pdftex.def Info: ./figures/did_mos_2yr_phat_iplot.pdf  used on input line 149.
 (pdftex.def)             Requested size: 325.2197pt x 325.215pt.
-<./figures/did_mos_2yr_vol_iplot.pdf, id=65, 505.89pt x 505.89pt>
+<./figures/did_mos_2yr_vol_iplot.pdf, id=66, 505.89pt x 505.89pt>
 File: ./figures/did_mos_2yr_vol_iplot.pdf Graphic file (type pdf)
 <use ./figures/did_mos_2yr_vol_iplot.pdf>
-Package pdftex.def Info: ./figures/did_mos_2yr_vol_iplot.pdf  used on input line 153.
+Package pdftex.def Info: ./figures/did_mos_2yr_vol_iplot.pdf  used on input line 154.
 (pdftex.def)             Requested size: 325.2197pt x 325.215pt.
 
 
 [5]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 171.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 172.
  (c:/texlive/2025/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 
 [6]
-LaTeX Font Info:    Trying to load font information for U+ding on input line 213.
+LaTeX Font Info:    Trying to load font information for U+ding on input line 214.
  (c:/texlive/2025/texmf-dist/tex/latex/bbding/Uding.fd
 File: Uding.fd 1996/02/01 v1.0 BBding font definitions
 )
@@ -725,12 +755,7 @@ File: Uding.fd 1996/02/01 v1.0 BBding font definitions
 
 [8]
 
-[9 <./figures/did_mos_2yr_phat_iplot.pdf> <./figures/did_mos_2yr_vol_iplot.pdf>]
-
-Package caption Warning: Unused \captionsetup[subcaption] on input line 18.
-See the caption package documentation for explanation.
-
-(./caleb_steam_mkt_liquidity.aux)
+[9 <./figures/did_mos_2yr_phat_iplot.pdf> <./figures/did_mos_2yr_vol_iplot.pdf>] (./caleb_steam_mkt_liquidity.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
@@ -742,18 +767,18 @@ Package logreq Info: Writing requests to 'caleb_steam_mkt_liquidity.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20951 strings out of 467800
- 361878 string characters out of 5436062
- 1192783 words of memory out of 5000000
- 49319 multiletter control sequences out of 15000+600000
- 639995 words of font info for 95 fonts, out of 8000000 for 9000
+ 23237 strings out of 467800
+ 411876 string characters out of 5436062
+ 1628666 words of memory out of 5000000
+ 51589 multiletter control sequences out of 15000+600000
+ 639178 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,11n,77p,1694b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/niceframe-type1/bbding10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on caleb_steam_mkt_liquidity.pdf (9 pages, 255686 bytes).
+ 84i,11n,83p,1694b,3949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/niceframe-type1/bbding10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on caleb_steam_mkt_liquidity.pdf (9 pages, 218994 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
+ 206 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
  27 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
