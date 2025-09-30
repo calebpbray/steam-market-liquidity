@@ -1,7 +1,7 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{epstopdf}
-\usepackage{natbib}
+%\usepackage{natbib} %incompatible with biblatex
 \usepackage{amsmath, amssymb,bbm}
 \usepackage{color,hyperref}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.3}
@@ -26,7 +26,7 @@
 \usepackage{dsfont}
 \usepackage{bbding}
 
-\usepackage{biblatex}
+\usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 
 \makeatletter
@@ -62,7 +62,7 @@
 %    table-space-text-post   = \str{***},
 %}
 
-\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Skin Markets}}\thanks{I thank Elior Cohen, Francisco Scott, Jordan Pandolfo, and Brent Bundick for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Skin Markets}}\thanks{I thank Elior Cohen, Francisco Scott, Jordan Pandolfo, Brent Bundick, and Lee Smith for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
 \author{\vspace{5mm} Caleb Bray \\ \vspace{-0.8mm}}
 \date{\normalsize{\hspace{0.1in}September 2025}}
 
@@ -77,7 +77,8 @@
 \newpage 
 	 
 \section{Introduction}
-In March 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all-time high of \$4.3 billion \citep{bloomberg2025-03-07}. The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). \\
+In March 2025, the market capitalization for digital cosmetics in the video game Counter Strike reached an all-time high of \$4.3 billion \parencite{bloomberg2025-03-07}. The market for cosmetics in Counter-Strike is immense and player-driven. As of August 2025, the game averages about 1 million concurrent players, playing the game at any given moment. Third parties also estimate that about 2-3 million trades are made between users every week (tradeTF CITE) and around 32 million new Counter Strike cosmetics are generated every month via player payments to the developer to open ``cases'' which function as virtual slot machines (CITE CSGO CASE TRACKER). \\
+
 
 The developer Valve fostered this market in combination with their expansive digital PC game distributor, Steam. In addition to purchasing PC games on Steam, users can list their in-game items, also called ``skins,'' on Steam's community marketplace, where other users can purchase them using real currency. This marketplace serves as a valuable source of high frequency data for emerging digital markets and exchanges controlled by a central figure. Using these data we can study the effects of various policy changes and leverage their relative exogeneity to parse out their effects. In this paper, I leverage an exogenous liquidity shock in the form of a 7-day trade restriction imposed on all Counter-Strike items to examine the change in market participants' behavior. After constructing a quality adjusted price, I use an event study difference-in-differences (DID) approach to estimate the effect on both quantity and price of Counter-Strike skins sold on the Steam Community Market. I find a persistent positive effect on selling prices and negative effect on quantity sold for one year after the imposition of the 7-day trade ban. \\
 

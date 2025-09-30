@@ -16,5 +16,37 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{bloomberg2025-03-07}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6dcec198cfa8c6b30936561b86dec117}{%
+           family={{D'Anastasio, Cecilia}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{fullhash}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{fullhashraw}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{bibnamehash}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{authorbibnamehash}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{authornamehash}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{authorfullhash}{6dcec198cfa8c6b30936561b86dec117}
+      \strng{authorfullhashraw}{6dcec198cfa8c6b30936561b86dec117}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Market for 'Counter-Strike 2' Digital Items Hits New High}}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.bloomberg.com/news/articles/2025-03-07/market-for-counter-strike-2-digital-items-hits-all-time-high
+      \endverb
+      \verb{url}
+      \verb https://www.bloomberg.com/news/articles/2025-03-07/market-for-counter-strike-2-digital-items-hits-all-time-high
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
