@@ -19,6 +19,35 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global/global}
+    \entry{case-tracker}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6f14494b7a8c500d3fb54c32700b1570}{%
+           family={{CS2 Case Tracker}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{fullhash}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{fullhashraw}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{bibnamehash}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{authorbibnamehash}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{authornamehash}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{authorfullhash}{6f14494b7a8c500d3fb54c32700b1570}
+      \strng{authorfullhashraw}{6f14494b7a8c500d3fb54c32700b1570}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Cases Unboxed the last month}}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://csgocasetracker.com/monthly
+      \endverb
+      \verb{url}
+      \verb https://csgocasetracker.com/monthly
+      \endverb
+    \endentry
     \entry{bloomberg2025-03-07}{online}{}{}
       \name{author}{1}{}{%
         {{hash=2bbd2806fb7fdd377f96c6264530261b}{%
@@ -48,6 +77,35 @@
       \endverb
       \verb{url}
       \verb https://www.bloomberg.com/news/articles/2025-03-07/market-for-counter-strike-2-digital-items-hits-all-time-high
+      \endverb
+    \endentry
+    \entry{tradeTF}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1b63866b2b84ba9180e26083b4474da2}{%
+           family={{Trade.TF}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{fullhash}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{fullhashraw}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{bibnamehash}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{authorbibnamehash}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{authornamehash}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{authorfullhash}{1b63866b2b84ba9180e26083b4474da2}
+      \strng{authorfullhashraw}{1b63866b2b84ba9180e26083b4474da2}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Steam Trade Volume}}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.trade.tf/volume
+      \endverb
+      \verb{url}
+      \verb https://www.trade.tf/volume
       \endverb
     \endentry
   \enddatalist
