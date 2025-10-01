@@ -1,14 +1,14 @@
 # Fdb version 4
-["biber caleb_steam_mkt_liquidity"] 1759209024.75198 "caleb_steam_mkt_liquidity.bcf" "caleb_steam_mkt_liquidity.bbl" "caleb_steam_mkt_liquidity" 1759209028.53478 0
-  "caleb_steam_mkt_liquidity.bcf" 1759209028 204212 a6c89cb6debd2d880747101ce8b336aa "pdflatex"
-  "references.bib" 1759209024 273 1fea684b199c75bca37a7e209ebc6c37 ""
+["biber caleb_steam_mkt_liquidity"] 1759287293.67898 "caleb_steam_mkt_liquidity.bcf" "caleb_steam_mkt_liquidity.bbl" "caleb_steam_mkt_liquidity" 1759287295.01424 0
+  "caleb_steam_mkt_liquidity.bcf" 1759286693 204757 404a8925914ca888e5170a067c733fc7 "pdflatex"
+  "references.bib" 1759287293 4791 e57703391b9e105be0add5e57e67aa89 ""
   (generated)
   "caleb_steam_mkt_liquidity.bbl"
   "caleb_steam_mkt_liquidity.blg"
   (rewritten before read)
-["pdflatex"] 1759209027.38328 "c:/Users/Caleb/Desktop/writing samples/steam-market-liquidity/writing/manuscript/caleb_steam_mkt_liquidity.tex" "caleb_steam_mkt_liquidity.pdf" "caleb_steam_mkt_liquidity" 1759209028.53554 0
+["pdflatex"] 1759286692.60721 "c:/Users/Caleb/Desktop/writing samples/steam-market-liquidity/writing/manuscript/caleb_steam_mkt_liquidity.tex" "caleb_steam_mkt_liquidity.pdf" "caleb_steam_mkt_liquidity" 1759287295.01438 0
   "biblatex-aer.tex" 1759208312 2652 47d982923d4fd4cc1f8c6a05636303bf ""
-  "c:/Users/Caleb/Desktop/writing samples/steam-market-liquidity/writing/manuscript/caleb_steam_mkt_liquidity.tex" 1759209026 21372 b05f12049154a679d2d538eb266a090d ""
+  "c:/Users/Caleb/Desktop/writing samples/steam-market-liquidity/writing/manuscript/caleb_steam_mkt_liquidity.tex" 1759286688 21803 ec3045f3457bf9fb23047f18c211be3e ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1756867602 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1756868468 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm0700.tfm" 1756868085 1536 73da8e8f1d2a4c957d51ca133585586b ""
@@ -149,11 +149,11 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1756921596 5574045 22848c10ad8b56b5f83684fbec0ec0d7 ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1756921792 3605797 6677ac9cdd4e9868dfb781ce20e29276 ""
   "c:/texlive/2025/texmf.cnf" 1756921583 713 e69b156964470283e0530f5060668171 ""
-  "caleb_steam_mkt_liquidity.aux" 1759209028 2429 d3b9a4f2c4a501e758498dc8e26d835a "pdflatex"
-  "caleb_steam_mkt_liquidity.bbl" 1759209026 2051 743feb674bec1362561c919575850d94 "biber caleb_steam_mkt_liquidity"
-  "caleb_steam_mkt_liquidity.out" 1759209028 554 335b5c2743ee3dd998970fb291816a0e "pdflatex"
-  "caleb_steam_mkt_liquidity.run.xml" 1759209028 2554 7ce95ef6165e9d7d73773f2d23de85fe "pdflatex"
-  "caleb_steam_mkt_liquidity.tex" 1759209026 21372 b05f12049154a679d2d538eb266a090d ""
+  "caleb_steam_mkt_liquidity.aux" 1759286693 3650 54a865165191277d8587558b65f41abb "pdflatex"
+  "caleb_steam_mkt_liquidity.bbl" 1759287294 10645 825995546ff23a12682b87ba204f5ab3 "biber caleb_steam_mkt_liquidity"
+  "caleb_steam_mkt_liquidity.out" 1759286693 554 335b5c2743ee3dd998970fb291816a0e "pdflatex"
+  "caleb_steam_mkt_liquidity.run.xml" 1759286693 2554 7ce95ef6165e9d7d73773f2d23de85fe "pdflatex"
+  "caleb_steam_mkt_liquidity.tex" 1759286688 21803 ec3045f3457bf9fb23047f18c211be3e ""
   "figures/did_mos_2yr_phat_iplot.pdf" 1757988025 8854 c25abed341b2ee2456e52ae193d15139 ""
   "figures/did_mos_2yr_vol_iplot.pdf" 1757908113 8850 176736ac4db3cfc6fd594843ed5953fa ""
   "figures/trade_delta_and_plyr_ct.pdf" 1757990708 10834 fd3146ade09b740cfe80fe05a53745af ""

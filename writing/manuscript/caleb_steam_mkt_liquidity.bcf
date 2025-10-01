@@ -4982,6 +4982,12 @@
     <bcf:citekey order="1" intorder="1">bloomberg2025-03-07</bcf:citekey>
     <bcf:citekey order="2" intorder="1">tradeTF</bcf:citekey>
     <bcf:citekey order="3" intorder="1">case-tracker</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">tradeTF</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">steamcharts_cs</bcf:citekey>
+    <bcf:citekey order="6" intorder="1" nocite="1">steamcharts_dota</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">cs2db</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">backpackcs</bcf:citekey>
+    <bcf:citekey order="9" intorder="1" nocite="1">backpackdota</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="cms">

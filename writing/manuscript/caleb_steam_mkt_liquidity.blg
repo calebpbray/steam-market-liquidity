@@ -1,16 +1,16 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
-[1] Config.pm:331> INFO - Logfile is 'caleb_steam_mkt_liquidity.blg'
-[115] biber-MSWIN64:342> INFO - === 
-[154] Biber.pm:421> INFO - Reading 'caleb_steam_mkt_liquidity.bcf'
-[297] Biber.pm:1002> INFO - Found 3 citekeys in bib section 0
-[307] Biber.pm:4487> INFO - Processing section 0
-[316] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[372] bibtex.pm:1713> INFO - LaTeX decoding ...
-[380] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[412] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[412] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
-[412] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[413] Biber.pm:4307> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'en-US'
-[413] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[420] bbl.pm:676> INFO - Writing 'caleb_steam_mkt_liquidity.bbl' with encoding 'UTF-8'
-[422] bbl.pm:779> INFO - Output to caleb_steam_mkt_liquidity.bbl
+[0] Config.pm:331> INFO - Logfile is 'caleb_steam_mkt_liquidity.blg'
+[65] biber-MSWIN64:342> INFO - === 
+[92] Biber.pm:421> INFO - Reading 'caleb_steam_mkt_liquidity.bcf'
+[207] Biber.pm:1002> INFO - Found 8 citekeys in bib section 0
+[215] Biber.pm:4487> INFO - Processing section 0
+[222] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[253] bibtex.pm:1713> INFO - LaTeX decoding ...
+[270] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
+[313] Biber.pm:4307> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'en-US'
+[313] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[320] bbl.pm:676> INFO - Writing 'caleb_steam_mkt_liquidity.bbl' with encoding 'UTF-8'
+[322] bbl.pm:779> INFO - Output to caleb_steam_mkt_liquidity.bbl

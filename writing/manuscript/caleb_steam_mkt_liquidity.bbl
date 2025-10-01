@@ -19,6 +19,69 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global/global}
+    \entry{backpackcs}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9be822d475a70e16c01ab07723eaf939}{%
+           family={{backpack.TF}},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{fullhash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{fullhashraw}{9be822d475a70e16c01ab07723eaf939}
+      \strng{bibnamehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authorbibnamehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authornamehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authorfullhash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authorfullhashraw}{9be822d475a70e16c01ab07723eaf939}
+      \field{extraname}{1}
+      \field{sortinit}{b}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Counter-Strike Items by Rarity}}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://csgo.backpack.tf/
+      \endverb
+      \verb{url}
+      \verb https://csgo.backpack.tf/
+      \endverb
+    \endentry
+    \entry{backpackdota}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9be822d475a70e16c01ab07723eaf939}{%
+           family={{backpack.TF}},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{fullhash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{fullhashraw}{9be822d475a70e16c01ab07723eaf939}
+      \strng{bibnamehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authorbibnamehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authornamehash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authorfullhash}{9be822d475a70e16c01ab07723eaf939}
+      \strng{authorfullhashraw}{9be822d475a70e16c01ab07723eaf939}
+      \field{extraname}{2}
+      \field{sortinit}{b}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Dota 2 Items by Rarity}}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://dota2.backpack.tf/
+      \endverb
+      \verb{url}
+      \verb https://dota2.backpack.tf/
+      \endverb
+    \endentry
     \entry{case-tracker}{online}{}{}
       \name{author}{1}{}{%
         {{hash=6f14494b7a8c500d3fb54c32700b1570}{%
@@ -39,13 +102,42 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{{Cases Unboxed the last month}}
+      \field{title}{{Cases Unboxed Last Month}}
       \field{year}{2025}
       \verb{urlraw}
       \verb https://csgocasetracker.com/monthly
       \endverb
       \verb{url}
       \verb https://csgocasetracker.com/monthly
+      \endverb
+    \endentry
+    \entry{cs2db}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=829284584629c020ed9c13358e92a3d4}{%
+           family={{CS2 Database}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{829284584629c020ed9c13358e92a3d4}
+      \strng{fullhash}{829284584629c020ed9c13358e92a3d4}
+      \strng{fullhashraw}{829284584629c020ed9c13358e92a3d4}
+      \strng{bibnamehash}{829284584629c020ed9c13358e92a3d4}
+      \strng{authorbibnamehash}{829284584629c020ed9c13358e92a3d4}
+      \strng{authornamehash}{829284584629c020ed9c13358e92a3d4}
+      \strng{authorfullhash}{829284584629c020ed9c13358e92a3d4}
+      \strng{authorfullhashraw}{829284584629c020ed9c13358e92a3d4}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{CS2 Collections}}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.csgodatabase.com/collections
+      \endverb
+      \verb{url}
+      \verb https://www.csgodatabase.com/collections
       \endverb
     \endentry
     \entry{bloomberg2025-03-07}{online}{}{}
@@ -77,6 +169,69 @@
       \endverb
       \verb{url}
       \verb https://www.bloomberg.com/news/articles/2025-03-07/market-for-counter-strike-2-digital-items-hits-all-time-high
+      \endverb
+    \endentry
+    \entry{steamcharts_cs}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=65f2b8b73dc887d8dcd7b96011e188ce}{%
+           family={{Steam Charts}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{fullhash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{fullhashraw}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{bibnamehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authorbibnamehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authornamehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authorfullhash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authorfullhashraw}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Counter-Strike 2}}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://steamcharts.com/app/730
+      \endverb
+      \verb{url}
+      \verb https://steamcharts.com/app/730
+      \endverb
+    \endentry
+    \entry{steamcharts_dota}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=65f2b8b73dc887d8dcd7b96011e188ce}{%
+           family={{Steam Charts}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{fullhash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{fullhashraw}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{bibnamehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authorbibnamehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authornamehash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authorfullhash}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \strng{authorfullhashraw}{65f2b8b73dc887d8dcd7b96011e188ce}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Dota 2}}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://steamcharts.com/app/570
+      \endverb
+      \verb{url}
+      \verb https://steamcharts.com/app/570
       \endverb
     \endentry
     \entry{tradeTF}{online}{}{}
