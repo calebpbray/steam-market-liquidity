@@ -1,16 +1,18 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'caleb_steam_mkt_liquidity.blg'
-[65] biber-MSWIN64:342> INFO - === 
-[92] Biber.pm:421> INFO - Reading 'caleb_steam_mkt_liquidity.bcf'
-[207] Biber.pm:1002> INFO - Found 8 citekeys in bib section 0
-[215] Biber.pm:4487> INFO - Processing section 0
-[222] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[253] bibtex.pm:1713> INFO - LaTeX decoding ...
-[270] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[313] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
-[313] Biber.pm:4307> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'en-US'
-[313] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[320] bbl.pm:676> INFO - Writing 'caleb_steam_mkt_liquidity.bbl' with encoding 'UTF-8'
-[322] bbl.pm:779> INFO - Output to caleb_steam_mkt_liquidity.bbl
+[67] biber-MSWIN64:342> INFO - === 
+[94] Biber.pm:421> INFO - Reading 'caleb_steam_mkt_liquidity.bcf'
+[209] Biber.pm:1002> INFO - Found 14 citekeys in bib section 0
+[218] Biber.pm:4487> INFO - Processing section 0
+[225] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[271] bibtex.pm:1713> INFO - LaTeX decoding ...
+[293] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[356] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
+[356] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[356] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[356] Biber.pm:4307> INFO - Sorting list 'cms/global//global/global/global' of type 'entry' with template 'cms' and locale 'en-US'
+[356] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[366] bbl.pm:676> INFO - Writing 'caleb_steam_mkt_liquidity.bbl' with encoding 'UTF-8'
+[370] bbl.pm:779> INFO - Output to caleb_steam_mkt_liquidity.bbl
+[371] Biber.pm:132> WARN - legacy month field 'May' in entry 'lagos_rocheteau_2007' is not an integer - this will probably not sort properly.
+[371] Biber.pm:134> INFO - WARNINGS: 1

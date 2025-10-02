@@ -19,6 +19,51 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global/global}
+    \entry{amihud_et_al_2006}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=fd253d257e16edd4bdace17cf72df10c}{%
+           family={Amihud},
+           familyi={A\bibinitperiod},
+           given={Yakov},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7af62b8e1e3802c19f4f1cb20fd1851c}{%
+           family={Mendelson},
+           familyi={M\bibinitperiod},
+           given={Haim},
+           giveni={H\bibinitperiod}}}%
+        {{hash=07123ce41f03a63251aed38e35aa6029}{%
+           family={Pedersen},
+           familyi={P\bibinitperiod},
+           given={Lasse\bibnamedelima Heje},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Now Publishers, Inc.}%
+      }
+      \strng{namehash}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{fullhash}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{fullhashraw}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{bibnamehash}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{authorbibnamehash}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{authornamehash}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{authorfullhash}{19f39ae5c5bcd421ae2360236b288dd6}
+      \strng{authorfullhashraw}{19f39ae5c5bcd421ae2360236b288dd6}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Foundations and Trends{®} in Finance}
+      \field{number}{4}
+      \field{title}{Liquidity and asset prices}
+      \field{volume}{1}
+      \field{year}{2006}
+      \field{pages}{269\bibrangedash 364}
+      \range{pages}{96}
+    \endentry
     \entry{backpackcs}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9be822d475a70e16c01ab07723eaf939}{%
@@ -169,6 +214,254 @@
       \endverb
       \verb{url}
       \verb https://www.bloomberg.com/news/articles/2025-03-07/market-for-counter-strike-2-digital-items-hits-all-time-high
+      \endverb
+    \endentry
+    \entry{dgp_2005}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=41e57cb33fe261e63fff879cbd1d79c1}{%
+           family={Duffie},
+           familyi={D\bibinitperiod},
+           given={Darrell},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0c634bc5d53d9902843ba6686ad256bc}{%
+           family={Gârleanu},
+           familyi={G\bibinitperiod},
+           given={Nicolae},
+           giveni={N\bibinitperiod}}}%
+        {{hash=07123ce41f03a63251aed38e35aa6029}{%
+           family={Pedersen},
+           familyi={P\bibinitperiod},
+           given={Lasse\bibnamedelima Heje},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{fullhash}{9596df9ec40968e898f3346c422e299f}
+      \strng{fullhashraw}{9596df9ec40968e898f3346c422e299f}
+      \strng{bibnamehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authorbibnamehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authornamehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authorfullhash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authorfullhashraw}{9596df9ec40968e898f3346c422e299f}
+      \field{extraname}{1}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{abstract}{We study how intermediation and asset prices in over-the-counter markets are affected by illiquidity associated with search and bargaining. We compute explicitly the prices at which investors trade with each other, as well as marketmakers' bid and ask prices, in a dynamic model with strategic agents. Bid–ask spreads are lower if investors can more easily find other investors or have easier access to multiple marketmakers. With a monopolistic marketmaker, bid–ask spreads are higher if investors have easier access to the marketmaker. We characterize endogenous search and welfare, and discuss empirical implications.}
+      \field{journaltitle}{Econometrica}
+      \field{number}{6}
+      \field{title}{Over-the-Counter Markets}
+      \field{volume}{73}
+      \field{year}{2005}
+      \field{pages}{1815\bibrangedash 1847}
+      \range{pages}{33}
+      \verb{doi}
+      \verb https://doi.org/10.1111/j.1468-0262.2005.00639.x
+      \endverb
+      \verb{eprint}
+      \verb https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1468-0262.2005.00639.x
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2005.00639.x
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2005.00639.x
+      \endverb
+      \keyw{Asset pricing,search frictions,bargaining,marketmaking,welfare,Walrasian}
+    \endentry
+    \entry{dgp_2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=41e57cb33fe261e63fff879cbd1d79c1}{%
+           family={Duffie},
+           familyi={D\bibinitperiod},
+           given={Darrell},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0c634bc5d53d9902843ba6686ad256bc}{%
+           family={Gârleanu},
+           familyi={G\bibinitperiod},
+           given={Nicolae},
+           giveni={N\bibinitperiod}}}%
+        {{hash=07123ce41f03a63251aed38e35aa6029}{%
+           family={Pedersen},
+           familyi={P\bibinitperiod},
+           given={Lasse\bibnamedelima Heje},
+           giveni={L\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{fullhash}{9596df9ec40968e898f3346c422e299f}
+      \strng{fullhashraw}{9596df9ec40968e898f3346c422e299f}
+      \strng{bibnamehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authorbibnamehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authornamehash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authorfullhash}{9596df9ec40968e898f3346c422e299f}
+      \strng{authorfullhashraw}{9596df9ec40968e898f3346c422e299f}
+      \field{extraname}{2}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{abstract}{We provide the impact on asset prices of search-and-bargaining frictions in over-the-counter markets. Under certain conditions, illiquidity discounts are higher when counterparties are harder to find, when sellers have less bargaining power, when the fraction of qualified owners is smaller, or when risk aversion, volatility, or hedging demand is larger. Supply shocks cause prices to jump, and then “recover” over time, with a time signature that is exaggerated by search frictions: The price jump is larger and the recovery is slower in less liquid markets. We discuss a variety of empirical implications.}
+      \field{issn}{0893-9454}
+      \field{journaltitle}{The Review of Financial Studies}
+      \field{month}{08}
+      \field{number}{6}
+      \field{title}{Valuation in Over-the-Counter Markets}
+      \field{volume}{20}
+      \field{year}{2007}
+      \field{pages}{1865\bibrangedash 1900}
+      \range{pages}{36}
+      \verb{doi}
+      \verb 10.1093/rfs/hhm037
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/rfs/article-pdf/20/6/1865/24440839/hhm037.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/rfs/hhm037
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/rfs/hhm037
+      \endverb
+    \endentry
+    \entry{geromichalos_et_al_2016}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=ba5ca4ed4c49fac4971ab8f5353c0d2c}{%
+           family={Geromichalos},
+           familyi={G\bibinitperiod},
+           given={Athanasios},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c11cc13a1eb5d120154c76636fc7e726}{%
+           family={Herrenbrueck},
+           familyi={H\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{300c11767887735a706da3bdbd523e93}
+      \strng{fullhash}{300c11767887735a706da3bdbd523e93}
+      \strng{fullhashraw}{300c11767887735a706da3bdbd523e93}
+      \strng{bibnamehash}{300c11767887735a706da3bdbd523e93}
+      \strng{authorbibnamehash}{300c11767887735a706da3bdbd523e93}
+      \strng{authornamehash}{300c11767887735a706da3bdbd523e93}
+      \strng{authorfullhash}{300c11767887735a706da3bdbd523e93}
+      \strng{authorfullhashraw}{300c11767887735a706da3bdbd523e93}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{abstract}{We develop a model where agents can allocate their wealth between a liquid asset, which can be used to purchase consumption goods, and an illiquid asset, which represents a better store of value. Should a consumption opportunity arise, agents may visit a frictional “over-the-counter” secondary asset market where they can exchange illiquid for liquid assets. We characterize how monetary policy affects both the issue price and the secondary market price of the asset. We also show that, in contrast to conventional wisdom, search and bargaining frictions in the secondary asset market can improve welfare if inflation is low.}
+      \field{journaltitle}{Journal of Money, Credit and Banking}
+      \field{number}{1}
+      \field{title}{Monetary Policy, Asset Prices, and Liquidity in Over-the-Counter Markets}
+      \field{volume}{48}
+      \field{year}{2016}
+      \field{pages}{35\bibrangedash 79}
+      \range{pages}{45}
+      \verb{doi}
+      \verb https://doi.org/10.1111/jmcb.12290
+      \endverb
+      \verb{eprint}
+      \verb https://onlinelibrary.wiley.com/doi/pdf/10.1111/jmcb.12290
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/jmcb.12290
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/jmcb.12290
+      \endverb
+      \keyw{E31,E50,E52,G12,monetary-search models,liquidity,asset prices,monetary policy}
+    \endentry
+    \entry{krishna_2002}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=04f860aabbcc66922143c48686ffbd89}{%
+           family={Krishnamurthy},
+           familyi={K\bibinitperiod},
+           given={Arvind},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{04f860aabbcc66922143c48686ffbd89}
+      \strng{fullhash}{04f860aabbcc66922143c48686ffbd89}
+      \strng{fullhashraw}{04f860aabbcc66922143c48686ffbd89}
+      \strng{bibnamehash}{04f860aabbcc66922143c48686ffbd89}
+      \strng{authorbibnamehash}{04f860aabbcc66922143c48686ffbd89}
+      \strng{authornamehash}{04f860aabbcc66922143c48686ffbd89}
+      \strng{authorfullhash}{04f860aabbcc66922143c48686ffbd89}
+      \strng{authorfullhashraw}{04f860aabbcc66922143c48686ffbd89}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{abstract}{I document the profits on a trade that is long the old 30-year Treasury bond and short the new 30-year Treasury bond, and is rolled over every auction cycle from June 1995 to November 1999. Despite the systematic convergence of the spread over the auction cycle, the average profits are close to zero. The difference in repo-market financing rates between the two bonds is a significant cost of carry in this trade. I show that variation in the bond/old-bond spread is driven by the Treasury supply of 30-year bonds as well as aggregate factors affecting investors’ preference for liquid assets.}
+      \field{issn}{0304-405X}
+      \field{journaltitle}{Journal of Financial Economics}
+      \field{note}{Limits on Arbitrage}
+      \field{number}{2}
+      \field{title}{The bond/old-bond spread}
+      \field{volume}{66}
+      \field{year}{2002}
+      \field{pages}{463\bibrangedash 506}
+      \range{pages}{44}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0304-405X(02)00207-6
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304405X02002076
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304405X02002076
+      \endverb
+      \keyw{Hedge funds,Short sales,CP-Bills spread,Aggregate liquidity,Liquidity crises}
+    \endentry
+    \entry{lagos_rocheteau_2007}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=ca86a8421d330dc647054df94c918fbe}{%
+           family={Lagos},
+           familyi={L\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ed344618e8603f3bad91abcdf39307e4}{%
+           family={Rocheteau},
+           familyi={R\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a990752d28472facc8cafba0ee22973}
+      \strng{fullhash}{5a990752d28472facc8cafba0ee22973}
+      \strng{fullhashraw}{5a990752d28472facc8cafba0ee22973}
+      \strng{bibnamehash}{5a990752d28472facc8cafba0ee22973}
+      \strng{authorbibnamehash}{5a990752d28472facc8cafba0ee22973}
+      \strng{authornamehash}{5a990752d28472facc8cafba0ee22973}
+      \strng{authorfullhash}{5a990752d28472facc8cafba0ee22973}
+      \strng{authorfullhashraw}{5a990752d28472facc8cafba0ee22973}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{American Economic Review}
+      \field{month}{5}
+      \field{number}{2}
+      \field{title}{Search in Asset Markets: Market Structure, Liquidity, and Welfare}
+      \field{volume}{97}
+      \field{year}{2007}
+      \field{pages}{198\bibrangedash 202}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1257/aer.97.2.198
+      \endverb
+      \verb{urlraw}
+      \verb https://www.aeaweb.org/articles?id=10.1257/aer.97.2.198
+      \endverb
+      \verb{url}
+      \verb https://www.aeaweb.org/articles?id=10.1257/aer.97.2.198
       \endverb
     \endentry
     \entry{steamcharts_cs}{online}{}{}

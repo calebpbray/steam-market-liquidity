@@ -4979,15 +4979,23 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">bloomberg2025-03-07</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">tradeTF</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">case-tracker</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">tradeTF</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">steamcharts_cs</bcf:citekey>
-    <bcf:citekey order="6" intorder="1" nocite="1">steamcharts_dota</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">cs2db</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">backpackcs</bcf:citekey>
-    <bcf:citekey order="9" intorder="1" nocite="1">backpackdota</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">dgp_2005</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">dgp_2005</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">dgp_2007</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">krishna_2002</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">lagos_rocheteau_2007</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">amihud_et_al_2006</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">geromichalos_et_al_2016</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">bloomberg2025-03-07</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">steamcharts_cs</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">tradeTF</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">case-tracker</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">tradeTF</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">steamcharts_cs</bcf:citekey>
+    <bcf:citekey order="14" intorder="1" nocite="1">steamcharts_dota</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">cs2db</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">backpackcs</bcf:citekey>
+    <bcf:citekey order="17" intorder="1" nocite="1">backpackdota</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="cms">
