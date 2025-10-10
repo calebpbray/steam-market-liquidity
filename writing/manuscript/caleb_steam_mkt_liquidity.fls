@@ -146,6 +146,10 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/bbding/bbding.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/bbding/bbding.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT ./biblatex-aer.tex
 INPUT ./biblatex-aer.tex
 INPUT ./biblatex-aer.tex

@@ -25,7 +25,7 @@
 \usepackage{sepfootnotes}
 \usepackage{dsfont}
 \usepackage{bbding}
-
+\usepackage{xcolor}
 \input{biblatex-aer}
 %\usepackage[authordate]{biblatex-chicago}
 \addbibresource{references.bib}
@@ -82,7 +82,7 @@
 
 \maketitle
 \begin{abstract}
-\noindent This paper serves as a case study to examine the effects of sudden market structure changes in virtual asset markets. The virtual market I examine behaves similarly to ``Over the Counter'' asset markets where liquidity shocks have a meaningful effect on asset price and choice. Using a difference-in-differences approach, I find that implementation of a 7-day trade ban on all cosmetic items in the video game Counter-Strike reduces quality adjusted prices by 4.2\% and trading volume by 15703.3 trades suggesting the creation of an illiquidity discount. This effect persists for at least two years after treatment. \\
+\noindent This paper serves as a case study to examine the effects of sudden market structure changes in virtual asset markets. The virtual market I examine behaves similarly to ``Over the Counter'' asset markets where liquidity shocks have a meaningful effect on asset price and choice. Using a difference-in-differences approach, I find that implementation of a 7-day trade ban on all cosmetic items in the video game Counter-Strike reduces quality adjusted prices by 4.2\% and trading volume by 15703.3 trades suggesting the creation of an illiquidity discount. This effect persists for at least two years after treatment and is consistent with empirical findings in the literature. \\
 \end{abstract}
  
 
@@ -177,8 +177,7 @@ I use this quality adjusted price to estimate the average treatment effect on th
     \log(\hat{p}_{it}) = \beta_0 + \beta_1 \log(ConcurrentPlayers)_{it} + \delta Treated_i\times Post_t + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:did}
 \end{equation}
 
-To show the validity of my identification strategy, I conduct an event study regression as shown in \hyperref[eq:event_study]{Equation 3}. In this specification, I add dummy terms for each period (excluding period -1 to act as a reference) interacted with treatment status to recover treatment effect dynamics. Thus, \(\delta_k\) is the average treatment effect of being \(k\) months before/after treatment at period \(e\). \hyperref[fig:event_study]{Figure 2} shows the results of the event study. \\
-
+To show the validity of my identification strategy, I conduct an event study regression as shown in \hyperref[eq:event_study]{Equation 3}. In this specification, I add dummy terms corresponding to a data point being \(k\) months before treatment period \(e\) (excluding \(k=-1\) to act as a reference period) interacted with treatment status to recover treatment effect dynamics. Thus, \(\delta_k\) is the average treatment effect of being \(k\) months before/after treatment at period \(e\). \hyperref[fig:event_study]{Figure 2} shows the results of the event study. \\
 
 \vspace{-10mm}
 \begin{equation}
@@ -237,7 +236,7 @@ There are also possible violations of the ``Stable Unit Treatment Value Assumpti
 The results are otherwise intuitive. Quality adjusted prices and quantity sold decrease as Counter-Strike items become less valuable as assets. Relative to Dota 2 items, Counter-Strike items appear to have taken on an ``illiquidity discount''. However, the items retained significant aesthetic value as their price level remained above Dota 2 items. This shock appeared as a one-time downward shift in price level for Counter-Strike items that gradually faded away as the market for Counter-Strike items continued to grow. Dota 2 items temporarily became more valuable as they served as liquid intermediates for Counter-Strike skin trading, but their prices continued downward over time. \\ 
 
 \section{Conclusion}
-This paper serves as a case study to analyze the effects of policy-based market structure changes on asset price and choice. I argue that virtual marketplaces such as the Steam Community Marketplace can be valuable sources of data to explore the effects of sudden transaction cost increases in ``Over the Counter'' financial markets where liquidity shocks greatly affect asset prices. Using a simple DID identification strategy comparing Counter-Strike items to Dota 2 items, I find that the 7-day trade ban imposed on Counter-Strike items caused quality adjusted prices to decline by \(\sim 4.2\%\) and decreased the monthly volume sold by -15703.3. This effect manifested as a one time downward shift in quality adjusted prices that attenuated over time as Counter-Strike items retained their aesthetic value but lost some of their investment value. Counter-Strike items attained an illiquidity discount relative to Dota 2 items due to this overnight change in market structure. \\
+This paper serves as a case study to analyze the effects of policy-based market structure changes on asset price and choice. I argue that virtual marketplaces such as the Steam Community Marketplace can be valuable sources of data to explore the effects of sudden transaction cost increases in ``Over the Counter'' financial markets where liquidity shocks greatly affect asset prices. Using a simple DID identification strategy comparing Counter-Strike items to Dota 2 items, I find that the 7-day trade ban imposed on Counter-Strike items caused quality adjusted prices to decline by \(\sim 4.2\%\) and decreased the monthly volume sold by -15703.3. This effect manifested as a downward shift in quality adjusted prices that attenuated over time as Counter-Strike items retained their aesthetic value but lost some of their investment value. Counter-Strike items attained an illiquidity discount relative to Dota 2 items due to this overnight change in market structure. Lastly, avenues for further research include: using archived Steam Community Market listings to explore the effect of market structure changes on bid-ask spreads, exploring the role of unsanctioned third party market makers (such as \textcolor{blue}{\href{https://skinport.com/}{Skinport}}), and estimating the value of limited use but guaranteed Steam account balances versus riskier cash payouts from selling skins on different marketplaces. \\
 
 %\bibliographystyle{aea}
 \printbibliography
