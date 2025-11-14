@@ -1,6 +1,5 @@
 library(ggplot2) #plotting
 library(fixest) #fixed effects ols
-#library(plm) #alt-fixed effects package
 library(dplyr) #dataframe manipulation
 library(lubridate) #date handling
 library(scales) #editing y axes
@@ -31,17 +30,6 @@ df_all <- df_all_raw[df_all_raw$date >= as.Date("2016-03-29") & df_all_raw$date 
 
 df_all <- df_all %>% 
   mutate(month = lubridate::floor_date(date, 'month'))
-
-#keep data within 1 years of treatment
-#df_cs <- df_cs_raw[df_cs_raw$date >= as.Date("2017-03-29") & df_cs_raw$date <= as.Date("2019-03-29"), ]
-#df_dota <- df_dota_raw[df_dota_raw$date >= as.Date("2017-03-29") & df_dota_raw$date <= as.Date("2019-03-29"), ]
-#df_all <- df_all_raw[df_all_raw$date >= as.Date("2017-03-29") & df_all_raw$date <= as.Date("2019-03-29"), ]
-
-#WIP -- TRY TIME SERIES EVENT STUDY
-#maybe look into aggregating to monthly?
-#https://libguides.princeton.edu/R-Timeseries
-#https://cran.r-project.org/web/packages/ggfixest/vignettes/ggiplot.html
-#https://asjadnaqvi.github.io/DiD/docs/code_r/07-twfe_r/#r-code
 
 #create one-year data sets for plotting
 df_all_1yr <- df_all[df_all$date >= as.Date("2017-03-29") & df_all$date <= as.Date("2019-03-29"), ]
@@ -113,36 +101,15 @@ summary(didreg_hat1)
 didreg_1yr_hat1 <- feols(log_p_hat ~ avg_players + I(avg_players^2) + I(avg_players^3) + post_treat*treated_unit | item+date, weights= ~volume_sold, data=df_all_1yr)
 summary(didreg_1yr_hat1)
 
-#formula_string <- paste0(paste("log_p_hat ~", paste(reg_list, collapse = " + "),"| item + month"))
-#didreg_1yr_hat2 <- plm(log_p_hat ~ treatedXpNEG11 + treatedXpNEG10 + treatedXpNEG9 + treatedXpNEG8 + treatedXpNEG7 + treatedXpNEG6 + treatedXpNEG5 + treatedXpNEG4 + treatedXpNEG3 + treatedXpNEG2 + treatedXp0 + treatedXp1 + treatedXp2 + treatedXp3 + treatedXp4 + treatedXp5 + treatedXp6 + treatedXp7 + treatedXp8 + treatedXp9 + treatedXp10 + treatedXp11 + treatedXp12,index=c("item", "month"), weights=volume_sold, data=df_all_1yr)
-#summary(didreg_1yr_hat2)
-
 didreg_hat2 <- feols(log_p_hat ~ l_avg_players + i(days_til_treat, treated_unit, ref=-1,keep=-160:160) | item+date, weights=~volume_sold,data=df_all)
 summary(didreg_hat2)
 iplot(didreg_hat2, xlim=c(-150,150))
-
-#didreg_hat2 <- plm(log_p_hat ~ avg_players + i(mos_til_treat, treated_unit, ref = -1) index=c("item", "date"), weights=volume_sold, data=df_all)
-#summary(didreg_hat2)
-#iplot(didreg_hat2)
-
-#didreg_1yr_hat2 <- feols(log_p_hat ~ log(avg_players) + treatedXpNEG11 + treatedXpNEG10 + treatedXpNEG9 + treatedXpNEG8 + treatedXpNEG7 + treatedXpNEG6 + treatedXpNEG5 + treatedXpNEG4 + treatedXpNEG3 + treatedXpNEG2 + treatedXp0 + treatedXp1 + treatedXp2 + treatedXp3 + treatedXp4 + treatedXp5 + treatedXp6 + treatedXp7 + treatedXp8 + treatedXp9 + treatedXp10 + treatedXp11 + treatedXp12 | item + month, weights= ~volume_sold, data=df_all_1yr)
-#summary(didreg_1yr_hat2)
 
 didreg_1yr_hat2 <- feols(log_p_hat ~ l_avg_players + i(days_til_treat, treated_unit, ref = -1,keep=-150:150) | item+date,weights=~volume_sold,data=df_all_1yr)
 summary(didreg_1yr_hat2)
 pdf("../writing/manuscript/figures/did_1yr_daily_phat_iplot.pdf")
 iplot(didreg_1yr_hat2,xlim=c(-50,50))
 dev.off()
-
-#coefs <- summary(didreg_1yr_hat2)$coefficients
-#se <- summary(didreg_1yr_hat2)$se
-#range <- -11:12
-#plot_test_df <- data.frame(period=range[range != -1],coefs = coefs, se = se)
-#same as coefplot and iplot from other file hrmmmm
-#ggplot(data = plot_test_df) +
-#  geom_point(aes(x=period, y=coefs))
-#  #geom_errorbar(aes(x=period, ymin = coefs - 1.96*se, ymax = coefs + 1.96*se))
-#coefplot(didreg_1yr_hat2)
 
 # VOLUME SOLD REGS
 didreg_hat3 <- feols(volume_sold ~ avg_players + i(days_til_treat,treated_unit,ref=-1, keep=-110:110) | item+date, data=df_all)
@@ -156,29 +123,6 @@ summary(didreg_1yr_hat3)
 pdf("../writing/manuscript/figures/did_1yr_daily_vol_iplot.pdf")
 iplot(didreg_1yr_hat3,xlab="Months Until Treatment",main="Effect on Volume Sold",xlim=c(-100,100))
 dev.off()
-
-# SUN & ABRAHAM DID
-df_all['treat_time'] <- as.Date(ifelse(df_all$treated_unit == 0,as.Date("2025-03-29"),as.Date("2018-03-29")))
-
-sunab_hat <- feols(log_p_hat ~ avg_players + sunab(treat_time,date) | item+date, weights=~volume_sold,data=df_all)
-summary(sunab_hat)
-iplot(sunab_hat,xlim=c(-100,100))
-
-sunab_hat2 <- feols(volume_sold ~ log(avg_players) + sunab(treat_time,date) | item+date,data=df_all)
-summary(sunab_hat2)
-iplot(sunab_hat2)
-
-iplot(list(didreg_hat2, sunab_hat), sep = 0.5, ref.line = -1,
-      xlab = 'Months to treatment',
-      main = 'Effect on Log Quality Adjusted Price')
-legend("bottomleft", col = c(1, 2), pch = c(20, 17), 
-       legend = c("TWFE", "Sun & Abraham (2020)"))
-
-iplot(list(didreg_hat3, sunab_hat2), sep = 0.5, ref.line = -1,
-      xlab = 'Months to treatment',
-      main = 'Effect on Volume Sold')
-legend("bottomleft", col = c(1, 2), pch = c(20, 17), 
-       legend = c("TWFE", "Sun & Abraham (2020)"))
 
 #NO PRICE ADJUSTMENT
 didreg_hat1 <- feols(l_median_price ~ avg_players + rel_age_days + I(rel_age_days^2) + grade_rarity + I(grade_rarity^2) + post_treat*treated_unit | item+date, weights= ~volume_sold, data=df_all)
