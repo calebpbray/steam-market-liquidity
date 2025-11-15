@@ -76,13 +76,13 @@
 %    table-space-text-post   = \str{***},
 %}
 
-\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Skin Markets}}\thanks{I thank Elior Cohen, Francisco Scott, Jordan Pandolfo, Brent Bundick, and Lee Smith for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
+\title{\vspace{-0.7in}\Large{\bf{Liquidity Shocks in Virtual Markets}}\thanks{I thank Elior Cohen, Francisco Scott, Jordan Pandolfo, Brent Bundick, and Lee Smith for their helpful comments and feedback. The views expressed herein are solely those of the author and do not necessarily reflect the views of the Federal Reserve Bank of Kansas City or the Federal Reserve System.  \newline}}%\newline Available: \href{http://dx.doi.org/10.18651/RWP2016-02}{http://dx.doi.org/10.18651/RWP2016-02} \vspace{0.15in} }}
 \author{\vspace{5mm} Caleb Bray \\ \vspace{-0.8mm}}
 \date{\normalsize{\hspace{0.1in}September 2025}}
 
 \maketitle
 \begin{abstract}
-\noindent This paper serves as a case study to examine the effects of sudden market structure changes in virtual asset markets. The virtual market I examine behaves similarly to ``Over the Counter'' asset markets where liquidity shocks have a meaningful effect on asset price and choice. Using a difference-in-differences approach, I find that implementation of a 7-day trade ban on all cosmetic items in the video game Counter-Strike reduces quality adjusted prices by 4.2\% and trading volume by 15703.3 trades suggesting the creation of an illiquidity discount. This effect persists for at least two years after treatment and is consistent with empirical findings in the literature. \\
+\noindent This paper serves as a case study to examine the effects of sudden market structure changes in virtual asset markets. The virtual market I examine behaves similarly to over-the-counter asset markets where liquidity shocks have a meaningful effect on asset price and choice. Using a difference-in-differences approach, I find that implementation of a 7-day trade ban on all cosmetic items in the video game Counter-Strike reduces quality adjusted prices by 4.2\% and trading volume by 34.4\% suggesting the creation of an illiquidity discount. This effect persists for at least two years after treatment and is consistent with empirical findings in the literature. \\
 \end{abstract}
  
 
@@ -215,14 +215,14 @@ When volume sold is regressed on my DID term and concurrent players, the DID ter
   \quad
   \begin{tabular}[t]{lcc}
     \hline
-                                        & \(\log(\hat{p}_{it})\) & Volume Sold \\ \toprule
-    $\log(ConcurrentPlayers)$           & $-0.050^{***}$         & $-10008.6^{***}$ \\ 
-                                        & $(0.012)$              & $(1625.77)$ \\
-    $Treated\times Post$                & $-0.043^{***}$         & $-15703.3^{***}$ \\
-                                        & $(0.010)$              & $(3340.88)$ \\ \hline
-    N                                   & 5579                   & 5579 \\
-    Adjusted \(R^2\)                    & 0.997                  & 0.742 \\
-    Within \(R^2\)                      & 0.130                  & 0.080 \\ \hline
+                                        & \(\log(\hat{p}_{it})\) & \(\log(Volume \: Sold)\) \\ \toprule
+    $\log(ConcurrentPlayers)$           & $-0.050^{***}$         & $-0.422^{***}$ \\ 
+                                        & $(0.012)$              & $(0.120)$ \\
+    $Treated\times Post$                & $-0.043^{***}$         & $-0.326^{***}$ \\
+                                        & $(0.010)$              & $(0.081)$ \\ \hline
+    N                                   & 5579                   & 5615 \\
+    Adjusted \(R^2\)                    & 0.997                  & 0.956 \\
+    Within \(R^2\)                      & 0.130                  & 0.055 \\ \hline
     Item and Month FEs                  & \Checkmark             & \Checkmark  \\
     \bottomrule
   \end{tabular}\label{tab:did_regs}
