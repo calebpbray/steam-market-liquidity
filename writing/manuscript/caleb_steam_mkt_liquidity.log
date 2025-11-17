@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  14 NOV 2025 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  16 NOV 2025 20:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -862,53 +862,53 @@ Package xcolor Warning: Incompatible color definition on input line 141.
 
 [4 <./figures/trade_delta_and_plyr_ct.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 148.
 
 
 
 [5]
-<./figures/did_mos_2yr_phat_iplot.pdf, id=132, 505.89pt x 505.89pt>
+<./figures/did_mos_2yr_phat_iplot.pdf, id=130, 505.89pt x 505.89pt>
 File: ./figures/did_mos_2yr_phat_iplot.pdf Graphic file (type pdf)
 <use ./figures/did_mos_2yr_phat_iplot.pdf>
 Package pdftex.def Info: ./figures/did_mos_2yr_phat_iplot.pdf  used on input line 161.
 (pdftex.def)             Requested size: 325.2197pt x 325.215pt.
-<./figures/did_mos_2yr_vol_iplot.pdf, id=133, 505.89pt x 505.89pt>
+<./figures/did_mos_2yr_vol_iplot.pdf, id=131, 505.89pt x 505.89pt>
 File: ./figures/did_mos_2yr_vol_iplot.pdf Graphic file (type pdf)
 <use ./figures/did_mos_2yr_vol_iplot.pdf>
 Package pdftex.def Info: ./figures/did_mos_2yr_vol_iplot.pdf  used on input line 166.
@@ -957,6 +957,11 @@ File: Uding.fd 1996/02/01 v1.0 BBding font definitions
 )
 
 Package xcolor Warning: Incompatible color definition on input line 234.
+
+
+Overfull \hbox (7.78725pt too wide) in paragraph at lines 234--235
+[]\OT1/cmr/m/n/12 There are also pos-si-ble vi-o-la-tions of the Sta-ble Unit Treat-ment Value As-sump-tion (SUTVA)
+ []
 
 
 
@@ -1078,13 +1083,13 @@ Package logreq Info: Writing requests to 'caleb_steam_mkt_liquidity.run.xml'.
 Here is how much of TeX's memory you used:
  23811 strings out of 467800
  421968 string characters out of 5436062
- 1664798 words of memory out of 5000000
+ 1665798 words of memory out of 5000000
  52131 multiletter control sequences out of 15000+600000
  640203 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,83p,1771b,3949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,83p,1760b,3949s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/niceframe-type1/bbding10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on caleb_steam_mkt_liquidity.pdf (12 pages, 278489 bytes).
+Output written on caleb_steam_mkt_liquidity.pdf (12 pages, 278541 bytes).
 PDF statistics:
  339 PDF objects out of 1000 (max. 8388607)
  278 compressed objects within 3 object streams
