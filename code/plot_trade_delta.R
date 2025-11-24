@@ -64,10 +64,10 @@ plot1 <-  ggplot(df_master, aes(x=month)) +
 
 plot2 <-  ggplot(df_master, aes(x=month)) + 
   geom_line(linewidth = 1.25, aes(y=dota_avg_players,color="Dota 2"))+
-  geom_line(linewidth = 1.25, aes(y=cs_avg_players,color="Counter Strike"))+
+  geom_line(linewidth = 1.25, aes(y=cs_avg_players,color="Counter-Strike"))+
   scale_y_continuous("Avg. Concurrent Player Count",labels = scales::comma) +
   scale_x_date(breaks = scales::pretty_breaks(n=10)) +
-  scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter Strike" = "#EDA338")) +
+  scale_color_manual(NULL,values = c("Dota 2" = "#FF0000", "Counter-Strike" = "#EDA338")) +
   geom_vline(xintercept = as.Date("2018-03-29"), linetype = "dashed",color="gray50") + 
   geom_label(aes(as.Date("2019-09-20"), 1200000), label = "March 29th, 2018", color="gray50",show.legend = FALSE,label.size = NA) +
   xlab("") +

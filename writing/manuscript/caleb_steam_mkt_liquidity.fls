@@ -64,8 +64,8 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -146,10 +146,6 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/bbding/bbding.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/bbding/bbding.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
-INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT ./biblatex-aer.tex
 INPUT ./biblatex-aer.tex
 INPUT ./biblatex-aer.tex
@@ -207,6 +203,7 @@ OUTPUT caleb_steam_mkt_liquidity.aux
 INPUT c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT c:/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
 INPUT ./caleb_steam_mkt_liquidity.out
 INPUT ./caleb_steam_mkt_liquidity.out
 INPUT caleb_steam_mkt_liquidity.out
