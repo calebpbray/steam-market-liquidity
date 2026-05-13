@@ -1,5 +1,3 @@
-%%& -job-name=08-gov
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Presentation
 % LaTeX Template
@@ -92,6 +90,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{bbm}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{multicol}
@@ -147,29 +146,38 @@
 		
 		\centering \tiny All views and opinions shared here are my own and do not represent those of the KC Fed or Federal Reserve System.
 	\end{frame}
-%------------------------------------------------
-%------------------------------------------------
-%------------------------------------------------
+
 	
 	
 %--------------------------------------------------------------------------------------------------
-%	DEVELOPMENTS
+%	INTRODUCTION
 %--------------------------------------------------------------------------------------------------
 \section{Introduction}
 	
-\begin{frame}
-	\frametitle{}
+\begin{frame}{Introduction}
 	\begin{itemize}
+		\item This paper serves as a case study to estimate the effects of sudden market structure changes in virtual asset markets.
+		\item I use a DID specification to identify a 4.2\% decrease in quality-adjusted prices and 34.4\% drop in trade volume after implementation of a 7-day trade ban on a subset of items listed on a virtual exchange.
 		\item 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Contribution}
+	\begin{itemize}
+		\item
 		\item 
 		\item 
 	\end{itemize}
-
 \end{frame}
 
-\begin{frame}{Obtaining ``Skins''}
+%--------------------------------------------------------------------------------------------------
+%	INSTITUTIONAL DETAILS
+%--------------------------------------------------------------------------------------------------
+\section{Institutional Details}
+
+\begin{frame}{Skins Overview}
 \begin{center}
-\vspace{-2mm}
+\vspace{-4mm}
 \begin{tikzpicture}[
     every node/.style={inner sep=0pt}
 ]
@@ -204,33 +212,148 @@
     \node at (arrow.center) {
         \includegraphics[scale=0.25]{case_opening.jpg}
     };
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[
+    every node/.style={inner sep=0pt}
+]
+    % Top image
+    \node (img1) {
+        \includegraphics[scale=0.06]{default_invoker.png}
+    };
     
+    % Bottom image (smaller gap)
+    \node[below=2cm of img1] (img2) {
+        \includegraphics[scale=0.105]{skin_invoker.png}
+    };
+    
+    % Middle point
+    \path (img1.south) -- (img2.north) coordinate[midway] (middle);
+    
+    % Downward arrow with wider body
+    \node[
+        single arrow,
+        draw=black,
+        fill=black,
+        minimum height=2cm,
+        minimum width=0.3cm,
+        single arrow head extend=0.1cm,
+        single arrow tip angle=90,
+        anchor=center,
+        rotate=-90,
+        inner sep=0.3cm
+    ] (arrow) at ([yshift=0.15cm]middle) {};
+    
+    % Overlay image (shifted up 0.3cm)
+    \node at (arrow.center) {
+        \includegraphics[scale=0.22]{dota2_treasure.jpg}
+    };
 \end{tikzpicture}
 \end{center}
 \end{frame}
 
-\end{document}
+\begin{frame}{The Marketplaces}
+    \begin{figure}[ht]
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=5.1cm,height=3.7cm]{market_listing.jpg}
+            \footnotesize Steam Community Market Listings
+        \end{minipage}
+        \hspace{0.5cm}
+        \begin{minipage}[b]{0.45\linewidth}
+            \centering
+            \includegraphics[width=5.1cm,height=3.7cm]{skinport.jpg}
+            \footnotesize Trade with a Third-Party Bot Account
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{The 3/28/18 Trade Ban}
+	\begin{figure}
+		\centering
+		\makebox[0pt]{\includegraphics[scale=0.43]{trade_delta_and_plyr_ct.pdf}}
+
+		\raggedright\tiny{\textbf{Note:} Steam trade offer data includes trade offers for all Steam items and is estimated from the difference in trade offer ID between trades. Top chart is sourced from Trade.TF and bottom figure is sourced from Steam Charts.}
+	\end{figure}
+\end{frame}
 	
-	%--------------------------------------------------------------------------------------------------
-	%	THEMES
-	%--------------------------------------------------------------------------------------------------
-	\section{}
+%--------------------------------------------------------------------------------------------------
+%	DATA & RESULTS
+%--------------------------------------------------------------------------------------------------
+\section{Data \& Results}
+\begin{frame}[shrink=30]{Dataset}
+	\begin{table}[h]
+	\textbf{Counter-Strike and Dota 2 Items Summary}
+	\begin{center}
+	\begin{tabular}{lcccc}
+	\hline
+	                        & Counter-Strike    & Dota 2    & Combined &  \\
+	\toprule
+	Observations            & 2940          & 2675          & 5615  &  \\
+	Unique Items            & 60            & 56            & 116   &  \\
+	Oldest Origin Date      & 2013-08-14    & 2014-05-08    & 2013-08-14 &  \\
+	Newest Origin Date      & 2016-02-18    & 2016-10-05    & 2016-10-05 &  \\
+	Median Sale Price       & \$4.26        & \$1.90        & \$4.13    & \\ 
+	                        & (\$7.28)      & (\$3.61)      & (\$7.14) &  \\
+	Log Median Sale Price   & 0.517         & -0.064        & 0.484 & \\
+	                        & (1.379)       & (1.160)       & (1.253)   & \\
+	Volume Sold             & 20524.25      &  1356.84      & 11392.85  & \\ 
+	                        & (37685.37)    & (2201.17)     & (28938.78) & \\
+	Grade Rarity            & 0.154         & 0.110         & 0.152 & \\ 
+	                        & (0.109)       & (0.065)       & (0.107)   & \\
+	\bottomrule
+	\end{tabular}
+
+	\vspace{2mm}
+	\raggedright\footnotesize{\textbf{Note:} Median Price and Grade Rarity are monthly averages weighted by volume sold with weighted standard deviation in parentheses below. Volume Sold is a monthly average with unweighted standard errors. Origin date and grade rarity are provided by CS2 Database and Backpack.TF respectively.}
+	\end{center}
+	\end{table}
+\end{frame}
 	
-%	\begin{frame}
-%		\frametitle{}	
-%		\begin{figure}
-%			\centering
-%			\makebox[0pt]{\includegraphics[scale=0.6]{}}
-%		\end{figure}
-%	\end{frame}
-	
-%	\begin{frame}
-%		\frametitle{.}	
-%		\begin{figure}
-%			\centering
-%			\makebox[0pt]{\includegraphics[scale=0.57]{}}
-%		\end{figure}
-%	\end{frame}
+\begin{frame}[shrink=35]{Regression Results}
+	\begin{table}[ht!]
+	  \renewcommand{\arraystretch}{1.25}%
+	  \begin{center}
+	  \textbf{Quality Adjustment and DID Regression Results}
+
+	  \begin{tabular}[t]{lc}
+	    \hline
+	     & \(\log(p_{it})\) \\ \toprule
+	    \(\beta_0\)         & $1.595^{***}$ \\
+	                        & $(0.075)$ \\
+	    $ItemAge$           & $0.029^{***}$ \\ 
+	                        & $(0.003)$ \\
+	    $Item Age^2$        & $-0.001^{***}$ \\
+	                        & $(0.000)$ \\
+	    $GradeRarity$       & $-19.43^{***}$ \\ 
+	                        & $( 0.894)$ \\
+	    $Grade Rarity^2$    & $38.37^{***}$ \\
+	                        & $(2.623)$ \\ \hline
+	    N                   & 5615 \\
+	    Adjusted \(R^2\)    & 0.452 \\ 
+	    \bottomrule
+	  \end{tabular}
+	  \quad
+	  \begin{tabular}[t]{lcc}
+	    \hline
+	                                        & \(\log(\hat{p}_{it})\) & \(\log(Volume \: Sold)\) \\ \toprule
+	    $\log(ConcurrentPlayers)$           & $-0.050^{***}$         & $-0.422^{***}$ \\ 
+	                                        & $(0.012)$              & $(0.120)$ \\
+	    $Treated\times Post$                & $-0.043^{***}$         & $-0.326^{***}$ \\
+	                                        & $(0.010)$              & $(0.081)$ \\ \hline
+	    N                                   & 5579                   & 5615 \\
+	    Adjusted \(R^2\)                    & 0.997                  & 0.956 \\
+	    Within \(R^2\)                      & 0.130                  & 0.055 \\ \hline
+	    Item and Month FEs                  & \checkmark             & \checkmark \\
+	    \bottomrule
+	  \end{tabular}
+	\vspace{2mm}
+
+	{\raggedright \footnotesize{\textbf{Note:} $^{*}\, p<0.5$; $^{**}\, p<0.01$; $^{***}\, p<0.001$. Standard errors are shown in parentheses below their respective estimates. Both regressions with price as a dependent variable are weighted by Volume Sold. Item Age is in terms of months.} \par}
+	\vspace{2mm}
+	\end{center}
+	\end{table}
+\end{frame}
 
 %	\begin{frame}
 %		\frametitle{}	
@@ -241,13 +364,21 @@
 %		\tiny 
 %	\end{frame}
 
-	%--------------------------------------------------------------------------------------------------
-	%	REVISIONS
-	%--------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------------------
+%	CONCLUSION
+%--------------------------------------------------------------------------------------------------
+\section{Conclusion}
+\begin{frame}{Conclusion}
+	\begin{itemize}
+		\item 
+		\item 
+		\item 
+	\end{itemize}
+\end{frame}
 
-	%--------------------------------------------------------------------------------------------------
-	%	APPENDIX
-	%--------------------------------------------------------------------------------------------------
-	\section{Appendix}
+%--------------------------------------------------------------------------------------------------
+%	APPENDIX
+%--------------------------------------------------------------------------------------------------
+\section{Appendix}
 	
 \end{document}
