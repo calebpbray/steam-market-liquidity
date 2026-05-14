@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  12 MAY 2026 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.3)  13 MAY 2026 19:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -624,6 +624,8 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \ULC@box=\box82
 Package: ulem 2019/11/18
 \ULdepth=\dimen328
+) (c:/texlive/2025/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 ) (c:/texlive/2025/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
@@ -751,7 +753,7 @@ Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count387
 )
 
-Package amsthm Warning: Unknown theoremstyle `theorem' on input line 106.
+Package amsthm Warning: Unknown theoremstyle `theorem' on input line 107.
 
 \c@prop=\count388
 (c:/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
@@ -830,27 +832,268 @@ File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \c@lem=\count398
 \c@cor=\count399
 \c@conjecture=\count400
+ (./biblatex-aer.tex (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/biblatex-chicago.sty
+Package: biblatex-chicago 2022/07/02 v 3.18 biblatex style
+ (c:/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty (c:/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count401
+\xs_countb=\count402
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
+ (c:/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count403
+ (c:/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)) (c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count404
+\c@listtotal=\count405
+\c@listcount=\count406
+\c@liststart=\count407
+\c@liststop=\count408
+\c@citecount=\count409
+\c@citetotal=\count410
+\c@multicitecount=\count411
+\c@multicitetotal=\count412
+\c@instcount=\count413
+\c@maxnames=\count414
+\c@minnames=\count415
+\c@maxitems=\count416
+\c@minitems=\count417
+\c@citecounter=\count418
+\c@maxcitecounter=\count419
+\c@savedcitecounter=\count420
+\c@uniquelist=\count421
+\c@uniquename=\count422
+\c@refsection=\count423
+\c@refsegment=\count424
+\c@maxextratitle=\count425
+\c@maxextratitleyear=\count426
+\c@maxextraname=\count427
+\c@maxextradate=\count428
+\c@maxextraalpha=\count429
+\c@abbrvpenalty=\count430
+\c@highnamepenalty=\count431
+\c@lownamepenalty=\count432
+\c@maxparens=\count433
+\c@parenlevel=\count434
+\blx@tempcnta=\count435
+\blx@tempcntb=\count436
+\blx@tempcntc=\count437
+\c@blx@maxsection=\count438
+\blx@maxsegment@0=\count439
+\blx@notetype=\count440
+\blx@parenlevel@text=\count441
+\blx@parenlevel@foot=\count442
+\blx@sectionciteorder@0=\count443
+\blx@sectionciteorderinternal@0=\count444
+\blx@entrysetcounter=\count445
+\blx@biblioinstance=\count446
+\labelnumberwidth=\skip76
+\labelalphawidth=\skip77
+\biblabelsep=\skip78
+\bibitemsep=\skip79
+\bibnamesep=\skip80
+\bibinitsep=\skip81
+\bibparsep=\skip82
+\bibhang=\skip83
+\blx@bcfin=\read3
+\blx@bcfout=\write5
+\blx@langwohyphens=\language90
+\c@mincomprange=\count447
+\c@maxcomprange=\count448
+\c@mincompwidth=\count449
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'chicago-authordate.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count450
+\c@savedafterword=\count451
+\c@annotator=\count452
+\c@savedannotator=\count453
+\c@author=\count454
+\c@savedauthor=\count455
+\c@bookauthor=\count456
+\c@savedbookauthor=\count457
+\c@commentator=\count458
+\c@savedcommentator=\count459
+\c@editor=\count460
+\c@savededitor=\count461
+\c@editora=\count462
+\c@savededitora=\count463
+\c@editorb=\count464
+\c@savededitorb=\count465
+\c@editorc=\count466
+\c@savededitorc=\count467
+\c@foreword=\count468
+\c@savedforeword=\count469
+\c@holder=\count470
+\c@savedholder=\count471
+\c@introduction=\count472
+\c@savedintroduction=\count473
+\c@namea=\count474
+\c@savednamea=\count475
+\c@nameb=\count476
+\c@savednameb=\count477
+\c@namec=\count478
+\c@savednamec=\count479
+\c@translator=\count480
+\c@savedtranslator=\count481
+\c@shortauthor=\count482
+\c@savedshortauthor=\count483
+\c@shorteditor=\count484
+\c@savedshorteditor=\count485
+\c@labelname=\count486
+\c@savedlabelname=\count487
+\c@institution=\count488
+\c@savedinstitution=\count489
+\c@lista=\count490
+\c@savedlista=\count491
+\c@listb=\count492
+\c@savedlistb=\count493
+\c@listc=\count494
+\c@savedlistc=\count495
+\c@listd=\count496
+\c@savedlistd=\count497
+\c@liste=\count498
+\c@savedliste=\count499
+\c@listf=\count500
+\c@savedlistf=\count501
+\c@location=\count502
+\c@savedlocation=\count503
+\c@organization=\count504
+\c@savedorganization=\count505
+\c@origlocation=\count506
+\c@savedoriglocation=\count507
+\c@origpublisher=\count508
+\c@savedorigpublisher=\count509
+\c@publisher=\count510
+\c@savedpublisher=\count511
+\c@language=\count512
+\c@savedlanguage=\count513
+\c@origlanguage=\count514
+\c@savedoriglanguage=\count515
+\c@pageref=\count516
+\c@savedpageref=\count517
+\shorthandwidth=\skip84
+\shortjournalwidth=\skip85
+\shortserieswidth=\skip86
+\shorttitlewidth=\skip87
+\shortauthorwidth=\skip88
+\shorteditorwidth=\skip89
+\locallabelnumberwidth=\skip90
+\locallabelalphawidth=\skip91
+\localshorthandwidth=\skip92
+\localshortjournalwidth=\skip93
+\localshortserieswidth=\skip94
+\localshorttitlewidth=\skip95
+\localshortauthorwidth=\skip96
+\localshorteditorwidth=\skip97
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count518
+\c@textcitetotal=\count519
+\c@textcitemaxnames=\count520
+\c@biburlbigbreakpenalty=\count521
+\c@biburlbreakpenalty=\count522
+\c@biburlnumpenalty=\count523
+\c@biburlucpenalty=\count524
+\c@biburllcpenalty=\count525
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count526
+)
+Package biblatex Info: Trying to load bibliography style 'chicago-authordate'...
+Package biblatex Info: ... file 'chicago-authordate.bbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.bbx
+File: chicago-authordate.bbx 2022/11/17 v 3.18b biblatex bibliography style
+\lositemsep=\skip98
+Package biblatex Info: Delimiter 'revsdnamedelim' in context '' already defined, overwriting.
+\cms@tempcnta=\count527
+\cms@tempcntb=\count528
+\c@bbx:relatedcount=\count529
+\c@bbx:relatedtotal=\count530
+)
+Package biblatex Info: Trying to load citation style 'chicago-authordate'...
+Package biblatex Info: ... file 'chicago-authordate.cbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.cbx
+File: chicago-authordate.cbx 2022/07/02 v 3.18 biblatex citation style
+Package biblatex Info: Trying to load citation style 'chicago-dates-common'...
+Package biblatex Info: ... file 'chicago-dates-common.cbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/chicago-dates-common.cbx
+File: chicago-dates-common.cbx 2024/04/15 v 3.20 biblatex citation style
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\citetitle'.
+Package biblatex Info: Redefining '\footfullcite'.
+Package biblatex Info: Redefining '\fullcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\footcites'.
+Package biblatex Info: Redefining '\footcitetexts'.
+\c@cms@punct=\count531
+Package biblatex Info: Delimiter 'dateeradelim' in context '' already defined, overwriting.
+))
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2025-08-13 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (c:/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+))))
+\@quotelevel=\count532
+\@quotereset=\count533
  (./ra_conf_presentation.aux)
 \openout1 = `ra_conf_presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 149.
+LaTeX Font Info:    ... okay on input line 149.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -888,72 +1131,72 @@ LaTeX Font Info:    ... okay on input line 142.
 
 (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count401
+\scratchcounter=\count534
 \scratchdimen=\dimen360
 \scratchbox=\box137
-\nofMPsegments=\count402
-\nofMParguments=\count403
+\nofMPsegments=\count535
+\nofMParguments=\count536
 \everyMPshowfont=\toks58
-\MPscratchCnt=\count404
+\MPscratchCnt=\count537
 \MPscratchDim=\dimen361
-\MPnumerator=\count405
-\makeMPintoPDFobject=\count406
+\MPnumerator=\count538
+\makeMPintoPDFobject=\count539
 \everyMPtoPDFconversion=\toks59
 )
-Package hyperref Info: Link coloring OFF on input line 142.
+Package hyperref Info: Link coloring OFF on input line 149.
  (./ra_conf_presentation.out) (./ra_conf_presentation.out)
-\@outlinefile=\write5
-\openout5 = `ra_conf_presentation.out'.
+\@outlinefile=\write6
+\openout6 = `ra_conf_presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 142.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 149.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 142.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 149.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 142.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 149.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 142.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 142.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 142.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 149.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 142.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 142.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 142.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 149.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 142.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 142.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 142.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 149.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 142.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 142.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 149.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 142.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 149.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 142.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 142.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 142.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 142.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 142.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 149.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 142.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 142.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 149.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 149.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 142.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 149.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 142.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 149.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 142.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 149.
  (c:/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (c:/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -969,16 +1212,44 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english' -> 'cms-american'...
+Package biblatex Info: ... file 'cms-american.lbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex-chicago/cms-american.lbx
+File: cms-american.lbx 2022/07/02 v 3.18 biblatex localization
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/american.lbx
+File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout5 = `ra_conf_presentation.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'ra_conf_presentation.bbl' found.
+ (./ra_conf_presentation.bbl)
+Package biblatex Info: Reference section=0 on input line 149.
+Package biblatex Info: Reference segment=0 on input line 149.
  (./ra_conf_presentation.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 142.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 142.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 142.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 149.
  (c:/texlive/2025/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
@@ -989,63 +1260,63 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 
 [2
 
-]
+{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 [3
 
 ]
-<default_ak.jpg, id=160, 301.125pt x 168.63pt>
+<default_ak.jpg, id=246, 301.125pt x 168.63pt>
 File: default_ak.jpg Graphic file (type jpg)
 <use default_ak.jpg>
-Package pdftex.def Info: default_ak.jpg  used on input line 253.
+Package pdftex.def Info: default_ak.jpg  used on input line 277.
 (pdftex.def)             Requested size: 135.50499pt x 75.88278pt.
-<bloodsport_ak.jpg, id=161, 301.125pt x 168.63pt>
+<bloodsport_ak.jpg, id=247, 301.125pt x 168.63pt>
 File: bloodsport_ak.jpg Graphic file (type jpg)
 <use bloodsport_ak.jpg>
-Package pdftex.def Info: bloodsport_ak.jpg  used on input line 253.
+Package pdftex.def Info: bloodsport_ak.jpg  used on input line 277.
 (pdftex.def)             Requested size: 135.50499pt x 75.88278pt.
-<case_opening.jpg, id=162, 383.4325pt x 132.495pt>
+<case_opening.jpg, id=248, 383.4325pt x 132.495pt>
 File: case_opening.jpg Graphic file (type jpg)
 <use case_opening.jpg>
-Package pdftex.def Info: case_opening.jpg  used on input line 253.
+Package pdftex.def Info: case_opening.jpg  used on input line 277.
 (pdftex.def)             Requested size: 95.85788pt x 33.12366pt.
-<default_invoker.png, id=163, 1445.4pt x 1445.4pt>
+<default_invoker.png, id=249, 1445.4pt x 1445.4pt>
 File: default_invoker.png Graphic file (type png)
 <use default_invoker.png>
-Package pdftex.def Info: default_invoker.png  used on input line 253.
+Package pdftex.def Info: default_invoker.png  used on input line 277.
 (pdftex.def)             Requested size: 86.72025pt x 86.72025pt.
-<skin_invoker.png, id=165, 863.225pt x 708.6475pt>
+<skin_invoker.png, id=251, 863.225pt x 708.6475pt>
 File: skin_invoker.png Graphic file (type png)
 <use skin_invoker.png>
-Package pdftex.def Info: skin_invoker.png  used on input line 253.
+Package pdftex.def Info: skin_invoker.png  used on input line 277.
 (pdftex.def)             Requested size: 90.6347pt x 74.40477pt.
-<dota2_treasure.jpg, id=166, 301.125pt x 168.63pt>
+<dota2_treasure.jpg, id=252, 301.125pt x 168.63pt>
 File: dota2_treasure.jpg Graphic file (type jpg)
 <use dota2_treasure.jpg>
-Package pdftex.def Info: dota2_treasure.jpg  used on input line 253.
+Package pdftex.def Info: dota2_treasure.jpg  used on input line 277.
 (pdftex.def)             Requested size: 66.2477pt x 37.09871pt.
 
 
 [4
 
  <./default_ak.jpg> <./bloodsport_ak.jpg> <./case_opening.jpg> <./default_invoker.png> <./skin_invoker.png> <./dota2_treasure.jpg>]
-<market_listing.jpg, id=199, 1545.775pt x 973.6375pt>
+<market_listing.jpg, id=293, 1545.775pt x 973.6375pt>
 File: market_listing.jpg Graphic file (type jpg)
 <use market_listing.jpg>
-Package pdftex.def Info: market_listing.jpg  used on input line 269.
+Package pdftex.def Info: market_listing.jpg  used on input line 293.
 (pdftex.def)             Requested size: 145.10474pt x 105.2731pt.
 
-Overfull \hbox (6.82524pt too wide) in paragraph at lines 269--269
+Overfull \hbox (6.82524pt too wide) in paragraph at lines 293--293
  [][] 
  []
 
-<skinport.jpg, id=200, 1505.625pt x 1037.8775pt>
+<skinport.jpg, id=294, 1505.625pt x 1037.8775pt>
 File: skinport.jpg Graphic file (type jpg)
 <use skinport.jpg>
-Package pdftex.def Info: skinport.jpg  used on input line 269.
+Package pdftex.def Info: skinport.jpg  used on input line 293.
 (pdftex.def)             Requested size: 145.10352pt x 105.26665pt.
 
-Overfull \hbox (6.82402pt too wide) in paragraph at lines 269--269
+Overfull \hbox (6.82402pt too wide) in paragraph at lines 293--293
  [][] 
  []
 
@@ -1054,10 +1325,10 @@ Overfull \hbox (6.82402pt too wide) in paragraph at lines 269--269
 [5
 
  <./market_listing.jpg> <./skinport.jpg>]
-<trade_delta_and_plyr_ct.pdf, id=232, 653.44125pt x 406.51875pt>
+<trade_delta_and_plyr_ct.pdf, id=333, 653.44125pt x 406.51875pt>
 File: trade_delta_and_plyr_ct.pdf Graphic file (type pdf)
 <use trade_delta_and_plyr_ct.pdf>
-Package pdftex.def Info: trade_delta_and_plyr_ct.pdf  used on input line 278.
+Package pdftex.def Info: trade_delta_and_plyr_ct.pdf  used on input line 302.
 (pdftex.def)             Requested size: 280.97426pt x 174.79965pt.
 
 
@@ -1067,7 +1338,11 @@ Package pdftex.def Info: trade_delta_and_plyr_ct.pdf  used on input line 278.
 
 [7
 
-{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+]
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 359.
+ (c:/texlive/2025/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
 
 [8
 
@@ -1076,14 +1351,71 @@ Package pdftex.def Info: trade_delta_and_plyr_ct.pdf  used on input line 278.
 [9
 
 ]
-\tf@nav=\write6
-\openout6 = `ra_conf_presentation.nav'.
+<did_mos_2yr_phat_iplot.pdf, id=505, 505.89pt x 505.89pt>
+File: did_mos_2yr_phat_iplot.pdf Graphic file (type pdf)
+<use did_mos_2yr_phat_iplot.pdf>
+Package pdftex.def Info: did_mos_2yr_phat_iplot.pdf  used on input line 421.
+(pdftex.def)             Requested size: 142.26378pt x 142.26576pt.
 
-\tf@toc=\write7
-\openout7 = `ra_conf_presentation.toc'.
+Overfull \hbox (3.98428pt too wide) in paragraph at lines 421--421
+ [][] 
+ []
 
-\tf@snm=\write8
-\openout8 = `ra_conf_presentation.snm'.
+<did_mos_2yr_vol_iplot.pdf, id=506, 505.89pt x 505.89pt>
+File: did_mos_2yr_vol_iplot.pdf Graphic file (type pdf)
+<use did_mos_2yr_vol_iplot.pdf>
+Package pdftex.def Info: did_mos_2yr_vol_iplot.pdf  used on input line 421.
+(pdftex.def)             Requested size: 142.26378pt x 142.26576pt.
+
+Overfull \hbox (3.98428pt too wide) in paragraph at lines 421--421
+ [][] 
+ []
+
+
+
+[10
+
+ <./did_mos_2yr_phat_iplot.pdf> <./did_mos_2yr_vol_iplot.pdf>]
+
+[11
+
+]
+
+[12
+
+]
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <6> not available
+(Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 460.
+
+
+
+[13
+
+ <c:/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+
+[14
+
+
+]
+
+[15
+
+
+]
+
+[16
+
+
+]
+\tf@nav=\write7
+\openout7 = `ra_conf_presentation.nav'.
+
+\tf@toc=\write8
+\openout8 = `ra_conf_presentation.toc'.
+
+\tf@snm=\write9
+\openout9 = `ra_conf_presentation.snm'.
 
  (./ra_conf_presentation.aux)
  ***********
@@ -1091,21 +1423,24 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
 Package rerunfilecheck Info: File `ra_conf_presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 6D3CC9507C7B66CDC006B1DC9BA0B929;469.
+(rerunfilecheck)             Checksum: 4584F6174DDD1FD442F754E6BF8BA933;562.
+Package logreq Info: Writing requests to 'ra_conf_presentation.run.xml'.
+\openout1 = `ra_conf_presentation.run.xml'.
+
  ) 
 Here is how much of TeX's memory you used:
- 28134 strings out of 467800
- 558227 string characters out of 5436062
- 1035117 words of memory out of 5000000
- 56154 multiletter control sequences out of 15000+600000
- 639014 words of font info for 84 fonts, out of 8000000 for 9000
+ 38040 strings out of 467800
+ 763995 string characters out of 5436062
+ 2068135 words of memory out of 5000000
+ 65939 multiletter control sequences out of 15000+600000
+ 641570 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,549b,782s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb>
-Output written on ra_conf_presentation.pdf (9 pages, 3052880 bytes).
+ 128i,19n,123p,1747b,3949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsi0600.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb>
+Output written on ra_conf_presentation.pdf (16 pages, 3150234 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 237 compressed objects within 3 object streams
- 23 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 873 PDF objects out of 1000 (max. 8388607)
+ 541 compressed objects within 6 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 
