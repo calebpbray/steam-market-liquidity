@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Institutional Details}{4}{0}{2}
+\beamer@sectionintoc {3}{Data \& Results}{7}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{11}{0}{4}
